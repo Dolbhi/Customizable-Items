@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Show Behind Tiles
+  - Water
+  - UI
+  - Ground Overlay
+  - Physics Effector
+  - Solid
+  - Attack
+  - Solid Checker
+  - Kinematic
+  - Animate
+  - Enemy
+  - Friendly
+  - Block Projectiles
+  - Ladder
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Floor
+    uniqueID: 1202993873
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Indicator
+    uniqueID: 1901692377
+    locked: 0

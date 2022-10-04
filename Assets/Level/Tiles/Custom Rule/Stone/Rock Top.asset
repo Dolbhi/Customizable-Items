@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae3023bb3e33446f89e2dab27bdc433, type: 3}
+  m_Name: Rock Top
+  m_EditorClassIdentifier: 
+  tileSprites:
+    sprites:
+    - {fileID: -5057410880421878880, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: -2653481226834892577, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 2391837553272602315, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: -4883392246220962534, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 7117323656626968058, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 6868839687103040073, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 8725135987459164582, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: -436330092321603583, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: -4611355010831828262, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 7117323656626968058, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 7117323656626968058, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 7117323656626968058, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 7117323656626968058, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: -2883241545440452544, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+  durability: 3
+  downgradedTile: {fileID: 0}
+  connectingTiles: []
+  fullTile: 1

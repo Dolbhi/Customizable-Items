@@ -1,0 +1,538 @@
+fileFormatVersion: 2
+guid: 421ba5b47bec44807bdd970087570bc8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2794530104429249495
+    second: Shooter_Up
+  - first:
+      213: 7139502580800289967
+    second: Chaser_Up
+  - first:
+      213: 54951578849124206
+    second: Lunger
+  - first:
+      213: 1239733658031397854
+    second: Drone
+  - first:
+      213: -1139335758769919676
+    second: Lumber
+  - first:
+      213: -253580435253544231
+    second: Chaser_Down
+  - first:
+      213: -3587107575815007400
+    second: Chaser_Hit
+  - first:
+      213: 4157958782096566997
+    second: Chaser_Cross
+  - first:
+      213: -6315539972598539261
+    second: Chaser_Contact
+  - first:
+      213: -5989139272556734817
+    second: Chaser_Lift
+  - first:
+      213: 2520468445281160899
+    second: Chaser_Swing
+  - first:
+      213: 5765406331637786755
+    second: Shooter_Fire_1
+  - first:
+      213: -7051126226001916414
+    second: Shooter_Fire_2
+  - first:
+      213: -740978800275194629
+    second: Shooter_Cross
+  - first:
+      213: -2304984141586194851
+    second: Shooter_Contact
+  - first:
+      213: -3133541745806321926
+    second: Shooter_Hit
+  - first:
+      213: 205482319307433306
+    second: Shooter_Down
+  - first:
+      213: 4023237862073533817
+    second: Temp Mobs_17
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Shooter_Up
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1
+        width: 10
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d304ace25a28c620800000000000000
+      internalID: 2794530104429249495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaser_Up
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1
+        width: 12
+        height: 22
+      alignment: 9
+      pivot: {x: 0.4166667, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: facf59145cb941360800000000000000
+      internalID: 7139502580800289967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lunger
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1
+        width: 16
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6f16297b2a33c000800000000000000
+      internalID: 54951578849124206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Drone
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 14
+        width: 17
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edb9e0f813b643110800000000000000
+      internalID: 1239733658031397854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lumber
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 2
+        width: 21
+        height: 35
+      alignment: 9
+      pivot: {x: 0.66, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4496e92f9244030f0800000000000000
+      internalID: -1139335758769919676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaser_Down
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 24
+        width: 12
+        height: 21
+      alignment: 9
+      pivot: {x: 0.4166667, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9da39ba00f91b7cf0800000000000000
+      internalID: -253580435253544231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaser_Hit
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 47
+        width: 12
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8531f644aa8083ec0800000000000000
+      internalID: -3587107575815007400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaser_Cross
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 94
+        width: 12
+        height: 22
+      alignment: 9
+      pivot: {x: 0.4166667, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dae4958b7904b930800000000000000
+      internalID: 4157958782096566997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaser_Contact
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 71
+        width: 13
+        height: 21
+      alignment: 9
+      pivot: {x: 0.4615385, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30cdb782bd1ba58a0800000000000000
+      internalID: -6315539972598539261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaser_Lift
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 117
+        width: 13
+        height: 23
+      alignment: 9
+      pivot: {x: 0.61538464, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f961aec309d42eca0800000000000000
+      internalID: -5989139272556734817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaser_Swing
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 163
+        width: 21
+        height: 22
+      alignment: 9
+      pivot: {x: 0.23809524, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ce809c62b08af220800000000000000
+      internalID: 2520468445281160899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooter_Fire_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 140
+        width: 10
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 388ee0f1386d20050800000000000000
+      internalID: 5765406331637786755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooter_Fire_2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 117
+        width: 10
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20e07b05e0e552e90800000000000000
+      internalID: -7051126226001916414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooter_Cross
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 94
+        width: 10
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfc708ff4b387b5f0800000000000000
+      internalID: -740978800275194629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooter_Contact
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 71
+        width: 11
+        height: 21
+      alignment: 9
+      pivot: {x: 0.54545456, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e98d3b22d0300e0800000000000000
+      internalID: -2304984141586194851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooter_Hit
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 47
+        width: 10
+        height: 22
+      alignment: 9
+      pivot: {x: 0.5, y: -0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af65b58626c6384d0800000000000000
+      internalID: -3133541745806321926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shooter_Down
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 24
+        width: 10
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5561f9a4150ad200800000000000000
+      internalID: 205482319307433306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Chaser_Cross: 4157958782096566997
+      Lumber: -1139335758769919676
+      Shooter_Hit: -3133541745806321926
+      Shooter_Down: 205482319307433306
+      Chaser_Hit: -3587107575815007400
+      Shooter_Cross: -740978800275194629
+      Shooter_Fire_1: 5765406331637786755
+      Chaser_Lift: -5989139272556734817
+      Shooter_Up: 2794530104429249495
+      Chaser_Swing: 2520468445281160899
+      Shooter_Contact: -2304984141586194851
+      Chaser_Contact: -6315539972598539261
+      Chaser_Up: 7139502580800289967
+      Lunger: 54951578849124206
+      Shooter_Fire_2: -7051126226001916414
+      Drone: 1239733658031397854
+      Chaser_Down: -253580435253544231
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

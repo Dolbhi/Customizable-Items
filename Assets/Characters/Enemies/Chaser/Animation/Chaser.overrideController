@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Chaser
+  m_Controller: {fileID: 9100000, guid: 68de312b5b0ee4a8eaa0f2db45b9bee0, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 82ca1e909e6ea4ba9bcc8e7c103dd9a9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 49d652eecec3346f59e433c79bbd7340, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e4d301507e66d45e0996e5ca893b5c8d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1dc292935fdf14fe5986845be2b54e9a, type: 2}

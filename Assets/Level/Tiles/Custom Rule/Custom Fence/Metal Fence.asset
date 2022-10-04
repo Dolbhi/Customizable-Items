@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94787078c11054961aabfdfb37c35b3e, type: 3}
+  m_Name: Metal Fence
+  m_EditorClassIdentifier: 
+  tileSprites:
+    sprites:
+    - {fileID: 4243927867023665446, guid: b4c32029f880f483081a176833329fcf, type: 3}
+    - {fileID: 4753258692078137619, guid: b4c32029f880f483081a176833329fcf, type: 3}
+    - {fileID: 4080561482957604121, guid: b4c32029f880f483081a176833329fcf, type: 3}
+    - {fileID: 5264979163374914166, guid: b4c32029f880f483081a176833329fcf, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: -8644279775636323431, guid: b4c32029f880f483081a176833329fcf, type: 3}
+    - {fileID: 0}
+    - {fileID: -7956832237065629149, guid: b4c32029f880f483081a176833329fcf, type: 3}
+    - {fileID: 6640528522065636692, guid: b4c32029f880f483081a176833329fcf, type: 3}
+    - {fileID: 8239868591318494995, guid: b4c32029f880f483081a176833329fcf, type: 3}
+    - {fileID: 7322453317116942003, guid: b4c32029f880f483081a176833329fcf, type: 3}
+    - {fileID: -9062622854620896686, guid: b4c32029f880f483081a176833329fcf, type: 3}
+    - {fileID: -7266007344547914704, guid: b4c32029f880f483081a176833329fcf, type: 3}
+  durability: 1
+  downgradedTile: {fileID: 0}
+  connectingTiles:
+  - {fileID: 11400000, guid: 2b180fefaf5f54f428bd87641b6462ef, type: 2}
+  - {fileID: 11400000, guid: 31f3dd371f0f54acb977a6725b216848, type: 2}
+  fullTile: 0

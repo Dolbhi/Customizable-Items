@@ -1,0 +1,2332 @@
+fileFormatVersion: 2
+guid: b4c32029f880f483081a176833329fcf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7223950226953391895
+    second: cliff
+  - first:
+      213: -8377130690987618698
+    second: cliff_dark
+  - first:
+      213: -4684333735789482159
+    second: full_br_wall
+  - first:
+      213: -5062486230716756072
+    second: full_tr_wall
+  - first:
+      213: 4099902767569298868
+    second: full_line_bl
+  - first:
+      213: -6833445872158455971
+    second: half_tile
+  - first:
+      213: -537749870668139058
+    second: full_bl_wall
+  - first:
+      213: 1561205615984820651
+    second: full_tl_wall
+  - first:
+      213: 857779327251732012
+    second: half_tl_wall
+  - first:
+      213: 3825752689756085014
+    second: grass_floor_tl
+  - first:
+      213: 7477827516038983822
+    second: simple_floor_tile
+  - first:
+      213: 3930821917377472818
+    second: simple_wall_tile
+  - first:
+      213: -47299315171432025
+    second: half_tr_wall
+  - first:
+      213: 9045646400296435942
+    second: half_bl_wall
+  - first:
+      213: -6765242926017629268
+    second: half_br_wall
+  - first:
+      213: -8637159173488095169
+    second: full_line_br
+  - first:
+      213: 8933607801220796041
+    second: full_line_tr
+  - first:
+      213: -8955812619259062215
+    second: full_line_tr
+  - first:
+      213: 4680653795402065389
+    second: full_line_l
+  - first:
+      213: 4753258692078137619
+    second: full_fence_h
+  - first:
+      213: -7956832237065629149
+    second: full_fence_br
+  - first:
+      213: -6100061461012067082
+    second: full_line_r
+  - first:
+      213: -7369953315678303813
+    second: full_line_t
+  - first:
+      213: -7326330765846486680
+    second: full_line_b
+  - first:
+      213: 5264979163374914166
+    second: full_fence_v
+  - first:
+      213: -8644279775636323431
+    second: full_fence_bl
+  - first:
+      213: 3841374895227053369
+    second: grass_floor_bl
+  - first:
+      213: 2398694386035660818
+    second: grass_floor_t
+  - first:
+      213: 8976018127306389262
+    second: grass_floor
+  - first:
+      213: 6930148502292774571
+    second: grass_floor_tr
+  - first:
+      213: 4243927867023665446
+    second: full_fence_tl
+  - first:
+      213: 4080561482957604121
+    second: full_fence_tr
+  - first:
+      213: 887565136908663245
+    second: half_fence_v
+  - first:
+      213: 5891617607487913053
+    second: half_fence_br
+  - first:
+      213: 3342371246333263808
+    second: half_fence_bl
+  - first:
+      213: 6074651378490148917
+    second: half_fence_h
+  - first:
+      213: 926801475820779279
+    second: half_fence_tr
+  - first:
+      213: -5481814538712004923
+    second: half_fence_t
+  - first:
+      213: 5844434069267237002
+    second: grass_floor_l
+  - first:
+      213: 7394766530161362282
+    second: grass_floor_
+  - first:
+      213: -716952794829026261
+    second: grass_floor_b
+  - first:
+      213: 628180894593707404
+    second: grass_floor_br
+  - first:
+      213: 5427169084622684963
+    second: Door
+  - first:
+      213: 5708117247693342933
+    second: full_wall_b
+  - first:
+      213: 1082208779602798038
+    second: full_wall_t
+  - first:
+      213: 2370382069461181947
+    second: full_wall_r
+  - first:
+      213: -8931170882956590797
+    second: full_wall_l
+  - first:
+      213: -4844553450429767101
+    second: floor_tile
+  - first:
+      213: -6984465467794331371
+    second: floor_blank
+  - first:
+      213: 4761351777526946229
+    second: floor_dirt
+  - first:
+      213: 6297325419972939874
+    second: floor_grass_empty
+  - first:
+      213: -1182408495049320820
+    second: floor_tallgrass_tl
+  - first:
+      213: 1520167212354721406
+    second: floor_tallgrass_t
+  - first:
+      213: -5561059225712939094
+    second: floor_tallgrass_tr
+  - first:
+      213: -8012127113721705627
+    second: floor_tallgrass_l
+  - first:
+      213: 6778405368036279163
+    second: floor_tallgrass_c
+  - first:
+      213: -2340105715631335756
+    second: floor_tallgrass_r
+  - first:
+      213: 5300177517680249557
+    second: floor_tallgrass_bl
+  - first:
+      213: 8361040028504403837
+    second: floor_tallgrass_b
+  - first:
+      213: 7306744483261873968
+    second: floor_tallgrass_br
+  - first:
+      213: 6535516637306896547
+    second: artifact_forge
+  - first:
+      213: 9221952703552439231
+    second: chest
+  - first:
+      213: -6665714956326493770
+    second: chest_opened
+  - first:
+      213: 6410095711063142188
+    second: effect_stand
+  - first:
+      213: 7446964186351517068
+    second: button
+  - first:
+      213: -7616926568946284030
+    second: item_case_over
+  - first:
+      213: -8686373658521615208
+    second: trigger_stand
+  - first:
+      213: -305545619396458820
+    second: trigger_stand_targeted
+  - first:
+      213: 344840444210074430
+    second: effect_stand_targeted
+  - first:
+      213: 3832824116572382631
+    second: button_targeted
+  - first:
+      213: -2106753311485234791
+    second: simple_wall2_tile
+  - first:
+      213: -166602665731363188
+    second: item_case_below
+  - first:
+      213: 2821621153987290425
+    second: case_below_targeted
+  - first:
+      213: 6014495719360825531
+    second: simple_ladder_bl_tile
+  - first:
+      213: 7523419064819043631
+    second: simple_ladder_br_tile
+  - first:
+      213: -4061056238418773845
+    second: simple_ladder_lt_tile
+  - first:
+      213: -2265954188839605315
+    second: simple_ladder_lb_tile
+  - first:
+      213: -2425015904701711284
+    second: simple_ladder_rt_tile
+  - first:
+      213: -7701102876260392647
+    second: simple_ladder_rb_tile
+  - first:
+      213: -7114055807923546517
+    second: simple_ladder_tl_tile
+  - first:
+      213: 1503505147553615786
+    second: simple_ladder_tr_tile
+  - first:
+      213: -7266007344547914704
+    second: full_fence_nil
+  - first:
+      213: 6640528522065636692
+    second: full_fence_t
+  - first:
+      213: 8239868591318494995
+    second: full_fence_r
+  - first:
+      213: 7322453317116942003
+    second: full_fence_l
+  - first:
+      213: -9062622854620896686
+    second: full_fence_b
+  - first:
+      213: 3287631804554723027
+    second: forge_platform
+  - first:
+      213: 4610223057590313579
+    second: forge_glow
+  - first:
+      213: -8696620085542986889
+    second: item_hold
+  - first:
+      213: 8904476833805070984
+    second: glass_case_bottom
+  - first:
+      213: 4564416947644555815
+    second: glass_case_top
+  - first:
+      213: -815161762602408864
+    second: trigger_piller
+  - first:
+      213: -2774321429306712915
+    second: effect_piller
+  - first:
+      213: -6653823314704387572
+    second: base
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cliff
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 208
+        width: 18
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5, y: 0.23529412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71fc8a01570a04460800000000000000
+      internalID: 7223950226953391895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cliff_dark
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 208
+        width: 18
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5, y: 0.23529412}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e09ae35047ebb80800000000000000
+      internalID: -8377130690987618698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_line_bl
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 142
+        width: 8
+        height: 24
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b5eb9a48d7c5e830800000000000000
+      internalID: 4099902767569298868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: half_tile
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 208
+        width: 16
+        height: 24
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57c2263f29ba21a0800000000000000
+      internalID: -6833445872158455971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_bl_wall
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 208
+        width: 8
+        height: 24
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec530dc77578988f0800000000000000
+      internalID: -537749870668139058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_tl_wall
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 208
+        width: 8
+        height: 24
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1ce127c348aa510800000000000000
+      internalID: 1561205615984820651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: half_tl_wall
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 208
+        width: 8
+        height: 16
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c265380e0c177eb00800000000000000
+      internalID: 857779327251732012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_floor_tl
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 171
+        width: 9
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5555556, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3.5, y: -5}
+        - {x: -3.5, y: 3}
+        - {x: 4.5, y: 3}
+        - {x: 4.5, y: -5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61b18673dcdc71530800000000000000
+      internalID: 3825752689756085014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simple_floor_tile
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 181
+        width: 8
+        height: 24
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 4}
+        - {x: -4, y: 12}
+        - {x: 4, y: 12}
+        - {x: 4, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e803521b18496c760800000000000000
+      internalID: 7477827516038983822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simple_wall_tile
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 181
+        width: 8
+        height: 24
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 4}
+        - {x: -4, y: 12}
+        - {x: 4, y: 12}
+        - {x: 4, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239aa9c15b51d8630800000000000000
+      internalID: 3930821917377472818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_br_wall
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 208
+        width: 8
+        height: 24
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15fa3e43947edfeb0800000000000000
+      internalID: -4684333735789482159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_tr_wall
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 208
+        width: 8
+        height: 24
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f42d9689f6eb9b0800000000000000
+      internalID: -5062486230716756072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: half_tr_wall
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 208
+        width: 8
+        height: 16
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a966110685f75ff0800000000000000
+      internalID: -47299315171432025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: half_bl_wall
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 208
+        width: 8
+        height: 16
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e0c575a977988d70800000000000000
+      internalID: 9045646400296435942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: half_br_wall
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 208
+        width: 8
+        height: 16
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca3be7f07670d12a0800000000000000
+      internalID: -6765242926017629268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_line_br
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 142
+        width: 8
+        height: 24
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f305cbb4e75a22880800000000000000
+      internalID: -8637159173488095169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_line_tl
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 166
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e8c6286fc8afb70800000000000000
+      internalID: 8933607801220796041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_line_tr
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 166
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9385a1a6fdf86b380800000000000000
+      internalID: 3464742603982905577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_line_l
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 162
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de52687e3d505f040800000000000000
+      internalID: 4680653795402065389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_fence_h
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 208
+        width: 8
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 1.1666666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 7}
+        - {x: -4, y: 9}
+        - {x: 4, y: 9}
+        - {x: 4, y: 7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 311fadab897f6f140800000000000000
+      internalID: 4753258692078137619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_fence_br
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 208
+        width: 5
+        height: 21
+      alignment: 9
+      pivot: {x: 0.8, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.5, y: 5.5}
+        - {x: -2.5, y: 7.5}
+        - {x: 0.5, y: 7.5}
+        - {x: 0.5, y: 10.5}
+        - {x: 2.5, y: 10.5}
+        - {x: 2.5, y: 5.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322935ccc37a39190800000000000000
+      internalID: -7956832237065629149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_line_r
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 162
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fc4354bb6a385ba0800000000000000
+      internalID: -6100061461012067082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_line_t
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 166
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb948cfc18aa8b990800000000000000
+      internalID: -7369953315678303813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_line_b
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 157
+        width: 8
+        height: 9
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86164ba2cf4a35a90800000000000000
+      internalID: -7326330765846486680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_fence_v
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 209
+        width: 2
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: 3}
+        - {x: -1, y: 12}
+        - {x: 1, y: 12}
+        - {x: 1, y: 3}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a8bce67a6f01940800000000000000
+      internalID: 5264979163374914166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_fence_bl
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 208
+        width: 5
+        height: 21
+      alignment: 9
+      pivot: {x: 0.2, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.5, y: 5.5}
+        - {x: -2.5, y: 10.5}
+        - {x: -0.5, y: 10.5}
+        - {x: -0.5, y: 7.5}
+        - {x: 2.5, y: 7.5}
+        - {x: 2.5, y: 5.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9938a1ae759590880800000000000000
+      internalID: -8644279775636323431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_floor_bl
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 139
+        width: 9
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5555556, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3.5, y: 4}
+        - {x: -3.5, y: 12}
+        - {x: 4.5, y: 12}
+        - {x: 4.5, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 935ac1f5d1e4f4530800000000000000
+      internalID: 3841374895227053369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_floor_t
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 171
+        width: 8
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -5}
+        - {x: -4, y: 3}
+        - {x: 4, y: 3}
+        - {x: 4, y: -5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2181164d5dfd94120800000000000000
+      internalID: 2398694386035660818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_floor
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 163
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -4}
+        - {x: -4, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0770970ee8319c70800000000000000
+      internalID: 8976018127306389262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_floor_tr
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 171
+        width: 9
+        height: 10
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.8}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4.5, y: -5}
+        - {x: -4.5, y: 3}
+        - {x: 3.5, y: 3}
+        - {x: 3.5, y: -5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: baebdd76855dc2060800000000000000
+      internalID: 6930148502292774571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_fence_tl
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 213
+        width: 5
+        height: 21
+      alignment: 9
+      pivot: {x: 0.2, y: 1.1428572}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -0.5, y: 8.5}
+        - {x: -0.5, y: 5.5}
+        - {x: -2.5, y: 5.5}
+        - {x: -2.5, y: 10.5}
+        - {x: 2.5, y: 10.5}
+        - {x: 2.5, y: 8.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 629a356e8e575ea30800000000000000
+      internalID: 4243927867023665446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_fence_tr
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 213
+        width: 5
+        height: 21
+      alignment: 9
+      pivot: {x: 0.8, y: 1.1428572}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 0.5, y: 5.5}
+        - {x: 0.5, y: 8.5}
+        - {x: -2.5, y: 8.5}
+        - {x: -2.5, y: 10.5}
+        - {x: 2.5, y: 10.5}
+        - {x: 2.5, y: 5.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91544db8c0111a830800000000000000
+      internalID: 4080561482957604121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: half_fence_v
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 238
+        width: 2
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: -8}
+        - {x: -1, y: 0}
+        - {x: 1, y: 0}
+        - {x: 1, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc9367c1ac3415c00800000000000000
+      internalID: 887565136908663245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: half_fence_br
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 237
+        width: 5
+        height: 13
+      alignment: 9
+      pivot: {x: 0.8, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.5, y: -6.5}
+        - {x: -2.5, y: -4.5}
+        - {x: 0.5, y: -4.5}
+        - {x: 0.5, y: -1.5}
+        - {x: 2.5, y: -1.5}
+        - {x: 2.5, y: -6.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5cf0c6bffa33c150800000000000000
+      internalID: 5891617607487913053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: half_fence_bl
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 237
+        width: 5
+        height: 13
+      alignment: 9
+      pivot: {x: 0.2, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.5, y: -6.5}
+        - {x: -2.5, y: -1.5}
+        - {x: -0.5, y: -1.5}
+        - {x: -0.5, y: -4.5}
+        - {x: 2.5, y: -4.5}
+        - {x: 2.5, y: -6.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cf7c2d90fc726e20800000000000000
+      internalID: 3342371246333263808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: half_fence_h
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 237
+        width: 8
+        height: 10
+      alignment: 9
+      pivot: {x: 0.5, y: 1.3000001}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -5}
+        - {x: -4, y: -3}
+        - {x: 4, y: -3}
+        - {x: 4, y: -5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5380e3d6e3f7d4450800000000000000
+      internalID: 6074651378490148917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: half_fence_tr
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 242
+        width: 5
+        height: 13
+      alignment: 9
+      pivot: {x: 0.2, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -0.5, y: -3.5}
+        - {x: -0.5, y: -6.5}
+        - {x: -2.5, y: -6.5}
+        - {x: -2.5, y: -1.5}
+        - {x: 2.5, y: -1.5}
+        - {x: 2.5, y: -3.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07fa972809acdc00800000000000000
+      internalID: 926801475820779279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: half_fence_t
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 242
+        width: 5
+        height: 13
+      alignment: 9
+      pivot: {x: 0.8, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 0.5, y: -6.5}
+        - {x: 0.5, y: -3.5}
+        - {x: -2.5, y: -3.5}
+        - {x: -2.5, y: -1.5}
+        - {x: 2.5, y: -1.5}
+        - {x: 2.5, y: -6.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c6cf7f88beace3b0800000000000000
+      internalID: -5481814538712004923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_floor_l
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 163
+        width: 9
+        height: 8
+      alignment: 9
+      pivot: {x: 0.5555556, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3.5, y: -4}
+        - {x: -3.5, y: 4}
+        - {x: 4.5, y: 4}
+        - {x: 4.5, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a884dd322d99b1150800000000000000
+      internalID: 5844434069267237002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_floor_
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 163
+        width: 9
+        height: 8
+      alignment: 9
+      pivot: {x: 0.44444445, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4.5, y: -4}
+        - {x: -4.5, y: 4}
+        - {x: 3.5, y: 4}
+        - {x: 3.5, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a654733eafc7f9660800000000000000
+      internalID: 7394766530161362282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_floor_b
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 139
+        width: 8
+        height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 4}
+        - {x: -4, y: 12}
+        - {x: 4, y: 12}
+        - {x: 4, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2c0e7f4b3fdc06f0800000000000000
+      internalID: -716952794829026261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_floor_br
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 139
+        width: 9
+        height: 24
+      alignment: 9
+      pivot: {x: 0.44444445, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4.5, y: 4}
+        - {x: -4.5, y: 12}
+        - {x: 3.5, y: 12}
+        - {x: 3.5, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8de1f4023fb7b800800000000000000
+      internalID: 628180894593707404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Door
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 188
+        width: 12
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 323cae0378d215b40800000000000000
+      internalID: 5427169084622684963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_wall_b
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 208
+        width: 8
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 1.3333334}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d8ca05d46e473f40800000000000000
+      internalID: 5708117247693342933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_wall_t
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 208
+        width: 8
+        height: 24
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d5a809b627c40f00800000000000000
+      internalID: 1082208779602798038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_wall_r
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 208
+        width: 2
+        height: 24
+      alignment: 9
+      pivot: {x: -1, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf56030fee945e020800000000000000
+      internalID: 2370382069461181947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_wall_l
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 208
+        width: 2
+        height: 24
+      alignment: 9
+      pivot: {x: 2, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3318f0db66b1e0480800000000000000
+      internalID: -8931170882956590797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_tile
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 170
+        width: 8
+        height: 8
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 4}
+        - {x: -4, y: -4}
+        - {x: 4, y: -4}
+        - {x: 4, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 342adbbed40b4ccb0800000000000000
+      internalID: -4844553450429767101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_blank
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 170
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 4}
+        - {x: -4, y: -4}
+        - {x: 4, y: -4}
+        - {x: 4, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 519e22e89a1321f90800000000000000
+      internalID: -6984465467794331371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_dirt
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 170
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 4}
+        - {x: -4, y: -4}
+        - {x: 4, y: -4}
+        - {x: 4, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b91b260738b31240800000000000000
+      internalID: 4761351777526946229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_grass_empty
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 170
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 4}
+        - {x: -4, y: -4}
+        - {x: 4, y: -4}
+        - {x: 4, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2605684da18946750800000000000000
+      internalID: 6297325419972939874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_tallgrass_tl
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 128
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -4}
+        - {x: -4, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c865e290dbd379fe0800000000000000
+      internalID: -1182408495049320820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_tallgrass_t
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 128
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -4}
+        - {x: -4, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7659938608b81510800000000000000
+      internalID: 1520167212354721406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_tallgrass_tr
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 128
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -4}
+        - {x: -4, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: aafa874191623d2b0800000000000000
+      internalID: -5561059225712939094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_tallgrass_l
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 120
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -4}
+        - {x: -4, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b875317d43fc090800000000000000
+      internalID: -8012127113721705627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_tallgrass_c
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 120
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -4}
+        - {x: -4, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b734769c4cbb11e50800000000000000
+      internalID: 6778405368036279163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_tallgrass_r
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 120
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -4}
+        - {x: -4, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b6dee20046468fd0800000000000000
+      internalID: -2340105715631335756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_tallgrass_bl
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 112
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -4}
+        - {x: -4, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dac7dbee530e8940800000000000000
+      internalID: 5300177517680249557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_tallgrass_b
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 112
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -4}
+        - {x: -4, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7fa3d37b91680470800000000000000
+      internalID: 8361040028504403837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: floor_tallgrass_br
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 112
+        width: 8
+        height: 8
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: -4}
+        - {x: -4, y: 4}
+        - {x: 4, y: 4}
+        - {x: 4, y: -4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03f7e5d0565c66560800000000000000
+      internalID: 7306744483261873968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: artifact_forge
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 129
+        width: 29
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a0455641c1d2ba50800000000000000
+      internalID: 6535516637306896547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chest
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 147
+        width: 20
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -9.5}
+        - {x: -10, y: -3.5}
+        - {x: 10, y: -3.5}
+        - {x: 10, y: -9.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb342b6bf15faff70800000000000000
+      internalID: 9221952703552439231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chest_opened
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 147
+        width: 20
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -10, y: -8}
+        - {x: -10, y: -2}
+        - {x: 10, y: -2}
+        - {x: 10, y: -8}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b1a62e409f9e73a0800000000000000
+      internalID: -6665714956326493770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simple_wall2_tile
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 181
+        width: 8
+        height: 24
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 4}
+        - {x: -4, y: 12}
+        - {x: 4, y: 12}
+        - {x: 4, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9917b87760f43c2e0800000000000000
+      internalID: -2106753311485234791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simple_ladder_bl_tile
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 159
+        width: 8
+        height: 17
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3, y: 6.5}
+        - {x: -3, y: 8.5}
+        - {x: 4, y: 8.5}
+        - {x: 4, y: 6.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb80c979df7c77350800000000000000
+      internalID: 6014495719360825531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simple_ladder_br_tile
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 159
+        width: 8
+        height: 17
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 6.5}
+        - {x: -4, y: 8.5}
+        - {x: 3, y: 8.5}
+        - {x: 3, y: 6.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2dc0f657cd886860800000000000000
+      internalID: 7523419064819043631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simple_ladder_lt_tile
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 145
+        width: 2
+        height: 23
+      alignment: 9
+      pivot: {x: -1, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: 2.5}
+        - {x: -1, y: 10.5}
+        - {x: 1, y: 10.5}
+        - {x: 1, y: 2.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba83a281eda34a7c0800000000000000
+      internalID: -4061056238418773845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simple_ladder_lb_tile
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 146
+        width: 2
+        height: 22
+      alignment: 9
+      pivot: {x: -1, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: 4}
+        - {x: -1, y: 11}
+        - {x: 1, y: 11}
+        - {x: 1, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb28e8bba6bd80e0800000000000000
+      internalID: -2265954188839605315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simple_ladder_rt_tile
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 145
+        width: 2
+        height: 23
+      alignment: 9
+      pivot: {x: 2, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: 2.5}
+        - {x: -1, y: 10.5}
+        - {x: 1, y: 10.5}
+        - {x: 1, y: 2.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4cf49902ec985ed0800000000000000
+      internalID: -2425015904701711284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simple_ladder_rb_tile
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 146
+        width: 2
+        height: 22
+      alignment: 9
+      pivot: {x: 2, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: 4}
+        - {x: -1, y: 11}
+        - {x: 1, y: 11}
+        - {x: 1, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 931a2c97cbf202590800000000000000
+      internalID: -7701102876260392647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simple_ladder_tl_tile
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 159
+        width: 8
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 1.4117647}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -3, y: 6.5}
+        - {x: -3, y: 8.5}
+        - {x: 4, y: 8.5}
+        - {x: 4, y: 6.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6699604febc54d90800000000000000
+      internalID: -7114055807923546517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: simple_ladder_tr_tile
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 159
+        width: 8
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5, y: 1.4117647}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 6.5}
+        - {x: -4, y: 8.5}
+        - {x: 3, y: 8.5}
+        - {x: 3, y: 6.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf87ed37f58dd410800000000000000
+      internalID: 1503505147553615786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_fence_nil
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 208
+        width: 2
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5, y: 1.1666666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: 7}
+        - {x: -1, y: 9}
+        - {x: 1, y: 9}
+        - {x: 1, y: 7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03c97dc21d4f92b90800000000000000
+      internalID: -7266007344547914704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_fence_t
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 208
+        width: 2
+        height: 21
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: 5.5}
+        - {x: -1, y: 10.5}
+        - {x: 1, y: 10.5}
+        - {x: 1, y: 5.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45d629ef185e72c50800000000000000
+      internalID: 6640528522065636692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_fence_r
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 216
+        width: 5
+        height: 18
+      alignment: 9
+      pivot: {x: 0.2, y: 1.1666666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.5, y: 7}
+        - {x: -2.5, y: 9}
+        - {x: 2.5, y: 9}
+        - {x: 2.5, y: 7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31fef6db3d4e95270800000000000000
+      internalID: 8239868591318494995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_fence_l
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 216
+        width: 5
+        height: 18
+      alignment: 9
+      pivot: {x: 0.8, y: 1.1666666}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -2.5, y: 7}
+        - {x: -2.5, y: 9}
+        - {x: 2.5, y: 9}
+        - {x: 2.5, y: 7}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b6d223fe749e9560800000000000000
+      internalID: 7322453317116942003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: full_fence_b
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 229
+        width: 2
+        height: 5
+      alignment: 9
+      pivot: {x: 0.5, y: 1.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -1, y: -2.5}
+        - {x: -1, y: 2.5}
+        - {x: 1, y: 2.5}
+        - {x: 1, y: -2.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2522cf097881b3280800000000000000
+      internalID: -9062622854620896686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glass_case_bottom
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 59
+        width: 16
+        height: 5
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88275ad908e039b70800000000000000
+      internalID: 8904476833805070984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      artifact_forge: 6535516637306896547
+      cliff_dark: -8377130690987618698
+      simple_wall2_tile: -2106753311485234791
+      half_fence_tr: 926801475820779279
+      grass_floor_bl: 3841374895227053369
+      simple_floor_tile: 7477827516038983822
+      floor_tallgrass_b: 8361040028504403837
+      floor_tallgrass_t: 1520167212354721406
+      grass_floor_tr: 6930148502292774571
+      simple_ladder_tl_tile: -7114055807923546517
+      half_tl_wall: 857779327251732012
+      floor_tile: -4844553450429767101
+      half_fence_v: 887565136908663245
+      half_bl_wall: 9045646400296435942
+      full_wall_t: 1082208779602798038
+      full_fence_v: 5264979163374914166
+      full_line_t: -7369953315678303813
+      full_line_r: -6100061461012067082
+      Door: 5427169084622684963
+      full_fence_bl: -8644279775636323431
+      full_fence_l: 7322453317116942003
+      grass_floor_l: 5844434069267237002
+      full_line_b: -7326330765846486680
+      full_tl_wall: 1561205615984820651
+      chest_opened: -6665714956326493770
+      full_fence_tr: 4080561482957604121
+      full_fence_r: 8239868591318494995
+      half_fence_bl: 3342371246333263808
+      full_line_l: 4680653795402065389
+      floor_tallgrass_tl: -1182408495049320820
+      half_tile: -6833445872158455971
+      full_fence_b: -9062622854620896686
+      glass_case_bottom: 8904476833805070984
+      simple_ladder_rb_tile: -7701102876260392647
+      half_fence_h: 6074651378490148917
+      full_line_br: -8637159173488095169
+      floor_blank: -6984465467794331371
+      floor_tallgrass_r: -2340105715631335756
+      grass_floor_: 7394766530161362282
+      full_fence_tl: 4243927867023665446
+      full_fence_t: 6640528522065636692
+      floor_tallgrass_bl: 5300177517680249557
+      simple_ladder_tr_tile: 1503505147553615786
+      full_fence_nil: -7266007344547914704
+      floor_grass_empty: 6297325419972939874
+      grass_floor_br: 628180894593707404
+      grass_floor_b: -716952794829026261
+      half_br_wall: -6765242926017629268
+      full_line_bl: 4099902767569298868
+      full_tr_wall: -5062486230716756072
+      full_br_wall: -4684333735789482159
+      floor_tallgrass_br: 7306744483261873968
+      grass_floor: 8976018127306389262
+      full_wall_r: 2370382069461181947
+      half_fence_t: -5481814538712004923
+      floor_dirt: 4761351777526946229
+      chest: 9221952703552439231
+      floor_tallgrass_l: -8012127113721705627
+      simple_wall_tile: 3930821917377472818
+      full_bl_wall: -537749870668139058
+      cliff: 7223950226953391895
+      full_line_tr: 3464742603982905577
+      full_fence_h: 4753258692078137619
+      grass_floor_t: 2398694386035660818
+      full_wall_b: 5708117247693342933
+      half_fence_br: 5891617607487913053
+      full_fence_br: -7956832237065629149
+      floor_tallgrass_tr: -5561059225712939094
+      simple_ladder_br_tile: 7523419064819043631
+      simple_ladder_lt_tile: -4061056238418773845
+      simple_ladder_lb_tile: -2265954188839605315
+      floor_tallgrass_c: 6778405368036279163
+      grass_floor_tl: 3825752689756085014
+      simple_ladder_rt_tile: -2425015904701711284
+      full_line_tl: 8933607801220796041
+      half_tr_wall: -47299315171432025
+      full_wall_l: -8931170882956590797
+      simple_ladder_bl_tile: 6014495719360825531
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

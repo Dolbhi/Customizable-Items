@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6e9b14aa2b5d94570ac6e738be3e2154
+  m_SerializeEntries:
+  - m_GUID: d98542fa5e6f14eb3adb0d3c468b09d2
+    m_Address: bullet
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 30a38dd5da4c84966bb203d0f21935fa
+    m_Address: explosion
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 44d608585697a4ddd858d713b2c16ad7
+    m_Address: Assets/Scenes/Basic Scene.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 7ceb78354237f4231b680cf94083087a
+    m_Address: artifact_grenade
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4bd63176f8f614bc9acc0b3197aac145
+    m_Address: item pickup
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 793e5ec781f3b4c4a98856925bf607dd, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7222fd317e6c5485e82a70aed1a43a6f, type: 2}
+    - {fileID: 11400000, guid: 9e2769476c62b46689a07b2bde312461, type: 2}

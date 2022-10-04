@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf7c34a0dc4e6348bea04faa70406ee, type: 3}
+  m_Name: Status Sprites
+  m_EditorClassIdentifier: 
+  m_Labels:
+  - m_Name: Status Effects
+    m_Hash: 930253143
+    m_CategoryList:
+    - m_Name: armored
+      m_Hash: -243210543
+      m_Sprite: {fileID: 8358860530532573307, guid: e7ba62871e22544dba1fa7a1e725f018, type: 3}
+    - m_Name: burn
+      m_Hash: 1431444740
+      m_Sprite: {fileID: 4770986977414676471, guid: e7ba62871e22544dba1fa7a1e725f018, type: 3}
+    - m_Name: cursed
+      m_Hash: -884721835
+      m_Sprite: {fileID: -3904736825666951189, guid: e7ba62871e22544dba1fa7a1e725f018, type: 3}
+    - m_Name: drugged
+      m_Hash: 745626689
+      m_Sprite: {fileID: -792820292854358548, guid: e7ba62871e22544dba1fa7a1e725f018, type: 3}
+    - m_Name: regeneration
+      m_Hash: -1567889613
+      m_Sprite: {fileID: -6270124241968075949, guid: e7ba62871e22544dba1fa7a1e725f018, type: 3}
+    - m_Name: slow
+      m_Hash: 889680349
+      m_Sprite: {fileID: 309414466850391618, guid: e7ba62871e22544dba1fa7a1e725f018, type: 3}
+    - m_Name: speed
+      m_Hash: 254213878
+      m_Sprite: {fileID: 7749479359230161906, guid: e7ba62871e22544dba1fa7a1e725f018, type: 3}
+    - m_Name: stun
+      m_Hash: -210448114
+      m_Sprite: {fileID: -6918629709790844596, guid: e7ba62871e22544dba1fa7a1e725f018, type: 3}
+    - m_Name: vulnerable
+      m_Hash: 425101933
+      m_Sprite: {fileID: 760643441680812616, guid: e7ba62871e22544dba1fa7a1e725f018, type: 3}
+    - m_Name: weak
+      m_Hash: 1060547780
+      m_Sprite: {fileID: -1035423249057446842, guid: e7ba62871e22544dba1fa7a1e725f018, type: 3}
+    - m_Name: anger
+      m_Hash: 1385200519
+      m_Sprite: {fileID: -4421688674683903865, guid: e7ba62871e22544dba1fa7a1e725f018, type: 3}
+  m_ModificationHash: 0

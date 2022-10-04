@@ -1,0 +1,713 @@
+fileFormatVersion: 2
+guid: ada70fa98b01345a6b7669a0756448a7
+ScriptedImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3565310127746640082
+    second: Torso_FL
+  - first:
+      213: 329682959716196310
+    second: Torso_LF
+  - first:
+      213: 6618435581141448682
+    second: Torso_LB
+  - first:
+      213: 7776558185641220642
+    second: Torso_BL
+  - first:
+      213: 9101426032432590749
+    second: TempMob_4
+  - first:
+      213: 9184286067535728653
+    second: Torso_BR
+  - first:
+      213: -8215759597928576020
+    second: Torso_RB
+  - first:
+      213: 7973111729851103747
+    second: Torso_RF
+  - first:
+      213: -7403058551679182648
+    second: Torso_FR
+  - first:
+      213: 2563064359914798236
+    second: tttt
+  - first:
+      213: 9110427200464504888
+    second: Leg_Cup
+  - first:
+      213: 4221749354206222216
+    second: Leg_Dup
+  - first:
+      213: -6050529602524254681
+    second: Leg_Xup
+  - first:
+      213: 3197153727374944219
+    second: Leg_Uup
+  - first:
+      213: -4082031593334421720
+    second: Leg_Cdown
+  - first:
+      213: 4693773948334120808
+    second: Leg_Ddown
+  - first:
+      213: -3963764316802662248
+    second: Leg_Straight
+  - first:
+      213: -2200882078305630170
+    second: Leg_Udown
+  - first:
+      213: 9110427200464504888
+    second: Leg_Cup
+  - first:
+      213: 4221749354206222216
+    second: Leg_Dup
+  - first:
+      213: -6050529602524254681
+    second: Leg_Xup
+  - first:
+      213: 3197153727374944219
+    second: TempMob_13
+  - first:
+      213: -4082031593334421720
+    second: TempMob_14
+  - first:
+      213: 4693773948334120808
+    second: TempMob_15
+  - first:
+      213: -3963764316802662248
+    second: TempMob_16
+  - first:
+      213: -2200882078305630170
+    second: TempMob_17
+  - first:
+      213: -467346951634425262
+    second: TempMob_18
+  - first:
+      213: 3278660655936777547
+    second: TempMob_19
+  - first:
+      213: 5876015909172110520
+    second: TempMob_20
+  - first:
+      213: 4720456892539086245
+    second: TempMob_21
+  - first:
+      213: 9110427200464504888
+    second: Leg_Cup
+  - first:
+      213: 9110427200464504888
+    second: Leg_Cup
+  - first:
+      213: 9110427200464504888
+    second: Leg_Cup
+  - first:
+      213: 4221749354206222216
+    second: Leg_Dup
+  - first:
+      213: -6050529602524254681
+    second: TempMob_12
+  - first:
+      213: 574033157838489496
+    second: TempMob_22
+  - first:
+      213: 8826962778890938758
+    second: TempMob_23
+  - first:
+      213: -5284020869312492468
+    second: TempMob_24
+  - first:
+      213: -2466124278390293526
+    second: TempMob_25
+  - first:
+      213: 8856778537244087120
+    second: TempMob_26
+  - first:
+      213: -5127090828913996867
+    second: TempMob_27
+  - first:
+      213: -8943905425199518112
+    second: TempMob_28
+  - first:
+      213: 476253437148158399
+    second: TempMob_29
+  - first:
+      213: 9110427200464504888
+    second: TempMob_10
+  - first:
+      213: 3565310127746640082
+    second: TempMob_0
+  - first:
+      213: 329682959716196310
+    second: TempMob_1
+  - first:
+      213: 6618435581141448682
+    second: TempMob_2
+  - first:
+      213: 7776558185641220642
+    second: TempMob_3
+  - first:
+      213: 9184286067535728653
+    second: TempMob_5
+  - first:
+      213: -8215759597928576020
+    second: TempMob_6
+  - first:
+      213: 7973111729851103747
+    second: TempMob_7
+  - first:
+      213: -7403058551679182648
+    second: TempMob_8
+  - first:
+      213: 2563064359914798236
+    second: TempMob_9
+  - first:
+      213: 4221749354206222216
+    second: TempMob_11
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 16
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: TempMob_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 192
+      height: 96
+    spriteID: 26e3a0112b42042adbff7eaf20aebea8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Torso_FL
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6
+      y: 41
+      width: 6
+      height: 16
+    spriteID: 2d8e07edba68a7130800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Torso_LF
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 24
+      y: 41
+      width: 6
+      height: 16
+    spriteID: 6df1266b7e4439400800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Torso_LB
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 42
+      y: 41
+      width: 6
+      height: 16
+    spriteID: ae7fdb6581869db50800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Torso_BL
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 41
+      width: 6
+      height: 16
+    spriteID: 22a1d46c772ebeb60800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: TempMob_4
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 8
+      y: 9
+      width: 6
+      height: 16
+    spriteID: d9f23ac41c2ce4e70800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Torso_BR
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 78
+      y: 41
+      width: 6
+      height: 16
+    spriteID: d00590b9483257f70800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Torso_RB
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 96
+      y: 41
+      width: 6
+      height: 16
+    spriteID: ceb0675bc22cbfd80800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Torso_RF
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 114
+      y: 41
+      width: 6
+      height: 16
+    spriteID: 30a764cffde26ae60800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Torso_FR
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 41
+      width: 6
+      height: 16
+    spriteID: 8c89eb7687d034990800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: tttt
+    originalName: 
+    pivot: {x: -0.071428575, y: 1.1428572}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 13
+      width: 14
+      height: 7
+    spriteID: c9c7f25a475d19320800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Leg_Cup
+    originalName: 
+    pivot: {x: 0.8, y: 1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 38
+      y: 77
+      width: 5
+      height: 8
+    spriteID: 8384ebb054dbe6e70800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Leg_Dup
+    originalName: 
+    pivot: {x: 0.8, y: 1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 54
+      y: 77
+      width: 5
+      height: 8
+    spriteID: 887523c7baaa69a30800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Leg_Xup
+    originalName: 
+    pivot: {x: 0.25, y: 1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 73
+      y: 78
+      width: 4
+      height: 7
+    spriteID: 72e6e823263380ca0800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Leg_Uup
+    originalName: 
+    pivot: {x: 0.2, y: 1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 78
+      width: 5
+      height: 7
+    spriteID: bd7ef7430629e5c20800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Leg_Cdown
+    originalName: 
+    pivot: {x: 0.16666667, y: 1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 105
+      y: 77
+      width: 6
+      height: 8
+    spriteID: 8274165b4e5b957c0800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Leg_Ddown
+    originalName: 
+    pivot: {x: 0.2, y: 1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 121
+      y: 77
+      width: 5
+      height: 8
+    spriteID: 86f107e8982a32140800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Leg_Straight
+    originalName: 
+    pivot: {x: 0.33333334, y: 1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 137
+      y: 77
+      width: 3
+      height: 8
+    spriteID: 890cb93da51edf8c0800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  - name: Leg_Udown
+    originalName: 
+    pivot: {x: 0.75, y: 1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 151
+      y: 77
+      width: 4
+      height: 8
+    spriteID: 628c11a1965e471e0800000000000000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Group 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 153
+      height: 24
+    spriteID: 7f10c3f998d574926acfa2dfbf9ac5f3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1, y: 3}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  platformSettings:
+  - name: Default
+    overridden: 1
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 0
+  characterMode: 0
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  skeletonAssetReferenceID: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Group 1
+    spriteName: Group 1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7f10c3f998d574926acfa2dfbf9ac5f3
+    layerID: 9
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  generateGOHierarchy: 0
+  textureAssetName: TempMob Texture
+  prefabAssetName: TempMob Prefab
+  spriteLibAssetName: TempMob Sprite Lib
+  skeletonAssetName: 
+  secondarySpriteTextures: []
