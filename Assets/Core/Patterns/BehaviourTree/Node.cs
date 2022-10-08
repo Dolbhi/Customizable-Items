@@ -94,55 +94,20 @@ namespace ColbyDoan.BehaviourTree
     }
 
     /// <summary>
-    /// TODO: make generic comparison condition node
-    /// Evaluates child if bool with conditonKey, else returns failure
+    /// Evaluates child if conditonKey equals given value, if no value is given conditionKey is evaluated as a bool
     /// </summary>
     public class Condition : Node
     {
         string _conditionKey;
-        public Condition(string conditionKey, Node child) : base(child) { _conditionKey = conditionKey; }
+        object _value;
+
+        public Condition(string conditionKey, object value, Node child) : base(child) { _conditionKey = conditionKey; _value = value; }
+        public Condition(string conditionKey, Node child) : this(conditionKey, true, child) { }
 
         public override NodeState Evaluate()
         {
             var condition = GetData(_conditionKey);
-            if (condition == null || !(bool)condition)
-            {
-                return NodeState.failure;
-            }
-            return children[0].Evaluate();
-        }
-    }
-
-    /// <summary>
-    /// Evaluates child if given function evaluates true, else returns failure
-    /// </summary>
-    // public class ExternalCondition : Node
-    // {
-    //     Func<bool> _Condition;
-    //     public ExternalCondition(Func<bool> condition, Node child) : base(child) { _Condition = condition; }
-
-    //     public override NodeState Evaluate()
-    //     {
-    //         if (!_Condition())
-    //         {
-    //             return NodeState.failure;
-    //         }
-    //         return children[0].Evaluate();
-    //     }
-    // }
-
-    /// <summary>
-    /// Evaluates child if not bool with conditonKey, else returns failure
-    /// </summary>
-    public class InverseCondition : Node
-    {
-        string _conditionKey;
-        public InverseCondition(string conditionKey, Node child) : base(child) { _conditionKey = conditionKey; }
-
-        public override NodeState Evaluate()
-        {
-            var condition = GetData(_conditionKey);
-            if (condition == null || (bool)condition)
+            if (condition == null || !condition.Equals(_value))
             {
                 return NodeState.failure;
             }

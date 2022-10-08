@@ -564,8 +564,8 @@ MonoBehaviour:
   indicator: {fileID: 805247357851959804}
   forgetTargetDuration: 10
   trackingTask:
-    insideFOVRange: 20
-    outsideFOVRange: 10
+    insideFOVRange: 12
+    outsideFOVRange: 12
     fov: 75
     needsLOS: 1
   shootTask:
