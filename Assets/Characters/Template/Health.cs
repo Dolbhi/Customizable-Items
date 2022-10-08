@@ -20,7 +20,7 @@ namespace ColbyDoan
         public float FractionFull => health / maxHealth;
 
         public event Action<float> OnHeal;
-        public event Action<float> OnHurt;
+        public event Action<HurtInfo> OnHurt;
         public event Action OnDeath;
 
         protected void Awake()
@@ -60,8 +60,13 @@ namespace ColbyDoan
         //    //kinematicObject?.EZForce(damage.knockback);
         //}
 
-        /// <summary> Direct hp deduction </summary>
         public float Damage(float attack, bool isCrit = false, bool showPopup = true)
+        {
+            return Damage(attack, Vector3.zero, isCrit, showPopup);
+        }
+
+        /// <summary> Direct hp deduction </summary>
+        public float Damage(float attack, Vector3 direction, bool isCrit = false, bool showPopup = true)
         {
             if (health <= 0) return 0;
             if (invincible)
@@ -77,7 +82,7 @@ namespace ColbyDoan
             // calc and deal damage
             float damage = attack * (1 - armor / (100 + Mathf.Abs(armor)));
             health -= damage;
-            OnHurt?.Invoke(damage);
+            OnHurt?.Invoke(new HurtInfo(attack, direction, isCrit));
             if (health <= 0)
             {
                 health = 0;
@@ -120,6 +125,25 @@ namespace ColbyDoan
         }
     }
 
+    /// <summary>
+    /// For now only used in Health itself for passing hurt data around
+    /// </summary>
+    [System.Serializable]
+    public struct HurtInfo
+    {
+        public float damage;
+        public Vector3 direction;
+        public bool crit;
+
+        public HurtInfo(float damage, Vector3 direction, bool crit = false)
+        {
+            this.damage = damage;
+            this.direction = direction;
+            this.crit = crit;
+        }
+        public HurtInfo(float damage, bool crit = false) : this(damage, Vector3.zero, crit) { }
+    }
+
     [System.Serializable]
     public struct DamageInfo
     {
@@ -133,7 +157,7 @@ namespace ColbyDoan
         public void ApplyTo(Transform target)
         {
             if (target == null) return;
-            target = target?.root;
+            target = target.root;
             //Debug.Log(target.name);
 
             float damageDone;
@@ -147,11 +171,11 @@ namespace ColbyDoan
                 {
                     // crit
                     damage *= 2;
-                    damageDone = hp.Damage(damage, true);
+                    damageDone = hp.Damage(damage, -knockback.v, true);
                 }
                 else
                 {
-                    damageDone = hp.Damage(damage);
+                    damageDone = hp.Damage(damage, -knockback.v);
                 }
 
 

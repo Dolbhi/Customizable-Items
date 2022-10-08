@@ -151,9 +151,9 @@ namespace ColbyDoan
             manager.character.healthManager.OnHurt += HealthManager_OnHurt;
         }
 
-        void HealthManager_OnHurt(float damage)
+        void HealthManager_OnHurt(HurtInfo damage)
         {
-            int count = (int)(damage / hurtAmount);
+            int count = (int)(damage.damage / hurtAmount);
             for (int i = 0; i < count; i++)
                 TriggerEffects();
         }
@@ -324,7 +324,7 @@ namespace ColbyDoan
             manager.character.healthManager.OnHurt += HealthManager_OnHurt;
         }
 
-        void HealthManager_OnHurt(float damage)
+        void HealthManager_OnHurt(HurtInfo damage)
         {
             user.StartCoroutine(UpdateLastHp(health.FractionFull));
             if (pastHp - health.FractionFull > hurtTreshold) TriggerEffects();

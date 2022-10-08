@@ -44,6 +44,7 @@ namespace ColbyDoan.BehaviourTree
 
         /// <summary>
         /// Called right after SetupTree in the Tree class Start method, sets tree of all child nodes
+        /// <seealso cref="Tree.SetupTree"/>
         /// </summary>
         public virtual void Initalize(Tree toSet)
         {

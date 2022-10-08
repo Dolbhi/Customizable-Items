@@ -24,6 +24,17 @@ namespace ColbyDoan
             Attach(_idleSequence);
         }
 
+        public override void Initalize(BehaviourTree.Tree toSet)
+        {
+            base.Initalize(toSet);
+            enemyTree.character.healthManager.OnHurt += OnHurt;
+        }
+
+        void OnHurt(HurtInfo context)
+        {
+
+        }
+
         public override NodeState Evaluate()
         {
             enemyTree.decider.allowDrops = false;
