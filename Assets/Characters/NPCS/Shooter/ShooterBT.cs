@@ -42,34 +42,28 @@ namespace ColbyDoan
                 indicator.SetIndicator("!");
             }
 
-            var root =
-            new Selector
-            (
-                new Sequence
+            var root = trackingTask.AttachNodes(
+                idleTask,
+                new Selector
                 (
-                    trackingTask,
-                    new Selector
-                    (
-                        new Condition(FindTargetTask.targetLOSKey,
-                            // move and shoot
-                            new MultiTask
+                    new Condition(FindTargetTask.targetLOSKey,
+                        // move and shoot
+                        new MultiTask
+                        (
+                            // new Node(NodeState.running),
+                            new CombinedMovementTask(keepDistEvaluator, stayInRangeEvaluator, spreadOutEvaluator),
+                            new Condition(FindTargetTask.targetNewKey, new SimpleTask(_OnIdleExit)),
+                            new Selector
                             (
-                                // new Node(NodeState.running),
-                                new CombinedMovementTask(keepDistEvaluator, stayInRangeEvaluator, spreadOutEvaluator),
-                                new Condition(FindTargetTask.targetNewKey, new SimpleTask(_OnIdleExit)),
-                                new Selector
-                                (
-                                    new Condition(FindTargetTask.targetLOSEnterKey, new SimpleTask(aimTask.StartWait)),
-                                    new Sequence(aimTask, shootTask)
-                                )
+                                new Condition(FindTargetTask.targetLOSEnterKey, new SimpleTask(aimTask.StartWait)),
+                                new Sequence(aimTask, shootTask)
                             )
-                        ),
-                        // investigate last seen
-                        new LastSeenTimeCondition(forgetTargetDuration, new Inverter(investigatePointTask)),
-                        new SimpleTask(_EnterIdle)
-                    )
-                ),
-                idleTask
+                        )
+                    ),
+                    // investigate last seen
+                    new LastSeenTimeCondition(forgetTargetDuration, new Inverter(investigatePointTask)),
+                    new SimpleTask(_EnterIdle)
+                )
             );
 
             return root;

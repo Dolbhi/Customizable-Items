@@ -43,7 +43,8 @@ namespace ColbyDoan.BehaviourTree
         }
 
         /// <summary>
-        /// Called right after SetupTree in the Tree class Start method, sets tree of all child nodes
+        /// Called right after SetupTree in the Tree class Start method,
+        /// sets parent tree and propagates initalization to all child nodes
         /// <seealso cref="Tree.SetupTree"/>
         /// </summary>
         public virtual void Initalize(Tree toSet)
@@ -55,6 +56,9 @@ namespace ColbyDoan.BehaviourTree
             }
         }
 
+        /// <summary>
+        /// Does something and returns the result, by default returns the current state
+        /// </summary>
         public virtual NodeState Evaluate()
         {
             return state;

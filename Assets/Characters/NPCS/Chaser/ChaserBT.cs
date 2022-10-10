@@ -37,29 +37,24 @@ namespace ColbyDoan
                 indicator.SetIndicator("!");
             }
 
-            return new Selector
-            (
-                new Sequence
-                (
-                    trackingTask,
-                    new MultiTask(
-                        new Selector
-                        (
-                            new Condition(FindTargetTask.targetLOSKey,
-                                new Selector
-                                (
-                                    new Sequence(meleeTask, chaseTask),
-                                    circleEnemyMovement
-                                )
-                            ),
-                            new LastSeenTimeCondition(forgetTargetDuration, new Inverter(investigatePointTask)),
-                            new SimpleTask(_EnterIdle)
+            return trackingTask.AttachNodes(
+                idleTask,
+                new MultiTask(
+                    new Selector
+                    (
+                        new Condition(FindTargetTask.targetLOSKey,
+                            new Selector
+                            (
+                                new Sequence(meleeTask, chaseTask),
+                                circleEnemyMovement
+                            )
                         ),
-                        new DontDropBelowTargetTask(),
-                        new Condition(FindTargetTask.targetNewKey, new SimpleTask(_OnIdleExit))
-                    )
-                ),
-                idleTask
+                        new LastSeenTimeCondition(forgetTargetDuration, new Inverter(investigatePointTask)),
+                        new SimpleTask(_EnterIdle)
+                    ),
+                    new DontDropBelowTargetTask(),
+                    new Condition(FindTargetTask.targetNewKey, new SimpleTask(_OnIdleExit))
+                )
             );
         }
 
@@ -103,8 +98,8 @@ namespace ColbyDoan
 
         public override void Initalize(ColbyDoan.BehaviourTree.Tree toSet)
         {
-            base.Initalize(toSet);
             _currentTarget = (TargetInfo)GetData(targetKey);
+            base.Initalize(toSet);
         }
 
         public override NodeState Evaluate()

@@ -7,13 +7,13 @@ using ColbyDoan.BehaviourTree;
 namespace ColbyDoan
 {
     /// <summary>
-    /// Finding and tracking targets task
+    /// Selector node that looks for targets and banches depending on if one is found
     /// </summary>
     [System.Serializable]
     public class FindTargetTask : EnemyNode
     {
         TargetInfo _currentTarget = new TargetInfo();
-        /// <summary> Targets the target tracker will look for </summary>        
+        /// <summary> Targets the target tracker will look for </summary>
         HashSet<Transform> _targets;
 
         public float insideFOVRange = 20;
@@ -33,11 +33,33 @@ namespace ColbyDoan
 
         public override void Initalize(ColbyDoan.BehaviourTree.Tree toSet)
         {
+            _targets = RootTracker.GetSet("ally");
+            SetData(targetInfoKey, _currentTarget);
+
             base.Initalize(toSet);
+
             _character = enemyTree.character;
             _transform = _character.transform;
-            _targets = RootTracker.GetSet("ally");
-            parent.SetData(targetInfoKey, _currentTarget);
+
+            enemyTree.character.healthManager.OnHurt += InvestigateDamage;
+        }
+
+        void InvestigateDamage(HurtInfo context)
+        {
+
+        }
+
+        /// <summary>
+        /// Set child nodes to evaluate based on outcomes
+        /// </summary>
+        /// <param name="noTargetNode"> Node to evaluate when no target is found </param>
+        /// <param name="yesTargetNode"> Node to evaluate when target is found </param>
+        /// <returns> FindTargetTask node itself </returns>
+        public Node AttachNodes(Node noTargetNode, Node yesTargetNode)
+        {
+            Attach(noTargetNode);
+            Attach(yesTargetNode);
+            return this;
         }
 
         /// <summary>
@@ -48,8 +70,8 @@ namespace ColbyDoan
         public override NodeState Evaluate()
         {
             // reset data
-            parent.SetData(targetLOSEnterKey, false);
-            parent.SetData(targetNewKey, false);
+            SetData(targetLOSEnterKey, false);
+            SetData(targetNewKey, false);
 
             if (_currentTarget.Exists)
             {
@@ -64,7 +86,7 @@ namespace ColbyDoan
                     float currentTargetBias = _currentTarget.HasLineOfSight ? 5 : 2;
                     if (Vector2.Distance(enemy.transform.position, pos) * currentTargetBias > _currentTarget.KnownDisplacement.magnitude) continue;
 
-                    parent.SetData(targetNewKey, TrySetTarget(enemy));
+                    SetData(targetNewKey, TrySetTarget(enemy));
                 }
 
                 // update target info
@@ -73,11 +95,12 @@ namespace ColbyDoan
                 _currentTarget.HasLineOfSight = newLOS;
                 _currentTarget.UpdatePos(pos, needsLOS);
 
-                parent.SetData(targetDisplaceKey, _currentTarget.KnownDisplacement);
-                parent.SetData(targetLOSKey, newLOS);
-                parent.SetData(targetLOSEnterKey, !oldLOS && newLOS);
+                SetData(targetDisplaceKey, _currentTarget.KnownDisplacement);
+                SetData(targetLOSKey, newLOS);
+                SetData(targetLOSEnterKey, !oldLOS && newLOS);
 
                 state = NodeState.success;
+                return children[1].Evaluate();
             }
             else
             {
@@ -87,18 +110,18 @@ namespace ColbyDoan
                     // print(enemy.name + " " + enemy.transform.position.z);
                     if (TrySetTarget(enemy))
                     {
-                        parent.SetData(targetDisplaceKey, _currentTarget.KnownDisplacement);
-                        parent.SetData(targetLOSKey, _currentTarget.HasLineOfSight);
-                        parent.SetData(targetLOSEnterKey, true);
-                        parent.SetData(targetNewKey, true);
+                        SetData(targetDisplaceKey, _currentTarget.KnownDisplacement);
+                        SetData(targetLOSKey, _currentTarget.HasLineOfSight);
+                        SetData(targetLOSEnterKey, true);
+                        SetData(targetNewKey, true);
 
                         state = NodeState.success;
-                        return state;
+                        return children[1].Evaluate();
                     }
                 }
                 state = NodeState.failure;
+                return children[0].Evaluate();
             }
-            return state;
         }
 
         public bool TrySetTarget(Transform target)

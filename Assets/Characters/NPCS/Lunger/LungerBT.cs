@@ -36,12 +36,10 @@ namespace ColbyDoan
                 indicator.SetIndicator("!");
             }
 
-            return new Selector
+            return trackingTask.AttachNodes
             (
-                new Sequence
-                (
-                    trackingTask,
-                    new MultiTask(
+                idleTask,
+                new MultiTask(
                         new Selector
                         (
                             new Condition(FindTargetTask.targetLOSKey,
@@ -56,8 +54,6 @@ namespace ColbyDoan
                         ),
                         new Condition(FindTargetTask.targetNewKey, new SimpleTask(_OnIdleExit))
                     )
-                ),
-                idleTask
             );
         }
 

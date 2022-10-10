@@ -50,14 +50,13 @@ namespace ColbyDoan
                 character.kinematicObject.ForceTo(finalV);
             }
 
-            var root = new Selector
+            var root = new MultiTask
             (
-                new Sequence
-                (
-                    // maintain height at lvl 2, always succeeds
-                    new SimpleTask(_MaintainHeight),
-                    // find and update targets, succeeds if one is/was found
-                    trackingTask,
+                // maintain height at lvl 2, always succeeds
+                new SimpleTask(_MaintainHeight),
+                // find and update targets, succeeds if one is/was found
+                trackingTask.AttachNodes(
+                    idleTask,
                     new MultiTask
                     (
                         new Selector
@@ -81,8 +80,7 @@ namespace ColbyDoan
                         ),
                         new Condition(FindTargetTask.targetNewKey, new SimpleTask(_OnIdleExit))
                     )
-                ),
-                idleTask
+                )
             );
 
             return root;
