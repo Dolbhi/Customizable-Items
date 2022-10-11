@@ -20,7 +20,7 @@ namespace ColbyDoan
         protected abstract class EnemyState<T> : State<T> where T : EnemyBehaviour
         {
             protected Character GetCharacter => container.character;
-            protected TargetInfo CurrentTarget => container.tracker.currentTarget;
+            protected OldTargetInfo CurrentTarget => container.tracker.currentTarget;
             protected MoveDecider Decider => container.moveDecider;
 
             public override void Enter()

@@ -33,8 +33,8 @@ namespace ColbyDoan
         float lastTimeWithNoLOS;
         public override void UpdateState()
         {
-            TargetInfo target = tracker.currentTarget;
-            if (!target.Exists)
+            OldTargetInfo target = tracker.currentTarget;
+            if (!target.exists)
             {
                 // idle
                 indicator.SetIndicator("?");

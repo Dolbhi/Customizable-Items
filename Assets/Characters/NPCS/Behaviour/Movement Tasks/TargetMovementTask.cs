@@ -38,7 +38,8 @@ namespace ColbyDoan
         public override NodeState Evaluate()
         {
             base.Evaluate();
-            if (targetDisplacement.sqrMagnitude < targetDistanceGoal)
+            Vector2 horizontalDisplacement = targetDisplacement;
+            if (horizontalDisplacement.sqrMagnitude < targetDistanceGoal)
             {
                 // Debug.Log(targetDisplacement, tree);
                 return NodeState.success;

@@ -32,10 +32,8 @@ namespace ColbyDoan
                 trackingTask.ForgetTarget();
                 idleTask.ResetSequence();
             }
-            void _OnIdleExit()
-            {
-                indicator.SetIndicator("!");
-            }
+
+            trackingTask.OnTargetFound += delegate { indicator.SetIndicator("!"); };
 
             return trackingTask.AttachNodes(
                 idleTask,
@@ -52,8 +50,7 @@ namespace ColbyDoan
                         new LastSeenTimeCondition(forgetTargetDuration, new Inverter(investigatePointTask)),
                         new SimpleTask(_EnterIdle)
                     ),
-                    new DontDropBelowTargetTask(),
-                    new Condition(FindTargetTask.targetNewKey, new SimpleTask(_OnIdleExit))
+                    new DontDropBelowTargetTask()
                 )
             );
         }

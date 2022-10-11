@@ -35,10 +35,6 @@ namespace ColbyDoan
                 trackingTask.ForgetTarget();
                 idleTask.ResetSequence();
             }
-            void _OnIdleExit()
-            {
-                indicator.SetIndicator("!");
-            }
             var ownTransform = transform;
             void _MaintainHeight()
             {
@@ -50,6 +46,8 @@ namespace ColbyDoan
                 character.kinematicObject.ForceTo(finalV);
             }
 
+            trackingTask.OnTargetFound += delegate { indicator.SetIndicator("!"); };
+
             var root = new MultiTask
             (
                 // maintain height at lvl 2, always succeeds
@@ -57,28 +55,24 @@ namespace ColbyDoan
                 // find and update targets, succeeds if one is/was found
                 trackingTask.AttachNodes(
                     idleTask,
-                    new MultiTask
+                    new Selector
                     (
-                        new Selector
-                        (
-                            // target in los tasks
-                            new Condition(FindTargetTask.targetLOSKey,
-                                new MultiTask
-                                (
-                                    circleEnemyMovement,
-                                    shootTask
-                                )
-                            ),
+                        // target in los tasks
+                        new Condition(FindTargetTask.targetLOSKey,
                             new MultiTask
                             (
-                                // investigate last seen, if needed reset lastLOS, fails when investigate point is reached
-                                new LastSeenTimeCondition(forgetTargetDuration, new Inverter(investigatePointTask)),
-                                // new SimpleTask(() => { print((bool)Root.GetData(_lastLOSKey)); }),
-                                new SimpleTask(shootTask.InteruptAiming)
-                            ),
-                            new SimpleTask(_EnterIdle)
+                                circleEnemyMovement,
+                                shootTask
+                            )
                         ),
-                        new Condition(FindTargetTask.targetNewKey, new SimpleTask(_OnIdleExit))
+                        new MultiTask
+                        (
+                            // investigate last seen, fails when investigate point is reached
+                            new LastSeenTimeCondition(forgetTargetDuration, new Inverter(investigatePointTask)),
+                            // new SimpleTask(() => { print((bool)Root.GetData(_lastLOSKey)); }),
+                            new SimpleTask(shootTask.InteruptAiming)
+                        ),
+                        new SimpleTask(_EnterIdle)
                     )
                 )
             );

@@ -31,29 +31,24 @@ namespace ColbyDoan
                 trackingTask.ForgetTarget();
                 idleTask.ResetSequence();
             }
-            void _OnIdleExit()
-            {
-                indicator.SetIndicator("!");
-            }
+
+            trackingTask.OnTargetFound += delegate { indicator.SetIndicator("!"); };
 
             return trackingTask.AttachNodes
             (
                 idleTask,
-                new MultiTask(
+                new Selector
+                (
+                    new Condition(FindTargetTask.targetLOSKey,
                         new Selector
                         (
-                            new Condition(FindTargetTask.targetLOSKey,
-                                new Selector
-                                (
-                                    new Sequence(meleeTask, chaseTask),
-                                    circleEnemyMovement
-                                )
-                            ),
-                            new LastSeenTimeCondition(forgetTargetDuration, new Inverter(investigatePointTask)),
-                            new SimpleTask(_EnterIdle)
-                        ),
-                        new Condition(FindTargetTask.targetNewKey, new SimpleTask(_OnIdleExit))
-                    )
+                            new Sequence(meleeTask, chaseTask),
+                            circleEnemyMovement
+                        )
+                    ),
+                    new LastSeenTimeCondition(forgetTargetDuration, new Inverter(investigatePointTask)),
+                    new SimpleTask(_EnterIdle)
+                )
             );
         }
 

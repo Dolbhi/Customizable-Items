@@ -1,5 +1,6 @@
 // using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 using ColbyDoan.BehaviourTree;
@@ -12,7 +13,8 @@ namespace ColbyDoan
     [System.Serializable]
     public class FindTargetTask : EnemyNode
     {
-        TargetInfo _currentTarget = new TargetInfo();
+        Transform _currentTarget;
+        TargetInfo _knownTargetInfo = new TargetInfo();
         /// <summary> Targets the target tracker will look for </summary>
         HashSet<Transform> _targets;
 
@@ -22,11 +24,13 @@ namespace ColbyDoan
         public float fov = 75;
         public bool needsLOS = true;
 
+        public event Action OnTargetFound = delegate { };
+        public event Action OnLOSEnter = delegate { };
+
         public const string targetInfoKey = "target_info";
         public const string targetDisplaceKey = "target_displacement";
         public const string targetLOSKey = "target_los";
-        public const string targetLOSEnterKey = "target_los_enter";
-        public const string targetNewKey = "target_new";
+        public const string targetLastLOSKey = "target_last_los";
 
         Character _character;
         Transform _transform;
@@ -34,7 +38,7 @@ namespace ColbyDoan
         public override void Initalize(ColbyDoan.BehaviourTree.Tree toSet)
         {
             _targets = RootTracker.GetSet("ally");
-            SetData(targetInfoKey, _currentTarget);
+            SetData(targetInfoKey, _knownTargetInfo);
 
             base.Initalize(toSet);
 
@@ -69,35 +73,29 @@ namespace ColbyDoan
         /// <returns>success if a target exsists, failure if it doesnt</returns>
         public override NodeState Evaluate()
         {
-            // reset data
-            SetData(targetLOSEnterKey, false);
-            SetData(targetNewKey, false);
-
-            if (_currentTarget.Exists)
+            if (_currentTarget)
             {
                 // check for more favourable enemies
                 var pos = _transform.position;
                 foreach (Transform enemy in _targets)
                 {
-                    if (enemy == _currentTarget.transform) continue;
+                    if (enemy == _currentTarget) continue;
                     if (PhysicsSettings.SolidsLinecast(pos, enemy.transform.position)) continue;
 
                     // New enemy must be many times closer before a switch is considered
-                    float currentTargetBias = _currentTarget.HasLineOfSight ? 5 : 2;
-                    if (Vector2.Distance(enemy.transform.position, pos) * currentTargetBias > _currentTarget.KnownDisplacement.magnitude) continue;
-
-                    SetData(targetNewKey, TrySetTarget(enemy));
+                    float currentTargetBias = _knownTargetInfo.HasLineOfSight ? 5 : 2;
+                    if (Vector2.Distance(enemy.transform.position, pos) * currentTargetBias > _knownTargetInfo.KnownDisplacement.magnitude) continue;
                 }
 
                 // update target info
-                bool oldLOS = _currentTarget.HasLineOfSight;
-                bool newLOS = _CanSeePoint(_currentTarget.transform.position);
-                _currentTarget.HasLineOfSight = newLOS;
-                _currentTarget.UpdatePos(pos, needsLOS);
+                SetData(targetLastLOSKey, _knownTargetInfo.HasLineOfSight);
 
-                SetData(targetDisplaceKey, _currentTarget.KnownDisplacement);
+                bool newLOS = _CanSeePoint(_currentTarget.position);
+                _knownTargetInfo.HasLineOfSight = newLOS;
+                _knownTargetInfo.UpdatePos(_currentTarget, pos, needsLOS);
+
+                SetData(targetDisplaceKey, _knownTargetInfo.KnownDisplacement);
                 SetData(targetLOSKey, newLOS);
-                SetData(targetLOSEnterKey, !oldLOS && newLOS);
 
                 state = NodeState.success;
                 return children[1].Evaluate();
@@ -110,10 +108,11 @@ namespace ColbyDoan
                     // print(enemy.name + " " + enemy.transform.position.z);
                     if (TrySetTarget(enemy))
                     {
-                        SetData(targetDisplaceKey, _currentTarget.KnownDisplacement);
-                        SetData(targetLOSKey, _currentTarget.HasLineOfSight);
-                        SetData(targetLOSEnterKey, true);
-                        SetData(targetNewKey, true);
+                        SetData(targetDisplaceKey, _knownTargetInfo.KnownDisplacement);
+                        SetData(targetLOSKey, _knownTargetInfo.HasLineOfSight);
+                        SetData(targetLastLOSKey, false);
+
+                        OnTargetFound.Invoke();
 
                         state = NodeState.success;
                         return children[1].Evaluate();
@@ -130,9 +129,9 @@ namespace ColbyDoan
             if (_CanSeePoint(target.position))
             {
                 // Set current target
-                _currentTarget.transform = target;
-                _currentTarget.HasLineOfSight = true;
-                _currentTarget.UpdatePos(_transform.position);
+                _currentTarget = target;
+                _knownTargetInfo.HasLineOfSight = true;
+                _knownTargetInfo.UpdatePos(_currentTarget, _transform.position);
                 return true;
             }
             return false;
@@ -156,7 +155,8 @@ namespace ColbyDoan
 
         public void ForgetTarget()
         {
-            _currentTarget.Reset();
+            _currentTarget = null;
+            SetData(targetLastLOSKey, false);
         }
 
         public void DrawGizmos()
@@ -182,14 +182,14 @@ namespace ColbyDoan
             Gizmos.DrawLine(pos, pos + Quaternion.AngleAxis(-fov, Vector3.forward) * facing * insideFOVRange);
 
             // targeting line
-            if (_currentTarget.Exists)
+            if (_currentTarget)
             {
-                if (_currentTarget.HasLineOfSight)
+                if (_knownTargetInfo.HasLineOfSight)
                     Gizmos.color = Color.blue;
                 else
                     Gizmos.color = Color.red;
-                Gizmos.DrawCube(_currentTarget.KnownPos, Vector3.one);
-                Gizmos.DrawLine(pos, _currentTarget.KnownPos);
+                Gizmos.DrawCube(_knownTargetInfo.KnownPos, Vector3.one);
+                Gizmos.DrawLine(pos, _knownTargetInfo.KnownPos);
             }
         }
     }
@@ -220,31 +220,43 @@ namespace ColbyDoan
         }
     }
 
+    /// <summary>
+    /// Data output class for tracked target
+    /// </summary>
     [System.Serializable]
     public class TargetInfo// : IDisplacementProvider
     {
-        public Transform transform;
         public Vector3 KnownPos { get; private set; }
         public bool HasLineOfSight { get; set; }
         public float timeLastSeen = 0;
         public Vector3 KnownDisplacement { get; private set; }
         // public Vector3 Displacement => KnownDisplacement;
-        public bool Exists => transform;
+        // public bool exists = false;
 
-        public void UpdatePos(Vector3 selfPosition, bool requireLOS = true)
+        // public void UpdatePos(Vector3 selfPosition, bool requireLOS = true)
+        // {
+        //     if (HasLineOfSight || !requireLOS)
+        //     {
+        //         KnownPos = transform.position;
+        //         timeLastSeen = Time.time;
+        //     }
+        //     KnownDisplacement = KnownPos - selfPosition;
+        // }
+
+        public void UpdatePos(Transform target, Vector3 selfPosition, bool requireLOS = true)
         {
             if (HasLineOfSight || !requireLOS)
             {
-                KnownPos = transform.position;
+                KnownPos = target.position;
                 timeLastSeen = Time.time;
             }
             KnownDisplacement = KnownPos - selfPosition;
         }
 
-        public void Reset()
-        {
-            transform = null;
-        }
+        // public void Reset()
+        // {
+        //     transform = null;
+        // }
     }
 
     public interface IDisplacementProvider

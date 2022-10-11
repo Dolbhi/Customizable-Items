@@ -71,9 +71,9 @@ namespace ColbyDoan
 
         public override void UpdateState()
         {
-            TargetInfo target = tracker.currentTarget;
+            OldTargetInfo target = tracker.currentTarget;
             float targetDistSqr = target.KnownDisplacement.sqrMagnitude;
-            if (!target.Exists)
+            if (!target.exists)
             {
                 // idle
                 indicator.SetIndicator("?");

@@ -37,10 +37,8 @@ namespace ColbyDoan
                 trackingTask.ForgetTarget();
                 idleTask.ResetSequence();
             }
-            void _OnIdleExit()
-            {
-                indicator.SetIndicator("!");
-            }
+
+            trackingTask.OnTargetFound += delegate { indicator.SetIndicator("!"); };
 
             var root = trackingTask.AttachNodes(
                 idleTask,
@@ -52,10 +50,12 @@ namespace ColbyDoan
                         (
                             // new Node(NodeState.running),
                             new CombinedMovementTask(keepDistEvaluator, stayInRangeEvaluator, spreadOutEvaluator),
-                            new Condition(FindTargetTask.targetNewKey, new SimpleTask(_OnIdleExit)),
                             new Selector
                             (
-                                new Condition(FindTargetTask.targetLOSEnterKey, new SimpleTask(aimTask.StartWait)),
+                                // start wait if target just entered LOS
+                                new Condition(FindTargetTask.targetLastLOSKey, false,
+                                    new SimpleTask(aimTask.StartWait)
+                                ),
                                 new Sequence(aimTask, shootTask)
                             )
                         )

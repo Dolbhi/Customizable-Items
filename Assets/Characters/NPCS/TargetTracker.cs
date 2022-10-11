@@ -7,7 +7,7 @@ namespace ColbyDoan
 {
     public class TargetTracker : MonoBehaviour, IAutoDependancy<Character>, IDisplacementProvider
     {
-        public TargetInfo currentTarget;
+        public OldTargetInfo currentTarget;
         public Vector3 Displacement => currentTarget.KnownDisplacement; //PREPARE FOR NULL ERROR
         public float searchWaitTime = .2f;
         /// <summary> Targets the target tracker will look for </summary>        
@@ -50,7 +50,7 @@ namespace ColbyDoan
         void Update()
         {
             // Return if no target
-            if (!currentTarget.Exists) return;
+            if (!currentTarget.exists) return;
             // Update LOS
             bool canSee = CanSeeTarget(currentTarget.transform);
             if (currentTarget.HasLineOfSight != canSee)
@@ -66,7 +66,7 @@ namespace ColbyDoan
             yield return null;
             while (true)
             {
-                if (!currentTarget.Exists)
+                if (!currentTarget.exists)
                 {
                     // search for any valid enemies
                     foreach (Transform enemy in _targets)
@@ -145,7 +145,7 @@ namespace ColbyDoan
             Gizmos.DrawLine(transform.position, transform.position + Quaternion.AngleAxis(-fov, Vector3.forward) * facing * insideFOVRange);
 
             // targeting line
-            if (currentTarget.Exists)
+            if (currentTarget.exists)
             {
                 if (currentTarget.HasLineOfSight)
                     Gizmos.color = Color.blue;
@@ -154,6 +154,43 @@ namespace ColbyDoan
                 Gizmos.DrawCube(currentTarget.KnownPos, Vector3.one);
                 Gizmos.DrawLine(transform.position, currentTarget.KnownPos);
             }
+        }
+    }
+
+    [System.Serializable]
+    public class OldTargetInfo// : IDisplacementProvider
+    {
+        public Transform transform;
+        public Vector3 KnownPos { get; private set; }
+        public bool HasLineOfSight { get; set; }
+        public float timeLastSeen = 0;
+        public Vector3 KnownDisplacement { get; private set; }
+        public Vector3 Displacement => KnownDisplacement;
+        public bool exists => transform;
+
+        public void UpdatePos(Vector3 selfPosition, bool requireLOS = true)
+        {
+            if (HasLineOfSight || !requireLOS)
+            {
+                KnownPos = transform.position;
+                timeLastSeen = Time.time;
+            }
+            KnownDisplacement = KnownPos - selfPosition;
+        }
+
+        // public void UpdatePos(Transform target, Vector3 selfPosition, bool requireLOS = true)
+        // {
+        //     if (HasLineOfSight || !requireLOS)
+        //     {
+        //         KnownPos = target.position;
+        //         timeLastSeen = Time.time;
+        //     }
+        //     KnownDisplacement = KnownPos - selfPosition;
+        // }
+
+        public void Reset()
+        {
+            transform = null;
         }
     }
 }
