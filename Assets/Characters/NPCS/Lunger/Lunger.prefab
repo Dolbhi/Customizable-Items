@@ -477,11 +477,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+--- !u!114 &727778696454369306 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8232301761348400686, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+  m_PrefabInstance: {fileID: 8657770111009818164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe840663bba54c9797ece645f0acf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2598893278835420315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6644933300620012207, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
   m_PrefabInstance: {fileID: 8657770111009818164}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1181366285735642685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2598893278835420315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84dce7560d04d4c0281820fa1b89c101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveStopThreshold: 0
+  moveMaxThreshold: 1
+  speedMultiplier: 1
+  _targetDirection: {x: 0, y: 0}
+  _speedAdjustments: 1
 --- !u!114 &2665332101364502365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,8 +529,8 @@ MonoBehaviour:
   maxCrowdAvoidDistance: 3
   minCrowdAvoidDistance: 2
   requireFloor: 1
-  allowDrops: 0
---- !u!114 &3813862992120865251
+  allowDrops: 1
+--- !u!114 &5733895610944195700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -511,64 +539,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 2598893278835420315}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb2c2bf7294ae4bfe8a013195a1196d6, type: 3}
+  m_Script: {fileID: 11500000, guid: cf3339dee3fc34c1a9e2c798eeebf8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTarget:
-    transform: {fileID: 0}
-    timeLastSeen: 0
-  searchWaitTime: 0.2
-  insideFOVRange: 11
-  outsideFOVRange: 5
-  fov: 75
-  needsLOS: 1
---- !u!114 &8424651249328159858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2598893278835420315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d488c956056a948df896df65e76f5e85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveDecider: {fileID: 2665332101364502365}
-  tracker: {fileID: 3813862992120865251}
+  currentNode: 
+  nodeState: 0
+  character: {fileID: 727778696454369306}
+  moveManager: {fileID: 1181366285735642685}
+  decider: {fileID: 2665332101364502365}
   indicator: {fileID: 2318259741592342768}
-  moveStopThreshold: 0
-  moveMaxThreshold: 1
-  stateMachine:
-    currentStateName: 
-  idleState:
-    idleSpeedCoefficient: 0.5
-    idleMinWait: 2
-    idleMaxWait: 4
-    idleMaxDist: 6
-    requiresGround: 1
-  pursuitState:
-    forbidDrops: 0
-    forgetTime: 10
-  bobAndWeaveMovement:
-    targetDisplacement: {x: 0, y: 0, z: 0}
+  forgetTargetDuration: 10
+  trackingTask:
+    _currentTarget: {fileID: 0}
+    _sightingInfo:
+      timeLastSeen: 0
+      investigated: 1
+    insideFOVRange: 11
+    outsideFOVRange: 5
+    fov: 75
+    needsLOS: 1
+  idleTask:
+    waitTask:
+      minWait: 2
+      maxWait: 4
+    pickSpotTask:
+      needGround: 1
+      idleMaxDist: 6
+    goToSpotTask:
+      speedMultiplier: 0.5
+      displacementKey: spot_displacement
+      targetDistanceGoal: 0.1
+  chaseTask:
+    speedMultiplier: 1
+    displacementKey: target_displacement
     skewAngle: 30
     bobChance: 20
-  maintainDistanceMovement:
-    targetDisplacement: {x: 0, y: 0, z: 0}
+  lungeAimTask:
+    waitTime: 1
+  lungeTask:
+    skill: {fileID: 2635204990912832134}
+    targetKey: target_info
+  maintainDistanceTask:
+    speedMultiplier: 1
+    displacementKey: target_displacement
     distanceToMaintain: 0
-    kinematicObject: {fileID: 4255383926226337619}
---- !u!114 &4255383926226337619 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4839325783469898087, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
-  m_PrefabInstance: {fileID: 8657770111009818164}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abf0a456bf6ea43cda215ecc25afac9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  investigatePointTask:
+    speedMultiplier: 1
+    displacementKey: target_displacement
+    targetDistanceGoal: 0.1
 --- !u!1 &5084495469710025017 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4515234364465489677, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}

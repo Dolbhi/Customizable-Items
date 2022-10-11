@@ -96,12 +96,12 @@ namespace ColbyDoan
         [SerializeField] ProjectileSkill skill;
         // [SerializeField] float attackRangeSqr = 10;
         public string targetKey = FindTargetTask.targetInfoKey;
-        TargetInfo _currentTarget;
+        SightingInfo _currentTarget;
 
         public override void Initalize(ColbyDoan.BehaviourTree.Tree toSet)
         {
             base.Initalize(toSet);
-            _currentTarget = (TargetInfo)GetData(targetKey);
+            _currentTarget = (SightingInfo)GetData(targetKey);
         }
 
         public override NodeState Evaluate()

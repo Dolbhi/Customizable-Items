@@ -28,6 +28,10 @@ namespace ColbyDoan
         public virtual void PreEvaluation() { }
         public abstract float EvaluateDirection(Vector2 inputDirection);
 
+        /// <summary>
+        /// Do preEvaluation then update movemanage with evaluation results from move decider
+        /// </summary>
+        /// <returns></returns>
         public override NodeState Evaluate()
         {
             // do preEvaluation
@@ -151,58 +155,6 @@ namespace ColbyDoan
             if (_scoreMultiplier == 0)
                 return NodeState.success;
             return NodeState.running;
-        }
-    }
-
-    /// <summary> Try to stay at a specific distance at all times </summary>
-    [System.Serializable]
-    public class MaintainDistanceTask : TargetMovementTask
-    {
-        public float distanceToMaintain;
-
-        protected float _fractionFromRadius;
-        public override void PreEvaluation()
-        {
-            base.PreEvaluation();
-            /// normalisedDist = 1 => lunger is double the lunge dist away, Dist = -1 => lunger is at target
-            _fractionFromRadius = Mathf.Min((targetDisplacement.magnitude / distanceToMaintain) - 1, 1);
-        }
-
-        // attempt to stay at lungeDist from target
-        public override float EvaluateDirection(Vector2 inputDirection)
-        {
-            return Mathf.Abs(_fractionFromRadius) * MoveDecider.TargetDirectionScorer(inputDirection, _fractionFromRadius * targetDisplacement);
-        }
-    }
-
-    [System.Serializable]
-    public class CirclingTask : MaintainDistanceTask
-    {
-        KinematicObject _kinematicObject;
-
-        Vector2 _displacementNormalised;
-        Vector2 _velocityDir;
-        public override void PreEvaluation()
-        {
-            base.PreEvaluation();
-            _displacementNormalised = targetDisplacement.normalized;
-            _velocityDir = _kinematicObject.velocity.normalized;
-        }
-
-        public override void Initalize(ColbyDoan.BehaviourTree.Tree tree)
-        {
-            base.Initalize(tree);
-            _kinematicObject = enemyTree.character.kinematicObject;
-        }
-
-        public override float EvaluateDirection(Vector2 inputDirection)
-        {
-            // circle target
-            float circleScore = (1 - Mathf.Abs(_fractionFromRadius)) * Mathf.Abs(Vector2.Dot(Vector2.Perpendicular(inputDirection), _displacementNormalised));
-            float velocityBias = 0.2f * Vector2.Dot(inputDirection, _velocityDir);
-            float followScore = base.EvaluateDirection(inputDirection);
-
-            return circleScore + velocityBias + followScore;
         }
     }
 }

@@ -68,13 +68,13 @@ namespace ColbyDoan
     public class DontDropBelowTargetTask : EnemyNode
     {
         public string targetKey = FindTargetTask.targetInfoKey;
-        TargetInfo _currentTarget;
+        SightingInfo _currentTarget;
         MoveDecider _decider;
 
         public override void Initalize(ColbyDoan.BehaviourTree.Tree toSet)
         {
             base.Initalize(toSet);
-            _currentTarget = (TargetInfo)GetData(targetKey);
+            _currentTarget = (SightingInfo)GetData(targetKey);
             _decider = enemyTree.decider;
         }
 
@@ -91,11 +91,11 @@ namespace ColbyDoan
         [SerializeField] MeleeSkill skill;
         [SerializeField] float attackRangeSqr = 1;
         public string targetKey = FindTargetTask.targetInfoKey;
-        TargetInfo _currentTarget;
+        SightingInfo _currentTarget;
 
         public override void Initalize(ColbyDoan.BehaviourTree.Tree toSet)
         {
-            _currentTarget = (TargetInfo)GetData(targetKey);
+            _currentTarget = (SightingInfo)GetData(targetKey);
             base.Initalize(toSet);
         }
 

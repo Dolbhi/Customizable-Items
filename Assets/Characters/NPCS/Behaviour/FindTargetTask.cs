@@ -4,17 +4,23 @@ using System;
 using UnityEngine;
 
 using ColbyDoan.BehaviourTree;
+using ColbyDoan.Attributes;
 
 namespace ColbyDoan
 {
     /// <summary>
     /// Selector node that looks for targets and banches depending on if one is found
+    /// TOCONSIDER: Trigger OnTargetFound with target switching, also changing is own state based of target status
     /// </summary>
     [System.Serializable]
     public class FindTargetTask : EnemyNode
     {
+        [SerializeField]
+        [ReadOnly]
         Transform _currentTarget;
-        TargetInfo _knownTargetInfo = new TargetInfo();
+        [SerializeField]
+        [ReadOnly]
+        SightingInfo _sightingInfo = new SightingInfo();
         /// <summary> Targets the target tracker will look for </summary>
         HashSet<Transform> _targets;
 
@@ -38,19 +44,27 @@ namespace ColbyDoan
         public override void Initalize(ColbyDoan.BehaviourTree.Tree toSet)
         {
             _targets = RootTracker.GetSet("ally");
-            SetData(targetInfoKey, _knownTargetInfo);
+            SetData(targetInfoKey, _sightingInfo);
 
             base.Initalize(toSet);
 
             _character = enemyTree.character;
             _transform = _character.transform;
 
-            enemyTree.character.healthManager.OnHurt += InvestigateDamage;
+            enemyTree.character.healthManager.OnHurt += _InvestigateDamage;
         }
 
-        void InvestigateDamage(HurtInfo context)
+        /// <summary>
+        /// If there is no current target, set hurt direction as a sighting point
+        /// </summary>
+        /// <param name="context"> hurt infomation</param>
+        void _InvestigateDamage(HurtInfo context)
         {
-
+            if (!_currentTarget)
+            {
+                // Debug.Log(context.direction.normalized);
+                _sightingInfo.UpdatePos(context.direction.normalized + _transform.position, _transform.position, false, false);
+            }
         }
 
         /// <summary>
@@ -70,35 +84,29 @@ namespace ColbyDoan
         /// Updates info for current target, finding a new target if more favourable
         /// If no targets, look for one
         /// </summary>
-        /// <returns>success if a target exsists, failure if it doesnt</returns>
+        /// <returns>evaluation of the first node if no points to investigate, second if there is</returns>
         public override NodeState Evaluate()
         {
+            SetData(targetLastLOSKey, _sightingInfo.HasLineOfSight);
+
+            // find targets/new targets and update LOS
+            bool hasLOS = false;
             if (_currentTarget)
             {
                 // check for more favourable enemies
                 var pos = _transform.position;
+                float displacementToBeat = _sightingInfo.KnownDisplacement.magnitude * (_sightingInfo.HasLineOfSight ? .2f : .5f);
                 foreach (Transform enemy in _targets)
                 {
-                    if (enemy == _currentTarget) continue;
-                    if (PhysicsSettings.SolidsLinecast(pos, enemy.transform.position)) continue;
-
+                    // update los of current target
+                    if (enemy == _currentTarget)
+                        hasLOS = _CanSeePoint(_currentTarget.position);
                     // New enemy must be many times closer before a switch is considered
-                    float currentTargetBias = _knownTargetInfo.HasLineOfSight ? 5 : 2;
-                    if (Vector2.Distance(enemy.transform.position, pos) * currentTargetBias > _knownTargetInfo.KnownDisplacement.magnitude) continue;
+                    else if (Vector2.Distance(enemy.transform.position, pos) < displacementToBeat)
+                        // set new target
+                        if (TrySetTarget(enemy))
+                            hasLOS = true;
                 }
-
-                // update target info
-                SetData(targetLastLOSKey, _knownTargetInfo.HasLineOfSight);
-
-                bool newLOS = _CanSeePoint(_currentTarget.position);
-                _knownTargetInfo.HasLineOfSight = newLOS;
-                _knownTargetInfo.UpdatePos(_currentTarget, pos, needsLOS);
-
-                SetData(targetDisplaceKey, _knownTargetInfo.KnownDisplacement);
-                SetData(targetLOSKey, newLOS);
-
-                state = NodeState.success;
-                return children[1].Evaluate();
             }
             else
             {
@@ -108,21 +116,34 @@ namespace ColbyDoan
                     // print(enemy.name + " " + enemy.transform.position.z);
                     if (TrySetTarget(enemy))
                     {
-                        SetData(targetDisplaceKey, _knownTargetInfo.KnownDisplacement);
-                        SetData(targetLOSKey, _knownTargetInfo.HasLineOfSight);
-                        SetData(targetLastLOSKey, false);
-
                         OnTargetFound.Invoke();
-
-                        state = NodeState.success;
-                        return children[1].Evaluate();
+                        hasLOS = true;
+                        break; // remove if there are comparisions within TrySetTarget
                     }
                 }
-                state = NodeState.failure;
+            }
+
+            // update info
+            _sightingInfo.UpdatePos(_currentTarget.position, _transform.position, hasLOS, needsLOS);
+            SetData(targetDisplaceKey, _sightingInfo.KnownDisplacement);
+            SetData(targetLOSKey, _sightingInfo.HasLineOfSight);
+
+            // decide child node to evaluate
+            if (_sightingInfo.investigated)
+            {
                 return children[0].Evaluate();
+            }
+            else
+            {
+                return children[1].Evaluate();
             }
         }
 
+        /// <summary>
+        /// If target can be seen, set it as current target
+        /// </summary>
+        /// <param name="target"> target to try set </param>
+        /// <returns> if target can be seen </returns>
         public bool TrySetTarget(Transform target)
         {
             Vector2 displacement = target.position - _transform.position;
@@ -130,8 +151,7 @@ namespace ColbyDoan
             {
                 // Set current target
                 _currentTarget = target;
-                _knownTargetInfo.HasLineOfSight = true;
-                _knownTargetInfo.UpdatePos(_currentTarget, _transform.position);
+                // _sightingInfo.UpdatePos(_currentTarget.position, _transform.position, true);
                 return true;
             }
             return false;
@@ -153,10 +173,13 @@ namespace ColbyDoan
             return !PhysicsSettings.SolidsLinecast(ownPos, targetPos, Mathf.Max(ownPos.z, targetPos.z));
         }
 
+        /// <summary>
+        /// Unset currentTarget and set lastSighting as investigated
+        /// </summary>
         public void ForgetTarget()
         {
             _currentTarget = null;
-            SetData(targetLastLOSKey, false);
+            _sightingInfo.Reset();
         }
 
         public void DrawGizmos()
@@ -184,12 +207,12 @@ namespace ColbyDoan
             // targeting line
             if (_currentTarget)
             {
-                if (_knownTargetInfo.HasLineOfSight)
+                if (_sightingInfo.HasLineOfSight)
                     Gizmos.color = Color.blue;
                 else
                     Gizmos.color = Color.red;
-                Gizmos.DrawCube(_knownTargetInfo.KnownPos, Vector3.one);
-                Gizmos.DrawLine(pos, _knownTargetInfo.KnownPos);
+                Gizmos.DrawCube(_sightingInfo.KnownPos, Vector3.one);
+                Gizmos.DrawLine(pos, _sightingInfo.KnownPos);
             }
         }
     }
@@ -197,7 +220,7 @@ namespace ColbyDoan
     public class LastSeenTimeCondition : Node
     {
         float _waitDuration;
-        TargetInfo _target;
+        SightingInfo _target;
 
         public LastSeenTimeCondition(float waitTime, Node childNode) : base(childNode)
         {
@@ -207,7 +230,7 @@ namespace ColbyDoan
         public override void Initalize(ColbyDoan.BehaviourTree.Tree toSet)
         {
             base.Initalize(toSet);
-            _target = (TargetInfo)GetData(FindTargetTask.targetInfoKey);
+            _target = (SightingInfo)GetData(FindTargetTask.targetInfoKey);
         }
 
         public override NodeState Evaluate()
@@ -224,12 +247,13 @@ namespace ColbyDoan
     /// Data output class for tracked target
     /// </summary>
     [System.Serializable]
-    public class TargetInfo// : IDisplacementProvider
+    public class SightingInfo// : IDisplacementProvider
     {
         public Vector3 KnownPos { get; private set; }
         public bool HasLineOfSight { get; set; }
         public float timeLastSeen = 0;
         public Vector3 KnownDisplacement { get; private set; }
+        public bool investigated = true;
         // public Vector3 Displacement => KnownDisplacement;
         // public bool exists = false;
 
@@ -243,20 +267,30 @@ namespace ColbyDoan
         //     KnownDisplacement = KnownPos - selfPosition;
         // }
 
-        public void UpdatePos(Transform target, Vector3 selfPosition, bool requireLOS = true)
+        /// <summary>
+        /// Update with new sighting
+        /// </summary>
+        /// <param name="targetPos"> Current true position of target </param>
+        /// <param name="selfPosition"> Position of observer eyes </param>
+        /// <param name="los"> Is there line of sight to target position? </param>
+        /// <param name="requireLOS"> Is line of sight needed to for position to be updated? </param>
+        public void UpdatePos(Vector3 targetPos, Vector3 selfPosition, bool los, bool requireLOS = true)
         {
+            HasLineOfSight = los;
             if (HasLineOfSight || !requireLOS)
             {
-                KnownPos = target.position;
+                KnownPos = targetPos;
                 timeLastSeen = Time.time;
             }
             KnownDisplacement = KnownPos - selfPosition;
+            investigated = false;
         }
 
-        // public void Reset()
-        // {
-        //     transform = null;
-        // }
+        public void Reset()
+        {
+            investigated = true;
+            HasLineOfSight = false;
+        }
     }
 
     public interface IDisplacementProvider

@@ -26,8 +26,9 @@ namespace ColbyDoan.BehaviourTree
         protected int childCount;
         public Node(params Node[] childrenNodes)
         {
-            foreach (Node child in childrenNodes)
-                Attach(child);
+            int len = childrenNodes.Length;
+            for (int i = 0; i < len; i++)
+                Attach(childrenNodes[i]);
         }
 
         /// <summary>

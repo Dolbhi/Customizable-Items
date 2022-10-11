@@ -60,12 +60,26 @@ namespace ColbyDoan
         //    //kinematicObject?.EZForce(damage.knockback);
         //}
 
+        /// <summary>
+        /// Directionless hp deduction
+        /// </summary>
+        /// <param name="attack"> attack damage (before armor calc) </param>
+        /// <param name="isCrit"> if damage is a crit </param>
+        /// <param name="showPopup"> should a damage number be shown </param>
+        /// <returns></returns>
         public float Damage(float attack, bool isCrit = false, bool showPopup = true)
         {
             return Damage(attack, Vector3.zero, isCrit, showPopup);
         }
 
-        /// <summary> Direct hp deduction </summary>
+        /// <summary>
+        /// Direct hp deduction
+        /// </summary>
+        /// <param name="attack"> attack damage (before armor calc) </param>
+        /// <param name="direction"> direction of attack (from own pov) </param>
+        /// <param name="isCrit"> if damage is a crit </param>
+        /// <param name="showPopup"> should a damage number be shown </param>
+        /// <returns></returns>
         public float Damage(float attack, Vector3 direction, bool isCrit = false, bool showPopup = true)
         {
             if (health <= 0) return 0;
