@@ -124,7 +124,11 @@ namespace ColbyDoan
             }
 
             // update info
-            _sightingInfo.UpdatePos(_currentTarget.position, _transform.position, hasLOS, needsLOS);
+            if (_currentTarget)
+                _sightingInfo.UpdatePos(_currentTarget.position, _transform.position, hasLOS, needsLOS);
+            else
+                _sightingInfo.UpdatePos(Vector3.zero, _transform.position, hasLOS, needsLOS);
+
             SetData(targetDisplaceKey, _sightingInfo.KnownDisplacement);
             SetData(targetLOSKey, _sightingInfo.HasLineOfSight);
 
@@ -138,6 +142,13 @@ namespace ColbyDoan
                 return children[1].Evaluate();
             }
         }
+
+        // void _UpdateSightingInfo(bool hasLOS)
+        // {
+        //     _sightingInfo.UpdatePos(_currentTarget?.position ?? Vector3.zero, _transform.position, hasLOS, needsLOS);
+        //     SetData(targetDisplaceKey, _sightingInfo.KnownDisplacement);
+        //     SetData(targetLOSKey, _sightingInfo.HasLineOfSight);
+        // }
 
         /// <summary>
         /// If target can be seen, set it as current target
@@ -268,7 +279,7 @@ namespace ColbyDoan
         // }
 
         /// <summary>
-        /// Update with new sighting
+        /// Update sighting info
         /// </summary>
         /// <param name="targetPos"> Current true position of target </param>
         /// <param name="selfPosition"> Position of observer eyes </param>
@@ -281,9 +292,9 @@ namespace ColbyDoan
             {
                 KnownPos = targetPos;
                 timeLastSeen = Time.time;
+                investigated = false;
             }
             KnownDisplacement = KnownPos - selfPosition;
-            investigated = false;
         }
 
         public void Reset()
