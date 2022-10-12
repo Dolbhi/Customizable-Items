@@ -1002,6 +1002,25 @@ MonoBehaviour:
   idName: one_second_trigger
   description: Every 1 second
   isOriginal: 0
+--- !u!114 &154763914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Will
+  m_EditorClassIdentifier: 
+  image: {fileID: -4538752222985096420, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 0
+  usesTarget: 0
+  rank: 4
+  idName: death_trigger
+  description: Upon death
+  isOriginal: 0
 --- !u!114 &214781431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,25 +1039,6 @@ MonoBehaviour:
   rank: 0
   idName: tiny_heal_effect
   description: Heal a tiny amount of health
-  isOriginal: 0
---- !u!114 &217199086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Red Bullet Shell
-  m_EditorClassIdentifier: 
-  image: {fileID: 2614870373251885436, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 0
-  usesTarget: 1
-  rank: 1
-  idName: rifle_special_trigger
-  description: Upon hitting an <color=red>enemy</color> with a red round
   isOriginal: 0
 --- !u!1001 &219594699
 PrefabInstance:
@@ -1206,7 +1206,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd63176f8f614bc9acc0b3197aac145, type: 3}
---- !u!114 &249241071
+--- !u!114 &234169350
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1216,21 +1216,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Baseball Bat
+  m_Name: Linked Chain
   m_EditorClassIdentifier: 
-  image: {fileID: 3864835576925441180, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 1
-  usesTarget: 1
-  rank: 1
-  idName: stun_effect
-  description: Temporarily stuns <color=red>enemy</color>
+  image: {fileID: -7583409310137716746, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 0
+  usesTarget: 0
+  rank: 3
+  idName: multi_kill_trigger
+  description: Killing 3 enemies within 3 seconds
   isOriginal: 0
 --- !u!20 &251749284 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 56455260953781035, guid: 1cd5f9fe91728430fb9c477507de7fe2, type: 3}
   m_PrefabInstance: {fileID: 219594699}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &258443647
+--- !u!114 &252101630
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1240,14 +1240,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Disaproval
+  m_Name: Kill
   m_EditorClassIdentifier: 
-  image: {fileID: -4058434812019303673, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  image: {fileID: 6099581493293703690, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
   type: 1
   usesTarget: 1
-  rank: 2
-  idName: weak_effect
-  description: Temporarily reduces <color=red>enemy</color> attack
+  rank: 3
+  idName: kill_effect
+  description: Instantly kills <color=red>enemy</color>
+  isOriginal: 0
+--- !u!114 &255579389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Hammer Head
+  m_EditorClassIdentifier: 
+  image: {fileID: 8132948862792318974, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 0
+  usesTarget: 1
+  rank: 1
+  idName: heavy_hit_trigger
+  description: Upon dealing high damage to an <color=red>enemy</color>
   isOriginal: 0
 --- !u!1001 &260073409
 PrefabInstance:
@@ -1544,7 +1563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd63176f8f614bc9acc0b3197aac145, type: 3}
---- !u!114 &386568413
+--- !u!114 &372829971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1554,14 +1573,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Ballistic Spell
+  m_Name: Bullet Jacket
   m_EditorClassIdentifier: 
-  image: {fileID: 6395214293025444372, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  image: {fileID: 6761164967045977113, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 0
+  usesTarget: 1
+  rank: 0
+  idName: hit_trigger
+  description: Upon hitting an <color=red>enemy</color>
+  isOriginal: 0
+--- !u!114 &380480168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Catalyst
+  m_EditorClassIdentifier: 
+  image: {fileID: 6191716412420617325, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
   type: 1
-  usesTarget: 0
+  usesTarget: 1
   rank: 1
-  idName: projectile_burst_effect
-  description: Summon a burst of bullets
+  idName: burn_effect
+  description: Temporarily burns <color=red>enemy</color>
   isOriginal: 0
 --- !u!114 &412743605
 MonoBehaviour:
@@ -1864,6 +1902,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd63176f8f614bc9acc0b3197aac145, type: 3}
+--- !u!114 &459500488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Scythe
+  m_EditorClassIdentifier: 
+  image: {fileID: 1122774824596591943, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 0
+  usesTarget: 0
+  rank: 2
+  idName: kill_trigger
+  description: Upon killing an enemy
+  isOriginal: 0
+--- !u!114 &486936396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Flashy Sticker
+  m_EditorClassIdentifier: 
+  image: {fileID: -7833671090200325546, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 1
+  usesTarget: 0
+  rank: 1
+  idName: speed_buff_effect
+  description: Temporarily increase movement speed
+  isOriginal: 0
 --- !u!1001 &497056907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1979,25 +2055,6 @@ MonoBehaviour:
   idName: stun_effect
   description: Temporarily stuns <color=red>enemy</color>
   isOriginal: 0
---- !u!114 &593817678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Kill
-  m_EditorClassIdentifier: 
-  image: {fileID: 6099581493293703690, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 1
-  usesTarget: 1
-  rank: 3
-  idName: kill_effect
-  description: Instantly kills <color=red>enemy</color>
-  isOriginal: 0
 --- !u!1001 &601613125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2072,6 +2129,25 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: fe3485e25d3fc45e78c5eb1523ffecda, type: 3}
+--- !u!114 &606484001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Bandaid
+  m_EditorClassIdentifier: 
+  image: {fileID: 9216205297631055959, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 1
+  usesTarget: 0
+  rank: 0
+  idName: tiny_heal_effect
+  description: Heal a tiny amount of health
+  isOriginal: 0
 --- !u!1001 &638995204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2626,25 +2702,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!114 &786107166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Slime
-  m_EditorClassIdentifier: 
-  image: {fileID: -4278747916818796210, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 1
-  usesTarget: 1
-  rank: 0
-  idName: slow_effect
-  description: Temporarily slow <color=red>enemy</color> movement
-  isOriginal: 0
 --- !u!1001 &788116010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2823,44 +2880,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd63176f8f614bc9acc0b3197aac145, type: 3}
---- !u!114 &801484229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Implant
-  m_EditorClassIdentifier: 
-  image: {fileID: 980155311395259703, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 0
-  usesTarget: 0
-  rank: 0
-  idName: hurt_trigger
-  description: Every 5 damage taken
-  isOriginal: 0
---- !u!114 &819165486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Hammer Head
-  m_EditorClassIdentifier: 
-  image: {fileID: 8132948862792318974, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 0
-  usesTarget: 1
-  rank: 1
-  idName: heavy_hit_trigger
-  description: Upon dealing high damage to an <color=red>enemy</color>
-  isOriginal: 0
 --- !u!1001 &823341695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36468,25 +36487,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd63176f8f614bc9acc0b3197aac145, type: 3}
---- !u!114 &953808312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Flashy Sticker
-  m_EditorClassIdentifier: 
-  image: {fileID: -7833671090200325546, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 1
-  usesTarget: 0
-  rank: 1
-  idName: speed_buff_effect
-  description: Temporarily increase movement speed
-  isOriginal: 0
 --- !u!114 &955816753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36505,6 +36505,25 @@ MonoBehaviour:
   rank: 1
   idName: burn_effect
   description: Temporarily burns <color=red>enemy</color>
+  isOriginal: 0
+--- !u!114 &964151664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Grenade
+  m_EditorClassIdentifier: 
+  image: {fileID: 2586642229955333766, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 1
+  usesTarget: 0
+  rank: 2
+  idName: drop_bomb_effect
+  description: Drops a grenade
   isOriginal: 0
 --- !u!20 &996629904 stripped
 Camera:
@@ -36701,25 +36720,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: fe3485e25d3fc45e78c5eb1523ffecda, type: 3}
---- !u!114 &1018922093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Bandaid
-  m_EditorClassIdentifier: 
-  image: {fileID: 9216205297631055959, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 1
-  usesTarget: 0
-  rank: 0
-  idName: tiny_heal_effect
-  description: Heal a tiny amount of health
-  isOriginal: 0
 --- !u!114 &1082984813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36832,7 +36832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd63176f8f614bc9acc0b3197aac145, type: 3}
---- !u!114 &1121718783
+--- !u!114 &1111831097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36842,14 +36842,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Apple
+  m_Name: Stopwatch
   m_EditorClassIdentifier: 
-  image: {fileID: 8391431092616798930, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 1
+  image: {fileID: 5947598201806246533, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 0
   usesTarget: 0
-  rank: 0
-  idName: regen_effect
-  description: Regenerate health
+  rank: 1
+  idName: short_timer_trigger
+  description: Every 10 seconds
   isOriginal: 0
 --- !u!1001 &1123493317
 PrefabInstance:
@@ -36940,25 +36940,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 605cdec1965b54e3cad772dd37fcc432, type: 3}
---- !u!114 &1125870650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Pocket Watch
-  m_EditorClassIdentifier: 
-  image: {fileID: 5508725064705088119, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 0
-  usesTarget: 0
-  rank: 0
-  idName: one_second_trigger
-  description: Every 1 second
-  isOriginal: 0
 --- !u!1 &1131750045
 GameObject:
   m_ObjectHideFlags: 0
@@ -37008,6 +36989,25 @@ MonoBehaviour:
   rank: 3
   idName: multi_kill_trigger
   description: Killing 3 enemies within 3 seconds
+  isOriginal: 0
+--- !u!114 &1170637262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Disaproval
+  m_EditorClassIdentifier: 
+  image: {fileID: -4058434812019303673, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 1
+  usesTarget: 1
+  rank: 2
+  idName: weak_effect
+  description: Temporarily reduces <color=red>enemy</color> attack
   isOriginal: 0
 --- !u!1001 &1183308487
 PrefabInstance:
@@ -37087,6 +37087,25 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: fe3485e25d3fc45e78c5eb1523ffecda, type: 3}
+--- !u!114 &1187898593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Apple
+  m_EditorClassIdentifier: 
+  image: {fileID: 8391431092616798930, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 1
+  usesTarget: 0
+  rank: 0
+  idName: regen_effect
+  description: Regenerate health
+  isOriginal: 0
 --- !u!114 &1199077062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37183,6 +37202,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 605cdec1965b54e3cad772dd37fcc432, type: 3}
+--- !u!114 &1223155896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Galium
+  m_EditorClassIdentifier: 
+  image: {fileID: -5428206428529569624, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 1
+  usesTarget: 1
+  rank: 2
+  idName: vulnerable_effect
+  description: Temporarily reduces <color=red>enemy</color> armor
+  isOriginal: 0
 --- !u!1001 &1223396910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37276,6 +37314,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd63176f8f614bc9acc0b3197aac145, type: 3}
+--- !u!114 &1241732726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Bandana
+  m_EditorClassIdentifier: 
+  image: {fileID: -2693009140137883590, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 0
+  usesTarget: 1
+  rank: 1
+  idName: crit_trigger
+  description: Upon hitting an <color=red>enemy</color> with a critical
+  isOriginal: 0
 --- !u!1001 &1281735876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38194,25 +38251,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 605cdec1965b54e3cad772dd37fcc432, type: 3}
---- !u!114 &1397016696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Will
-  m_EditorClassIdentifier: 
-  image: {fileID: -4538752222985096420, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 0
-  usesTarget: 0
-  rank: 4
-  idName: death_trigger
-  description: Upon death
-  isOriginal: 0
 --- !u!1001 &1417439892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38298,7 +38336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e17ca7d87500744d8b5c4f31806044e4, type: 3}
---- !u!114 &1435603481
+--- !u!114 &1442705475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38308,14 +38346,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Linked Chain
+  m_Name: Pocket Watch
   m_EditorClassIdentifier: 
-  image: {fileID: -7583409310137716746, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  image: {fileID: 5508725064705088119, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
   type: 0
   usesTarget: 0
-  rank: 3
-  idName: multi_kill_trigger
-  description: Killing 3 enemies within 3 seconds
+  rank: 0
+  idName: one_second_trigger
+  description: Every 1 second
   isOriginal: 0
 --- !u!1001 &1456204805
 PrefabInstance:
@@ -38424,25 +38462,6 @@ MonoBehaviour:
   idName: rifle_special_trigger
   description: Upon hitting an <color=red>enemy</color> with a red round
   isOriginal: 0
---- !u!114 &1537806773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Scythe
-  m_EditorClassIdentifier: 
-  image: {fileID: 1122774824596591943, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 0
-  usesTarget: 0
-  rank: 2
-  idName: kill_trigger
-  description: Upon killing an enemy
-  isOriginal: 0
 --- !u!114 &1539190122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38461,25 +38480,6 @@ MonoBehaviour:
   rank: 1
   idName: speed_buff_effect
   description: Temporarily increase movement speed
-  isOriginal: 0
---- !u!114 &1542506074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Galium
-  m_EditorClassIdentifier: 
-  image: {fileID: -5428206428529569624, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 1
-  usesTarget: 1
-  rank: 2
-  idName: vulnerable_effect
-  description: Temporarily reduces <color=red>enemy</color> armor
   isOriginal: 0
 --- !u!1001 &1557229635
 PrefabInstance:
@@ -38546,7 +38546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7755946063849911802, guid: d0a28f3fc323a4d26aba72e61dd900e1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8371844807542229550, guid: d0a28f3fc323a4d26aba72e61dd900e1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38555,6 +38555,25 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0a28f3fc323a4d26aba72e61dd900e1, type: 3}
 --- !u!114 &1565537248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Slime
+  m_EditorClassIdentifier: 
+  image: {fileID: -4278747916818796210, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 1
+  usesTarget: 1
+  rank: 0
+  idName: slow_effect
+  description: Temporarily slow <color=red>enemy</color> movement
+  isOriginal: 0
+--- !u!114 &1577819985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38743,7 +38762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 605cdec1965b54e3cad772dd37fcc432, type: 3}
---- !u!114 &1597781687
+--- !u!114 &1593963657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38753,14 +38772,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Bullet Jacket
+  m_Name: Red Bullet Shell
   m_EditorClassIdentifier: 
-  image: {fileID: 6761164967045977113, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  image: {fileID: 2614870373251885436, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
   type: 0
   usesTarget: 1
-  rank: 0
-  idName: hit_trigger
-  description: Upon hitting an <color=red>enemy</color>
+  rank: 1
+  idName: rifle_special_trigger
+  description: Upon hitting an <color=red>enemy</color> with a red round
   isOriginal: 0
 --- !u!114 &1604857556
 MonoBehaviour:
@@ -38781,7 +38800,7 @@ MonoBehaviour:
   idName: kill_trigger
   description: Upon killing an enemy
   isOriginal: 0
---- !u!114 &1616617246
+--- !u!114 &1666356720
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38791,33 +38810,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Volatile Powder
+  m_Name: Implant
   m_EditorClassIdentifier: 
-  image: {fileID: 8436657204533251546, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 1
+  image: {fileID: 980155311395259703, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 0
   usesTarget: 0
-  rank: 1
-  idName: small_explosion_effect
-  description: Creates a small explosion
-  isOriginal: 0
---- !u!114 &1635889867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Grenade
-  m_EditorClassIdentifier: 
-  image: {fileID: 2586642229955333766, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 1
-  usesTarget: 0
-  rank: 2
-  idName: drop_bomb_effect
-  description: Drops a grenade
+  rank: 0
+  idName: hurt_trigger
+  description: Every 5 damage taken
   isOriginal: 0
 --- !u!1001 &1697858946
 PrefabInstance:
@@ -41049,6 +41049,25 @@ Transform:
   m_Father: {fileID: 752474339}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1716127244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Minute Glass
+  m_EditorClassIdentifier: 
+  image: {fileID: 6908069387385937300, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 0
+  usesTarget: 0
+  rank: 2
+  idName: medium_timer_trigger
+  description: Every 1 minute
+  isOriginal: 0
 --- !u!1001 &1739623505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41070,7 +41089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3371706760807139785, guid: 605cdec1965b54e3cad772dd37fcc432, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3550761521316197917, guid: 605cdec1965b54e3cad772dd37fcc432, type: 3}
       propertyPath: m_LocalPosition.y
@@ -41126,25 +41145,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 605cdec1965b54e3cad772dd37fcc432, type: 3}
---- !u!114 &1740031665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Minute Glass
-  m_EditorClassIdentifier: 
-  image: {fileID: 6908069387385937300, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 0
-  usesTarget: 0
-  rank: 2
-  idName: medium_timer_trigger
-  description: Every 1 minute
-  isOriginal: 0
 --- !u!1001 &1744566555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41544,25 +41544,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1821000945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Bandana
-  m_EditorClassIdentifier: 
-  image: {fileID: -2693009140137883590, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 0
-  usesTarget: 1
-  rank: 1
-  idName: crit_trigger
-  description: Upon hitting an <color=red>enemy</color> with a critical
-  isOriginal: 0
 --- !u!1001 &1822739234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69542,6 +69523,25 @@ Transform:
   m_Father: {fileID: 752474339}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1926298096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Alarm Clock
+  m_EditorClassIdentifier: 
+  image: {fileID: 124106431076995637, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 0
+  usesTarget: 0
+  rank: 3
+  idName: long_timer_trigger
+  description: Every 5 minutes
+  isOriginal: 0
 --- !u!1001 &1953150698
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69620,6 +69620,25 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: fe3485e25d3fc45e78c5eb1523ffecda, type: 3}
+--- !u!114 &1969980004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Ballistic Spell
+  m_EditorClassIdentifier: 
+  image: {fileID: 6395214293025444372, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 1
+  usesTarget: 0
+  rank: 1
+  idName: projectile_burst_effect
+  description: Summon a burst of bullets
+  isOriginal: 0
 --- !u!1001 &1999226132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69703,7 +69722,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 867031389864512538, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
   m_PrefabInstance: {fileID: 270121364}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2017023379
+--- !u!114 &2013309586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -69713,14 +69732,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Stopwatch
+  m_Name: Volatile Powder
   m_EditorClassIdentifier: 
-  image: {fileID: 5947598201806246533, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 0
+  image: {fileID: 8436657204533251546, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 1
   usesTarget: 0
   rank: 1
-  idName: short_timer_trigger
-  description: Every 10 seconds
+  idName: small_explosion_effect
+  description: Creates a small explosion
   isOriginal: 0
 --- !u!1001 &2066867726
 PrefabInstance:
@@ -70001,25 +70020,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd63176f8f614bc9acc0b3197aac145, type: 3}
---- !u!114 &2079424285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Alarm Clock
-  m_EditorClassIdentifier: 
-  image: {fileID: 124106431076995637, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 0
-  usesTarget: 0
-  rank: 3
-  idName: long_timer_trigger
-  description: Every 5 minutes
-  isOriginal: 0
 --- !u!114 &2090482454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70038,25 +70038,6 @@ MonoBehaviour:
   rank: 0
   idName: hit_trigger
   description: Upon hitting an <color=red>enemy</color>
-  isOriginal: 0
---- !u!114 &2093971609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Catalyst
-  m_EditorClassIdentifier: 
-  image: {fileID: 6191716412420617325, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 1
-  usesTarget: 1
-  rank: 1
-  idName: burn_effect
-  description: Temporarily burns <color=red>enemy</color>
   isOriginal: 0
 --- !u!1 &2097766024
 GameObject:
@@ -74370,6 +74351,25 @@ Transform:
   m_Father: {fileID: 752474339}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2116833239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
+  m_Name: Baseball Bat
+  m_EditorClassIdentifier: 
+  image: {fileID: 3864835576925441180, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  type: 1
+  usesTarget: 1
+  rank: 1
+  idName: stun_effect
+  description: Temporarily stuns <color=red>enemy</color>
+  isOriginal: 0
 --- !u!1001 &2120920308
 PrefabInstance:
   m_ObjectHideFlags: 0

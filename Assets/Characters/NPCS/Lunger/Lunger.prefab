@@ -525,7 +525,7 @@ MonoBehaviour:
   directionNumber: 16
   updatePeriod: 0.2
   maxObstaclesDistance: 2.3
-  minObstaclesDistance: 1.3
+  minObstaclesDistance: 0.8
   maxCrowdAvoidDistance: 3
   minCrowdAvoidDistance: 2
   requireFloor: 1

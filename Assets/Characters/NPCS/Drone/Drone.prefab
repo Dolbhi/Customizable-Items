@@ -220,11 +220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1925204144051021807, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1925204144051021807, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.78000003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2014624272839204499, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: posFromRoot.y
@@ -464,7 +464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6921192413949785748, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_Color.a
-      value: 0.61
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7110829108860709420, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: trueLocalPosition.y
@@ -564,6 +564,10 @@ MonoBehaviour:
   indicator: {fileID: 805247357851959804}
   forgetTargetDuration: 10
   trackingTask:
+    _currentTarget: {fileID: 0}
+    _sightingInfo:
+      timeLastSeen: 0
+      investigated: 1
     insideFOVRange: 12
     outsideFOVRange: 12
     fov: 75

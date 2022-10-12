@@ -939,6 +939,10 @@ MonoBehaviour:
   indicator: {fileID: 2841560771604148695}
   forgetTargetDuration: 10
   trackingTask:
+    _currentTarget: {fileID: 0}
+    _sightingInfo:
+      timeLastSeen: 0
+      investigated: 1
     insideFOVRange: 15
     outsideFOVRange: 10
     fov: 75

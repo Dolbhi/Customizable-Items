@@ -62,7 +62,7 @@ MonoBehaviour:
   templateScene: {fileID: 102900000, guid: 6f2ab068f39854eb8bb144bbb6f0428d, type: 3}
   templateName: 
   description: 
-  preview: {fileID: 0}
+  preview: {fileID: -5662038586595355289}
   dependencies:
   - dependency: {fileID: 3371706760807139785, guid: 605cdec1965b54e3cad772dd37fcc432, type: 3}
     instantiationMode: 0
@@ -262,9 +262,9 @@ MonoBehaviour:
     instantiationMode: 1
   - dependency: {fileID: 11400000, guid: 2e841f443341e483bbe3f8792e78e0a9, type: 2}
     instantiationMode: 1
-  - dependency: {fileID: 9100000, guid: 0daf268d005894603ad5513237082bff, type: 2}
-    instantiationMode: 1
   - dependency: {fileID: 11400000, guid: e29dd53824eb748f8b86f4afbbad958c, type: 2}
+    instantiationMode: 1
+  - dependency: {fileID: 9100000, guid: 0daf268d005894603ad5513237082bff, type: 2}
     instantiationMode: 1
   - dependency: {fileID: 11400000, guid: a606d9e9053504cd482d8a57eb206120, type: 2}
     instantiationMode: 1
