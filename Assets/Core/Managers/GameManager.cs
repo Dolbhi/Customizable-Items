@@ -27,6 +27,7 @@ namespace ColbyDoan
         protected override void Awake()
         {
             base.Awake();
+            // GameStats.Reset();
             DG.Tweening.DOTween.Init();
             Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
             itemPool = Instantiate<ArtifactPools>(itemPool);

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSprite: {fileID: 3617690691595339207}
-  attackWindupDuration: 0.3
+  attackWindupDuration: 0.15
 --- !u!1 &6190058748446953242
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6888727491595844076, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: speed.baseValue
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6888727491595844076, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: damage.baseValue

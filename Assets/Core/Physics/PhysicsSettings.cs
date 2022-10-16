@@ -36,7 +36,12 @@ namespace ColbyDoan
         {
             return Physics2D.Raycast(start, direction, distance, solids, start.z - below, start.z + above + 1);
         }
-
+        /// <summary>
+        /// This is just Physics2D.OverlapCircle, includes depth + 1 like a good solids check should
+        /// </summary>
+        /// <param name="point"> point to centre check on </param>
+        /// <param name="radius"> radius of circle to check </param>
+        /// <returns> true is there are solid hitboxes within designated range </returns>
         static public bool CheckForSolids(Vector3 point, float radius)
         {
             return Physics2D.OverlapCircle(point, radius, solids, point.z, point.z + 1);

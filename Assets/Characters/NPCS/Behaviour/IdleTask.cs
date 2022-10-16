@@ -137,6 +137,7 @@ namespace ColbyDoan
     {
         public bool needGround = true;
         public float idleMaxDist = 5;
+        public float clearance = .7f;
         Transform _transform;
         public const string displacementKey = "spot_displacement";
         Vector3 _chosenSpot;
@@ -174,7 +175,7 @@ namespace ColbyDoan
                     return NodeState.failure;
                 }
             }
-            while (PhysicsSettings.SolidsLinecast(pos, _chosenSpot) || (needGround && TileManager.Instance.PitLinecast(pos, _chosenSpot) < direction.magnitude));
+            while (PhysicsSettings.CheckForSolids(_chosenSpot, clearance) || PhysicsSettings.SolidsLinecast(pos, _chosenSpot) || (needGround && TileManager.Instance.PitLinecast(pos, _chosenSpot) < direction.magnitude));
 
             parent.SetData(displacementKey, _chosenSpot - _transform.position);
             state = NodeState.success;
