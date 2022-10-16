@@ -58,7 +58,7 @@ Material:
     - PixelSnap: 0
     - _DepthOffset: 0
     - _EnableExternalAlpha: 0
-    - _TargetDepth: 0.02
+    - _TargetDepth: 1.02
     m_Colors:
     - Color_9acfda01eb7144b4ad067ca0ce744bcd: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

@@ -6,7 +6,7 @@ namespace ColbyDoan
     {
         [SerializeField] Health health;
 
-        public int xp = 1;
+        public int xp = 10;
 
         void Awake()
         {

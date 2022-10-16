@@ -502,6 +502,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6472933272596906081, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
   m_PrefabInstance: {fileID: 846792442331675875}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6157118972555847564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6823536348640074607, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+  m_PrefabInstance: {fileID: 846792442331675875}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6832108025327228662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6157118972555847564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28ad35ee94bf8441990cb3abd19153cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  xp: 10
 --- !u!1 &6338784160327702092 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6644933300620012207, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
@@ -618,6 +637,7 @@ MonoBehaviour:
     pickSpotTask:
       needGround: 1
       idleMaxDist: 5
+      clearance: 0.7
     goToSpotTask:
       speedMultiplier: 0.5
       displacementKey: spot_displacement
@@ -627,7 +647,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8232301761348400686, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
   m_PrefabInstance: {fileID: 846792442331675875}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 6157118972555847564}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fe840663bba54c9797ece645f0acf62, type: 3}
