@@ -17,6 +17,7 @@ namespace ColbyDoan
         public static void ChangeXP(int change)
         {
             xp += change;
+            OnXPChanged.Invoke();
         }
 
         /// <summary>
