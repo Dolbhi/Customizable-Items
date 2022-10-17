@@ -10,7 +10,7 @@ namespace ColbyDoan
         [SerializeField] LumberjackPursuit pursuitState = new LumberjackPursuit();
         [SerializeField] LumberJackCatching catchingState = new LumberJackCatching();
 
-        LumberjackSkills lumberjackSkills;// unset
+        // LumberjackSkills lumberjackSkills;// unset
 
         protected override void Awake()
         {
@@ -47,10 +47,13 @@ namespace ColbyDoan
             public override void Update()
             {
                 base.Update();
+                return;
 
                 // set target
                 //GetCharacter.FacingDirection = CurrentTarget.KnownDisplacement;
-                LumberjackSkills lumberSkills = container.lumberjackSkills;
+                RecallSkill recallSkill = null;
+                ThrowSkill throwSkill = null;
+                // MeleeSkill meleeSkill = null;
                 float targetDist = CurrentTarget.KnownDisplacement.magnitude;
 
                 // attack
@@ -58,14 +61,14 @@ namespace ColbyDoan
                 {
                     container.Skills[0].TargetPos = CurrentTarget.KnownPos;
                     // melee
-                    if (targetDist < lumberSkills.meleeRange)
+                    if (targetDist < 1)//melee range
                     {
                         container.Skills[0].Activate();
                     }
                     // throw
                     else
                     {
-                        if (lumberSkills.throwSkill.Ready && targetDist < lumberSkills.throwSkill.range)
+                        if (throwSkill.Ready && targetDist < throwSkill.range)
                         {
                             container.Skills[0].Activate();
                             waitToRecallCooldown.StartCooldown();
@@ -74,7 +77,7 @@ namespace ColbyDoan
                     }
                 }
                 // catch
-                if (lumberSkills.recallSkill.Ready && waitToRecallCooldown.Ready)
+                if (recallSkill.Ready && waitToRecallCooldown.Ready)
                 {
                     print("catching");
                     container.Skills[0].Activate();
@@ -90,13 +93,13 @@ namespace ColbyDoan
             {
                 base.Update();
 
-                GetCharacter.FacingDirection = container.lumberjackSkills.axe.transform.position - container.transform.position;
+                // GetCharacter.FacingDirection = container.lumberjackSkills.axe.transform.position - container.transform.position;
 
-                // change state
-                if (!container.lumberjackSkills.recallSkill.Active)
-                {
-                    sm.ChangeState(container.pursuitState);
-                }
+                // // change state
+                // if (!container.lumberjackSkills.recallSkill.Active)
+                // {
+                //     sm.ChangeState(container.pursuitState);
+                // }
             }
         }
     }

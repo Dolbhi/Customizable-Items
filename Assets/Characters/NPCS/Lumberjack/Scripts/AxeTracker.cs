@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+// using System.Collections;
+// using System.Collections.Generic;
 using UnityEngine;
 
 // using ColbyDoan.Attributes;
@@ -10,11 +10,16 @@ namespace ColbyDoan
     {
         /// <summary> global pos of where the axe originates and where it returns to </summary>
         public Vector3 Pivot => _transform.position + Vector3.forward;
-
         public bool HasAxe { get; private set; }
+
+        public const string axeHitID = "on_axe_hit";
+
+        public FacingSpritesLibrary axeSprites;
+        public FacingSpritesLibrary noAxeSprites;
 
         public LumberjackAxe axe;
         public MeleeSkill meleeSkill;
+        public CharacterRotater rotater;
         Transform _transform;
 
         void Awake()
@@ -23,19 +28,19 @@ namespace ColbyDoan
             SetAxe(true);
         }
 
-        /// <summary> set axe presence </summary>
+        /// <summary> set axe presence, update lumber sprites and melee </summary>
         public void SetAxe(bool toSet)
         {
             HasAxe = toSet;
             if (toSet)
             {
-                // spriteLibrary.spriteLibraryAsset = axeAsset;
+                rotater.facingSprites = axeSprites;
                 meleeSkill.damageMultiplier = 2.5f;
-                meleeSkill.metaTriggerID = "axeHitID";
+                meleeSkill.metaTriggerID = axeHitID;
             }
             else
             {
-                // spriteLibrary.spriteLibraryAsset = noAxeAsset;
+                rotater.facingSprites = noAxeSprites;
                 meleeSkill.damageMultiplier = 1f;
                 meleeSkill.metaTriggerID = "";
             }

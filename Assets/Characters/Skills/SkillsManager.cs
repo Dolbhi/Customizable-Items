@@ -192,71 +192,9 @@ namespace ColbyDoan
         }
     }
 
-
-    // public interface IDynamicCooldown
-    // {
-    //     void ForceFinishCooldown();
-    //     void IncreaseCurrentCooldown(float increase);
-    //     void DecreaseCurrentCooldown(float reduction);
-    // }
-
-    // expandable framework for handling skills and their dependancies
-    public abstract class SkillsManagerOld : MonoBehaviour//, ISkillsManager
-    {
-        public virtual Vector3 TargetedPos { set => TargetPos = value; }
-        public abstract int SkillCount { get; }
-
-        public Vector3 TargetedDisplacement => TargetPos - transform.position;
-        protected Vector3 TargetPos;
-
-        protected Character character;
-        protected CharacterStats Stats => character.stats;
-
-        /// <summary> up to character behavour to set, has to be set on awake </summary>
-        public virtual void SetUp(Character setTo)
-        {
-            character = setTo;
-            enabled = true;
-        }
-
-        protected virtual void Start()
-        {
-            if (character == null)
-                Debug.LogError("Skill manager not initialized");
-        }
-
-        public abstract IOldSkill GetSkill(int skillIndex = 0);
-
-        public void ActivateSkill(int skillIndex = 0)
-        {
-            IOldSkill chosenSkill = GetSkill(skillIndex);
-            if (chosenSkill != null && chosenSkill.Ready)
-                chosenSkill.Activate();
-        }
-        public void CancelSkill(int skillIndex = 0)
-        {
-            IOldSkill chosenSkill = GetSkill(skillIndex);
-            chosenSkill?.Cancel();
-        }
-        void OnDisable()
-        {
-            for (int i = 0; i < SkillCount; i++)
-            {
-                IOldSkill skill = GetSkill(i);
-                skill.Cancel();
-                skill.enabled = false;
-            }
-        }
-        void OnEnable()
-        {
-            // Debug.Log("On enabled called", this);
-            for (int i = 0; i < SkillCount; i++)
-            {
-                IOldSkill skill = GetSkill(i);
-                skill.enabled = true;
-            }
-        }
-    }
+    /// <summary>
+    /// Currently used in old rifleman
+    /// </summary>
     public class OldSkillCrap : Skill, IDisplayableSkill
     {
         // ISkill implementation
@@ -284,14 +222,5 @@ namespace ColbyDoan
             OnActivate = _start;
             OnCancel = _stop;
         }
-    }
-    public interface IOldSkill
-    {
-        /// <summary> Interface for disabling skills </summary>
-        bool enabled { get; set; }
-        // /// <summary> Tells if skill can be activated now </summary>
-        bool Ready { get; }
-        void Activate();
-        void Cancel();
     }
 }

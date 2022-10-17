@@ -192,9 +192,9 @@ namespace ColbyDoan
         void CreateLibrary()
         {
             FacingSpritesLibrary newLibrary = CreateInstance<FacingSpritesLibrary>();
-            AddSpritesToLibrary(newLibrary);
             string path = AssetDatabase.GetAssetPath(myTexture);
             AssetDatabase.CreateAsset(newLibrary, System.IO.Path.GetDirectoryName(path) + "/Character Sprites.asset");
+            AddSpritesToLibrary(newLibrary);
         }
 
         //string ExtractLabel(string name)

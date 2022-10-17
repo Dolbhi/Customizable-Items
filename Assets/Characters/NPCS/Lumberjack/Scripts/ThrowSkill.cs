@@ -15,7 +15,7 @@ namespace ColbyDoan
         public float range = 10;
 
         public AxeTracker axeTracker;
-        public RecallSkill recallSkill;
+        public RecallSkill recallSkill;// probably remove
         public Animator anime;
 
         public override void Activate()

@@ -11,9 +11,10 @@ namespace ColbyDoan
     /// </summary>
     public class LumberjackBT : BaseEnemyBT
     {
-        [SerializeField] EnemyIndicator indicator;
-
         public float forgetTargetDuration = 10;
+        public float axeStunDuration = 2;
+
+        [SerializeField] EnemyIndicator indicator;
 
         [SerializeField] FindTargetTask trackingTask;
 
@@ -27,8 +28,17 @@ namespace ColbyDoan
 
         [SerializeField] IdleTask idleTask;
 
+        void _Stun(TriggerContext context)
+        {
+            Debug.Log("axe hit");
+            context.GetCharacter?.statusEffects.GetStatus<StunSE>("stun").ApplyStatus(axeStunDuration);
+        }
+
         protected override Node SetupTree()
         {
+            // add axe stun effect
+            character.artifacts.metaTriggers.Add(AxeTracker.axeHitID, _Stun);
+
             void _EnterIdle()
             {
                 indicator.SetIndicator("?");

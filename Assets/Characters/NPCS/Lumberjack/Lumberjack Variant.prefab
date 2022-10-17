@@ -309,9 +309,21 @@ PrefabInstance:
       value: -64437050
       objectReference: {fileID: 0}
     - target: {fileID: 7271951824097750965, guid: c35ac4379f64240728cd8fcbb7602ff8, type: 3}
+      propertyPath: m_Size.x
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271951824097750965, guid: c35ac4379f64240728cd8fcbb7602ff8, type: 3}
+      propertyPath: m_Size.y
+      value: 2.1875
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271951824097750965, guid: c35ac4379f64240728cd8fcbb7602ff8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1858285936300002880, guid: 36129b536e7034d0cbd7e4b2dbc2a5f5, type: 3}
+      objectReference: {fileID: 6215771812660641497, guid: 36129b536e7034d0cbd7e4b2dbc2a5f5, type: 3}
+    - target: {fileID: 7271951824097750965, guid: c35ac4379f64240728cd8fcbb7602ff8, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8520349616995419048, guid: c35ac4379f64240728cd8fcbb7602ff8, type: 3}
       propertyPath: m_Controller
       value: 
@@ -321,9 +333,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ecc80fce5a6654f9ea2cf3596bfacf95, type: 2}
     - target: {fileID: 8520349616995419051, guid: c35ac4379f64240728cd8fcbb7602ff8, type: 3}
+      propertyPath: facing
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520349616995419051, guid: c35ac4379f64240728cd8fcbb7602ff8, type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 760018280006968554}
+    - target: {fileID: 8520349616995419051, guid: c35ac4379f64240728cd8fcbb7602ff8, type: 3}
+      propertyPath: facingSprites
+      value: 
+      objectReference: {fileID: 11400000, guid: 367d6537ba0af42648428e7dda6948b6, type: 2}
     - target: {fileID: 8520349616995419053, guid: c35ac4379f64240728cd8fcbb7602ff8, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -399,7 +419,7 @@ MonoBehaviour:
   Events:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3338147303348431126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ColbyDoan.LumberjackSkills, Assembly-CSharp
         m_MethodName: AnimationThrowAxeEvent
         m_Mode: 1
@@ -416,6 +436,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 8520349616995419048, guid: c35ac4379f64240728cd8fcbb7602ff8, type: 3}
   m_PrefabInstance: {fileID: 1028826814468915572}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8681106491596653279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8520349616995419051, guid: c35ac4379f64240728cd8fcbb7602ff8, type: 3}
+  m_PrefabInstance: {fileID: 1028826814468915572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8681106491596653275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17eb7ef9c7db5404fa27f69f25d7e7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4659683916124455715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -547,6 +578,22 @@ PrefabInstance:
       propertyPath: posFromRoot.y
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2016926845982959154, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+      propertyPath: skills.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016926845982959154, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+      propertyPath: skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 3132053181982686700}
+    - target: {fileID: 2016926845982959154, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+      propertyPath: skills.Array.data[1]
+      value: 
+      objectReference: {fileID: 1849403240886946404}
+    - target: {fileID: 2016926845982959154, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+      propertyPath: skills.Array.data[2]
+      value: 
+      objectReference: {fileID: 3907392776146789496}
     - target: {fileID: 2180581430363820580, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: maxHealth
       value: 200
@@ -931,41 +978,61 @@ MonoBehaviour:
   damageMultiplier: 2
   invokeOnHit: 1
   metaTriggerID: 
---- !u!114 &3338147303348431126
+--- !u!114 &1849403240886946404
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5051481838447113673}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4f7cf66aace24f778d5873a442d94da, type: 3}
+  m_Script: {fileID: 11500000, guid: c312ae109b1ef4befb369e062adfbf94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeSkill: {fileID: 0}
-  throwSkill:
-    manager: {fileID: 3338147303348431126}
-    throwSpeed: 17
-    cooldown:
-      cooldownDuration: 0
-      cooldownMultiplier: 0
-    damage: 2
-    range: 10
-  recallSkill:
-    manager: {fileID: 3338147303348431126}
-    cooldown:
-      cooldownDuration: 0
-      cooldownMultiplier: 0
-    recallAcceleration: 5
-    recallMaxSpeed: 15
-  animator: {fileID: 8681106491596653276}
-  spriteLibrary: {fileID: 0}
-  axeAsset: {fileID: 11400000, guid: ecc80fce5a6654f9ea2cf3596bfacf95, type: 2}
-  noAxeAsset: {fileID: 11400000, guid: 3cb71b7a5ac9e44c8980fef90fe7a384, type: 2}
+  icon: {fileID: 0}
+  throwSpeed: 17
+  cooldown: 7
+  damage: 2
+  range: 10
+  axeTracker: {fileID: 6527916167595075918}
+  recallSkill: {fileID: 3907392776146789496}
+  anime: {fileID: 8681106491596653276}
+--- !u!114 &3907392776146789496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5051481838447113673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57290a6e05d5941c2a79a03e2dcb93bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  cooldown: 3
+  recallAcceleration: 5
+  recallMaxSpeed: 20
+  axeTracker: {fileID: 6527916167595075918}
+  anime: {fileID: 8681106491596653276}
+--- !u!114 &6527916167595075918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5051481838447113673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8d998af262af4c178fd6ccd3ce7d96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axeSprites: {fileID: 11400000, guid: 367d6537ba0af42648428e7dda6948b6, type: 2}
+  noAxeSprites: {fileID: 11400000, guid: 7a21cd474054a4d0db3e5cbbdc97c6de, type: 2}
   axe: {fileID: 1362658002812621594}
-  axeStunDuration: 2
-  meleeRange: 1.2
+  meleeSkill: {fileID: 3132053181982686700}
+  rotater: {fileID: 8681106491596653279}
 --- !u!4 &8411442314351533790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 867031389864512538, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
