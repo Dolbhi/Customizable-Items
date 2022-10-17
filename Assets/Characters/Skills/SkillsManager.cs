@@ -49,10 +49,16 @@ namespace ColbyDoan
             }
         }
     }
+    /// <summary>
+    /// Monobehaviour base abstract class for handling a single skill
+    /// </summary>
     public abstract class Skill : MonoBehaviour, IDisplayableSkill
     {
         [SerializeField] Sprite icon;
 
+        /// <summary>
+        /// Is the skill ready to activate? By default depends on if the MonoBehaviour is enabled
+        /// </summary>
         public virtual bool Ready => enabled;
         public virtual Vector3 TargetPos { get; set; }
         protected Character character;
@@ -80,8 +86,14 @@ namespace ColbyDoan
         public virtual void ReduceCooldown(float reduction) { }
     }
 
+    /// <summary>
+    /// Skill with build in cooldown handler that interfaces with IDisplaybleSkills stuff
+    /// </summary>
     public abstract class CooldownSkill : Skill
     {
+        /// <summary>
+        /// Is the skill ready to activate? Depends on if the MonoBehaviour is enabled and is cooldown ready
+        /// </summary>
         public override bool Ready => base.Ready && cooldownHandler.Ready;
 
         public override bool ShowTimer => true;
@@ -213,24 +225,24 @@ namespace ColbyDoan
                 Debug.LogError("Skill manager not initialized");
         }
 
-        public abstract ISkill GetSkill(int skillIndex = 0);
+        public abstract IOldSkill GetSkill(int skillIndex = 0);
 
         public void ActivateSkill(int skillIndex = 0)
         {
-            ISkill chosenSkill = GetSkill(skillIndex);
+            IOldSkill chosenSkill = GetSkill(skillIndex);
             if (chosenSkill != null && chosenSkill.Ready)
                 chosenSkill.Activate();
         }
         public void CancelSkill(int skillIndex = 0)
         {
-            ISkill chosenSkill = GetSkill(skillIndex);
+            IOldSkill chosenSkill = GetSkill(skillIndex);
             chosenSkill?.Cancel();
         }
         void OnDisable()
         {
             for (int i = 0; i < SkillCount; i++)
             {
-                ISkill skill = GetSkill(i);
+                IOldSkill skill = GetSkill(i);
                 skill.Cancel();
                 skill.enabled = false;
             }
@@ -240,7 +252,7 @@ namespace ColbyDoan
             // Debug.Log("On enabled called", this);
             for (int i = 0; i < SkillCount; i++)
             {
-                ISkill skill = GetSkill(i);
+                IOldSkill skill = GetSkill(i);
                 skill.enabled = true;
             }
         }
@@ -273,7 +285,7 @@ namespace ColbyDoan
             OnCancel = _stop;
         }
     }
-    public interface ISkill
+    public interface IOldSkill
     {
         /// <summary> Interface for disabling skills </summary>
         bool enabled { get; set; }

@@ -10,8 +10,8 @@ namespace ColbyDoan
     {
         public override int SkillCount => 3;
         public MeleeSkill meleeSkill;
-        public ThrowSkill throwSkill;
-        public RecallSkill recallSkill;
+        public OldThrowSkill throwSkill;
+        public OldRecallSkill recallSkill;
 
         public Animator animator;
         public UnityEngine.U2D.Animation.SpriteLibrary spriteLibrary;
@@ -30,7 +30,7 @@ namespace ColbyDoan
         /// <summary> global pos of where the axe originates and where it returns to </summary>
         Vector3 AxePivot => transform.position + Vector3.forward;
 
-        public override ISkill GetSkill(int skillIndex = 0)
+        public override IOldSkill GetSkill(int skillIndex = 0)
         {
             switch (skillIndex)
             {
@@ -116,7 +116,7 @@ namespace ColbyDoan
 
 
         [System.Serializable]
-        public class ThrowSkill : ISkill
+        public class OldThrowSkill : IOldSkill
         {
             public LumberjackSkills manager;
             public float throwSpeed;
@@ -181,7 +181,7 @@ namespace ColbyDoan
 
 
         [System.Serializable]
-        public class RecallSkill : ISkill
+        public class OldRecallSkill : IOldSkill
         {
             public LumberjackSkills manager;
             public Cooldown cooldown;

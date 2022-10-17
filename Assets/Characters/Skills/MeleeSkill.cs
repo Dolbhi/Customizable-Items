@@ -21,7 +21,7 @@ namespace ColbyDoan
         public float knockbackSpeed;
         public float knockbackForce;
         public float cooldown;
-        public float meleeRadius = .5f;
+        // public float meleeRadius = .5f;
         public float damageMultiplier = 1;
         public bool invokeOnHit = true;
         public string metaTriggerID;
