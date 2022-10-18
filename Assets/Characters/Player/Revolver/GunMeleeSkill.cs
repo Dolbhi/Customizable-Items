@@ -15,9 +15,6 @@ namespace ColbyDoan
 
         public Gun gun;
 
-        public override bool Ready => base.Ready && !_active;
-        bool _active;
-
         public Skill[] skillsToDisable;
 
         public override void Activate()
@@ -44,7 +41,7 @@ namespace ColbyDoan
         }
         public void SetActive(bool toSet)
         {
-            _active = toSet;
+            Active = toSet;
             foreach (Skill skill in skillsToDisable)
                 skill.enabled = toSet;
         }

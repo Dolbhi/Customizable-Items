@@ -15,7 +15,6 @@ namespace ColbyDoan
         public float shotSpeed = 16;
         public float cooldown;
         public float fireRange;
-        public float FireRangeSqr => fireRange * fireRange;
         public float damageMultiplier = 1;
 
         Cooldown fireCooldown;
@@ -25,9 +24,9 @@ namespace ColbyDoan
             fireCooldown = new Cooldown(cooldown);
         }
 
-        public bool CheckForLOS(Vector3 target)
+        public override bool TargetInRange(SightingInfo info)
         {
-            return !PhysicsSettings.SolidsLinecast(fireOrigin.position, target);
+            return info.HasLineOfSight && info.KnownDisplacement.sqrMagnitude < fireRange * fireRange;
         }
 
         public override void Activate()

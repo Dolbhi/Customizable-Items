@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+// using System.Collections;
+// using System.Collections.Generic;
 using UnityEngine;
 
 using ColbyDoan.BehaviourTree;
@@ -13,40 +13,33 @@ namespace ColbyDoan
     {
         public float forgetTargetDuration = 10;
         public float axeStunDuration = 2;
+        public float recallDelay = 3;
 
         [SerializeField] EnemyIndicator indicator;
+
+        [SerializeField] ThrowSkill throwSkill;
+        [SerializeField] RecallSkill recallSkill;
 
         [SerializeField] FindTargetTask trackingTask;
 
         // pursuit tasks
         [SerializeField] StraightMoveTask chaseTask;
         [SerializeField] MeleeTask meleeTask;
-        [SerializeField] CirclingTask circleEnemyMovement;
 
         // investigation tasks
         [SerializeField] StraightMoveTask investigatePointTask;
 
         [SerializeField] IdleTask idleTask;
 
-        void _Stun(TriggerContext context)
-        {
-            Debug.Log("axe hit");
-            context.GetCharacter?.statusEffects.GetStatus<StunSE>("stun").ApplyStatus(axeStunDuration);
-        }
-
         protected override Node SetupTree()
         {
             // add axe stun effect
             character.artifacts.metaTriggers.Add(AxeTracker.axeHitID, _Stun);
 
-            void _EnterIdle()
-            {
-                indicator.SetIndicator("?");
-                trackingTask.ForgetTarget();
-                idleTask.ResetSequence();
-            }
-
             trackingTask.OnTargetFound += delegate { indicator.SetIndicator("!"); };
+
+            WaitTask recallWaitTask = new WaitTask();
+            recallWaitTask.waitTime = recallDelay;
 
             return trackingTask.AttachNodes(
                 idleTask,
@@ -54,10 +47,16 @@ namespace ColbyDoan
                     new Selector
                     (
                         new Condition(FindTargetTask.targetLOSKey,
-                            new Selector
-                            (
-                                new Sequence(meleeTask, chaseTask),
-                                circleEnemyMovement
+                            // attacking task, chase and try various attacks with priority
+                            new MultiTask(
+                                chaseTask,
+                                new Selector(
+                                    meleeTask,
+                                    // if throw is successful start a wait
+                                    new Sequence(new UseSkillTask(throwSkill), new SimpleTask(recallWaitTask.StartWait)),
+                                    // only recall after wait
+                                    new Sequence(recallWaitTask, new UseSkillTask(recallSkill))
+                                )
                             )
                         ),
                         new LastSeenTimeCondition(forgetTargetDuration, new Inverter(investigatePointTask)),
@@ -67,5 +66,17 @@ namespace ColbyDoan
                 )
             );
         }
+        void _Stun(TriggerContext context)
+        {
+            Debug.Log("axe hit");
+            context.GetCharacter?.statusEffects.GetStatus<StunSE>("stun").ApplyStatus(axeStunDuration);
+        }
+        void _EnterIdle()
+        {
+            indicator.SetIndicator("?");
+            trackingTask.ForgetTarget();
+            idleTask.ResetSequence();
+        }
     }
+
 }

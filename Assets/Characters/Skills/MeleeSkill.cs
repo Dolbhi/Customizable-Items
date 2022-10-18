@@ -7,9 +7,6 @@ namespace ColbyDoan
 {
     public class MeleeSkill : CooldownSkill
     {
-        public override bool Ready => base.Ready && !Active;
-        public bool Active { get; private set; }
-
         public UnityEvent<Vector2, Action> MeleeAnimation;
         public UnityEvent CancelMelee;
         public UnityEvent<float> SetAttackSpeed;
@@ -33,8 +30,12 @@ namespace ColbyDoan
             attackBox.attackMask = character.damageMask;
         }
 
-        Vector2 direction;
+        // public override bool TargetInRange(SightingInfo info)
+        // {
+        //     return info.HasLineOfSight && info.KnownDisplacement.sqrMagnitude < fireRange * fireRange;
+        // }
 
+        Vector2 _direction;
         public override void Activate()
         {
             //print("lets go?");
@@ -43,12 +44,12 @@ namespace ColbyDoan
             //print("module attacking");
             // get direction
             Vector3 displacement = TargetPos - transform.position;
-            direction = ((Vector2)displacement.GetDepthApparentPosition()).normalized;
+            _direction = ((Vector2)displacement.GetDepthApparentPosition()).normalized;
             // Debug.Log($"disp{displacement} dir:{direction}");
             // set active
             Active = true;
             // start animation
-            MeleeAnimation.Invoke(direction, Attack);
+            MeleeAnimation.Invoke(_direction, Attack);
         }
         public override void Cancel()
         {
@@ -62,7 +63,7 @@ namespace ColbyDoan
             audioSource.Play();
 
             // Deal damage
-            DamageInfo info = new DamageInfo(character, damageMultiplier, _knockback: new ForceInfo(direction * knockbackSpeed, knockbackForce), _invokeOnHit: invokeOnHit, _metaTriggerID: metaTriggerID);
+            DamageInfo info = new DamageInfo(character, damageMultiplier, _knockback: new ForceInfo(_direction * knockbackSpeed, knockbackForce), _invokeOnHit: invokeOnHit, _metaTriggerID: metaTriggerID);
             attackBox.Attack(info);
             // Physics2D.OverlapCircle(attackCenter.position, meleeRadius, PhysicsSettings.GetFilter(character.damageMask, attackCenter.position, 1, .4f), hits);
             // foreach (Collider2D hit in hits)

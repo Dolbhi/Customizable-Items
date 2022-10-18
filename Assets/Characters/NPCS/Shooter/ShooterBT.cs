@@ -93,7 +93,7 @@ namespace ColbyDoan
     [System.Serializable]
     public class ShootTask : EnemyNode
     {
-        [SerializeField] ProjectileSkill skill;
+        [SerializeField] Skill _skill;
         // [SerializeField] float attackRangeSqr = 10;
         public string targetKey = FindTargetTask.targetInfoKey;
         SightingInfo _currentTarget;
@@ -114,12 +114,12 @@ namespace ColbyDoan
 
             // Debug.Log($"rdy:{skill.Ready} LOS:{_currentTarget.HasLineOfSight} range:{_currentTarget.KnownDisplacement.sqrMagnitude < skill.FireRangeSqr}");
 
-            if (skill.Ready)
+            if (_skill.Ready)
             {
-                if (_currentTarget.HasLineOfSight && _currentTarget.KnownDisplacement.sqrMagnitude < skill.FireRangeSqr)
+                if (_skill.TargetInRange(_currentTarget))
                 {
-                    skill.TargetPos = _currentTarget.KnownPos;
-                    skill.Activate();
+                    _skill.TargetPos = _currentTarget.KnownPos;
+                    _skill.Activate();
                     // return NodeState.failure;
                 }
                 return NodeState.success;

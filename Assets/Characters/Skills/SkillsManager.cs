@@ -49,6 +49,7 @@ namespace ColbyDoan
             }
         }
     }
+
     /// <summary>
     /// Monobehaviour base abstract class for handling a single skill
     /// </summary>
@@ -57,9 +58,13 @@ namespace ColbyDoan
         [SerializeField] Sprite icon;
 
         /// <summary>
-        /// Is the skill ready to activate? By default depends on if the MonoBehaviour is enabled
+        /// Is the skill ready to activate? By default depends on if the MonoBehaviour is enabled and if the skill isnt already running
         /// </summary>
-        public virtual bool Ready => enabled;
+        public virtual bool Ready => enabled && !Active;
+        /// <summary>
+        /// Is the skill currently running?
+        /// </summary>
+        public bool Active { get; protected set; }
         public virtual Vector3 TargetPos { get; set; }
         protected Character character;
         protected CharacterStats Stats => character.stats;
@@ -77,10 +82,18 @@ namespace ColbyDoan
         public virtual void SetUp(Character _character)
         {
             character = _character;
+            Active = false;
         }
 
         public abstract void Activate();
         public virtual void Cancel() { }
+
+        /// <summary>
+        /// Check if target can be hit by this skill
+        /// </summary>
+        /// <param name="info"> Target infomation </param>
+        /// <returns> true if target can be hit </returns>
+        public virtual bool TargetInRange(SightingInfo info) { return true; }
 
         public virtual void ResetCooldown() { }
         public virtual void ReduceCooldown(float reduction) { }
@@ -199,7 +212,6 @@ namespace ColbyDoan
     {
         // ISkill implementation
         public override bool Ready => base.Ready && (cooldown?.Ready ?? true);
-        public bool Active { get; set; }
         public override void Activate() => OnActivate?.Invoke();
         public override void Cancel() => OnCancel?.Invoke();
 

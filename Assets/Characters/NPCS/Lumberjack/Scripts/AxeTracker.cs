@@ -8,8 +8,10 @@ namespace ColbyDoan
 {
     public class AxeTracker : MonoBehaviour
     {
+        public float pivotHeight = .5f;
+
         /// <summary> global pos of where the axe originates and where it returns to </summary>
-        public Vector3 Pivot => _transform.position + Vector3.forward;
+        public Vector3 Pivot => _transform.position + Vector3.forward * pivotHeight;
         public bool HasAxe { get; private set; }
 
         public const string axeHitID = "on_axe_hit";

@@ -96,6 +96,10 @@ namespace ColbyDoan
         }
     }
 
+    /// <summary>
+    /// Shoot task with laser pointer
+    /// TODO: move laserpointer into general projectile skill animation trigger
+    /// </summary>
     [System.Serializable]
     public class DroneShootTask : EnemyNode
     {
@@ -125,7 +129,7 @@ namespace ColbyDoan
 
             if (skill.Ready && state != NodeState.running)
             {
-                if (_currentTarget.HasLineOfSight && _currentTarget.KnownDisplacement.sqrMagnitude < skill.FireRangeSqr)
+                if (skill.TargetInRange(_currentTarget))
                 {
                     skill.TargetPos = _currentTarget.KnownPos;
                     coroutine = tree.StartCoroutine(ShootingAnimationCoroutine());

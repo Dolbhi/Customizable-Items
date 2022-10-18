@@ -6,8 +6,7 @@ namespace ColbyDoan
 {
     public class RecallSkill : CooldownSkill
     {
-        public override bool Ready => base.Ready && !Active && !axeTracker.HasAxe;
-        public bool Active { get; set; }
+        public override bool Ready => base.Ready && !axeTracker.HasAxe;
         LumberjackAxe Axe => axeTracker.axe;
 
         public float cooldown;
@@ -26,7 +25,7 @@ namespace ColbyDoan
             _transform = transform;
         }
 
-        public bool AxeInSight()
+        public override bool TargetInRange(SightingInfo info)
         {
             var axePos = Axe.transform.position;
             return Axe && !PhysicsSettings.SolidsLinecast(axePos, _transform.position, Mathf.Max(axePos.z, _transform.position.z));

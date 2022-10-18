@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535643654075391488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 1, z: -0.00000011920929}
+  m_LocalPosition: {x: 0.75, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: ef32340e2ff9e492abc86e9c744ce274, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1901692377
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 8635401054184231541, guid: 79355a1ec5c2e334cb4ea9b99a2d63cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -162,8 +162,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6828649762396960403}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -419,9 +419,9 @@ MonoBehaviour:
   Events:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ColbyDoan.LumberjackSkills, Assembly-CSharp
-        m_MethodName: AnimationThrowAxeEvent
+      - m_Target: {fileID: 1849403240886946404}
+        m_TargetAssemblyTypeName: ColbyDoan.ThrowSkill, Assembly-CSharp
+        m_MethodName: ThrowAxe
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -468,7 +468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1452392385792924049, guid: 31ba29a788bb74518aff32f895efd17d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1452392385792924049, guid: 31ba29a788bb74518aff32f895efd17d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -508,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5008170885102146003, guid: 31ba29a788bb74518aff32f895efd17d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5526789527648208370, guid: 31ba29a788bb74518aff32f895efd17d, type: 3}
       propertyPath: m_Name
@@ -520,7 +520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5998647842138110502, guid: 31ba29a788bb74518aff32f895efd17d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.20000076
+      value: 0.79999924
       objectReference: {fileID: 0}
     - target: {fileID: 7511594071745205588, guid: 31ba29a788bb74518aff32f895efd17d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2631414921455122539}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79600f7a8c6ff418a992b851beb8fbb5, type: 3}
   m_Name: 
@@ -761,7 +761,7 @@ MonoBehaviour:
   minCrowdAvoidDistance: 1
   requireFloor: 1
   allowDrops: 0
---- !u!114 &6121725633511152648
+--- !u!114 &4590323059592891055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -770,47 +770,70 @@ MonoBehaviour:
   m_GameObject: {fileID: 2631414921455122539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb2c2bf7294ae4bfe8a013195a1196d6, type: 3}
+  m_Script: {fileID: 11500000, guid: f1b72e165b39247f9998395fdaf46dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTarget:
-    transform: {fileID: 0}
-    timeLastSeen: 0
-  searchWaitTime: 0.2
-  insideFOVRange: 10
-  outsideFOVRange: 5
-  fov: 75
-  needsLOS: 1
---- !u!114 &6424386712243934278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2631414921455122539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d088203c9af74b77a9879647c8e3ef4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveDecider: {fileID: 2345987105924671383}
-  tracker: {fileID: 6121725633511152648}
+  currentNode: 
+  nodeState: 0
+  character: {fileID: 760018280006968554}
+  moveManager: {fileID: 4626048991935744820}
+  decider: {fileID: 2345987105924671383}
+  forgetTargetDuration: 10
+  axeStunDuration: 2
+  recallDelay: 3
   indicator: {fileID: 8897298485512452863}
+  throwSkill: {fileID: 1849403240886946404}
+  recallSkill: {fileID: 3907392776146789496}
+  trackingTask:
+    _currentTarget: {fileID: 0}
+    _sightingInfo:
+      timeLastSeen: 0
+      investigated: 1
+    insideFOVRange: 20
+    outsideFOVRange: 10
+    fov: 75
+    needsLOS: 1
+  chaseTask:
+    speedMultiplier: 1
+    displacementKey: target_displacement
+    targetDistanceGoal: 0.1
+  meleeTask:
+    _skill: {fileID: 3132053181982686700}
+    _attackRangeSqr: 4
+    targetKey: target_info
+  investigatePointTask:
+    speedMultiplier: 1
+    displacementKey: target_displacement
+    targetDistanceGoal: 0.1
+  idleTask:
+    waitTask:
+      minWait: 2
+      maxWait: 4
+    pickSpotTask:
+      needGround: 1
+      idleMaxDist: 5
+      clearance: 0.7
+    goToSpotTask:
+      speedMultiplier: 1
+      displacementKey: spot_displacement
+      targetDistanceGoal: 0.1
+--- !u!114 &4626048991935744820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631414921455122539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84dce7560d04d4c0281820fa1b89c101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   moveStopThreshold: 0
   moveMaxThreshold: 0.3
-  stateMachine:
-    currentStateName: 
-  idleState:
-    idleSpeedCoefficient: 0.5
-    idleMinWait: 2
-    idleMaxWait: 4
-    idleMaxDist: 5
-    requiresGround: 1
-  pursuitState:
-    moveUpdateDelay: 0.2
-    moveStopThreshold: 0
-    moveMaxThreshold: 0.3
-    forbidDropping: 0
+  speedMultiplier: 1
+  _targetDirection: {x: 0, y: 0}
+  _speedAdjustments: 1
 --- !u!1 &5051481838447113673 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4515234364465489677, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
@@ -912,6 +935,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1849403240886946404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5051481838447113673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c312ae109b1ef4befb369e062adfbf94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  throwSpeed: 30
+  verticalSpeed: 3
+  cooldown: 7
+  damage: 2
+  range: 10
+  axeTracker: {fileID: 6527916167595075918}
+  anime: {fileID: 8681106491596653276}
 --- !u!114 &3132053181982686700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,26 +1021,6 @@ MonoBehaviour:
   damageMultiplier: 2
   invokeOnHit: 1
   metaTriggerID: 
---- !u!114 &1849403240886946404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5051481838447113673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c312ae109b1ef4befb369e062adfbf94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  throwSpeed: 17
-  cooldown: 7
-  damage: 2
-  range: 10
-  axeTracker: {fileID: 6527916167595075918}
-  recallSkill: {fileID: 3907392776146789496}
-  anime: {fileID: 8681106491596653276}
 --- !u!114 &3907392776146789496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,6 +1051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d998af262af4c178fd6ccd3ce7d96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pivotHeight: 0.5
   axeSprites: {fileID: 11400000, guid: 367d6537ba0af42648428e7dda6948b6, type: 2}
   noAxeSprites: {fileID: 11400000, guid: 7a21cd474054a4d0db3e5cbbdc97c6de, type: 2}
   axe: {fileID: 1362658002812621594}

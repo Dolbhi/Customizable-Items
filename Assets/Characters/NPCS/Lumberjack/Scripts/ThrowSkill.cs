@@ -6,17 +6,21 @@ namespace ColbyDoan
 {
     public class ThrowSkill : CooldownSkill
     {
-        public override bool Ready => base.Ready && !Active && axeTracker.HasAxe;
-        public bool Active { get; set; }
+        public override bool Ready => base.Ready && axeTracker.HasAxe;
 
         public float throwSpeed;
+        public float verticalSpeed;
         public float cooldown;
         public float damage = 2;
         public float range = 10;
 
         public AxeTracker axeTracker;
-        public RecallSkill recallSkill;// probably remove
         public Animator anime;
+
+        public override bool TargetInRange(SightingInfo info)
+        {
+            return info.HasLineOfSight && info.KnownDisplacement.sqrMagnitude < range * range;
+        }
 
         public override void Activate()
         {
@@ -28,7 +32,6 @@ namespace ColbyDoan
             // cooldown
             Active = true;
             cooldownHandler.StartCooldown(cooldown);
-            // recallSkill.cooldown.StartCooldown(); start recall cooldown to prevent instant recalls
 
             // animation
             anime.SetTrigger("Throw");
@@ -47,11 +50,11 @@ namespace ColbyDoan
             // Axe.projectile.SetDamage(new DamageInfo(manager.character, damage));
 
             // velocity finding
-            Vector3 direction = (TargetPos - axeTracker.Pivot).normalized * normalizationConst + Vector3.forward * .2f;
+            Vector3 direction = (TargetPos - axeTracker.Pivot).normalized * normalizationConst;
 
             // setting and launching
             axeTracker.axe.transform.position = axeTracker.Pivot + direction * 1.5f;
-            axeTracker.axe.kinematicObject.AccelerateTo(direction * throwSpeed);
+            axeTracker.axe.kinematicObject.AccelerateTo(direction * throwSpeed + Vector3.forward * verticalSpeed);
             axeTracker.axe.Launch();
 
             // recoil

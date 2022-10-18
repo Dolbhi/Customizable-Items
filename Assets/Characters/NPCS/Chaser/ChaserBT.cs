@@ -41,9 +41,9 @@ namespace ColbyDoan
                     new Selector
                     (
                         new Condition(FindTargetTask.targetLOSKey,
-                            new Selector
-                            (
-                                new Sequence(meleeTask, chaseTask),
+                            // if skill ready do chase and attack, else do circling
+                            new SkillReadySelector(meleeTask.GetSkill(),
+                                new MultiTask(chaseTask, meleeTask),
                                 circleEnemyMovement
                             )
                         ),
@@ -85,13 +85,25 @@ namespace ColbyDoan
         }
     }
 
+    /// <summary>
+    /// Uses the melee skill if target within range, returns success if activated, running if active and failure if not ready
+    /// </summary>
     [System.Serializable]
     public class MeleeTask : EnemyNode
     {
-        [SerializeField] MeleeSkill skill;
-        [SerializeField] float attackRangeSqr = 1;
+        [SerializeField] Skill _skill;
+        [SerializeField] float _attackRangeSqr = 1;
         public string targetKey = FindTargetTask.targetInfoKey;
         SightingInfo _currentTarget;
+
+        public Skill GetSkill()
+        {
+            return _skill;
+        }
+        public void SetSkill(Skill skill)
+        {
+            _skill = skill;
+        }
 
         public override void Initalize(ColbyDoan.BehaviourTree.Tree toSet)
         {
@@ -107,18 +119,17 @@ namespace ColbyDoan
 
             enemyTree.character.FacingDirection = _currentTarget.KnownDisplacement;
 
-            if (skill.Active)
-                return NodeState.success;
+            if (_skill.Active)
+                return NodeState.running;
 
-            if (skill.Ready)
+            if (_skill.Ready)
             {
-                if (_currentTarget.HasLineOfSight && _currentTarget.KnownDisplacement.sqrMagnitude < attackRangeSqr)
+                if (_currentTarget.HasLineOfSight && _currentTarget.KnownDisplacement.sqrMagnitude < _attackRangeSqr)
                 {
-                    skill.TargetPos = _currentTarget.KnownPos;
-                    skill.Activate();
-                    // return NodeState.failure;
+                    _skill.TargetPos = _currentTarget.KnownPos;
+                    _skill.Activate();
+                    return NodeState.success;
                 }
-                return NodeState.success;
             }
             return NodeState.failure;
         }

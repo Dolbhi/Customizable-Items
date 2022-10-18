@@ -194,7 +194,14 @@ namespace ColbyDoan.BehaviourTree
     /// </remarks>
     public class Sequence : Node
     {
-        public Sequence() : base() { }
+        /// <summary>
+        /// Tries to evaluate all children up to one that has failed or is running
+        /// </summary>
+        /// <remarks>
+        /// Success -> all nodes succeed,
+        /// Running -> final node is running,
+        /// Failure -> final nodes failed
+        /// </remarks>
         public Sequence(params Node[] children) : base(children) { }
 
         public override NodeState Evaluate()
@@ -232,7 +239,14 @@ namespace ColbyDoan.BehaviourTree
     /// </remarks>
     public class Selector : Node
     {
-        public Selector() : base() { }
+        /// <summary>
+        /// Tries to evaluate all children up to one that does not fail
+        /// </summary>
+        /// <remarks>
+        /// Success -> selected node succeeds,
+        /// Running -> selected node is running,
+        /// Failure -> all nodes failed
+        /// </remarks>
         public Selector(params Node[] children) : base(children) { }
 
         public override NodeState Evaluate()

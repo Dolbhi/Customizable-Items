@@ -1374,7 +1374,6 @@ MonoBehaviour:
   knockbackSpeed: 20
   knockbackForce: 200
   cooldown: 2
-  meleeRadius: 1
   damageMultiplier: 3
   invokeOnHit: 1
   metaTriggerID: on_revolver_melee

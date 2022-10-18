@@ -7,9 +7,6 @@ namespace ColbyDoan
 {
     public class FacingMeleeSkill : CooldownSkill
     {
-        public override bool Ready => base.Ready && !Active;
-        public bool Active { get; private set; }
-
         public UnityEvent<Action> MeleeAnimation;
         // public UnityEvent CancelMelee;
         public UnityEvent<float> SetAttackSpeed;

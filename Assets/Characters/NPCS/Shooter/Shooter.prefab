@@ -605,7 +605,7 @@ MonoBehaviour:
     fov: 75
     needsLOS: 1
   shootTask:
-    skill: {fileID: 3384719650283251021}
+    _skill: {fileID: 3384719650283251021}
     targetKey: target_info
   aimTask:
     waitTime: 0.5
