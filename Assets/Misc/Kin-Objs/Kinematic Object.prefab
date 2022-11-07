@@ -99,6 +99,8 @@ GameObject:
   - component: {fileID: 5363120086196100902}
   - component: {fileID: 588100377482288687}
   - component: {fileID: 3556337798624270924}
+  - component: {fileID: 1715598876146484319}
+  - component: {fileID: 6288463092402566936}
   m_Layer: 11
   m_Name: Kinematic Object
   m_TagString: Untagged
@@ -163,6 +165,7 @@ MonoBehaviour:
   upLift: 0
   objCarrier: {fileID: 0}
   controller: {fileID: 0}
+  updateLerper: {fileID: 0}
   carriedBy: {fileID: 0}
   destroyWhenPitted: 1
 --- !u!114 &379283976802304360
@@ -235,6 +238,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   self: {fileID: 0}
+--- !u!114 &1715598876146484319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3687728395140425641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b824f8f7e19024bafa1272a016102afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6288463092402566936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3687728395140425641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfab6630e4987476b9b751b53a6132e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5903893552516721833
 GameObject:
   m_ObjectHideFlags: 0

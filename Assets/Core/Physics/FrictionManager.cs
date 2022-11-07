@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColbyDoan
+namespace ColbyDoan.Physics
 {
     [RequireComponent(typeof(IPhysicsObject))]
     public class FrictionManager : MonoBehaviour
@@ -19,7 +19,7 @@ namespace ColbyDoan
         {
             target = GetComponent<IPhysicsObject>();
         }
-        protected virtual void Update()
+        protected virtual void FixedUpdate()
         {
             ApplyAirFriction();
             ApplyGroundFriction();
@@ -27,13 +27,13 @@ namespace ColbyDoan
         protected virtual void ApplyAirFriction()
         {
             Vector3 windSpeed = Vector3.zero;//GameManager.instance.windManager.GetWindAtPoint(transform.position);
-            target.ForceTo(windSpeed, airFriction * (windSpeed - target.Velocity).magnitude * Time.deltaTime);
+            target.ForceTo(windSpeed, airFriction * (windSpeed - target.Velocity).magnitude * Time.fixedDeltaTime);
         }
         protected virtual void ApplyGroundFriction()
         {
             //print(groundSpeedOffset);
             Vector3 groundSpeed = Vector2.zero + groundSpeedOffset;
-            target.AccelerateTo(groundSpeed + Vector3.forward * target.Velocity.z, EffectiveGroundFriction * Time.deltaTime);
+            target.AccelerateTo(groundSpeed + Vector3.forward * target.Velocity.z, EffectiveGroundFriction * Time.fixedDeltaTime);
         }
     }
 }

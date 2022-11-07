@@ -2,6 +2,8 @@
 
 namespace ColbyDoan
 {
+    using Physics;
+
     /// <summary>
     /// Health, physics, hitboxes, stats, movement, artifacts
     /// </summary>

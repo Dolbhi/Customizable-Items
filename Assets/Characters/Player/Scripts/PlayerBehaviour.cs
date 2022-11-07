@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+using ColbyDoan.Physics;
+
 namespace ColbyDoan
 {
     /// <summary> For handling player inputs </summary>

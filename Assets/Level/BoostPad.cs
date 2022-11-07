@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     public class BoostPad : MonoBehaviour
     {
         public Collider2D trigger;

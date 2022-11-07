@@ -2,6 +2,8 @@
 
 namespace ColbyDoan
 {
+    using Physics;
+
     public class Walker : MonoBehaviour
     {
         IMovingAgent mover;
@@ -13,7 +15,7 @@ namespace ColbyDoan
             if (mover == null) Debug.LogWarning("No moving agent found on " + transform.root.name);
         }
 
-        void Update()
+        void FixedUpdate()
         {
             //if (transform.root.name == "Lumberjack")
             //{

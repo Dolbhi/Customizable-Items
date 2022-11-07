@@ -2,6 +2,8 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     public class LungeSkill : Skill
     {
         public override bool Ready => enabled && lungeCooldown.Ready;

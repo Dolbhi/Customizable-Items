@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using ColbyDoan.Attributes;
 
-namespace ColbyDoan
+namespace ColbyDoan.Physics
 {
     /// <summary>
     /// Manages movement with collisions

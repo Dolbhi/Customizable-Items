@@ -23,7 +23,7 @@ namespace ColbyDoan
             pickup.CurrentItem = itemToDrop.Copy();
 
             // find pickup's KO and yeet it
-            KinematicObject.FindFromRoot(pickup.transform.root).velocity = Quaternion.AngleAxis(UnityEngine.Random.Range(0, 360), Vector3.forward) * Vector3.right * 2 + Vector3.forward * 3;
+            Physics.KinematicObject.FindFromRoot(pickup.transform.root).velocity = Quaternion.AngleAxis(UnityEngine.Random.Range(0, 360), Vector3.forward) * Vector3.right * 2 + Vector3.forward * 3;
         }
     }
 }

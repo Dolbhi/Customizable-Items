@@ -2,12 +2,15 @@
 using UnityEngine;
 using System;
 
-namespace ColbyDoan
+using ColbyDoan.FixedTimeLerp;
+
+namespace ColbyDoan.Physics
 {
     /// <summary>
     /// Physics manager of inanimate but movable objs i.e homemade rigidbody
     /// </summary>
     [RequireComponent(typeof(Controller2D))]
+    [RequireComponent(typeof(InterpolatedTransform))]
     [SelectionBase]
     public class KinematicObject : FindableByRoot<KinematicObject>, IPhysicsObject
     {
@@ -20,6 +23,7 @@ namespace ColbyDoan
 
         [HideInInspector] public Carrier objCarrier;
         [HideInInspector] public Controller2D controller;
+        [HideInInspector] public InterpolatedTransform updateLerper;
 
         float EffectiveGravity => PhysicsSettings.gravity * (1 - upLift);
 
@@ -31,24 +35,25 @@ namespace ColbyDoan
         public bool Grounded => controller.collisions.grounded && !carriedBy;
         public float GravityMultiplier { get => (1 - upLift); set { upLift = 1 - value; } }
 
-        protected void Awake()
+        void Awake()
         {
             objCarrier = GetComponent<Carrier>();
             objCarrier.self = this;
 
             controller = GetComponent<Controller2D>();
+            updateLerper = GetComponent<InterpolatedTransform>();
 
             // handles all that depends on this class
             DependancyInjector.InjectDependancies(this);
         }
 
-        protected virtual void Update()
+        void FixedUpdate()
         {
             // gravity
-            velocity.z += EffectiveGravity * Time.deltaTime;
+            velocity.z += EffectiveGravity * Time.fixedDeltaTime;
 
             // move with velcity
-            ManageCollisions(controller.Move(velocity * Time.deltaTime));
+            ManageCollisions(controller.Move(velocity * Time.fixedDeltaTime));
 
             ManagePitting();
         }
@@ -56,6 +61,7 @@ namespace ColbyDoan
         public void Teleport(Vector3 postion)
         {
             transform.position = postion;
+            updateLerper.ForgetPreviousTransforms();
             objCarrier.TeleportCarriedIntoPos();
         }
 

@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// using System.Collections;
+// using System.Collections.Generic;
 using UnityEngine;
 
-namespace ColbyDoan
+namespace ColbyDoan.Physics
 {
     public class RaycastController2D : MonoBehaviour
     {

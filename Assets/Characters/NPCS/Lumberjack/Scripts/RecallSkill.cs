@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     public class RecallSkill : CooldownSkill
     {
         public override bool Ready => base.Ready && !axeTracker.HasAxe;
@@ -28,17 +30,17 @@ namespace ColbyDoan
         public override bool TargetInRange(SightingInfo info)
         {
             var axePos = Axe.transform.position;
-            return Axe && !PhysicsSettings.SolidsLinecast(axePos, _transform.position, Mathf.Max(axePos.z, _transform.position.z));
+            return Axe && !Physics.PhysicsSettings.SolidsLinecast(axePos, _transform.position, Mathf.Max(axePos.z, _transform.position.z));
         }
 
-        void Update()
+        void FixedUpdate()
         {
             // catch axe
             if (Active)
             {
                 // accelerate axe
                 Vector3 direction = Axe.transform.position - axeTracker.Pivot;
-                Axe.kinematicObject.AccelerateTo(-direction.normalized * recallMaxSpeed, recallAcceleration * Time.deltaTime);
+                Axe.kinematicObject.AccelerateTo(-direction.normalized * recallMaxSpeed, recallAcceleration * Time.fixedDeltaTime);
 
                 // try catch axe
                 if (((Vector2)(Axe.transform.position - axeTracker.Pivot)).sqrMagnitude < 1)

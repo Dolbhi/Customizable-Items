@@ -45,7 +45,7 @@ namespace ColbyDoan.BehaviourTree
         //         yield return brainTickWait;
         //     }
         // }
-        void Update()
+        void FixedUpdate()
         {
             nodeState = _tickedNode.Evaluate();
         }

@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     public class CheckpointManager : MonoBehaviour, IAutoDependancy<Character>
     {
         public Character Dependancy

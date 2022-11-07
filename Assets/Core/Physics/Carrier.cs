@@ -2,7 +2,7 @@
 using UnityEngine;
 using System;
 
-namespace ColbyDoan
+namespace ColbyDoan.Physics
 {
     public class Carrier : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace ColbyDoan
         List<KinematicObject> carriedObjects = new List<KinematicObject>();
         Dictionary<KinematicObject, CarryingInfo> carryingInfo = new Dictionary<KinematicObject, CarryingInfo>();
 
-        void Update()
+        void FixedUpdate()
         {
             for (int i = carriedObjects.Count - 1; i >= 0; i--)
             {
@@ -36,8 +36,8 @@ namespace ColbyDoan
             // velocity adjustment
             Vector3 averagedV = (self.velocity * (EffectiveMass - info.carriedObject.mass) + info.carriedObject.velocity * info.carriedObject.objCarrier.EffectiveMass) / (EffectiveMass - info.carriedObject.mass + info.carriedObject.objCarrier.EffectiveMass);
             //Debug.Log("averageV: " + averagedV);
-            self.ForceTo(averagedV, info.holdForce * Time.deltaTime);
-            info.carriedObject.ForceTo(averagedV, info.holdForce * Time.deltaTime);
+            self.ForceTo(averagedV, info.holdForce * Time.fixedDeltaTime);
+            info.carriedObject.ForceTo(averagedV, info.holdForce * Time.fixedDeltaTime);
         }
 
         public void TeleportCarriedIntoPos()
@@ -46,7 +46,7 @@ namespace ColbyDoan
             {
                 CarryingInfo info = carryingInfo[obj];
                 if (!info.followTeleports) continue;
-                obj.transform.position = transform.position + info.relativeCarryPos;
+                obj.Teleport(transform.position + info.relativeCarryPos);
             }
         }
 

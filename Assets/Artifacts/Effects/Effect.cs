@@ -6,6 +6,8 @@ using System.Linq;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     // framework of an effect that can subscribe to triggers and be updated
     public abstract class Effect : IFactoryProduct
     {

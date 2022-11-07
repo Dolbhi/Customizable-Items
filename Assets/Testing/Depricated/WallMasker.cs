@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     public class WallMasker : MonoBehaviour, IAutoDependancy<KinematicObject>
     {
         public KinematicObject Dependancy { private get; set; }

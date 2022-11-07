@@ -6,6 +6,8 @@ using System;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     // GameManager script is set to execute first
     public class GameManager : Singleton<GameManager>
     {

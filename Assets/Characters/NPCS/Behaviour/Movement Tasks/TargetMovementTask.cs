@@ -6,6 +6,8 @@ using ColbyDoan.BehaviourTree;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     /// <summary>
     /// Movement task with a targetDirection that can be set. ALL TargetMovementTask needs a vector3 value at displacementKey to be set
     /// </summary>

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+using ColbyDoan.FixedTimeLerp;
 namespace ColbyDoan
 {
+    using Physics;
+    [RequireComponent(typeof(InterpolatedTransform))]
     public class Projectile : MonoBehaviour, IPhysicsObject
     {
         [HideInInspector] public DamageInfo damage;
@@ -41,7 +44,7 @@ namespace ColbyDoan
         }
 
         List<Collider2D> _keys = new List<Collider2D>();
-        void Update()
+        void FixedUpdate()
         {
             // HashSet<Collider2D> newCollisions = new HashSet<Collider2D>();
             _keys.AddRange(colliderTimeOut.Keys);
@@ -52,11 +55,11 @@ namespace ColbyDoan
             }
             _keys.Clear();
 
-            velocity.z += gravityMultiplier * PhysicsSettings.gravity * Time.deltaTime;
+            velocity.z += gravityMultiplier * PhysicsSettings.gravity * Time.fixedDeltaTime;
             if (rotateToVelocity)
                 transform.right = velocity;
 
-            Vector3 move = velocity * Time.deltaTime;
+            Vector3 move = velocity * Time.fixedDeltaTime;
 
             // cache pos
             Vector3 pos = transform.position;

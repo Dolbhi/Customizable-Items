@@ -4,6 +4,8 @@ using ColbyDoan.Attributes;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     public class RiflemanSkills : MonoBehaviour
     {
         public OldSkillCrap ShootingSkill;

@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     public class FacingMeleeSkill : CooldownSkill
     {
         public UnityEvent<Action> MeleeAnimation;

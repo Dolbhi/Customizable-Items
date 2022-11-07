@@ -2,6 +2,8 @@
 
 namespace ColbyDoan
 {
+    using Physics;
+
     public class Flyer : MonoBehaviour
     {
         [SerializeField] float propulsion = 20;
@@ -16,11 +18,10 @@ namespace ColbyDoan
             if (kinematicObject == null) Debug.LogWarning("No kinematic object found on " + transform.root.name);
         }
 
-        // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             // Debug.Log($"Moving direction: {character.MovingVelocity}, Multiplier: {character.speedMultiplier}, Final: {(Vector3)character.MovingVelocity + kinematicObject.velocity.z * Vector3.forward}");
-            kinematicObject.ForceTo((Vector3)mover.MovingVelocity + kinematicObject.velocity.z * Vector3.forward, propulsion * Time.deltaTime);
+            kinematicObject.ForceTo((Vector3)mover.MovingVelocity + kinematicObject.velocity.z * Vector3.forward, propulsion * Time.fixedDeltaTime);
         }
     }
 }

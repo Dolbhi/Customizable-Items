@@ -6,6 +6,8 @@ using DG.Tweening;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     public class Explosion : MonoBehaviour
     {
         [Range(0, 1)]

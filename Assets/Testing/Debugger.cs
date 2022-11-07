@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     public class Debugger : MonoBehaviour
     {
         public Texture panelTexture;

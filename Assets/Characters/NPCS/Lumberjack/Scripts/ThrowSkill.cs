@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     public class ThrowSkill : CooldownSkill
     {
         public override bool Ready => base.Ready && axeTracker.HasAxe;

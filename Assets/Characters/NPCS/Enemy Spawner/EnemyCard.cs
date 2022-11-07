@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using Physics;
+
     [CreateAssetMenu(fileName = "NewEnemySpawnCard", menuName = "Custom Assets/Create Enemy Card")]
     public class EnemyCard : ScriptableObject
     {

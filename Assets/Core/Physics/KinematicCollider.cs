@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace ColbyDoan
+namespace ColbyDoan.Physics
 {
     /// <summary>
     /// Class controlling the behaviour of KO-KO collisions. 
@@ -33,12 +33,12 @@ namespace ColbyDoan
 
         public event Action<Vector2, Transform> onCollide = delegate { };
 
-        void Update()
+        void FixedUpdate()
         {
             if (kinematicObj.velocity.sqrMagnitude > speedTreshold * speedTreshold)
             {
                 HashSet<Collider2D> newCollisions = new HashSet<Collider2D>();
-                Vector2 move = kinematicObj.velocity * Time.deltaTime;
+                Vector2 move = kinematicObj.velocity * Time.fixedDeltaTime;
 
                 // find colliders in path of motion
                 collider.CustomCast(move, PhysicsSettings.GetFilter(PhysicsSettings.kinematics, kinematicObj.transform.position, 1, 1), projectileCollisions, move.magnitude);// DONT USE collider.cast IT NEEDS A RIGIDBODY

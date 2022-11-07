@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-namespace ColbyDoan
+namespace ColbyDoan.Physics
 {
     public static class PhysicsSettings
     {

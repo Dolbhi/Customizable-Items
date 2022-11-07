@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 9145731608551539934}
   - component: {fileID: 546080004270350337}
   - component: {fileID: 3062481582137153627}
+  - component: {fileID: 6524085970328988348}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -243,6 +244,18 @@ MonoBehaviour:
   pauseSpawning: 0
   points: 0
   nextEnemy: {fileID: 0}
+--- !u!114 &6524085970328988348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145731608551539930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd56213862ecb4fccb3c29ba37d71d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9145731609258976605
 GameObject:
   m_ObjectHideFlags: 0
