@@ -130,7 +130,12 @@ namespace ColbyDoan
             string path = AssetDatabase.GetAssetPath(myTexture);
             TextureImporter ti = AssetImporter.GetAtPath(path) as TextureImporter;
 
+            // AssetDatabase.DeleteAsset(path);
+
             ti.isReadable = true;
+
+            // ti.spritesheet = new SpriteMetaData[0];
+            // AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
 
             // int rows = rowNames.Length;
             int columns = columnNames.Length;

@@ -209,6 +209,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 0
     aniso: 1
     mipBias: 0
@@ -251,6 +252,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Torso_FL
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -272,6 +274,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Torso_LF
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -293,6 +296,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Torso_LB
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -314,6 +318,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Torso_BL
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -335,6 +340,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: TempMob_4
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -356,6 +362,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Torso_BR
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -377,6 +384,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Torso_RB
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -398,6 +406,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Torso_RF
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -419,6 +428,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Torso_FR
     originalName: 
     pivot: {x: 0.5, y: 0}
@@ -440,6 +450,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: tttt
     originalName: 
     pivot: {x: -0.071428575, y: 1.1428572}
@@ -461,6 +472,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Leg_Cup
     originalName: 
     pivot: {x: 0.8, y: 1}
@@ -482,6 +494,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Leg_Dup
     originalName: 
     pivot: {x: 0.8, y: 1}
@@ -503,6 +516,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Leg_Xup
     originalName: 
     pivot: {x: 0.25, y: 1}
@@ -524,6 +538,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Leg_Uup
     originalName: 
     pivot: {x: 0.2, y: 1}
@@ -545,6 +560,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Leg_Cdown
     originalName: 
     pivot: {x: 0.16666667, y: 1}
@@ -566,6 +582,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Leg_Ddown
     originalName: 
     pivot: {x: 0.2, y: 1}
@@ -587,6 +604,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Leg_Straight
     originalName: 
     pivot: {x: 0.33333334, y: 1}
@@ -608,6 +626,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   - name: Leg_Udown
     originalName: 
     pivot: {x: 0.75, y: 1}
@@ -629,6 +648,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: Group 1
@@ -652,6 +672,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -1, y: 3}
+    spritePosition: {x: 0, y: 0}
   characterData:
     bones: []
     parts: []

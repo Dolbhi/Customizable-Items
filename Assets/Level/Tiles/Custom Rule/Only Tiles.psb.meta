@@ -47,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -89,6 +90,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: wall gradient
@@ -111,7 +113,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 252}
+    uvTransform: {x: 4, y: 324}
+    spritePosition: {x: 0, y: 72}
   - name: Wall 2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +135,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 183, y: 182}
+    uvTransform: {x: 235, y: 268}
+    spritePosition: {x: 52, y: 86}
   - name: Wall
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -153,7 +157,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 188, y: 238}
+    uvTransform: {x: 228, y: 324}
+    spritePosition: {x: 40, y: 86}
   - name: Floor
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -174,7 +179,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 218, y: 238}
+    uvTransform: {x: 246, y: 324}
+    spritePosition: {x: 28, y: 86}
   - name: SImple Outline
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -195,7 +201,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -4, y: 236}
+    uvTransform: {x: 60, y: 324}
+    spritePosition: {x: 64, y: 88}
   - name: Old wall
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -216,7 +223,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -60, y: 340}
+    uvTransform: {x: 4, y: 484}
+    spritePosition: {x: 64, y: 144}
   - name: Bricks 3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -237,7 +245,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 108, y: 236}
+    uvTransform: {x: 172, y: 380}
+    spritePosition: {x: 64, y: 144}
   - name: Bricks 2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -258,7 +267,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -60, y: 236}
+    uvTransform: {x: 4, y: 436}
+    spritePosition: {x: 64, y: 200}
   - name: Bricks
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -279,7 +289,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 108, y: 124}
+    uvTransform: {x: 116, y: 324}
+    spritePosition: {x: 8, y: 200}
   - name: Top Stone
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -300,7 +311,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -114, y: 124}
+    uvTransform: {x: 4, y: 268}
+    spritePosition: {x: 118, y: 144}
   - name: Wall Stone
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -321,7 +333,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -56, y: 180}
+    uvTransform: {x: 62, y: 268}
+    spritePosition: {x: 118, y: 88}
   - name: Floor Stone
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -342,7 +355,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 2, y: 236}
+    uvTransform: {x: 120, y: 268}
+    spritePosition: {x: 118, y: 32}
   - name: Layer 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -363,7 +377,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 200, y: 170}
+    uvTransform: {x: 235, y: 301}
+    spritePosition: {x: 35, y: 131}
   - name: Stone Floor
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -384,7 +399,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 326}
+    uvTransform: {x: 36, y: 484}
+    spritePosition: {x: 32, y: 158}
   - name: Stone Front
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -405,7 +421,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 201, y: 238}
+    uvTransform: {x: 228, y: 380}
+    spritePosition: {x: 27, y: 142}
   - name: Helltaker
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -426,7 +443,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 187, y: 227}
+    uvTransform: {x: 228, y: 357}
+    spritePosition: {x: 41, y: 130}
   - name: Stone
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -447,7 +465,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 231, y: 229}
+    uvTransform: {x: 246, y: 357}
+    spritePosition: {x: 15, y: 128}
   - name: Mask
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -468,7 +487,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -4, y: 388}
+    uvTransform: {x: 60, y: 436}
+    spritePosition: {x: 64, y: 48}
   - name: Unbreakable
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -489,7 +509,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -4, y: 292}
+    uvTransform: {x: 172, y: 324}
+    spritePosition: {x: 176, y: 32}
   - name: 2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -510,7 +531,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -172, y: 292}
+    uvTransform: {x: 4, y: 380}
+    spritePosition: {x: 176, y: 88}
   - name: 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -531,7 +553,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -116, y: 236}
+    uvTransform: {x: 60, y: 380}
+    spritePosition: {x: 176, y: 144}
   - name: 0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -552,7 +575,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -60, y: 180}
+    uvTransform: {x: 116, y: 380}
+    spritePosition: {x: 176, y: 200}
   - name: Grass
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -573,7 +597,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 59, y: 68}
+    uvTransform: {x: 178, y: 268}
+    spritePosition: {x: 119, y: 200}
   - name: Layer 0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -595,6 +620,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 0, y: 0}
   characterData:
     bones: []
     parts: []
@@ -629,7 +655,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 00000000000000000000000000000000
+    spriteID: bb562f0a6db3348fda3d1d0b75f6691f
     layerID: 96
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
@@ -639,7 +665,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: 0
-    spriteID: 00000000000000000000000000000000
+    spriteID: 1757156a19b764e778622a56ea94d8f2
     layerID: 90
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
@@ -699,7 +725,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 00000000000000000000000000000000
+    spriteID: ada7f7c038ce04791abd955adc31dc4c
     layerID: 137
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
@@ -749,7 +775,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 00000000000000000000000000000000
+    spriteID: 0e2ed40f8745246ca903e6d56c7c2356
     layerID: 159
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
@@ -789,7 +815,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 00000000000000000000000000000000
+    spriteID: 0a64cae3155b6401db9824c1ea9251ae
     layerID: 161
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
@@ -849,7 +875,7 @@ ScriptedImporter:
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 00000000000000000000000000000000
+    spriteID: a30447349a35b43e0b227ff168d47dbd
     layerID: 125
     mosaicPosition: {x: 0, y: 0}
     flatten: 0
