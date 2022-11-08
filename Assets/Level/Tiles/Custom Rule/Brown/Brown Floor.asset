@@ -28,7 +28,8 @@ MonoBehaviour:
     - {fileID: -4048665207900645208, guid: 881bd127e514944f1b53ed8919bf83be, type: 3}
     - {fileID: -3348062934533217571, guid: 881bd127e514944f1b53ed8919bf83be, type: 3}
     - {fileID: -771744083097051549, guid: 881bd127e514944f1b53ed8919bf83be, type: 3}
-  durability: 1
+  durability: 0
   downgradedTile: {fileID: 0}
+  traversible: 1
   connectingTiles: []
-  fullTile: 1
+  fullTile: 0

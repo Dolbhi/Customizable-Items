@@ -93,6 +93,28 @@ ScriptedImporter:
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
+  - name: Square Mask
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 436
+      width: 48
+      height: 32
+    spriteID: b37cba8a12147460cae92f4c08c21fe9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 60, y: 436}
+    spritePosition: {x: 64, y: 104}
   - name: wall gradient
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -122,8 +144,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 235
-      y: 268
+      x: 228
+      y: 324
       width: 10
       height: 25
     spriteID: 0e41f4afdf5d04f1f8203eb154b11adc
@@ -135,7 +157,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 235, y: 268}
+    uvTransform: {x: 228, y: 324}
     spritePosition: {x: 52, y: 86}
   - name: Wall
     originalName: 
@@ -144,7 +166,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 228
+      x: 246
       y: 324
       width: 10
       height: 25
@@ -157,7 +179,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 228, y: 324}
+    uvTransform: {x: 246, y: 324}
     spritePosition: {x: 40, y: 86}
   - name: Floor
     originalName: 
@@ -166,8 +188,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 246
-      y: 324
+      x: 228
+      y: 380
       width: 10
       height: 25
     spriteID: fee3bfdf599604cd58fc85d564441213
@@ -179,7 +201,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 246, y: 324}
+    uvTransform: {x: 228, y: 380}
     spritePosition: {x: 28, y: 86}
   - name: SImple Outline
     originalName: 
@@ -364,8 +386,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 235
-      y: 301
+      x: 228
+      y: 357
       width: 2
       height: 8
     spriteID: edaa8708775064a5c89c3df205f83603
@@ -377,7 +399,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 235, y: 301}
+    uvTransform: {x: 228, y: 357}
     spritePosition: {x: 35, y: 131}
   - name: Stone Floor
     originalName: 
@@ -408,8 +430,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 228
-      y: 380
+      x: 172
+      y: 436
       width: 15
       height: 16
     spriteID: ae418aa424d8c4753ba678446170c88a
@@ -421,7 +443,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 228, y: 380}
+    uvTransform: {x: 172, y: 436}
     spritePosition: {x: 27, y: 142}
   - name: Helltaker
     originalName: 
@@ -431,7 +453,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 228
-      y: 357
+      y: 413
       width: 2
       height: 8
     spriteID: cdbd4dc170fc147ffa8e3d9fa53b143b
@@ -443,7 +465,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 228, y: 357}
+    uvTransform: {x: 228, y: 413}
     spritePosition: {x: 41, y: 130}
   - name: Stone
     originalName: 
@@ -474,7 +496,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 60
+      x: 116
       y: 436
       width: 48
       height: 32
@@ -487,7 +509,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 60, y: 436}
+    uvTransform: {x: 116, y: 436}
     spritePosition: {x: 64, y: 48}
   - name: Unbreakable
     originalName: 
@@ -555,7 +577,29 @@ ScriptedImporter:
     parentGroupIndex: -1
     uvTransform: {x: 60, y: 380}
     spritePosition: {x: 176, y: 144}
-  - name: 0
+  - name: gradient
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 268
+      width: 24
+      height: 35
+    spriteID: fe2760956c6bc427b85b40f0fe28e022
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 235, y: 268}
+    spritePosition: {x: 221, y: 190}
+  - name: New 0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -566,7 +610,7 @@ ScriptedImporter:
       y: 380
       width: 48
       height: 48
-    spriteID: 695c845a4baa9490a99125358738b42e
+    spriteID: df1efbece133c4a0cb0eb96d488e359a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -661,6 +705,16 @@ ScriptedImporter:
     flatten: 0
     isImported: 0
     isVisible: 1
+  - name: Square Mask
+    spriteName: Square Mask
+    isGroup: 0
+    parentIndex: 0
+    spriteID: b37cba8a12147460cae92f4c08c21fe9
+    layerID: 166
+    mosaicPosition: {x: 60, y: 436}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: Ref
     spriteName: 
     isGroup: 1
@@ -674,7 +728,7 @@ ScriptedImporter:
   - name: wall gradient
     spriteName: wall gradient
     isGroup: 0
-    parentIndex: 1
+    parentIndex: 2
     spriteID: 5c9ba8e4ef061441ba7305f3f2a09aa1
     layerID: 86
     mosaicPosition: {x: 4, y: 324}
@@ -684,30 +738,30 @@ ScriptedImporter:
   - name: Wall 2
     spriteName: Wall 2
     isGroup: 0
-    parentIndex: 1
+    parentIndex: 2
     spriteID: 0e41f4afdf5d04f1f8203eb154b11adc
     layerID: 85
-    mosaicPosition: {x: 235, y: 268}
+    mosaicPosition: {x: 228, y: 324}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Wall
     spriteName: Wall
     isGroup: 0
-    parentIndex: 1
+    parentIndex: 2
     spriteID: b6f2ea7857f5448f09a2cab9d9b32f91
     layerID: 84
-    mosaicPosition: {x: 228, y: 324}
+    mosaicPosition: {x: 246, y: 324}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Floor
     spriteName: Floor
     isGroup: 0
-    parentIndex: 1
+    parentIndex: 2
     spriteID: fee3bfdf599604cd58fc85d564441213
     layerID: 83
-    mosaicPosition: {x: 246, y: 324}
+    mosaicPosition: {x: 228, y: 380}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -734,7 +788,7 @@ ScriptedImporter:
   - name: Old wall
     spriteName: Old wall
     isGroup: 0
-    parentIndex: 7
+    parentIndex: 8
     spriteID: 92a50160002ea47f58ef5490d12ad802
     layerID: 136
     mosaicPosition: {x: 4, y: 484}
@@ -744,7 +798,7 @@ ScriptedImporter:
   - name: Bricks 3
     spriteName: Bricks 3
     isGroup: 0
-    parentIndex: 7
+    parentIndex: 8
     spriteID: 3b0f8fc9ee38049339652183749ef2a0
     layerID: 28
     mosaicPosition: {x: 172, y: 380}
@@ -784,7 +838,7 @@ ScriptedImporter:
   - name: Top Stone
     spriteName: Top Stone
     isGroup: 0
-    parentIndex: 12
+    parentIndex: 13
     spriteID: f6bad9fb6bfa941949fcbf823d861bbd
     layerID: 121
     mosaicPosition: {x: 4, y: 268}
@@ -794,7 +848,7 @@ ScriptedImporter:
   - name: Wall Stone
     spriteName: Wall Stone
     isGroup: 0
-    parentIndex: 12
+    parentIndex: 13
     spriteID: 2407a8aac76c141f188f2bd9031c9972
     layerID: 61
     mosaicPosition: {x: 62, y: 268}
@@ -804,7 +858,7 @@ ScriptedImporter:
   - name: Floor Stone
     spriteName: Floor Stone
     isGroup: 0
-    parentIndex: 12
+    parentIndex: 13
     spriteID: 114eccec1c989422fb42d15a850b380f
     layerID: 143
     mosaicPosition: {x: 120, y: 268}
@@ -824,17 +878,17 @@ ScriptedImporter:
   - name: Layer 1
     spriteName: Layer 1
     isGroup: 0
-    parentIndex: 16
+    parentIndex: 17
     spriteID: edaa8708775064a5c89c3df205f83603
     layerID: 163
-    mosaicPosition: {x: 235, y: 301}
+    mosaicPosition: {x: 228, y: 357}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Stone Floor
     spriteName: Stone Floor
     isGroup: 0
-    parentIndex: 16
+    parentIndex: 17
     spriteID: 3f4ebf8962ed14ae3b229dde36881171
     layerID: 58
     mosaicPosition: {x: 36, y: 484}
@@ -844,27 +898,27 @@ ScriptedImporter:
   - name: Stone Front
     spriteName: Stone Front
     isGroup: 0
-    parentIndex: 16
+    parentIndex: 17
     spriteID: ae418aa424d8c4753ba678446170c88a
     layerID: 62
-    mosaicPosition: {x: 228, y: 380}
+    mosaicPosition: {x: 172, y: 436}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Helltaker
     spriteName: Helltaker
     isGroup: 0
-    parentIndex: 16
+    parentIndex: 17
     spriteID: cdbd4dc170fc147ffa8e3d9fa53b143b
     layerID: 60
-    mosaicPosition: {x: 228, y: 357}
+    mosaicPosition: {x: 228, y: 413}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Stone
     spriteName: Stone
     isGroup: 0
-    parentIndex: 16
+    parentIndex: 17
     spriteID: 801e207c1018a4974af89004fcd820a1
     layerID: 2
     mosaicPosition: {x: 246, y: 357}
@@ -884,17 +938,17 @@ ScriptedImporter:
   - name: Mask
     spriteName: Mask
     isGroup: 0
-    parentIndex: 22
+    parentIndex: 23
     spriteID: 33ff5943239d947b9a63f1ae861b9105
     layerID: 165
-    mosaicPosition: {x: 60, y: 436}
+    mosaicPosition: {x: 116, y: 436}
     flatten: 0
     isImported: 1
     isVisible: 1
   - name: Unbreakable
     spriteName: Unbreakable
     isGroup: 0
-    parentIndex: 22
+    parentIndex: 23
     spriteID: 2a143ab97ecfb441b97857e39f4cd039
     layerID: 164
     mosaicPosition: {x: 172, y: 324}
@@ -904,7 +958,7 @@ ScriptedImporter:
   - name: 2
     spriteName: 2
     isGroup: 0
-    parentIndex: 22
+    parentIndex: 23
     spriteID: e703cddb4dafc46af9ec10e367a3afdd
     layerID: 132
     mosaicPosition: {x: 4, y: 380}
@@ -914,23 +968,43 @@ ScriptedImporter:
   - name: 1
     spriteName: 1
     isGroup: 0
-    parentIndex: 22
+    parentIndex: 23
     spriteID: db633243ca4eb44479caebc51ef5e6c2
     layerID: 124
     mosaicPosition: {x: 60, y: 380}
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: 0
-    spriteName: 0
+  - name: gradient
+    spriteName: gradient
     isGroup: 0
-    parentIndex: 22
-    spriteID: 695c845a4baa9490a99125358738b42e
-    layerID: 133
+    parentIndex: 23
+    spriteID: fe2760956c6bc427b85b40f0fe28e022
+    layerID: 168
+    mosaicPosition: {x: 235, y: 268}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: New 0
+    spriteName: New 0
+    isGroup: 0
+    parentIndex: 23
+    spriteID: df1efbece133c4a0cb0eb96d488e359a
+    layerID: 167
     mosaicPosition: {x: 116, y: 380}
     flatten: 0
     isImported: 1
     isVisible: 1
+  - name: 0
+    spriteName: 0
+    isGroup: 0
+    parentIndex: 23
+    spriteID: 695c845a4baa9490a99125358738b42e
+    layerID: 133
+    mosaicPosition: {x: 116, y: 380}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
   - name: Grass
     spriteName: Grass
     isGroup: 0

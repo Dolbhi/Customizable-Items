@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Brown Brush
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: 280f9713753ba490cb45341d1a85753c, type: 2}
+  - {fileID: 11400000, guid: c6d8acf8cadc443c7b61aea04a24cf18, type: 2}
   - {fileID: 11400000, guid: 280f9713753ba490cb45341d1a85753c, type: 2}
   - {fileID: 11400000, guid: 25fa3f9a2a0fd47c59d659c98850596e, type: 2}
-  level: 3
+  level: 1
   targetSingleLevel: 0

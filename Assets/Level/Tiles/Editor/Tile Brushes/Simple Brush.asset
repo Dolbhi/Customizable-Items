@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Simple Brush
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: b728e73efab784a2fa41ccbe9bce70a6, type: 2}
+  - {fileID: 11400000, guid: 55ed992e621d340d58c8de732726c841, type: 2}
   - {fileID: 11400000, guid: 55ed992e621d340d58c8de732726c841, type: 2}
   - {fileID: 11400000, guid: b5e8e4fec6ba441ec84a4e0099bb3676, type: 2}
-  level: 1
+  level: 0
   targetSingleLevel: 0
