@@ -7,6 +7,8 @@ namespace ColbyDoan
 {
     public class TileManager : Singleton<TileManager>
     {
+        const float GRID_SIZE = .5f;
+
         public Tilemap mainTilemap;
 
         public Tilemap[] colliderMaps = new Tilemap[3];
@@ -21,11 +23,6 @@ namespace ColbyDoan
         public static event Action<Vector3Int, TileBase> OnTileChange = delegate { };
 
         public Dictionary<Vector3Int, Action<TileChange>> TileChangeCallbacks = new Dictionary<Vector3Int, Action<TileChange>>();
-
-        void LateUpdate()
-        {
-            accumulativeDamage.Clear();
-        }
 
         /// <summary> get the max level of tiles at a point, corresponds to actual world z level </summary>
         /// <param name="position"></param>
@@ -42,22 +39,100 @@ namespace ColbyDoan
             return -1;
         }
         /// <summary> Raycasts for lack of solids one level lower </summary>
+        /// <param name="startPos"></param>
+        /// <param name="direction">Raycast direction, should be normalised</param>
+        /// <param name="distance">Max distance or raycast</param>
+        /// <param name="depth">Ground below this depth are considered pits</param>
         /// <returns> Distance to pit, returns distance if none is found </returns>
         public float PitRaycast(Vector3 startPos, Vector2 direction, float distance, float depth)
         {
-            direction.Normalize();
             int level = (int)depth;
-            for (float pitCheckDist = .1f; pitCheckDist < distance; pitCheckDist += .1f)
+            Vector2Int directionSign = new Vector2Int((int)Mathf.Sign(direction.x), (int)Mathf.Sign(direction.y));
+
+            // normalisation
+            Vector2 normalisedPos = startPos / GRID_SIZE;
+
+            float cumulativeDist = 0;
+
+            // int count = 0;
+
+            if (Mathf.Abs(direction.x) < float.Epsilon)
             {
-                // incement point to check in direction
-                Vector2 point = direction * pitCheckDist + (Vector2)startPos;
-                // check for pit
-                if (GetTerrainHeight(point) < level)
+                while (distance > cumulativeDist)
                 {
-                    return pitCheckDist;
+                    float yFraction = 1 - directionSign.y * normalisedPos.y;
+                    yFraction -= Mathf.Floor(yFraction);
+                    yFraction /= Mathf.Abs(direction.y);
+
+                    float dist = yFraction + .1f;
+                    normalisedPos += dist * direction;
+                    cumulativeDist += dist * GRID_SIZE;
+
+                    if (GetTerrainHeight(normalisedPos * GRID_SIZE) < level)
+                    {
+                        return cumulativeDist;
+                    }
+                }
+            }
+            else if (Mathf.Abs(direction.y) < float.Epsilon)
+            {
+                while (distance > cumulativeDist)
+                {
+                    float xFraction = 1 - directionSign.x * normalisedPos.x;
+                    xFraction -= Mathf.Floor(xFraction);
+                    xFraction /= Mathf.Abs(direction.x);
+
+                    float dist = xFraction + .1f;
+                    normalisedPos += dist * direction;
+                    cumulativeDist += dist * GRID_SIZE;
+
+                    if (GetTerrainHeight(normalisedPos * GRID_SIZE) < level)
+                    {
+                        return cumulativeDist;
+                    }
+                }
+            }
+            else
+            {
+                while (distance > cumulativeDist)
+                {
+                    // count++;
+                    // if (count > 1000)
+                    // {
+                    //     print("Loop doesnt break with dist: " + cumulativeDist);
+                    //     return cumulativeDist;
+                    // }
+
+                    float xFraction = 1 - directionSign.x * normalisedPos.x;
+                    xFraction -= Mathf.Floor(xFraction);
+                    xFraction /= Mathf.Abs(direction.x);
+                    float yFraction = 1 - directionSign.y * normalisedPos.y;
+                    yFraction -= Mathf.Floor(yFraction);
+                    yFraction /= Mathf.Abs(direction.y);
+
+                    float dist = Mathf.Min(xFraction, yFraction) + .1f;
+                    normalisedPos += dist * direction;
+                    cumulativeDist += dist * GRID_SIZE;
+
+                    if (GetTerrainHeight(normalisedPos * GRID_SIZE) < level)
+                    {
+                        return cumulativeDist;
+                    }
                 }
             }
             return distance;
+
+            // for (float pitCheckDist = .1f; pitCheckDist < distance; pitCheckDist += .1f)
+            // {
+            //     // incement point to check in direction
+            //     Vector2 point = direction * pitCheckDist + (Vector2)startPos;
+            //     // check for pit
+            //     if (GetTerrainHeight(point) < level)
+            //     {
+            //         return pitCheckDist;
+            //     }
+            // }
+            // return distance;
         }
         public float PitRaycast(Vector3 startPos, Vector2 direction, float distance)
         {
@@ -70,7 +145,7 @@ namespace ColbyDoan
         public float PitLinecast(Vector3 startPos, Vector2 endPos, float depth)
         {
             Vector2 direction = endPos - (Vector2)startPos;
-            return PitRaycast(startPos, direction, direction.magnitude, depth);
+            return PitRaycast(startPos, direction.normalized, direction.magnitude, depth);
         }
         public float PitLinecast(Vector3 startPos, Vector2 endPos)
         {
@@ -144,6 +219,11 @@ namespace ColbyDoan
             return damage;
         }
         public float DamageTile(Vector2 position, int height, float damage) { return DamageTile(ConvertPos(position, height), damage); }
+
+        public void ClearDamage()
+        {
+            accumulativeDamage.Clear();
+        }
 
         public Vector3Int ConvertPos(Vector2 position, int height)
         {

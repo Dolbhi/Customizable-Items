@@ -145,6 +145,8 @@ namespace ColbyDoan
                 } while (hit && damageLeft > 0); // repeat if a solid was hit and theres enough damage left
             }
 
+            TileManager.Instance.ClearDamage();
+
         }
 
         const float intialExpansionDuration = .25f;

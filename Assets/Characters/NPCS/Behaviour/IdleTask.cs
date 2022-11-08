@@ -24,6 +24,12 @@ namespace ColbyDoan
             Attach(_idleSequence);
         }
 
+        public override void Initalize(Tree toSet)
+        {
+            base.Initalize(toSet);
+            ResetSequence();
+        }
+
         public override NodeState Evaluate()
         {
             enemyTree.decider.allowDrops = false;
