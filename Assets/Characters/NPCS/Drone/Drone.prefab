@@ -593,10 +593,12 @@ MonoBehaviour:
     targetKey: target_info
   circleEnemyMovement:
     speedMultiplier: 1
+    updatePeriod: 0.1
     displacementKey: target_displacement
     distanceToMaintain: 9
   investigatePointTask:
     speedMultiplier: 1
+    updatePeriod: 0.1
     displacementKey: target_displacement
     targetDistanceGoal: 0.1
   idleTask:
@@ -609,6 +611,7 @@ MonoBehaviour:
       clearance: 0.7
     goToSpotTask:
       speedMultiplier: 0.5
+      updatePeriod: 0.1
       displacementKey: spot_displacement
       targetDistanceGoal: 1
 --- !u!114 &3320905913560049025

@@ -39,28 +39,31 @@ namespace ColbyDoan
             return trackingTask.AttachNodes
             (
                 idleTask,
-                new Selector
-                (
-                    new SkillReadySelector(character.skills.skills[0],
-                        new MultiTask(
-                            // ensure conditions are met before attacking
-                            new Condition(FindTargetTask.targetLOSKey,
-                                new Selector
-                                (
-                                    new Condition(FindTargetTask.targetLastLOSKey, false,
-                                        new SimpleTask(lungeAimTask.StartWait)
-                                    ),
-                                    new Sequence(lungeAimTask, lungeTask)
-                                )
+                new MultiTask(
+                    new Selector
+                    (
+                        new SkillReadySelector(character.skills.skills[0],
+                            new MultiTask(
+                                // ensure conditions are met before attacking
+                                new Condition(FindTargetTask.targetLOSKey,
+                                    new Selector
+                                    (
+                                        new Condition(FindTargetTask.targetLastLOSKey, false,
+                                            new SimpleTask(lungeAimTask.StartWait)
+                                        ),
+                                        new Sequence(lungeAimTask, lungeTask)
+                                    )
+                                ),
+                                // chase
+                                chaseTask
                             ),
-                            // chase
-                            chaseTask
+                            // back off if skill on cooldown
+                            maintainDistanceTask
                         ),
-                        // back off if skill on cooldown
-                        maintainDistanceTask
+                        new LastSeenTimeCondition(forgetTargetDuration, new Inverter(investigatePointTask)),
+                        new SimpleTask(_EnterIdle)
                     ),
-                    new LastSeenTimeCondition(forgetTargetDuration, new Inverter(investigatePointTask)),
-                    new SimpleTask(_EnterIdle)
+                    new DontDropBelowTargetTask()
                 )
             );
         }

@@ -959,6 +959,7 @@ MonoBehaviour:
     needsLOS: 1
   chaseTask:
     speedMultiplier: 1
+    updatePeriod: 0.1
     displacementKey: target_displacement
     targetDistanceGoal: 0.1
   meleeTask:
@@ -967,10 +968,12 @@ MonoBehaviour:
     targetKey: target_info
   circleEnemyMovement:
     speedMultiplier: 1
+    updatePeriod: 0.1
     displacementKey: target_displacement
     distanceToMaintain: 4
   investigatePointTask:
     speedMultiplier: 1
+    updatePeriod: 0.1
     displacementKey: target_displacement
     targetDistanceGoal: 0.1
   idleTask:
@@ -983,6 +986,7 @@ MonoBehaviour:
       clearance: 0.7
     goToSpotTask:
       speedMultiplier: 0.5
+      updatePeriod: 0.1
       displacementKey: spot_displacement
       targetDistanceGoal: 0.5
 --- !u!114 &4357706212288626815

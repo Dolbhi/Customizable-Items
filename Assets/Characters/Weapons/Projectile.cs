@@ -177,6 +177,8 @@ namespace ColbyDoan
             fired.damagables = damageMask;
             fired.depthCrossing = aimedDown;
 
+            fired.GetComponent<InterpolatedTransform>().ForgetPreviousTransforms();
+
             return fired;
         }
 

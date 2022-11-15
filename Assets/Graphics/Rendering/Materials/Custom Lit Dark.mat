@@ -54,8 +54,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _DepthOffset: 0
     - _EnableExternalAlpha: 0
-    - _TargetDepth: 1
+    - _TargetDepth: 0
     m_Colors:
     - Color_9acfda01eb7144b4ad067ca0ce744bcd: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

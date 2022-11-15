@@ -10,8 +10,11 @@ namespace ColbyDoan
     public abstract class MovementTask : EnemyNode, IDirectionEvaluator
     {
         public float speedMultiplier = 1;
+        public float updatePeriod = .1f;
         // [SerializeField] protected float moveStopThreshold = 0f;
         // [SerializeField] protected float moveMaxThreshold = 1;
+
+        float _lastMoveTime = 0;
 
         public MovementTask() : base() { }
         public MovementTask(params Node[] nodes) : base(nodes) { }
@@ -34,6 +37,11 @@ namespace ColbyDoan
         /// <returns></returns>
         public override NodeState Evaluate()
         {
+            // skip if evaluation was done recently
+            if (Time.time - _lastMoveTime < updatePeriod)
+                return NodeState.running;
+            _lastMoveTime = Time.time;
+
             // do preEvaluation
             PreEvaluation();
 

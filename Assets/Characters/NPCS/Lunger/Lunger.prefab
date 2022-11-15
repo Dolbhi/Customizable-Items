@@ -568,10 +568,12 @@ MonoBehaviour:
       clearance: 0.7
     goToSpotTask:
       speedMultiplier: 0.5
+      updatePeriod: 0.1
       displacementKey: spot_displacement
       targetDistanceGoal: 0.1
   chaseTask:
     speedMultiplier: 1
+    updatePeriod: 0.1
     displacementKey: target_displacement
     skewAngle: 30
     bobChance: 20
@@ -582,10 +584,12 @@ MonoBehaviour:
     targetKey: target_info
   maintainDistanceTask:
     speedMultiplier: 1
+    updatePeriod: 0.1
     displacementKey: target_displacement
     distanceToMaintain: 0
   investigatePointTask:
     speedMultiplier: 1
+    updatePeriod: 0.1
     displacementKey: target_displacement
     targetDistanceGoal: 0.1
 --- !u!1 &2779994357042011483 stripped

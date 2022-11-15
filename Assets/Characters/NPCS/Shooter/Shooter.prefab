@@ -626,19 +626,23 @@ MonoBehaviour:
   - 1
   keepDistEvaluator:
     speedMultiplier: 1
+    updatePeriod: 0.1
     displacementKey: target_displacement
     minDistance: 3
   stayInRangeEvaluator:
     speedMultiplier: 1
+    updatePeriod: 0.1
     displacementKey: target_displacement
     maxDistance: 10
   spreadOutEvaluator:
     speedMultiplier: 1
+    updatePeriod: 0.1
     spreadWithTrackerKey: shooter
     scoreLerpMin: 0.4
     scoreLerpMax: 1
   investigatePointTask:
     speedMultiplier: 1
+    updatePeriod: 0.1
     displacementKey: target_displacement
     targetDistanceGoal: 0.1
   idleTask:
@@ -651,6 +655,7 @@ MonoBehaviour:
       clearance: 0.7
     goToSpotTask:
       speedMultiplier: 0.5
+      updatePeriod: 0.1
       displacementKey: spot_displacement
       targetDistanceGoal: 1
 --- !u!114 &8790863644969945805 stripped
