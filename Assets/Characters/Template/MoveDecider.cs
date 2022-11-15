@@ -8,8 +8,6 @@ namespace ColbyDoan
 
     public class MoveDecider : MonoBehaviour
     {
-        public event Action<(Vector2, float)> OnEvaluationFinish;
-
         public IDirectionEvaluator DirectionEvaluator
         {
             get => _evaluator;
@@ -56,23 +54,6 @@ namespace ColbyDoan
                 currentOption.goalScore = 1;
                 currentOption.direction = new Vector2(Mathf.Cos(currentAngle), Mathf.Sin(currentAngle));
             }
-        }
-
-        IEnumerator MovementUpdateCoroutine()
-        {
-            while (true)
-            {
-                OnEvaluationFinish.Invoke(GetBestMoveOption(_evaluator));
-                yield return _updateWait;
-            }
-        }
-        void OnEnable()
-        {
-            StartCoroutine("MovementUpdateCoroutine");
-        }
-        void OnDisable()
-        {
-            StopCoroutine("MovementUpdateCoroutine");
         }
 
         public (Vector2, float) GetBestMoveOption(IDirectionEvaluator evaluator)
@@ -171,24 +152,27 @@ namespace ColbyDoan
             _bestOption = OptionInterpolation(lowerOption, bestOption, upperOption);
             return _bestOption;
         }
+        /// <summary>
+        /// Interpolates between move options by their score
+        /// </summary>
+        /// <param name="o0"> Option before best option </param>
+        /// <param name="o1"> Best move option </param>
+        /// <param name="o2"> Option after best option </param>
+        /// <returns> Interpolated direction with score of the best option </returns>
         (Vector2, float) OptionInterpolation(MoveOption o0, MoveOption o1, MoveOption o2)
         {
             var forwardDifference = o1.FinalScore - o0.FinalScore;
             var backDifference = o1.FinalScore - o2.FinalScore;
             var diffSum = forwardDifference + backDifference;
 
-            float fraction = (diffSum == 0) ? .5f : forwardDifference / diffSum;
+            float fraction = (diffSum < float.Epsilon) ? .5f : forwardDifference / diffSum;
 
+            // fraction is remapped from [0,1] to [.25,.75] before interpolation
             var direction = Vector2.Lerp(o0.direction, o2.direction, fraction / 2 + .25f);
             var score = o1.FinalScore;
             // Debug.Log($"{fraction}, o0:{o0.direction} o2:{o2.direction} finalDir:{direction}");
             // Debug.Log($"{fraction}, o0:{o0.FinalScore} o1:{o1.FinalScore} o2:{o2.FinalScore}");
             return (direction, score);
-        }
-
-        public void EvaluateImmediately()
-        {
-            OnEvaluationFinish.Invoke(GetBestMoveOption(_evaluator));
         }
 
         void OnDrawGizmos()
