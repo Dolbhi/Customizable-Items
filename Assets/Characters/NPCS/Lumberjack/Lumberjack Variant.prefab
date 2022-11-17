@@ -616,7 +616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4522950132573118382, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0999985
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4839325783469898087, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: mass
@@ -676,11 +676,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6883846683574315963, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_Size.x
-      value: 0.9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6883846683574315963, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_Size.y
-      value: 2.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6888727491595844076, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: speed.baseValue

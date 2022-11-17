@@ -725,10 +725,6 @@ PrefabInstance:
       propertyPath: classSkills
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1784630478234691906, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: 2000276771228735750, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

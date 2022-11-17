@@ -29,8 +29,9 @@ namespace ColbyDoan
 
         public override bool TargetInRange(SightingInfo info)
         {
+            if (!Axe) return false;
             var axePos = Axe.transform.position;
-            return Axe && !Physics.PhysicsSettings.SolidsLinecast(axePos, _transform.position, Mathf.Max(axePos.z, _transform.position.z));
+            return !Physics.PhysicsSettings.SolidsLinecast(axePos, _transform.position, Mathf.Max(axePos.z, _transform.position.z));
         }
 
         void FixedUpdate()

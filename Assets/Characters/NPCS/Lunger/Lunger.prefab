@@ -168,6 +168,10 @@ PrefabInstance:
       value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 867031389864512538, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 867031389864512538, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.1
       objectReference: {fileID: 0}
@@ -265,11 +269,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2918359578394315336, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_Offset.x
-      value: 0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2918359578394315336, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_Offset.y
-      value: 0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3160464781625354510, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: health
@@ -296,6 +300,10 @@ PrefabInstance:
       value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 3579773384703432462, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+      propertyPath: trueLocalPosition.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 3579773384703432462, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: trueLocalPosition.y
       value: -0.1
       objectReference: {fileID: 0}
@@ -306,14 +314,6 @@ PrefabInstance:
     - target: {fileID: 3965878071965213544, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4522950132573118382, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 4522950132573118382, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4839325783469898087, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: mass

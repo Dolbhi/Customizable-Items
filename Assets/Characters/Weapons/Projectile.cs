@@ -63,18 +63,18 @@ namespace ColbyDoan
 
             // cache pos
             Vector3 pos = transform.position;
-            Vector2 displacedPos = pos.GetDepthApparentPosition();
+            // Vector2 displacedPos = pos.GetDepthApparentPosition();
 
             // step down if applicable
             if (depthCrossing && pos.z > 1)
             {
-                // check for solids 1 unit down in depth and 1 unit up(where it would end up)
-                if (TileManager.Instance.GetTerrainHeight(pos + Vector3.up) < pos.z - 1)
+                // check for solids at its current position and at where it would end up (1 unit down in depth and 1 unit up)
+                if (TileManager.Instance.GetTerrainHeight(pos + Vector3.up) < pos.z - 1 && TileManager.Instance.GetTerrainHeight(pos) < pos.z - 1)
                 {
                     // if theres none step projectile down
                     transform.Translate(0, 1, -1, Space.World);
                     pos = transform.position;
-                    displacedPos = pos.GetDepthApparentPosition();
+                    // displacedPos = pos.GetDepthApparentPosition();
                 }
             }
 
@@ -84,8 +84,8 @@ namespace ColbyDoan
             //    +     -   E
             //(DC)-         -
             // projectile hitbox size is 2 unit tall, biased upwards (extends downwards if depthCrossing)
-            RaycastHit2D hitboxHit = Physics2D.Raycast(displacedPos, move, ((Vector2)move).magnitude, damagables, pos.z - (depthCrossing ? 2.5f : 1.5f), pos.z + .3f);
-            Debug.DrawRay(displacedPos, move, Color.red);
+            RaycastHit2D hitboxHit = Physics2D.Raycast(pos, move, ((Vector2)move).magnitude, damagables, pos.z - (depthCrossing ? 2.5f : 1.5f), pos.z + .3f);
+            Debug.DrawRay(pos, move, Color.red);
 
             // for solid collisions the projectile has a height of 0
             float dist = hitboxHit ? hitboxHit.distance : ((Vector2)move).magnitude;
@@ -187,10 +187,10 @@ namespace ColbyDoan
             Instantiate(hitSoundProp, transform.position, Quaternion.identity);
         }
 
-        public void SetFaction(int faction)
-        {
-            damagables = PhysicsSettings.hitboxes & ~1 >> faction;
-        }
+        // public void SetFaction(int faction)
+        // {
+        //     damagables = PhysicsSettings.hitboxes & ~1 >> faction;
+        // }
 
         IEnumerator DelayedDestruction()
         {

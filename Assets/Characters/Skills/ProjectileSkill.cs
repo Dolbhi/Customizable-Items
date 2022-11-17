@@ -50,7 +50,9 @@ namespace ColbyDoan
         void FireProjectile()
         {
             Vector3 displacement = TargetPos - fireOrigin.position;
-            Vector3 direction = ((Vector2)displacement.GetDepthApparentPosition()).normalized;
+            // account for auto dropping
+            displacement.y += Mathf.Ceil(displacement.z);
+            Vector3 direction = ((Vector2)displacement).normalized;// ((Vector2)displacement.GetDepthApparentPosition()).normalized;
             shot.FireCopy(fireOrigin.position + direction, direction * shotSpeed, character.damageMask, new DamageInfo(character, damageMultiplier), displacement.z < -1);
 
             fireCooldown.StartCooldown();

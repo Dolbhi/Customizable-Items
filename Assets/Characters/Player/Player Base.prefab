@@ -2153,11 +2153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1925204144051021807, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19999999
+      value: 0.21999997
       objectReference: {fileID: 0}
     - target: {fileID: 1925204144051021807, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2014624272839204499, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: posFromRoot.y
@@ -2311,10 +2311,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.00999999
       objectReference: {fileID: 0}
-    - target: {fileID: 4522950132573118382, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.76
-      objectReference: {fileID: 0}
     - target: {fileID: 4752565205142778826, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: displayTriggersOnHUD
       value: 1
@@ -2424,6 +2420,14 @@ PrefabInstance:
       value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 6883846683574315963, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883846683574315963, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6883846683574315963, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -2441,7 +2445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6921192413949785748, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7116108891381043015, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_Layer
@@ -2469,7 +2473,7 @@ PrefabInstance:
       objectReference: {fileID: 4053806572448916680}
     - target: {fileID: 8126128073833271500, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: trueLocalPosition.y
-      value: 0.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8232301761348400686, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: damageMask.m_Bits
