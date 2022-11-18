@@ -196,7 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundFriction: 10
   slidingFriction: 5
-  airFriction: 2
+  airFriction: 1
   groundSpeedOffset: {x: 0, y: 0}
   sliding: 0
 --- !u!61 &588100377482288687

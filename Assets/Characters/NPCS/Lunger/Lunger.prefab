@@ -630,7 +630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   speed: 20
-  lungeDist: 4
+  lungeDist: 7
   cooldown: 3
 --- !u!114 &7060246773185767555
 MonoBehaviour:

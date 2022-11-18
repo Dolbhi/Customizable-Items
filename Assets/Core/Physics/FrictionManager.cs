@@ -26,8 +26,8 @@ namespace ColbyDoan.Physics
         }
         protected virtual void ApplyAirFriction()
         {
-            Vector3 windSpeed = Vector3.zero;//GameManager.instance.windManager.GetWindAtPoint(transform.position);
-            target.ForceTo(windSpeed, airFriction * (windSpeed - target.Velocity).magnitude * Time.fixedDeltaTime);
+            Vector3 windSpeed = WindManager.GetWindAtPoint(transform.position);
+            target.ForceTo(windSpeed, airFriction * (windSpeed - target.Velocity).sqrMagnitude * Time.fixedDeltaTime);
         }
         protected virtual void ApplyGroundFriction()
         {

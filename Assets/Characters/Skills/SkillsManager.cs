@@ -97,6 +97,11 @@ namespace ColbyDoan
 
         public virtual void ResetCooldown() { }
         public virtual void ReduceCooldown(float reduction) { }
+
+        void OnDisable()
+        {
+            Cancel();
+        }
     }
 
     /// <summary>

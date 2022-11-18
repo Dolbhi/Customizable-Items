@@ -39,6 +39,12 @@ namespace ColbyDoan
             // catch axe
             if (Active)
             {
+                if (!Axe)
+                {
+                    Cancel();
+                    return;
+                }
+
                 // accelerate axe
                 Vector3 direction = Axe.transform.position - axeTracker.Pivot;
                 Axe.kinematicObject.AccelerateTo(-direction.normalized * recallMaxSpeed, recallAcceleration * Time.fixedDeltaTime);
@@ -109,7 +115,7 @@ namespace ColbyDoan
             Stats.speed.RemoveMultiplier(0);
 
             if (!axeTracker.HasAxe)
-                Axe.SetGravity(true);
+                Axe?.SetGravity(true);
         }
     }
 }

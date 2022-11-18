@@ -706,6 +706,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 7693524699634764609, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+      propertyPath: airFriction
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8126128073833271500, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: trueLocalPosition.y
       value: 1.1

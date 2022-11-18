@@ -220,11 +220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1925204144051021807, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1925204144051021807, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.78000003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2014624272839204499, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: posFromRoot.y
@@ -452,7 +452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6921192413949785748, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_Color.a
-      value: 0.61
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7110829108860709420, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: trueLocalPosition.y
@@ -461,6 +461,10 @@ PrefabInstance:
     - target: {fileID: 7116108891381043015, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693524699634764609, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+      propertyPath: airFriction
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8126128073833271500, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: trueLocalPosition.y
