@@ -209,35 +209,4 @@ namespace ColbyDoan
             onCooldownFinish.Invoke();
         }
     }
-
-    /// <summary>
-    /// Currently used in old rifleman
-    /// </summary>
-    public class OldSkillCrap : Skill, IDisplayableSkill
-    {
-        // ISkill implementation
-        public override bool Ready => base.Ready && (cooldown?.Ready ?? true);
-        public override void Activate() => OnActivate?.Invoke();
-        public override void Cancel() => OnCancel?.Invoke();
-
-        // IDisplayableSkill Implementation
-        public override bool ShowTimer => cooldown.cooldownDuration >= 2;
-        public override float CooldownProgress => cooldown?.ProgressFraction ?? 1;
-        public override float CooldownLeft => cooldown?.TimeLeft ?? 0;
-
-        public Cooldown cooldown;
-        readonly Action OnActivate;
-        readonly Action OnCancel;
-
-        public OldSkillCrap(Action _start, float cooldownTime = 0) : this(_start, () => { }, cooldownTime) { }
-        public OldSkillCrap(Action _start, Action _stop, float cooldownTime = 0)
-        {
-            enabled = true;
-
-            cooldown = (cooldownTime == 0) ? null : new Cooldown(cooldownTime);
-
-            OnActivate = _start;
-            OnCancel = _stop;
-        }
-    }
 }
