@@ -6,19 +6,24 @@ namespace ColbyDoan
 {
     using Physics;
 
-    public class WindBoost : Skill, IWindSource
+    public class WindBoost : CooldownSkill, IWindSource
     {
-        public float rechargeRate = .3f;
-        public float useRate = 2;
-        public float boostForce = 3000;
+        // public float rechargeRate = .3f;
+        public float boostDuration = .5f;
+        public float boostSpdMultiplier = 500;
 
-        public float windSpeed = 500;
+        public float cooldown = 4;
+
+        public float windSpdMultiplier = 100;
         public float coneAngle = 15;
 
         public float downwardsRadius = 1;
 
-        float _air = 1;
-        Vector3 _windDirection = Vector3.one;
+        float _boostTimeLeft = 0;
+        /// <summary>
+        /// Direction of wind with magnitude equal to speed stat * falloff
+        /// </summary>
+        Vector3 _windDirectionPower = Vector3.one;
         Transform _transform;
 
         public override void SetUp(Character _character)
@@ -30,23 +35,19 @@ namespace ColbyDoan
         public override void Activate()
         {
             Active = true;
+            _boostTimeLeft = boostDuration;
+            cooldownHandler.StartCooldown(cooldown);
             WindManager.windSources.Add(this);
-        }
-        public override void Cancel()
-        {
-            base.Cancel();
-            Active = false;
-            WindManager.windSources.Remove(this);
         }
 
         public Vector3 GetWindAtPoint(Vector3 point)
         {
             Vector3 displacement = point - _transform.position;
             float sqrDist = displacement.sqrMagnitude;
-            if (Vector2.Angle(_windDirection, displacement) < coneAngle && sqrDist >= 1 && sqrDist < 100)
+            if (Vector2.Angle(_windDirectionPower, displacement) < coneAngle && sqrDist >= 1 && sqrDist < 100)
             {
                 // print($"Point: {point}, Speed:{speed}");
-                return windSpeed * _windDirection / sqrDist;
+                return windSpdMultiplier * _windDirectionPower / sqrDist;
             }
             return Vector3.zero;
         }
@@ -55,35 +56,35 @@ namespace ColbyDoan
         {
             if (Active)
             {
-                if (_air <= 0)
+                if (_boostTimeLeft <= 0)
                 {
-                    // cancel if out of air
-                    Cancel();
+                    // stop if time is up
+                    Active = false;
+                    WindManager.windSources.Remove(this);
                 }
                 else
                 {
-                    _windDirection = (TargetPos - _transform.position.GetDepthApparentPosition() + Vector3.back * downwardsRadius).normalized;
+                    // Wind direction with speed stat as multiplier
                     // boost upwards if targetPos is close to character
-                    _air -= useRate * Time.fixedDeltaTime;
+                    _windDirectionPower = Stats.speed.FinalValue * (TargetPos - _transform.position.GetDepthApparentPosition()).normalized;
+                    _boostTimeLeft -= Time.fixedDeltaTime;
 
                     // add falloff from low air
-                    _windDirection *= Mathf.InverseLerp(0, .5f, _air);
+                    // _windDirectionPower *= Mathf.InverseLerp(0, .5f, _boostTimeLeft);
 
-                    character.kinematicObject.ApplyImpulse(-_windDirection * boostForce * Time.fixedDeltaTime);
+                    character.kinematicObject.ApplyImpulse(-_windDirectionPower * boostSpdMultiplier * Time.fixedDeltaTime);
                 }
             }
-            _air += rechargeRate * Time.fixedDeltaTime;
-            _air = Mathf.Clamp01(_air);
         }
 
-        void OnGUI()
-        {
-            // GUI.Label()
-            var style = new GUIStyle();
-            style.border.top = 1;
-            style.border.left = 1;
-            // style.alignment = TextAnchor.MiddleLeft;
-            GUILayout.Label("Air: " + _air * 100);
-        }
+        // void OnGUI()
+        // {
+        //     // GUI.Label()
+        //     var style = new GUIStyle();
+        //     style.border.top = 1;
+        //     style.border.left = 1;
+        //     // style.alignment = TextAnchor.MiddleLeft;
+        //     GUILayout.Label("Air: " + _boostTimeLeft * 100);
+        // }
     }
 }

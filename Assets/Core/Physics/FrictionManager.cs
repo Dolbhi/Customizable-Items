@@ -26,11 +26,13 @@ namespace ColbyDoan.Physics
         }
         protected virtual void ApplyAirFriction()
         {
+            if (Mathf.Abs(airFriction) < float.Epsilon) return;
             Vector3 windSpeed = WindManager.GetWindAtPoint(transform.position);
             target.ForceTo(windSpeed, airFriction * (windSpeed - target.Velocity).sqrMagnitude * Time.fixedDeltaTime);
         }
         protected virtual void ApplyGroundFriction()
         {
+            if (Mathf.Abs(EffectiveGroundFriction) < float.Epsilon) return;
             //print(groundSpeedOffset);
             Vector3 groundSpeed = Vector2.zero + groundSpeedOffset;
             target.AccelerateTo(groundSpeed + Vector3.forward * target.Velocity.z, EffectiveGroundFriction * Time.fixedDeltaTime);

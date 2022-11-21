@@ -12,6 +12,7 @@ namespace ColbyDoan
         [Header("Dependancies")]
         [SerializeField] InteractablesFinder interacter;
         [SerializeField] MovementManager movementManager;
+        [SerializeField] FrictionManager frictionManager;
         public Inventory inventory;
 
         // public Texture2D[] cursorByHeight;
@@ -25,6 +26,8 @@ namespace ColbyDoan
         public float jumpSpeed;
 
         public float sneakingMultiplier = .5f;
+        public float normalGroundFriction = 60;
+        public float sneakingGroundFriction = 120;
         public float sprintingMultiplier = 1.5f;
 
         // control inputs
@@ -98,12 +101,14 @@ namespace ColbyDoan
         {
             if (!character.Alive) return;
             _sneaking = true;
+            frictionManager.groundFriction = sneakingGroundFriction;
             movementManager.speedMultiplier = sneakingMultiplier;
         }
         void UnSneak()
         {
             if (!character.Alive) return;
             _sneaking = false;
+            frictionManager.groundFriction = normalGroundFriction;
             movementManager.speedMultiplier = 1;
         }
 

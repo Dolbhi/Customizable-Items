@@ -2,6 +2,8 @@
 
 namespace ColbyDoan
 {
+    using Physics;
+
     /// <summary> Finds interactables by distance </summary>
     public class InteractablesFinder : MonoBehaviour
     {
@@ -14,16 +16,23 @@ namespace ColbyDoan
             // searches through list of interactables for closest in range
             ClosestInteractable = null;
             float closestDist = interactionRadius;
+            Vector3 selfPos = transform.position;
             foreach (Interactable interactable in Interactable.interactables)
             {
                 // if (!interactable.interactable)
                 //     continue;
-                float distance = Vector2.Distance(interactable.transform.position, transform.position);
-                if (distance > closestDist)
-                    continue;
-
-                ClosestInteractable = interactable;
-                closestDist = distance;
+                Vector3 interactablePos = interactable.transform.position;
+                float distance = Vector2.Distance(interactablePos, selfPos);
+                if (distance < closestDist)
+                {
+                    // check for blocking solids, unless solid is the interactable
+                    RaycastHit2D hit = PhysicsSettings.SolidsLinecast(selfPos, interactablePos);
+                    if (!hit || hit.transform == interactable.transform)
+                    {
+                        ClosestInteractable = interactable;
+                        closestDist = distance;
+                    }
+                }
             }
 
             // set interactable text

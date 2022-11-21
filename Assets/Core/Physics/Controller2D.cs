@@ -187,7 +187,7 @@ namespace ColbyDoan.Physics
         {
             // get floors
             ContactFilter2D filter = PhysicsSettings.GetFilter(collisionMask, raycastOrigins.lowest - 2 * skinWidth + move.z, raycastOrigins.lowest + .2f);
-            Physics2D.OverlapBox(raycastOrigins.bound.center, raycastOrigins.bound.size, 0, filter, depthCollisionResults);
+            Physics2D.OverlapBox(raycastOrigins.bound.center, raycastOrigins.bound.size - 2 * skinWidth * Vector3.one, 0, filter, depthCollisionResults);
             // find highest floor
             floor = null;
             foreach (Collider2D collider in depthCollisionResults)
