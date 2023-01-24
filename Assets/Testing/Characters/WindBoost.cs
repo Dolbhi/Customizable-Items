@@ -43,11 +43,11 @@ namespace ColbyDoan
         public Vector3 GetWindAtPoint(Vector3 point)
         {
             Vector3 displacement = point - _transform.position;
-            float sqrDist = displacement.sqrMagnitude;
-            if (Vector2.Angle(_windDirectionPower, displacement) < coneAngle && sqrDist >= 1 && sqrDist < 100)
+            float dist = displacement.magnitude;
+            if (Vector2.Angle(_windDirectionPower, displacement) < coneAngle && dist >= 1 && dist < 10)
             {
                 // print($"Point: {point}, Speed:{speed}");
-                return windSpdMultiplier * _windDirectionPower / sqrDist;
+                return windSpdMultiplier * _windDirectionPower / dist;
             }
             return Vector3.zero;
         }
@@ -70,11 +70,15 @@ namespace ColbyDoan
                     _boostTimeLeft -= Time.fixedDeltaTime;
 
                     // add falloff from low air
-                    // _windDirectionPower *= Mathf.InverseLerp(0, .5f, _boostTimeLeft);
 
-                    character.kinematicObject.ApplyImpulse(-_windDirectionPower * boostSpdMultiplier * Time.fixedDeltaTime);
+                    character.kinematicObject.ApplyImpulse(-_windDirectionPower * boostSpdMultiplier * Time.fixedDeltaTime * Mathf.InverseLerp(0, .5f * boostDuration, _boostTimeLeft));
                 }
             }
+        }
+
+        void OnDisable()
+        {
+            WindManager.windSources.Remove(this);
         }
 
         // void OnGUI()
