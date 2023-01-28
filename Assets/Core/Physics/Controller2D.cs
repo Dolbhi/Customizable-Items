@@ -215,7 +215,7 @@ namespace ColbyDoan.Physics
         bool CeilingCollisions(ref Vector3 move)
         {
             // get lowest ceiling (feature of overlapBox)
-            Collider2D ceiling = Physics2D.OverlapBox(raycastOrigins.bound.center, raycastOrigins.bound.size - skinWidth * Vector3.one, 0, collisionMask, raycastOrigins.highest, raycastOrigins.highest + skinWidth + move.z + 1);
+            Collider2D ceiling = Physics2D.OverlapBox(raycastOrigins.bound.center, raycastOrigins.bound.size - skinWidth * Vector3.one, 0, collisionMask, raycastOrigins.highest + 1, raycastOrigins.highest + skinWidth + move.z + 1);
             if (ceiling && raycastOrigins.highest + skinWidth + move.z > ceiling.transform.position.z - 1)
             {
                 move.z = ceiling.transform.position.z - 1 - raycastOrigins.highest - skinWidth;

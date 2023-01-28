@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System;
+using DG.Tweening;
 
 namespace ColbyDoan
 {
@@ -30,7 +31,7 @@ namespace ColbyDoan
         {
             base.Awake();
             // GameStats.Reset();
-            DG.Tweening.DOTween.Init();
+            DOTween.Init();
             Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
             itemPool = Instantiate<ArtifactPools>(itemPool);
             // DependancyInjector.InjectDependancies(this);
@@ -43,6 +44,7 @@ namespace ColbyDoan
         }
         public void ReloadLevel()
         {
+            DOTween.KillAll();
             gameoverHUD.SetActive(false);
             SceneManager.LoadSceneAsync("Basic Scene");
             OnLevelLoaded.Invoke();

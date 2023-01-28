@@ -38,8 +38,8 @@ namespace ColbyDoan
 
         void OnDisable()
         {
-            // bob.Complete();
-            transform.DOKill();
+            bob.Kill();
+            // transform.DOKill();
         }
 
         void OnEnable()

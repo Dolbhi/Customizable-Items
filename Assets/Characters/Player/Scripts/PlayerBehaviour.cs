@@ -141,10 +141,51 @@ namespace ColbyDoan
                 skill.TargetPos = mousePos;
             character.FacingDirection = mousePos - transform.position;
 
+            // var kinematicObject = character.kinematicObject;
+
+            // // check if on ladder
+            // int results = kinematicObject.controller.OverlapCollider(LayerMask.GetMask("Ladder"), _ladders);
+            // // print("Ladders: " + results + " Pos: " + transform.position + " Velocity: " + kinematicObject.velocity);
+            // if (results != 0)
+            // {
+            //     //climb
+            //     // print(playerActions.Jump.phase);
+            //     if (playerActions.Jump.phase == InputActionPhase.Performed) // && transform.position.z < .99f)
+            //     {
+            //         // print("jump started");
+            //         // kinematicObject.controller.collisions.grounded = true;
+
+            //         // check if close enough to top
+            //         if (1 - transform.position.z < 0.02f)
+            //         {
+            //             print("TOP!");
+            //             if (!kinematicObject.controller.collisions.grounded)
+            //             {
+            //                 // Vector2 center = _ladders[0].bounds.center;
+            //                 // Vector2 center = _ladders[0].transform.GetChild(0).position;
+            //                 Vector2 center = transform.position + _ladders[0].transform.up * .1f;
+            //                 kinematicObject.AccelerateTo(Vector3.back * 0.05f, isolation: PhysicsSettings.ForceIsolation.Vertical);
+            //                 kinematicObject.Teleport(new Vector3(center.x, center.y, 1.02f));
+            //             }
+            //         }
+            //         else
+            //         {
+            //             kinematicObject.AccelerateTo(Vector3.forward * 2, isolation: PhysicsSettings.ForceIsolation.Vertical);
+            //         }
+            //     }
+            // }
+
+            pointerOverGameObject = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
+            // print("pointerOverGO: " + pointerOverGameObject);
+        }
+
+        void FixedUpdate()
+        {
             var kinematicObject = character.kinematicObject;
 
             // check if on ladder
             int results = kinematicObject.controller.OverlapCollider(LayerMask.GetMask("Ladder"), _ladders);
+            // print("Ladders: " + results + " Pos: " + transform.position + " Velocity: " + kinematicObject.velocity);
             if (results != 0)
             {
                 //climb
@@ -157,6 +198,7 @@ namespace ColbyDoan
                     // check if close enough to top
                     if (1 - transform.position.z < 0.02f)
                     {
+                        // print("TOP!");
                         if (!kinematicObject.controller.collisions.grounded)
                         {
                             // Vector2 center = _ladders[0].bounds.center;
@@ -172,9 +214,6 @@ namespace ColbyDoan
                     }
                 }
             }
-
-            pointerOverGameObject = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject();
-            // print("pointerOverGO: " + pointerOverGameObject);
         }
 
         void OnEnable()
