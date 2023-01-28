@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2584910036597881563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5493830956556259501}
+  - component: {fileID: 7321865965237605575}
+  - component: {fileID: 5985737076607909663}
+  m_Layer: 0
+  m_Name: Attack Box
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5493830956556259501
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584910036597881563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3675801266295788636}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &7321865965237605575
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584910036597881563}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
+--- !u!114 &5985737076607909663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584910036597881563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441b711dba94341d6abe0ebb638d5e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coll: {fileID: 7321865965237605575}
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 0
+  above: 0.4
+  below: 1
+  needLOS: 1
+  sightOrigin: {fileID: 3675801266295788636}
 --- !u!1 &3897244458205281366
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +279,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5054115699010921533}
+  - {fileID: 5493830956556259501}
   m_Father: {fileID: 2095957952740157695}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -543,8 +613,6 @@ GameObject:
   - component: {fileID: 5054115699010921533}
   - component: {fileID: 6390527477412159135}
   - component: {fileID: 209055606385171994}
-  - component: {fileID: 8785578160417019206}
-  - component: {fileID: 2885742432998323544}
   m_Layer: 9
   m_Name: Attack Sprite
   m_TagString: Untagged
@@ -634,42 +702,6 @@ MonoBehaviour:
   trueLocalPosition: {x: 1, y: 0}
   disableDisplacement: 0
   onlyUseParentZCoord: 0
---- !u!114 &8785578160417019206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8709297921401180195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 441b711dba94341d6abe0ebb638d5e02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coll: {fileID: 2885742432998323544}
-  attackMask:
-    serializedVersion: 2
-    m_Bits: 0
-  above: 0.4
-  below: 1
-  needLOS: 1
-  sightOrigin: {fileID: 3675801266295788636}
---- !u!58 &2885742432998323544
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8709297921401180195}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1
 --- !u!1001 &7116484537321348722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1350,10 +1382,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   audioSource: {fileID: 2754022282830057736}
-  attackBox: {fileID: 8785578160417019206}
+  attackBox: {fileID: 5985737076607909663}
   knockbackSpeed: 20
   knockbackForce: 200
-  cooldown: 2
+  cooldown: 1
   damageMultiplier: 3
   invokeOnHit: 1
   metaTriggerID: on_revolver_melee
@@ -1400,7 +1432,7 @@ MonoBehaviour:
   blueBulletInfo:
     prop: {fileID: 8562296430571097503, guid: d8e851c33c3fc486b84349c6d6276985, type: 3}
     momentum: 20
-    damageMultiplier: 2
+    damageMultiplier: 3
     invokeOnHit: 1
     metaTriggerID: on_blue_revolver_hit
   zoinked: 0
