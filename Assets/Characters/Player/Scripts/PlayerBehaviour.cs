@@ -45,10 +45,11 @@ namespace ColbyDoan
             inputToSkillDict = new Dictionary<InputAction, int>(6);
             inputToSkillDict.Add(skillsActions.Primary, 0);
             inputToSkillDict.Add(skillsActions.Secondary, 1);
-            inputToSkillDict.Add(skillsActions.Special, 2);
-            inputToSkillDict.Add(skillsActions.Skill1, 3);
-            inputToSkillDict.Add(skillsActions.Skill2, 4);
-            inputToSkillDict.Add(skillsActions.Skill3, 5);
+            inputToSkillDict.Add(skillsActions.Utility, 2);
+            inputToSkillDict.Add(skillsActions.Special, 3);
+            inputToSkillDict.Add(skillsActions.Skill1, 4);
+            inputToSkillDict.Add(skillsActions.Skill2, 5);
+            inputToSkillDict.Add(skillsActions.Skill3, 6);
 
             // bind controls
             playerActions = controls.Player;

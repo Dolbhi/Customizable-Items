@@ -14,64 +14,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Labels:
   - m_Name: Base
-    m_Hash: 1619415391
+    m_Hash: 545673567
     m_CategoryList:
     - m_Name: platform
       m_Hash: 961728715
       m_Sprite: {fileID: 2569251706072041437, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: base
-      m_Hash: -1061880223
+      m_Hash: 11861601
       m_Sprite: {fileID: 1974468042312012170, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: bundle base
-      m_Hash: -2025745729
+      m_Hash: 121737919
       m_Sprite: {fileID: 2392959696977189847, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: broken base
-      m_Hash: 1419328057
+      m_Hash: 345586233
       m_Sprite: {fileID: -4955650039692103463, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: effect pillar
-      m_Hash: -1141815797
+      m_Hash: 1005667851
       m_Sprite: {fileID: 1977071077179012597, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: bundle effect pillar
-      m_Hash: -999602434
+      m_Hash: 74139390
       m_Sprite: {fileID: -5101524384629040270, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: broken effect pillar
-      m_Hash: -1542791007
+      m_Hash: 604692641
       m_Sprite: {fileID: -6690742362296754868, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: trigger pillar
-      m_Hash: 1561527571
+      m_Hash: 487785747
       m_Sprite: {fileID: 2935994942019024721, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: bottom
-      m_Hash: -1990233436
+      m_Hash: 157250212
       m_Sprite: {fileID: 8902548630110097894, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
   - m_Name: D
-    m_Hash: -1548523004
+    m_Hash: 598960644
     m_CategoryList:
     - m_Name: platform
       m_Hash: 961728715
       m_Sprite: {fileID: 8085818073500271270, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: base
-      m_Hash: -1061880223
+      m_Hash: 11861601
       m_Sprite: {fileID: 2731725520529877995, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: bundle base
-      m_Hash: -2025745729
+      m_Hash: 121737919
       m_Sprite: {fileID: 2731725520529877995, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: broken base
-      m_Hash: 1419328057
+      m_Hash: 345586233
       m_Sprite: {fileID: -1532677892372311745, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: effect pillar
-      m_Hash: -1141815797
+      m_Hash: 1005667851
       m_Sprite: {fileID: -3996828598966044893, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: bundle effect pillar
-      m_Hash: -999602434
+      m_Hash: 74139390
       m_Sprite: {fileID: -3996828598966044893, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: broken effect pillar
-      m_Hash: -1542791007
+      m_Hash: 604692641
       m_Sprite: {fileID: -8295893708214461604, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: trigger pillar
-      m_Hash: 1561527571
+      m_Hash: 487785747
       m_Sprite: {fileID: 8200337014424821274, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: bottom
-      m_Hash: -1990233436
+      m_Hash: 157250212
       m_Sprite: {fileID: -4762377806224353686, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
   - m_Name: C
     m_Hash: 1037565863
@@ -80,56 +80,57 @@ MonoBehaviour:
       m_Hash: 961728715
       m_Sprite: {fileID: -7226744371385019283, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: base
-      m_Hash: -1061880223
+      m_Hash: 11861601
       m_Sprite: {fileID: -1418162015164975435, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: bundle base
-      m_Hash: -2025745729
+      m_Hash: 121737919
       m_Sprite: {fileID: -6084132230230451228, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: broken base
-      m_Hash: 1419328057
+      m_Hash: 345586233
       m_Sprite: {fileID: -1530757018814007896, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: effect pillar
-      m_Hash: -1141815797
+      m_Hash: 1005667851
       m_Sprite: {fileID: 2148622284774155484, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: bundle effect pillar
-      m_Hash: -999602434
+      m_Hash: 74139390
       m_Sprite: {fileID: 7615661345633278963, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: broken effect pillar
-      m_Hash: -1542791007
+      m_Hash: 604692641
       m_Sprite: {fileID: 6663414559813847014, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: trigger pillar
-      m_Hash: 1561527571
+      m_Hash: 487785747
       m_Sprite: {fileID: 2656601641301542166, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: bottom
-      m_Hash: -1990233436
+      m_Hash: 157250212
       m_Sprite: {fileID: -5594448598607344281, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
   - m_Name: B
-    m_Hash: 1255198513
+    m_Hash: 181456689
     m_CategoryList:
     - m_Name: platform
       m_Hash: 961728715
       m_Sprite: {fileID: 6367894820834443254, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: base
-      m_Hash: -1061880223
+      m_Hash: 11861601
       m_Sprite: {fileID: -645963291472133688, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: bundle base
-      m_Hash: -2025745729
+      m_Hash: 121737919
       m_Sprite: {fileID: -6887007022649160677, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: broken base
-      m_Hash: 1419328057
+      m_Hash: 345586233
       m_Sprite: {fileID: 4253511229446715066, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: effect pillar
-      m_Hash: -1141815797
+      m_Hash: 1005667851
       m_Sprite: {fileID: -4038990385192058366, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: bundle effect pillar
-      m_Hash: -999602434
+      m_Hash: 74139390
       m_Sprite: {fileID: 4676153299288918474, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: broken effect pillar
-      m_Hash: -1542791007
+      m_Hash: 604692641
       m_Sprite: {fileID: -5205458528187433409, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: trigger pillar
-      m_Hash: 1561527571
+      m_Hash: 487785747
       m_Sprite: {fileID: -7129760015281538342, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - m_Name: bottom
-      m_Hash: -1990233436
+      m_Hash: 157250212
       m_Sprite: {fileID: 4435949479163448046, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
+  m_ModificationHash: 0

@@ -2457,7 +2457,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7693524699634764609, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: airFriction
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7693524699634764609, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: groundFriction

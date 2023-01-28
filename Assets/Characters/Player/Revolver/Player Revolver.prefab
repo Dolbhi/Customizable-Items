@@ -1024,15 +1024,15 @@ PrefabInstance:
     - target: {fileID: 4466841440660705502, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
       propertyPath: skills.Array.data[2]
       value: 
-      objectReference: {fileID: 1509471259071772796}
+      objectReference: {fileID: 6616165266126182422}
     - target: {fileID: 4466841440660705502, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
       propertyPath: skills.Array.data[3]
       value: 
-      objectReference: {fileID: 7411871077087051610}
+      objectReference: {fileID: 2543171986834413780}
     - target: {fileID: 4466841440660705502, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
       propertyPath: skills.Array.data[4]
       value: 
-      objectReference: {fileID: 7411871077087051610}
+      objectReference: {fileID: 0}
     - target: {fileID: 4752144792570767783, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1245,6 +1245,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8762129106572250880, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
+      propertyPath: attack.baseValue
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 9035629281315943932, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1306,7 +1310,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1777142169388847585, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
   m_PrefabInstance: {fileID: 7116484537321348722}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1509471259071772796
+--- !u!114 &2543171986834413780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1315,14 +1319,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 8821277990107434899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 273997fa985b8400ba63f1c6af9f43c3, type: 3}
+  m_Script: {fileID: 11500000, guid: ed41b04e047de9541bc58278d1b11f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  overloadCooldown: 3
-  overloadInaccuracy: 40
-  bulletCount: 6
-  shootSkill: {fileID: 7490129965030233645}
+  cooldown: 5
+  unloadDuration: 0.6
+--- !u!114 &6616165266126182422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821277990107434899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d985046af9a1f4a0cbee73a98bf4cc74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  verticalDodgeSpeed: 2
+  dodgeSpeedMultiplier: 5
+  dodgeCooldown: 3
 --- !u!114 &7043878999525712511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,25 +1407,6 @@ MonoBehaviour:
   damageMultiplier: 3
   invokeOnHit: 1
   metaTriggerID: on_revolver_melee
---- !u!114 &7411871077087051610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8821277990107434899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3feb5eea89074c65bcbee4ade4edf62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  boostDuration: 0.5
-  boostSpdMultiplier: 1200
-  cooldown: 4
-  windSpdMultiplier: 70
-  coneAngle: 30
-  downwardsRadius: 1
 --- !u!114 &7490129965030233645
 MonoBehaviour:
   m_ObjectHideFlags: 0
