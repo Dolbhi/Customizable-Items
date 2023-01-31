@@ -47,6 +47,6 @@ Material:
     m_Ints: []
     m_Floats:
     - _DepthOffset: -1
-    - _TargetDepth: 1.02
+    - _TargetDepth: 0.02
     m_Colors: []
   m_BuildTextureStacks: []

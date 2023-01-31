@@ -1,35 +1,37 @@
 // using System.Collections;
 // using System.Collections.Generic;
 using UnityEngine;
-// using UnityEngine.Events;
+using UnityEngine.Events;
 
 namespace ColbyDoan
 {
     using Physics;
+    using Attributes;
 
-    public class RevolverShootSkill : Skill
+    public class RevolverShootSkill : CooldownSkill
     {
         [Header("Shooting Fields")]
-        // public int cylinderCount = 6;
-        public ProjectileInfo bulletInfo;
+        public int cylinderCount = 6;
+        [ReadOnly] public int loadedBullets = 6;
+        public UnityEvent<int, int> OnBulletCountChange;
+
         public float moveAccuracyPenalty = .01f;
-        // public float reloadTime = 1.5f;
+        public float reloadTime = 1.5f;
         public float ShootingInaccuracy => character.kinematicObject.Velocity.sqrMagnitude * moveAccuracyPenalty;
+
         public Gun revolver;
+        public ProjectileInfo bulletInfo;
         public ProjectileInfo blueBulletInfo;
 
-        public int zoinked;
+        int _zoinked;
 
-        // public override bool Ready => enabled && Stacks > 0;
-        // public override bool ShowTimer => false;
+        public override bool Ready => enabled && !Active && Stacks > 0;
+        public override bool ShowTimer => false;
 
         // IDisplayableSkill Implementation
-        // public override int Stacks => loadedBullets;
-        // public override bool HasStacks => true;
+        public override int Stacks => loadedBullets;
+        public override bool HasStacks => true;
 
-        // [ReadOnly] public int loadedBullets = 6;
-
-        // public UnityEvent<int> OnBulletCountChange;
 
         public override void SetUp(Character toSet)
         {
@@ -37,7 +39,7 @@ namespace ColbyDoan
 
             base.SetUp(toSet);
 
-            // cooldownHandler.onCooldownFinish += Reload;
+            cooldownHandler.onCooldownFinish += Reload;
 
             Stats.attackSpeed.OnStatChanged += (value) => { revolver.animator.SetFloat("Attack Speed", value); };
         }
@@ -58,6 +60,15 @@ namespace ColbyDoan
             revolver.animator.SetBool("Auto Firing", false);
         }
 
+        public void LoadBlueBullet(int count = 1)
+        {
+            loadedBullets += count;
+            loadedBullets = Mathf.Min(loadedBullets, cylinderCount);
+            _zoinked += count;
+            _zoinked = Mathf.Min(_zoinked, cylinderCount);
+            OnBulletCountChange.Invoke(loadedBullets, _zoinked);
+        }
+
         public void OnShootAnimationStart()
         {
             FireBullet(ShootingInaccuracy);
@@ -68,18 +79,19 @@ namespace ColbyDoan
 
             ProjectileInfo info;
             // fire blue if zoinked
-            if (zoinked > 0)
+            if (_zoinked > 0)
             {
                 info = blueBulletInfo;
-                zoinked--;
+                _zoinked--;
             }
             else
             {
                 info = bulletInfo;
             }
 
-            // loadedBullets--;
-            // OnBulletCountChange.Invoke(loadedBullets);
+            // bullet management
+            loadedBullets--;
+            OnBulletCountChange.Invoke(loadedBullets, _zoinked);
             // instantiate projectile
             Transform nozzel = revolver.nozzel;
             var angle = Random.Range(-1, 1f);
@@ -93,20 +105,22 @@ namespace ColbyDoan
             // recoil
             character.kinematicObject.ApplyImpulse(-nozzel.right * info.momentum);
 
+            StartCooldown();
+
             if (!Ready) revolver.animator.SetBool("Auto Firing", false);
         }
 
-        // public void Reload()
-        // {
-        //     // while (loadedBullets < cylinderCount) loadedBullets.Enqueue(special);
-        //     loadedBullets = cylinderCount;
-        //     OnBulletCountChange.Invoke(loadedBullets);
-        // }
+        public void Reload()
+        {
+            // while (loadedBullets < cylinderCount) loadedBullets.Enqueue(special);
+            loadedBullets = cylinderCount;
+            OnBulletCountChange.Invoke(loadedBullets, _zoinked);
+        }
 
-        // public void StartCooldown()
-        // {
-        //     cooldownHandler.StartCooldown(reloadTime / Stats.attackSpeed.FinalValue);
-        // }
+        public void StartCooldown()
+        {
+            cooldownHandler.StartCooldown(reloadTime / Stats.attackSpeed.FinalValue);
+        }
     }
 
     public class RevolverMeleeTrigger : Trigger
@@ -165,7 +179,7 @@ namespace ColbyDoan
         // increment zoink
         public override void Trigger(TriggerContext context)
         {
-            revolverSkill.zoinked++;
+            revolverSkill.LoadBlueBullet(level);
         }
     }
     // public class RevolverZoinkedStateSE : RefreshingStatusEffect

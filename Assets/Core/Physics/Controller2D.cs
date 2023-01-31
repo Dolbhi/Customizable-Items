@@ -86,7 +86,6 @@ namespace ColbyDoan.Physics
             }
             //else if (transform.position.z == 0)
             //    collisions.grounded = true;
-
             transform.Translate(move, Space.World);
 
             // On collision enter

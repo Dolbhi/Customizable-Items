@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace ColbyDoan.FixedTimeLerp
 {
+    // [RequireComponent(typeof(InterpolationTransfromSync))]
     public class InterpolationController : MonoBehaviour
     {
         private float[] m_lastFixedUpdateTimes;

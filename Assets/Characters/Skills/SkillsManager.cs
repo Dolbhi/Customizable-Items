@@ -137,8 +137,14 @@ namespace ColbyDoan
         }
     }
 
+    /// <summary>
+    /// Object to control and track cooldowns for skills
+    /// </summary>
     public class SkillCooldownHandler
     {
+        /// <summary>
+        /// Ready if the cooldown is not running
+        /// </summary>
         public bool Ready => ReadyTime <= Time.time;
         public float ReadyTime { get; private set; }
         public float TimeLeft => Mathf.Max(ReadyTime - Time.time, 0);
@@ -150,11 +156,19 @@ namespace ColbyDoan
         MonoBehaviour _coroutineHandler;
         Coroutine _currentCoroutine;
 
+        /// <summary>
+        /// Create a cooldown handler
+        /// </summary>
+        /// <param name="coroutineHandler">Monobehaviour to handle the cooldown coroutine</param>
         public SkillCooldownHandler(MonoBehaviour coroutineHandler)
         {
             _coroutineHandler = coroutineHandler;
         }
 
+        /// <summary>
+        /// Starts cooldown coroutine, resets if already started
+        /// </summary>
+        /// <param name="duration"></param>
         public void StartCooldown(float duration)
         {
             // if in the middle of cooldown, cancel it
@@ -176,12 +190,19 @@ namespace ColbyDoan
             _currentCoroutine = null;
             onCooldownFinish.Invoke();
         }
-
+        /// <summary>
+        /// Push back ready time by amount
+        /// </summary>
+        /// <param name="increase">Seconds to increase cooldown</param>
         public void IncreaseCurrentCooldown(float increase)
         {
             if (Ready) return;
             ReadyTime += increase;
         }
+        /// <summary>
+        /// Push forward ready time, resets or finishes cooldown accordingly
+        /// </summary>
+        /// <param name="decrease">Seconds to decrease cooldown</param>
         public void DecreaseCurrentCooldown(float decrease)
         {
             ReadyTime -= decrease;

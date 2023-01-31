@@ -9,7 +9,7 @@ namespace ColbyDoan
     {
         public float cooldown = 3;
 
-        [SerializeField] float unloadDuration = .5f;
+        [SerializeField] float shootInterval = .07f;
 
         RevolverShootSkill _revolverSkill;
 
@@ -25,10 +25,9 @@ namespace ColbyDoan
 
         IEnumerator RollShootCoroutine()
         {
-            float shootInterval = unloadDuration / 6;
             var waitInterval = new WaitForSeconds(shootInterval);
             int count = 0;
-            while (count < 6)
+            while (_revolverSkill.loadedBullets > 0)
             {
                 _revolverSkill.FireBullet(0);
                 count++;

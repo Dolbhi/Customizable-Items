@@ -10,6 +10,8 @@ namespace ColbyDoan
         // public Transform divider;
         public SkillsManager playerSkills;
 
+        public string[] mainSkillControls = new string[] { "M1", "M2", "Shift", "R" };
+
         [SerializeField] List<SkillIndicator> skillIndicators;
 
         void Awake()
@@ -69,21 +71,14 @@ namespace ColbyDoan
 
             skillIndicators.Add(skillIndicator);
 
-            // set label
-            switch (skillIndicators.Count)
+            int count = skillIndicators.Count;
+            if (count <= mainSkillControls.Length)
             {
-                case 1:
-                    skillIndicator.SetLabel("M1");
-                    break;
-                case 2:
-                    skillIndicator.SetLabel("M2");
-                    break;
-                case 3:
-                    skillIndicator.SetLabel("R");
-                    break;
-                default:
-                    skillIndicator.SetLabel((skillIndicators.Count - 3).ToString());
-                    break;
+                skillIndicator.SetLabel(mainSkillControls[count - 1]);
+            }
+            else
+            {
+                skillIndicator.SetLabel((count - mainSkillControls.Length + 1).ToString());
             }
         }
     }

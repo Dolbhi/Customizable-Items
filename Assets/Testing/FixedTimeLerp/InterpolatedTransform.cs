@@ -8,6 +8,25 @@ namespace ColbyDoan.FixedTimeLerp
     {
         private TransformData[] m_lastTransforms;
         private int m_newTransformIndex;
+        private Transform _transform;
+
+        // Collider2D test_coll;
+
+        void Awake()
+        {
+            _transform = transform;
+            // test_coll = GetComponent<BoxCollider2D>();
+            // if (name == "Player")
+            //     StartCoroutine("LogPos");
+        }
+        // IEnumerator LogPos()
+        // {
+        //     while (gameObject)
+        //     {
+        //         yield return new WaitForFixedUpdate();
+        //         print("After physics pos: " + _transform.position.y + " box: " + test_coll.bounds.center.y);
+        //     }
+        // }
 
         void OnEnable()
         {
@@ -18,9 +37,9 @@ namespace ColbyDoan.FixedTimeLerp
         {
             m_lastTransforms = new TransformData[2];
             TransformData t = new TransformData(
-                                    transform.localPosition,
-                                    transform.localRotation,
-                                    transform.localScale);
+                                    _transform.localPosition,
+                                    _transform.localRotation,
+                                    _transform.localScale);
             m_lastTransforms[0] = t;
             m_lastTransforms[1] = t;
             m_newTransformIndex = 0;
@@ -29,18 +48,17 @@ namespace ColbyDoan.FixedTimeLerp
         void FixedUpdate()
         {
             TransformData newestTransform = m_lastTransforms[m_newTransformIndex];
-            transform.localPosition = newestTransform.position;
-            transform.localRotation = newestTransform.rotation;
-            transform.localScale = newestTransform.scale;
+            _transform.SetLocalPositionAndRotation(newestTransform.position, newestTransform.rotation);
+            _transform.localScale = newestTransform.scale;
         }
 
         public void LateFixedUpdate()
         {
             m_newTransformIndex = OldTransformIndex();
             m_lastTransforms[m_newTransformIndex] = new TransformData(
-                                                        transform.localPosition,
-                                                        transform.localRotation,
-                                                        transform.localScale);
+                                                        _transform.localPosition,
+                                                        _transform.localRotation,
+                                                        _transform.localScale);
         }
 
         void Update()
@@ -48,15 +66,15 @@ namespace ColbyDoan.FixedTimeLerp
             TransformData newestTransform = m_lastTransforms[m_newTransformIndex];
             TransformData olderTransform = m_lastTransforms[OldTransformIndex()];
 
-            transform.localPosition = Vector3.Lerp(
+            _transform.localPosition = Vector3.Lerp(
                                         olderTransform.position,
                                         newestTransform.position,
                                         InterpolationController.InterpolationFactor);
-            transform.localRotation = Quaternion.Slerp(
+            _transform.localRotation = Quaternion.Slerp(
                                         olderTransform.rotation,
                                         newestTransform.rotation,
                                         InterpolationController.InterpolationFactor);
-            transform.localScale = Vector3.Lerp(
+            _transform.localScale = Vector3.Lerp(
                                         olderTransform.scale,
                                         newestTransform.scale,
                                         InterpolationController.InterpolationFactor);
@@ -67,6 +85,7 @@ namespace ColbyDoan.FixedTimeLerp
             return 1 - m_newTransformIndex;
         }
 
+        [System.Serializable]
         private struct TransformData
         {
             public Vector3 position;
