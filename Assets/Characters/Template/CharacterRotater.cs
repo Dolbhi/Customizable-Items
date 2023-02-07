@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System;
 
 namespace ColbyDoan
 {
@@ -12,11 +12,13 @@ namespace ColbyDoan
 
         public FacingSpritesLibrary facingSprites;
 
-        [SerializeField] FacingDirections facing;
-        [SerializeField] bool movingBackwards;
+        [SerializeField] public FacingDirections facing;
+        [SerializeField] public bool movingBackwards;
         [SerializeField] string spritelabel;
 
         [SerializeField] bool doSpriteValidation;
+
+        public event Action<FacingDirections, bool> OnFacingChange = delegate { };
 
         void OnValidate()
         {
@@ -58,11 +60,11 @@ namespace ColbyDoan
             float angle = character.FacingAngle;
             angle = angle < 0 ? 360 + angle : angle;
 
-            FacingDirections newFacing = (FacingDirections)Mathf.FloorToInt(angle / 45);
+            FacingDirections newFacing = (FacingDirections)Mathf.FloorToInt(angle / (360 / FacingSpritesLibrary.directionCount));
             bool newMovingBackwards = speedVFacing == -1;
             if (newFacing != facing || newMovingBackwards != movingBackwards)
             {
-
+                OnFacingChange.Invoke(newFacing, newMovingBackwards);
                 // if (transform.root.name == "Player")
                 //     Debug.Log(angle, this);
 

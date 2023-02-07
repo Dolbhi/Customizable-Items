@@ -10,8 +10,9 @@ namespace ColbyDoan
         // public bool halfFacing = false;
 
         const char backwardsMovePostfix = 'b';
+        public const int directionCount = 8;
 
-        public Map<string, Sprite>[] facingLibraries = new Map<string, Sprite>[8];
+        public Map<string, Sprite>[] facingLibraries = new Map<string, Sprite>[directionCount];
 
         public Sprite GetSprite(FacingDirections facing, string label, bool backwardsMove = false)
         {
@@ -22,11 +23,11 @@ namespace ColbyDoan
 
             Sprite output;
             var library = GetFacingLibrary(facing);
-            if (library.DictionaryData.Values.Count == 0)
-            {
-                Debug.Log("If you see this we cant remove this code yet", this);
-                library.Refresh();
-            }
+            // if (library.DictionaryData.Values.Count == 0)
+            // {
+            //     Debug.Log("If you see this we cant remove this code yet", this);
+            //     library.Refresh();
+            // }
             if (library.DictionaryData.TryGetValue(modLabel, out output))
             {
                 // Debug.Log("Stuff found", this);

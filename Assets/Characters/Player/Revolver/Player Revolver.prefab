@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 2711554757766853013}
   - component: {fileID: 449885253557626952}
   - component: {fileID: 682172199074116258}
+  - component: {fileID: 4786182668188161789}
   m_Layer: 11
   m_Name: Revolver
   m_TagString: Untagged
@@ -540,6 +541,22 @@ MonoBehaviour:
   animator: {fileID: 1001181243695387560}
   nozzel: {fileID: 5583534545822498338}
   audioSource: {fileID: 449885253557626952}
+--- !u!114 &4786182668188161789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8133355317442394708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2316961b3a70de54fbdd7858e701b50b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotater: {fileID: 4344442121487560391}
+  character: {fileID: 3962374884511129264}
+  renderer: {fileID: 2745662514250553563}
+  maxDisplacement: 0.1
 --- !u!1 &8238627597059645414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1329,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9211130470964803213, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
   m_PrefabInstance: {fileID: 7116484537321348722}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3962374884511129264 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6070845759189565634, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
+  m_PrefabInstance: {fileID: 7116484537321348722}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe840663bba54c9797ece645f0acf62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4344442121487560391 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6811795505939214517, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
+  m_PrefabInstance: {fileID: 7116484537321348722}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17eb7ef9c7db5404fa27f69f25d7e7a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5245141431465911428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3028856210048482038, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
