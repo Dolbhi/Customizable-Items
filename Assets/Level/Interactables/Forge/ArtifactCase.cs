@@ -202,8 +202,8 @@ namespace ColbyDoan
             Item result = null;
             if (type == ItemType.Trigger)
             {
-                var targetedTriggers = forge.pools.GetRankList(true, true, rank);
-                var untargetedTriggers = forge.pools.GetRankList(false, true, rank);
+                var targetedTriggers = forge.combinedPool.GetRankList(true, true, rank);
+                var untargetedTriggers = forge.combinedPool.GetRankList(false, true, rank);
 
                 int targeteds = targetedTriggers.Count;
                 int untargeteds = untargetedTriggers.Count;
@@ -229,7 +229,7 @@ namespace ColbyDoan
             else if (type == ItemType.Effect)
             {
                 // Debug.Log($"{rank} minus {(int)Modifier} equals {rank - (int)Modifier}", this);
-                result = forge.pools.GetRandomItem(requiresTarget, false, rank - (int)Modifier);
+                result = forge.combinedPool.GetRandomItem(requiresTarget, false, rank - (int)Modifier);
             }
             Item newItem = null;
             if (result)

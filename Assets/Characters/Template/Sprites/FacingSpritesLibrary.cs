@@ -7,12 +7,19 @@ namespace ColbyDoan
     [CreateAssetMenu(fileName = "Facing Sprites Library", menuName = "Custom Assets/Create Facing Sprites Library (Delete later?)")]
     public class FacingSpritesLibrary : ScriptableObject
     {
+        // public bool halfFacing = false;
+
+        const char backwardsMovePostfix = 'b';
+
         public Map<string, Sprite>[] facingLibraries = new Map<string, Sprite>[8];
 
-        public Sprite GetSprite(FacingDirections facing, string label)
+        public Sprite GetSprite(FacingDirections facing, string label, bool backwardsMove = false)
         {
             // Debug.Log("AND BEGIN", this);
             // Debug.Log(facingLibraries, this);
+            string modLabel = label;
+            if (backwardsMove) modLabel += backwardsMovePostfix;
+
             Sprite output;
             var library = GetFacingLibrary(facing);
             if (library.DictionaryData.Values.Count == 0)
@@ -20,7 +27,12 @@ namespace ColbyDoan
                 Debug.Log("If you see this we cant remove this code yet", this);
                 library.Refresh();
             }
-            if (library.DictionaryData.TryGetValue(label, out output))
+            if (library.DictionaryData.TryGetValue(modLabel, out output))
+            {
+                // Debug.Log("Stuff found", this);
+                return output;
+            }
+            else if (backwardsMove && library.DictionaryData.TryGetValue(label, out output))
             {
                 // Debug.Log("Stuff found", this);
                 return output;

@@ -13,6 +13,7 @@ namespace ColbyDoan
         public FacingSpritesLibrary facingSprites;
 
         [SerializeField] FacingDirections facing;
+        [SerializeField] bool movingBackwards;
         [SerializeField] string spritelabel;
 
         [SerializeField] bool doSpriteValidation;
@@ -28,7 +29,7 @@ namespace ColbyDoan
             spritelabel = label;
             UpdateSprite();
         }
-        public void SetSpriteFacing(FacingDirections toSet)
+        void SetSpriteFacing(FacingDirections toSet)
         {
             facing = toSet;
             UpdateSprite();
@@ -36,24 +37,37 @@ namespace ColbyDoan
         [ContextMenu("Update sprite")]
         void UpdateSprite()
         {
-            renderer.sprite = facingSprites.GetSprite(facing, spritelabel);
+            Sprite fSprite = facingSprites.GetSprite(facing, spritelabel, movingBackwards);
+            if (fSprite == null)
+            {
+                fSprite = facingSprites.GetSprite(facing.Mirror(), spritelabel, movingBackwards);
+                renderer.flipX = true;
+            }
+            else
+            {
+                renderer.flipX = false;
+            }
+            renderer.sprite = fSprite;
         }
 
         void Update()
         {
-            animator.SetFloat("Speed", Mathf.Sign(Vector2.Dot(character.Velocity, character.FacingDirection)) * character.Velocity.magnitude);
+            int speedVFacing = (int)Mathf.Sign(Vector2.Dot(character.Velocity, character.FacingDirection));
+            animator.SetFloat("Speed", speedVFacing * character.Velocity.magnitude);
 
             float angle = character.FacingAngle;
             angle = angle < 0 ? 360 + angle : angle;
 
             FacingDirections newFacing = (FacingDirections)Mathf.FloorToInt(angle / 45);
-            if (newFacing != facing)
+            bool newMovingBackwards = speedVFacing == -1;
+            if (newFacing != facing || newMovingBackwards != movingBackwards)
             {
 
                 // if (transform.root.name == "Player")
                 //     Debug.Log(angle, this);
 
                 // set facing
+                movingBackwards = newMovingBackwards;
                 SetSpriteFacing(newFacing);
                 // switch (facing)
                 // {

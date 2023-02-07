@@ -8,7 +8,7 @@ namespace ColbyDoan
     public class FacingSpriteManager : EditorWindow
     {
         static readonly string[] facings = { "rb", "br", "bl", "lb", "lf", "fl", "fr", "rf" };
-        static readonly string[] strides = { "I", "i", "C", "D", "X", "U", "c", "d", "x", "u" };
+        static readonly string[] strides = { "I", "i", "Cb", "Db", "Xb", "Ub", "cb", "db", "xb", "ub", "C", "D", "X", "U", "c", "d", "x", "u" };
 
         [MenuItem("Window/Facing Sprite Editing Window")]
         public static void ShowWindow()
@@ -24,10 +24,8 @@ namespace ColbyDoan
 
         Vector2Int totalSpcaing => spriteSize + padding;
 
-        // string[] rowNames = facings;
-        FacingDirections initialFacing = FacingDirections.fl;
-        bool anticlockwise = false;
         int facingsCount = 8;
+        string[] rowNames = facings;
         string[] columnNames = strides;
         bool rowsExpanded;
         bool columnsExpanded;
@@ -47,32 +45,29 @@ namespace ColbyDoan
                 myTexture = null;
             }
 
-            initialFacing = (FacingDirections)EditorGUILayout.EnumPopup("Facing of first row", initialFacing);
-            anticlockwise = EditorGUILayout.Toggle("Facing turn direction", anticlockwise);
-
             // label names
             if (GUILayout.Button("Reset names"))
             {
-                // rowNames = facings;
+                rowNames = facings;
                 columnNames = strides;
             }
-            // rowsExpanded = EditorGUILayout.Foldout(rowsExpanded, "Row Names");
-            // if (rowsExpanded)
-            // {
-            //     int arraySize = rowNames.Length;
-            //     arraySize = EditorGUILayout.IntField("Size", arraySize);
+            rowsExpanded = EditorGUILayout.Foldout(rowsExpanded, "Row Names");
+            if (rowsExpanded)
+            {
+                int arraySize = rowNames.Length;
+                arraySize = EditorGUILayout.IntField("Size", arraySize);
 
-            //     string[] newArray = new string[arraySize];
+                string[] newArray = new string[arraySize];
 
-            //     for (int i = 0; i < arraySize; i++)
-            //     {
-            //         string value = i >= rowNames.Length ? "" : rowNames[i];
-            //         value = EditorGUILayout.TextField("Element " + i, value);
-            //         newArray[i] = value;
-            //     }
+                for (int i = 0; i < arraySize; i++)
+                {
+                    string value = i >= rowNames.Length ? "" : rowNames[i];
+                    value = EditorGUILayout.TextField("Element " + i, value);
+                    newArray[i] = value;
+                }
 
-            //     rowNames = newArray;
-            // }
+                rowNames = newArray;
+            }
             columnsExpanded = EditorGUILayout.Foldout(columnsExpanded, "Label Names");
             if (columnsExpanded)
             {
@@ -142,8 +137,6 @@ namespace ColbyDoan
 
             List<SpriteMetaData> newData = new List<SpriteMetaData>(facingsCount * columns);
 
-            int rotation = anticlockwise ? 1 : -1;
-
             for (int i = 0; i < facingsCount; i++)
             {
                 for (int j = 0; j < columns; j++)
@@ -151,7 +144,7 @@ namespace ColbyDoan
                     SpriteMetaData smd = new SpriteMetaData();
                     smd.pivot = pivot;
                     smd.alignment = 9;
-                    smd.name = ((int)initialFacing + i * rotation + facingsCount) % facingsCount + "-" + columnNames[j];
+                    smd.name = rowNames[i] + "-" + columnNames[j];
                     smd.rect = new Rect(offset.x + j * totalSpcaing.x, offset.y + i * totalSpcaing.y, spriteSize.x, spriteSize.y);
 
                     newData.Add(smd);
@@ -191,8 +184,12 @@ namespace ColbyDoan
                 if (sprite == null) continue;
                 var categoryAndLabel = sprite.name.Split('-');
                 // Debug.Log(sprite.name);
-                targetLibrary.AddSprite(sprite, (FacingDirections)int.Parse(categoryAndLabel[0]), categoryAndLabel[1]);
+                FacingDirections dir;
+                System.Enum.TryParse<FacingDirections>(categoryAndLabel[0], out dir);
+                targetLibrary.AddSprite(sprite, dir, categoryAndLabel[1]);
             }
+
+            // targetLibrary.halfFacing = halfFacing;
         }
         void CreateLibrary()
         {

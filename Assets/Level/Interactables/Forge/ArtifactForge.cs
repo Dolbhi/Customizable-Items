@@ -24,7 +24,10 @@ namespace ColbyDoan
 
         [Header("Loot data")]
         public bool autoFillCases;
-        public ArtifactPools pools;
+
+        public ArtifactPools[] pools;
+        [HideInInspector] public ArtifactPools combinedPool;
+
         public event Action<ItemRank, bool> onFillCases;
         public event Action onUsedUp;
         public event Action onForge;
@@ -34,6 +37,12 @@ namespace ColbyDoan
 
         void Start()
         {
+            combinedPool = ArtifactPools.CreateInstance<ArtifactPools>();
+            for (int i = 0; i < pools.Length; i++)
+            {
+                combinedPool.CombinePool(pools[i]);
+            }
+
             UpdateRestrictions();
             // set item restrictions
             if (!unrestricted)

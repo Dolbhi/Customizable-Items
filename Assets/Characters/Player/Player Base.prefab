@@ -2891,7 +2891,7 @@ PrefabInstance:
     - target: {fileID: 8520349616995419051, guid: c35ac4379f64240728cd8fcbb7602ff8, type: 3}
       propertyPath: facingSprites
       value: 
-      objectReference: {fileID: 11400000, guid: 2e841f443341e483bbe3f8792e78e0a9, type: 2}
+      objectReference: {fileID: 11400000, guid: ad06ecb8cca54414cbb73817263fbafb, type: 2}
     - target: {fileID: 8520349616995419053, guid: c35ac4379f64240728cd8fcbb7602ff8, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -187,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   player: {fileID: 0}
-  itemPool: {fileID: 11400000, guid: dbe882cf5d5304918b5d04f01b06fd41, type: 2}
+  itemPool: {fileID: 11400000, guid: 6e106383d3ca94088bcce69a8c48b0fc, type: 2}
   gameoverHUD: {fileID: 9145731609839575717}
   gameOverText: {fileID: 9145731609839575723}
 --- !u!114 &9145731608551539934

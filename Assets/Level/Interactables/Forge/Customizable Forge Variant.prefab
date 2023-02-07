@@ -396,7 +396,8 @@ MonoBehaviour:
   rank: 0
   reusable: 0
   autoFillCases: 0
-  pools: {fileID: 0}
+  pools: []
+  combinedPool: {fileID: 0}
 --- !u!1 &9068831684336372084
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +548,7 @@ PrefabInstance:
     - target: {fileID: 4839016283947701489, guid: f1a32dab6558844558e8764ffbe49a30, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3996828598966044893, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
+      objectReference: {fileID: 8200337014424821274, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - target: {fileID: 4839016283947701489, guid: f1a32dab6558844558e8764ffbe49a30, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -645,7 +646,7 @@ PrefabInstance:
     - target: {fileID: 4839016283947701489, guid: f1a32dab6558844558e8764ffbe49a30, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3996828598966044893, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
+      objectReference: {fileID: 8200337014424821274, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - target: {fileID: 4839016283947701489, guid: f1a32dab6558844558e8764ffbe49a30, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -911,7 +912,7 @@ PrefabInstance:
     - target: {fileID: 7309904868060599794, guid: 4049b61ef7cce4a1189d23d5b8664509, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3996828598966044893, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
+      objectReference: {fileID: 8200337014424821274, guid: 54e47f421c8a042ecb1660fd7406e114, type: 3}
     - target: {fileID: 7309904868060599794, guid: 4049b61ef7cce4a1189d23d5b8664509, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

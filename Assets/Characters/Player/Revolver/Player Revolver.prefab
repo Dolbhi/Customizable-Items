@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
-  cylinderCount: 6
+  cylinderCount: 8
   loadedBullets: 6
   OnBulletCountChange:
     m_PersistentCalls:

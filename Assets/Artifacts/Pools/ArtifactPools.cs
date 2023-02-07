@@ -7,15 +7,33 @@ namespace ColbyDoan
     [CreateAssetMenu(fileName = "New Pool", menuName = "Custom Assets/Loot/Create Artifact Pool")]
     public class ArtifactPools : ScriptableObject
     {
-        public TEPools untargeted = new TEPools();
-        public TEPools targeted = new TEPools();
+        public RankedPools untargetedT = new RankedPools();
+        public RankedPools untargetedE = new RankedPools();
+        public RankedPools targetedT = new RankedPools();
+        public RankedPools targetedE = new RankedPools();
 
-        public List<Item> toSort;
+        public List<Item> toSort = new List<Item>();
 
         public List<Item> GetRankList(bool isTargeted, bool isTrigger, ItemRank rank)
         {
-            TEPools targetClass = isTargeted ? targeted : untargeted;
-            RankedPools typeClass = isTrigger ? targetClass.triggers : targetClass.effects;
+            RankedPools typeClass;
+            if (isTargeted)
+            {
+                if (isTrigger)
+                    typeClass = targetedT;
+                else
+                    typeClass = targetedE;
+            }
+            else
+            {
+                if (isTrigger)
+                    typeClass = untargetedT;
+                else
+                    typeClass = untargetedE;
+            }
+
+            // TEPools targetClass = isTargeted ? targeted : untargeted;
+            // RankedPools typeClass = isTrigger ? targetClass.triggers : targetClass.effects;
             return rank switch
             {
                 ItemRank.D => typeClass.D,
@@ -26,58 +44,87 @@ namespace ColbyDoan
                 _ => null
             };
         }
+        /// <summary>
+        /// Get random item out of specified ranked list
+        /// </summary>
+        /// <param name="isTargeted"></param>
+        /// <param name="isTrigger"></param>
+        /// <param name="rank"></param>
+        /// <returns></returns>
         public Item GetRandomItem(bool isTargeted, bool isTrigger, ItemRank rank)
         {
             List<Item> list = GetRankList(isTargeted, isTrigger, rank);
 
             if (list.Count == 0)
             {
-                Debug.LogWarning("No item of stated type in pool");
+                Debug.LogWarning("No item of stated type in pool", this);
                 return null;
             }
 
             int randomIndex = Random.Range(0, list.Count);
             return list[randomIndex];
         }
+        /// <summary>
+        /// Get any random item with equal chance
+        /// </summary>
+        /// <returns></returns>
         public Item GetRandomItem()
         {
             // trigger or effect
-            List<Item> poolT;
-            List<Item> poolUT;
+            List<Item> allItems = new List<Item>();
             if (Random.Range(0, 2) == 0)
             {
-                poolT = targeted.triggers.all;
-                poolUT = untargeted.triggers.all;
+                allItems.AddRange(targetedT.all);
+                allItems.AddRange(untargetedT.all);
             }
             else
             {
-                poolT = targeted.effects.all;
-                poolUT = untargeted.effects.all;
+                allItems.AddRange(targetedE.all);
+                allItems.AddRange(untargetedE.all);
             }
 
-            int count = poolT.Count + poolUT.Count;
-            int dropIndex = Random.Range(0, count);
+            int dropIndex = Random.Range(0, allItems.Count);
 
-            return (dropIndex >= poolT.Count) ? poolUT[dropIndex - poolT.Count] : poolT[dropIndex];
+            return allItems[dropIndex];
         }
 
         public void AddItem(Item item)
         {
             if (item.usesTarget)
             {
-                targeted.AddItem(item);
+                // targeted.AddItem(item);
+                if (item.type == ItemType.Trigger)
+                    targetedT.AddItem(item);
+                else
+                    targetedE.AddItem(item);
             }
             else
             {
-                untargeted.AddItem(item);
+                // untargeted.AddItem(item);
+                if (item.type == ItemType.Trigger)
+                    untargetedT.AddItem(item);
+                else
+                    untargetedE.AddItem(item);
             }
+        }
+
+        public void CombinePool(ArtifactPools pool)
+        {
+            untargetedT.all.AddRange(pool.untargetedT.all);
+            untargetedE.all.AddRange(pool.untargetedE.all);
+            targetedT.all.AddRange(pool.targetedT.all);
+            targetedE.all.AddRange(pool.targetedE.all);
+
+            Sort();
         }
 
         public void Sort()
         {
             // sort
-            untargeted.Sort();
-            targeted.Sort();
+            untargetedT.Sort();
+            targetedT.Sort();
+            untargetedE.Sort();
+            targetedE.Sort();
 
             // insert new
             foreach (Item item in toSort)
@@ -86,16 +133,101 @@ namespace ColbyDoan
             }
             toSort.Clear();
 
-            Debug.Log("sort complete");
+            // Debug.Log("sort complete");
         }
 
         [ContextMenu("Clear Pool")]
         public void Clear()
         {
-            untargeted.Clear();
-            targeted.Clear();
+            untargetedT.Clear();
+            targetedT.Clear();
+            untargetedE.Clear();
+            targetedE.Clear();
         }
     }
+
+    /// <summary>
+    /// Sorted collection of all types of artifact items of the same rank
+    /// </summary>
+    // [System.Serializable]
+    // public class ArtifactPool
+    // {
+    //     public List<Item> TargetedT = new List<Item>();
+    //     public List<Item> UntargetedT = new List<Item>();
+    //     public List<Item> AllTriggers = new List<Item>();
+
+    //     public List<Item> TargetedE = new List<Item>();
+    //     public List<Item> UntargetedE = new List<Item>();
+    //     public List<Item> AllEffects = new List<Item>();
+
+    // public void AddItem(Item item)
+    // {
+    //     // find correct rank pool
+    //     List<Item> toInsert = item.rank switch
+    //     {
+    //         ItemRank.D => D,
+    //         ItemRank.C => C,
+    //         ItemRank.B => B,
+    //         ItemRank.A => A,
+    //         ItemRank.S => S,
+    //         _ => null
+    //     };
+
+    //     if (toInsert == null) return;
+
+    //     // insert into all list
+    //     int index = all.BinarySearch(item);
+    //     if (index >= 0)
+    //     {
+    //         Debug.Log("item already present");
+    //         return;
+    //     }
+    //     all.Insert(-index - 1, item);
+
+    //     // insert into ranked list
+    //     index = toInsert.BinarySearch(item);
+    //     toInsert.Insert(-index - 1, item);
+    // }
+
+    // public void Sort()
+    // {
+    //     // sorts all lists
+    //     var oldAll = all;
+
+    //     TargetedT = new List<Item>(all.Count);
+    //     UntargetedT.Clear();
+    //     AllTriggers.Clear();
+    //     TargetedE.Clear();
+    //     UntargetedE.Clear();
+    //     AllEffects.Clear();
+
+    //     foreach (Item item in oldAll)
+    //         AddItem(item);
+    // }
+
+    //     public void Clear()
+    //     {
+    //         TargetedT.Clear();
+    //         UntargetedT.Clear();
+    //         AllTriggers.Clear();
+    //         TargetedE.Clear();
+    //         UntargetedE.Clear();
+    //         AllEffects.Clear();
+    //     }
+
+    //     public ArtifactPool DeepClone()
+    //     {
+    //         ArtifactPool output = new ArtifactPool();
+    //         output.TargetedT.AddRange(TargetedT);
+    //         output.UntargetedT.AddRange(UntargetedT);
+    //         output.AllTriggers.AddRange(AllTriggers);
+    //         output.TargetedE.AddRange(TargetedE);
+    //         output.UntargetedE.AddRange(UntargetedE);
+    //         output.AllEffects.AddRange(AllEffects);
+
+    //         return output;
+    //     }
+    // }
 
     public struct ItemMask
     {
@@ -128,37 +260,37 @@ namespace ColbyDoan
         public static implicit operator ItemMask(int mask) => new ItemMask(mask);
     }
 
-    [System.Serializable]
-    public class TEPools
-    {
-        public RankedPools triggers;
-        public RankedPools effects;
+    // [System.Serializable]
+    // public class TEPools
+    // {
+    //     public RankedPools triggers;
+    //     public RankedPools effects;
 
-        public void AddItem(Item item)
-        {
-            switch (item.type)
-            {
-                case ItemType.Effect:
-                    effects.AddItem(item);
-                    break;
-                case ItemType.Trigger:
-                    triggers.AddItem(item);
-                    break;
-            }
-        }
+    //     public void AddItem(Item item)
+    //     {
+    //         switch (item.type)
+    //         {
+    //             case ItemType.Effect:
+    //                 effects.AddItem(item);
+    //                 break;
+    //             case ItemType.Trigger:
+    //                 triggers.AddItem(item);
+    //                 break;
+    //         }
+    //     }
 
-        public void Sort()
-        {
-            triggers.Sort();
-            effects.Sort();
-        }
+    //     public void Sort()
+    //     {
+    //         triggers.Sort();
+    //         effects.Sort();
+    //     }
 
-        public void Clear()
-        {
-            triggers.Clear();
-            effects.Clear();
-        }
-    }
+    //     public void Clear()
+    //     {
+    //         triggers.Clear();
+    //         effects.Clear();
+    //     }
+    // }
 
     [System.Serializable]
     public class RankedPools
