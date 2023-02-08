@@ -163,7 +163,7 @@ namespace ColbyDoan
 
         public override void Trigger(TriggerContext context)
         {
-            health.Heal(health.MaxHealth * .01f * level);
+            health.Heal(health.MaxHealth * .05f * level);
         }
     }
     public class SmallExplosionEffect : Effect

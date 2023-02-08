@@ -498,7 +498,7 @@ MonoBehaviour:
   fireOrigin: {fileID: 1975064866103062154}
   shot: {fileID: 3236095425402562527, guid: 13d3a40b4017546cbb1b6991cbab0e87, type: 3}
   shotSpeed: 40
-  cooldown: 5
+  cooldown: 3
   fireRange: 15
   damageMultiplier: 1
 --- !u!4 &5914373897215032450 stripped

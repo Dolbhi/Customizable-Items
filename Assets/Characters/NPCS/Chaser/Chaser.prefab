@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSprite: {fileID: 3617690691595339207}
-  attackWindupDuration: 0.15
+  attackWindupDuration: 0.2
 --- !u!1 &6190058748446953242
 GameObject:
   m_ObjectHideFlags: 0
