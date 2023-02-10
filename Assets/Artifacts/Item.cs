@@ -59,7 +59,7 @@ namespace ColbyDoan
         }
     }
 
-    public enum ItemType { Trigger, Effect, Artifact, Curse }
+    public enum ItemType { Trigger, Effect, Curse }
     public enum ItemRank { D, C, B, A, S }
 
     public struct ItemRestriction

@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
-  m_Name: Apple
+  m_Script: {fileID: 11500000, guid: d6a580caabf513546ad42f75d3def9d7, type: 3}
+  m_Name: New Forge Settings
   m_EditorClassIdentifier: 
-  image: {fileID: 8391431092616798930, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
-  type: 1
-  usesTarget: 0
-  rank: 2
-  idName: regen_effect
-  description: Regenerate health
-  isOriginal: 1
+  defaultData:
+    reusable: 0
+    usesTarget: 0
+    rank: 0
+  randomizeTargeted: 0
+  randomizeRank: 0
+  randomizeTriggerCases: 0
+  randomizeEffectCases: 0
+  itemPool: {fileID: 0}

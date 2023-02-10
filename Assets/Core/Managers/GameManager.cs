@@ -73,16 +73,6 @@ namespace ColbyDoan
             return new Vector3(vector.x, vector.y, z);
         }
 
-        static public string GetPrefix(this EffectModifier modifier)
-        {
-            return modifier switch
-            {
-                EffectModifier.Broken => "broken_",
-                EffectModifier.Bundle => "bundle_",
-                _ => ""
-            };
-        }
-
         // Enums
         static public FacingDirections Mirror(this FacingDirections direction)
         {
@@ -107,6 +97,15 @@ namespace ColbyDoan
                 default:
                     return FacingDirections.rb;
             }
+        }
+        static public string GetPrefix(this EffectModifier modifier)
+        {
+            return modifier switch
+            {
+                EffectModifier.Broken => "broken_",
+                EffectModifier.Bundle => "bundle_",
+                _ => ""
+            };
         }
 
         // components

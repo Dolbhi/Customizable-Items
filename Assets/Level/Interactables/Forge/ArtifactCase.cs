@@ -1,5 +1,5 @@
 // using System.Collections;
-// using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -199,38 +199,9 @@ namespace ColbyDoan
                 Debug.LogError("No associated forge");
                 return;
             }
-            Item result = null;
-            if (type == ItemType.Trigger)
-            {
-                var targetedTriggers = forge.combinedPool.GetRankList(true, true, rank);
-                var untargetedTriggers = forge.combinedPool.GetRankList(false, true, rank);
-
-                int targeteds = targetedTriggers.Count;
-                int untargeteds = untargetedTriggers.Count;
-
-                if (requiresTarget)
-                {
-                    int index = Random.Range(0, targeteds);
-                    result = targetedTriggers[index];
-                }
-                else
-                {
-                    int index = Random.Range(0, targeteds + untargeteds);
-                    if (index >= targeteds)
-                    {
-                        result = untargetedTriggers[index - targeteds];
-                    }
-                    else
-                    {
-                        result = targetedTriggers[index];
-                    }
-                }
-            }
-            else if (type == ItemType.Effect)
-            {
-                // Debug.Log($"{rank} minus {(int)Modifier} equals {rank - (int)Modifier}", this);
-                result = forge.combinedPool.GetRandomItem(requiresTarget, false, rank - (int)Modifier);
-            }
+            // pick item randomly
+            Item result = forge.combinedPool.GetForgeItem(requiresTarget, type == ItemType.Trigger, rank);
+            // clone
             Item newItem = null;
             if (result)
             {

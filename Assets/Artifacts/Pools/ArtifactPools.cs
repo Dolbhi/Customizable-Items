@@ -44,13 +44,31 @@ namespace ColbyDoan
                 _ => null
             };
         }
+
+        /// <summary>
+        /// Gets random item of specified rank and type for forge
+        /// </summary>
+        /// <param name="targetProvided">item compatible with target being provided</param>
+        /// <param name="isTrigger">item is a trigger</param>
+        /// <param name="rank">item's rank</param>
+        public Item GetForgeItem(bool targetProvided, bool isTrigger, ItemRank rank)
+        {
+            // create options list
+            var items = new List<Item>();
+            items.AddRange(GetRankList(targetProvided, isTrigger, rank));
+            // target provided effects and no target provided triggers can include items of the other target type
+            if (targetProvided != isTrigger)
+                items.AddRange(GetRankList(!targetProvided, isTrigger, rank));
+            // pick item from options
+            int index = Random.Range(0, items.Count);
+            return items[index];
+        }
         /// <summary>
         /// Get random item out of specified ranked list
         /// </summary>
-        /// <param name="isTargeted"></param>
-        /// <param name="isTrigger"></param>
-        /// <param name="rank"></param>
-        /// <returns></returns>
+        /// <param name="isTargeted">item must use targets</param>
+        /// <param name="isTrigger">item is a trigger</param>
+        /// <param name="rank">item's rank</param>
         public Item GetRandomItem(bool isTargeted, bool isTrigger, ItemRank rank)
         {
             List<Item> list = GetRankList(isTargeted, isTrigger, rank);
@@ -67,7 +85,6 @@ namespace ColbyDoan
         /// <summary>
         /// Get any random item with equal chance
         /// </summary>
-        /// <returns></returns>
         public Item GetRandomItem()
         {
             // trigger or effect

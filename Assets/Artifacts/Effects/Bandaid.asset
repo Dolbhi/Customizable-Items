@@ -15,6 +15,7 @@ MonoBehaviour:
   image: {fileID: 9216205297631055959, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
   type: 1
   usesTarget: 0
-  rank: 0
+  rank: 1
   idName: tiny_heal_effect
-  description: Heal a tiny amount of health
+  description: Heal a small amount of health
+  isOriginal: 1
