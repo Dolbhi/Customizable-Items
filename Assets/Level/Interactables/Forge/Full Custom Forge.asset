@@ -13,11 +13,27 @@ MonoBehaviour:
   m_Name: Full Custom Forge
   m_EditorClassIdentifier: 
   defaultData:
-    reusable: 0
+    reusable: 1
     usesTarget: 0
     rank: 0
-    triggerCases: []
-    effectCases: []
+    triggerCases:
+    - doNotRandomize: 1
+      custom: 1
+      mod: 0
+      item: {fileID: 0}
+    effectCases:
+    - doNotRandomize: 1
+      custom: 1
+      mod: 0
+      item: {fileID: 0}
+    - doNotRandomize: 1
+      custom: 1
+      mod: -1
+      item: {fileID: 0}
+    - doNotRandomize: 1
+      custom: 1
+      mod: 1
+      item: {fileID: 0}
   randomizeTargeted: 0
   randomizeRank: 0
   randomizeTriggerCount: 0

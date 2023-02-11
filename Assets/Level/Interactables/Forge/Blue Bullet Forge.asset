@@ -14,12 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultData:
     reusable: 0
-    usesTarget: 0
-    rank: 0
-    triggerCases: []
-    effectCases: []
+    usesTarget: 1
+    rank: 1
+    triggerCases:
+    - doNotRandomize: 1
+      custom: 0
+      mod: 0
+      item: {fileID: 11400000, guid: dae9052984b864188a5e7fbe0b6f5363, type: 2}
+    effectCases:
+    - doNotRandomize: 1
+      custom: 0
+      mod: -1
+      item: {fileID: 11400000, guid: 772a2f9d225734f84949823485ac4459, type: 2}
+    - doNotRandomize: 1
+      custom: 0
+      mod: 1
+      item: {fileID: 11400000, guid: 4b9e80e74829c4914adbc7dc98716691, type: 2}
+    - doNotRandomize: 1
+      custom: 0
+      mod: 1
+      item: {fileID: 11400000, guid: 4b9e80e74829c4914adbc7dc98716691, type: 2}
   randomizeTargeted: 0
   randomizeRank: 0
   randomizeTriggerCount: 0
   randomizeEffectCount: 0
-  itemPools: []
+  itemPools:
+  - {fileID: 11400000, guid: 6e106383d3ca94088bcce69a8c48b0fc, type: 2}

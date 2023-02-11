@@ -18,8 +18,9 @@ MonoBehaviour:
     rank: 0
     triggerCases: []
     effectCases: []
-  randomizeTargeted: 0
-  randomizeRank: 0
-  randomizeTriggerCount: 0
-  randomizeEffectCount: 0
-  itemPools: []
+  randomizeTargeted: 1
+  randomizeRank: 1
+  randomizeTriggerCount: 1
+  randomizeEffectCount: 1
+  itemPools:
+  - {fileID: 11400000, guid: 6e106383d3ca94088bcce69a8c48b0fc, type: 2}
