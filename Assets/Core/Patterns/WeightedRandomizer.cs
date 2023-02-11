@@ -18,18 +18,24 @@ namespace ColbyDoan
         /// <returns>Chosen index</returns>
         public int Choose()
         {
-            // int randInt = Random.Range(0, sum);
+            int randInt = Random.Range(0, _sum);
+            int i = 0;
+            while (randInt >= _weights[i])
+            {
+                randInt -= _weights[i];
+                i++;
+            }
             // for (int i = 0; randInt > _weights[i]; i++)
             // {
 
             // }
-            int i = 0;
-            int currentWeight = _weights[i];
-            for (int randInt = Random.Range(0, _sum); randInt < currentWeight; randInt -= currentWeight)
-            {
-                i++;
-                currentWeight = _weights[i];
-            }
+            // int i = 0;
+            // int currentWeight = _weights[i];
+            // for (int randInt = Random.Range(0, _sum); randInt > currentWeight; randInt -= currentWeight)
+            // {
+            //     i++;
+            //     currentWeight = _weights[i];
+            // }
             return i;
         }
 

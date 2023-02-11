@@ -55,10 +55,14 @@ namespace ColbyDoan
         {
             // create options list
             var items = new List<Item>();
-            items.AddRange(GetRankList(targetProvided, isTrigger, rank));
+            items.AddRange(GetRankList(targetProvided, isTrigger, rank) ?? new List<Item>());
             // target provided effects and no target provided triggers can include items of the other target type
             if (targetProvided != isTrigger)
-                items.AddRange(GetRankList(!targetProvided, isTrigger, rank));
+                items.AddRange(GetRankList(!targetProvided, isTrigger, rank) ?? new List<Item>());
+
+            // failed to find item
+            if (items.Count == 0) return null;
+
             // pick item from options
             int index = Random.Range(0, items.Count);
             return items[index];

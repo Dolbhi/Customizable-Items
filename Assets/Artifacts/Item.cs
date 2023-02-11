@@ -76,13 +76,9 @@ namespace ColbyDoan
             // checks type
             if (type != null && item.type != type) return false;
             // checks target
-            if (usesTarget != null)
-                if (item.type != ItemType.Trigger || !item.usesTarget)
-                    if (item.usesTarget != (bool)usesTarget)
-                        return false;
+            if (usesTarget != null && item.usesTarget != usesTarget) return false;
             // checks rank
-            if (rank == null) return true;
-            else if (item.rank != rank) return false;
+            if (rank != null && item.rank != rank) return false;
             else return true;
         }
 
@@ -90,17 +86,18 @@ namespace ColbyDoan
         public ItemRestriction(Item item, int rankModifier = 0)
         {
             // require opposing type
-            // Targeted triggers have null target requirements
             usesTarget = null;
             if (item.type == ItemType.Trigger)
             {
                 type = ItemType.Effect;
+                // Untargeted triggers force non-targeted effects
                 if (!item.usesTarget) usesTarget = false;
             }
             else
             {
                 type = ItemType.Trigger;
-                usesTarget = item.usesTarget;
+                // Targeted effects force targeted triggers
+                if (item.usesTarget) usesTarget = true;
             }
             // must be same rank, barring rank mods
             rank = item.rank + rankModifier;

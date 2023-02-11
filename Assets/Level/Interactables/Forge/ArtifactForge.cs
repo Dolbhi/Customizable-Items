@@ -11,50 +11,102 @@ namespace ColbyDoan
         [SerializeField] Interactable interactable;
         [SerializeField] PlatformGlow glow;
         [SerializeField] UnityEngine.U2D.Animation.SpriteResolver platformSprite;
+        [SerializeField] CaseManager triggersManager;
+        [SerializeField] CaseManager effectsManager;
 
-        public IArtifactCase selectedTrigger;
-        public IArtifactCase selectedEffect;
+        bool _ReadyToForge => triggersManager.selectedCase != null && effectsManager.selectedCase != null;
 
-        [Header("Info")]
-        [SerializeField] bool unrestricted;
-        [SerializeField] bool usesTarget;
-        [SerializeField] ItemRank rank;
-        public ItemRestriction itemRestriction = new ItemRestriction();
-        public bool reusable;
+        public ForgeSettings settings;
+        ForgeData _data;
 
-        [Header("Loot data")]
-        public bool autoFillCases;
+        readonly Vector2[] CASE_OFFSETS = new Vector2[] { new Vector2(1.6f, 2), new Vector2(1.6f, -2), new Vector2(3, 0) };
 
-        public ArtifactPools[] pools;
-        [HideInInspector] public ArtifactPools combinedPool;
+        // [Header("Info")]
+        bool _fullyCustom = true;
 
-        public event Action<ItemRank, bool> onFillCases;
-        public event Action onUsedUp;
-        public event Action onForge;
-        public event Action onGraphicChange;
-
-        bool _ReadyToForge => selectedTrigger != null && selectedEffect != null;
+        // public event Action onUsedUp;
+        // public event Action onForge;
+        // public event Action onGraphicChange;
 
         void Start()
         {
-            combinedPool = ArtifactPools.CreateInstance<ArtifactPools>();
-            for (int i = 0; i < pools.Length; i++)
-            {
-                combinedPool.CombinePool(pools[i]);
-            }
+            _data = settings.GetData();
 
-            UpdateRestrictions();
-            // set item restrictions
-            if (!unrestricted)
+            // fully custom if all cases are custom
+            _fullyCustom = triggersManager.CreateCases(_data.triggerCases);
+            _fullyCustom = effectsManager.CreateCases(_data.effectCases) && _fullyCustom;
+
+            // link selection events
+            triggersManager.OnSelectionChange += _OnTriggerSelectionChange;
+            effectsManager.OnSelectionChange += _OnEffectSelectionChange;
+
+            // set restrictions
+            if (_fullyCustom)
             {
-                // fill empty cases
-                if (autoFillCases)
+                // set restrictions to none
+                triggersManager.UpdateRestrictions();
+                effectsManager.UpdateRestrictions();
+                UpdatePlatformSprite();
+            }
+            else
+            {
+                // set restrictions to default
+                triggersManager.UpdateRestrictions(_data.usesTarget ? true : null, _data.rank);
+                effectsManager.UpdateRestrictions(_data.usesTarget ? null : false, _data.rank);
+                UpdatePlatformSprite(_data.rank);
+            }
+        }
+
+        /// <summary>
+        /// Handle change in item selection
+        /// </summary>
+        /// <param name="change"> if an item is currently selected </param>
+        void _OnTriggerSelectionChange(bool change)
+        {
+            // Update stuff
+            UpdateGlow();
+
+            // if custom update restrictions and sprite colour
+            if (_fullyCustom)
+            {
+                if (change)
                 {
-                    onFillCases.Invoke(rank, usesTarget);
+                    // set restriction and colour to new trigger
+                    effectsManager.UpdateRestrictions(triggersManager.SelectedItem);
+                    UpdatePlatformSprite(triggersManager.SelectedItem.rank);
+                }
+                else
+                {
+                    // clear restrictions
+                    effectsManager.UpdateRestrictions();
+                    UpdatePlatformSprite();
                 }
             }
-            UpdatePlatformSprite();
         }
+        void _OnEffectSelectionChange(bool change)
+        {
+            // Update stuff
+
+            UpdateGlow();
+
+            // if custom update restrictions and sprite colour
+            if (_fullyCustom)
+            {
+                if (change)
+                {
+                    // set restriction and colour to new effect
+                    triggersManager.UpdateRestrictions(effectsManager.SelectedItem, effectsManager.selectedCase.Modifier);
+                    UpdatePlatformSprite(triggersManager.SelectedItem.rank - (int)effectsManager.selectedCase.Modifier);
+                }
+                else
+                {
+                    // clear restrictions
+                    effectsManager.UpdateRestrictions();
+                    UpdatePlatformSprite();
+                }
+            }
+        }
+
         // void OnValidate()
         // {
         //     if (!Application.isPlaying)
@@ -73,13 +125,13 @@ namespace ColbyDoan
         //     // update sprite if rank or restrictedness is changed
         //     UpdatePlatformSprite();
         // }
-        [ContextMenu("Update Platform Sprite")]
-        void UpdatePlatformSprite()
+        // [ContextMenu("Update Platform Sprite")]
+        void UpdatePlatformSprite(ItemRank? rank = null)
         {
-            string catagory = itemRestriction.rank?.ToString() ?? "Base";
-            // Debug.Log(itemRestriction.rank + catagory, this);
+            // set to "Base" of no rank given
+            string catagory = rank?.ToString() ?? "Base";
             platformSprite.SetCategoryAndLabel(catagory, "platform");
-            onGraphicChange?.Invoke();
+            // onGraphicChange?.Invoke();
         }
 
         // set glow based on readiness to forge
@@ -97,33 +149,6 @@ namespace ColbyDoan
             }
         }
 
-        // update restictions on custom artifact selected if unrestricted, else use default vars
-        [ContextMenu("Update restriction")]
-        public void UpdateRestrictions()
-        {
-            if (!unrestricted)
-            {
-                itemRestriction.usesTarget = usesTarget;
-                itemRestriction.rank = rank;
-                return;
-            }
-            if (selectedEffect != null)
-            {
-                itemRestriction = new ItemRestriction(selectedEffect.CaseItem, ((int)selectedEffect.Modifier));
-                itemRestriction.type = null;
-            }
-            else if (selectedTrigger != null)
-            {
-                itemRestriction = new ItemRestriction(selectedTrigger.CaseItem);
-                itemRestriction.type = null;
-            }
-            else
-            {
-                itemRestriction = new ItemRestriction();
-            }
-            UpdatePlatformSprite();
-        }
-
         public void GivePlayerArtifact(PlayerBehaviour interacter)
         {
             if (!_ReadyToForge)
@@ -132,22 +157,18 @@ namespace ColbyDoan
                 return;
             }
 
-            interacter.character.artifacts.Add(selectedTrigger.CaseItem, selectedEffect.CaseItem, selectedEffect.Modifier);
+            interacter.character.artifacts.Add(triggersManager.SelectedItem, effectsManager.SelectedItem, effectsManager.selectedCase.Modifier);
 
-            onForge?.Invoke();
-            if (!reusable)
+            // onForge?.Invoke();
+            if (!_data.reusable)
             {
-                onUsedUp?.Invoke();
+                // onUsedUp?.Invoke();
+                // make everything uninteractable
+                triggersManager.DisableAllCases();
+                effectsManager.DisableAllCases();
                 interactable.enabled = false;
             }
             UpdateGlow();
         }
-    }
-
-    public interface IArtifactCase
-    {
-        Item CaseItem { get; set; }
-        EffectModifier Modifier { get; }
-        void Deselect();
     }
 }

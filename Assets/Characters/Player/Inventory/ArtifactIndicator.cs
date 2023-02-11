@@ -83,6 +83,11 @@ namespace ColbyDoan
                 ((TMP_Text)icon.components.DictionaryData[textKey]).text = levelText;
             }
         }
+
+        void OnDisable()
+        {
+            indicatorPulse.Kill();
+        }
     }
 
     class DisplayIndicatorEffect : Effect

@@ -19,7 +19,7 @@ namespace ColbyDoan
 
         public Inventory playerInventory;
 
-        public static Action<ItemRestriction> OnApproachCustomCase;
+        public static Action<ItemRestrictionDelegate> OnApproachCustomCase;
         public static event Action<Item> OnItemChosen;
         public static event Action OnInventoryClose = delegate { };
 
@@ -54,14 +54,15 @@ namespace ColbyDoan
             canvasGroup.blocksRaycasts = false;
         }
 
-        void OpenForItemSelection(ItemRestriction restriction)
+        public delegate bool ItemRestrictionDelegate(Item item);
+        void OpenForItemSelection(ItemRestrictionDelegate restriction)
         {
             ShowInventory();
             // enable relavant slots
             foreach (SlotUI slot in triggerSlots)
             {
                 slot.button.enabled = true;
-                if (restriction.IsCompatible(slot.CurrentItem))
+                if (restriction(slot.CurrentItem))
                 {
                     slot.button.interactable = true;
                 }
@@ -73,7 +74,7 @@ namespace ColbyDoan
             foreach (SlotUI slot in effectSlots)
             {
                 slot.button.enabled = true;
-                if (restriction.IsCompatible(slot.CurrentItem))
+                if (restriction(slot.CurrentItem))
                 {
                     slot.button.interactable = true;
                 }

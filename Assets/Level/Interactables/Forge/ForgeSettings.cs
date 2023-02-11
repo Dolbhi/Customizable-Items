@@ -21,12 +21,33 @@ namespace ColbyDoan
         /// <summary>
         /// {1, 2, 3}
         /// </summary>
-        static readonly int[] CASE_COUNT_WEIGHTS = new int[] { 2, 1, 1 };
+        static readonly int[] CASE_COUNT_WEIGHTS = new int[] { 1, 1, 1 };
 
         WeightedRandomizer _rankRandomizer = new WeightedRandomizer(RANK_WEIGHTS);
 
         WeightedRandomizer _modRandomizer = new WeightedRandomizer(MOD_WEIGHTS);
         WeightedRandomizer _caseCountRandomizer = new WeightedRandomizer(CASE_COUNT_WEIGHTS);
+
+
+        [SerializeField] ForgeData defaultData;
+
+        [Header("Randomization options")]
+        [SerializeField] bool randomizeTargeted;
+        [SerializeField] bool randomizeRank;
+        [SerializeField] bool randomizeTriggerCount;
+        [SerializeField] bool randomizeEffectCount;
+        // [SerializeField] bool allowCustom; idk test it first
+        [SerializeField] ArtifactPools[] itemPools;
+        ArtifactPools _combinedPool;
+
+        void OnValidate()
+        {
+            _combinedPool = CreateInstance<ArtifactPools>();
+            for (int i = 0; i < itemPools.Length; i++)
+            {
+                _combinedPool.CombinePool(itemPools[i]);
+            }
+        }
 
         public ForgeData GetData()
         {
@@ -65,23 +86,23 @@ namespace ColbyDoan
             {
                 // generate a case if null, else populate if not custom and preset with item
                 CaseData data = output.triggerCases[i];
-                if (data.doNotRandomize == false)
+                if (data == null || !data.doNotRandomize)
                 {
                     if (Random.value < CUSTOM_CASE_CHANCE)
                         output.triggerCases[i] = CaseData.CreateTriggerCase();
                     else
-                        output.triggerCases[i] = CaseData.CreateTriggerCase(itemPool.GetForgeItem(output.usesTarget, true, output.rank));
+                        output.triggerCases[i] = CaseData.CreateTriggerCase(_combinedPool.GetForgeItem(output.usesTarget, true, output.rank));
                 }
                 else if (!data.custom && data.item == null)
                 {
-                    data.item = itemPool.GetForgeItem(output.usesTarget, true, output.rank);
+                    data.item = _combinedPool.GetForgeItem(output.usesTarget, true, output.rank);
                 }
             }
             for (int i = 0; i < output.effectCases.Length; i++)
             {
                 // generate a case if null, else populate if not custom and preset with item
                 CaseData data = output.effectCases[i];
-                if (data == null)
+                if (data == null || !data.doNotRandomize)
                 {
                     // modifier is restricted for S and D rank effects
                     EffectModifier mod = (EffectModifier)(_modRandomizer.Choose() - 1);
@@ -91,26 +112,16 @@ namespace ColbyDoan
                     if (Random.value < CUSTOM_CASE_CHANCE)
                         output.effectCases[i] = CaseData.CreateEffectCase(mod);
                     else
-                        output.effectCases[i] = CaseData.CreateEffectCase(mod, itemPool.GetForgeItem(output.usesTarget, false, output.rank + (int)data.mod));
+                        output.effectCases[i] = CaseData.CreateEffectCase(mod, _combinedPool.GetForgeItem(output.usesTarget, false, output.rank - (int)mod));
                 }
                 else if (!data.custom && data.item == null)
                 {
-                    data.item = itemPool.GetForgeItem(output.usesTarget, false, output.rank + (int)data.mod);
+                    data.item = _combinedPool.GetForgeItem(output.usesTarget, false, output.rank - (int)data.mod);
                 }
             }
 
             return output;
         }
-
-        [SerializeField] ForgeData defaultData;
-
-        [Header("Randomization options")]
-        [SerializeField] bool randomizeTargeted;
-        [SerializeField] bool randomizeRank;
-        [SerializeField] bool randomizeTriggerCount;
-        [SerializeField] bool randomizeEffectCount;
-        // [SerializeField] bool allowCustom; idk test it first
-        [SerializeField] ArtifactPools itemPool;
     }
 
     [System.Serializable]
@@ -145,7 +156,7 @@ namespace ColbyDoan
         public static CaseData CreateTriggerCase(Item chosenItem = null)
         {
             if (chosenItem == null) return new CaseData() { doNotRandomize = true, custom = true };
-            if (chosenItem.type == ItemType.Effect) Debug.LogError("Trying to make trigger case with non trigger item");
+            if (chosenItem.type != ItemType.Trigger) Debug.LogError("Trying to make trigger case with non trigger item");
             return new CaseData() { doNotRandomize = true, item = chosenItem, custom = false };
         }
 
@@ -158,7 +169,7 @@ namespace ColbyDoan
         public static CaseData CreateEffectCase(EffectModifier chosenMod = EffectModifier.None, Item chosenItem = null)
         {
             if (chosenItem == null) return new CaseData() { doNotRandomize = true, mod = chosenMod, custom = true };
-            if (chosenItem.type == ItemType.Effect) Debug.LogError("Trying to make trigger case with non trigger item");
+            if (chosenItem.type == ItemType.Trigger) Debug.LogError("Trying to make effect case with non effect item");
             return new CaseData() { doNotRandomize = true, mod = chosenMod, item = chosenItem, custom = false };
         }
     }

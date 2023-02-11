@@ -1,106 +1,161 @@
-// using System.Collections;
-using System.Collections.Generic;
+using System;
+// using System.Collections.Generic;
 using UnityEngine;
 
 
 namespace ColbyDoan
 {
     [RequireComponent(typeof(Interactable))]
-    public class ArtifactCase : MonoBehaviour, IArtifactCase
+    public class ArtifactCase : MonoBehaviour, INewArtifactCase
     {
-        [SerializeField] Item item;
-        public virtual Item CaseItem
-        {
-            get { return item; }
-            set
-            {
-                item = value;
-                if (item != null)
-                {
-                    _itemRenderer.SetItem(item);
-                    interactable.hoverText = "Select " + item?.name;
-                }
-                else
-                {
-                    _itemRenderer.SetEmpty();
-                    interactable.hoverText = "fuck";
-                }
-            }
-        }
         [Header("References")]
-        [SerializeField] protected ArtifactForge forge;
-        [SerializeField] protected Interactable interactable;
-        [SerializeField] ItemRenderer _itemRenderer;
-        [SerializeField] UnityEngine.U2D.Animation.SpriteResolver _baseSprite, _pillarSprite, _bottomSprite;
-
-        [Header("Info")]
-        public ItemType type;
-        protected bool selected;
-        [SerializeField] EffectModifier _effectModifier;
-        public EffectModifier Modifier => _effectModifier;
+        [SerializeField] Interactable interactable;
+        [SerializeField] GameObject glassCase;
+        [SerializeField] ItemRenderer itemRenderer;
+        [SerializeField] UnityEngine.U2D.Animation.SpriteResolver baseSprite, pillarSprite, bottomSprite;
 
         [Header("Case reference")]
         [SerializeField] Transform itemCase;
         [SerializeField] Vector2 selectedPos = Vector2.zero;
         [SerializeField] Vector2 unselectedPos = new Vector2(0, -.43f);
 
+        Item _item;
+        CaseData _data;
+        ItemType _type;
+        bool _selected;
+        ItemRestriction _restriction;
+
+        /// <summary>
+        /// Setting also sets itemRenderer and hovertext of interaction
+        /// </summary>
+        public Item CaseItem => _item;
+        public EffectModifier Modifier => _data.mod;
+        public ItemType CaseType => _type;
+        public bool Selected => _selected;
+
+        public event Action<INewArtifactCase> OnCompleteInteraction;
+
+        /// <summary>
+        /// Owner to return item to
+        /// </summary>
+        Inventory _currentItemOwner; // problems arise with simultanious interactions
+
         //Color unselectedColor = new Color(.8f, .8f, .8f);
 
-        protected virtual void Awake()
+        // interaction interface
+        public void OnInteract(PlayerBehaviour playerBehaviour)
         {
-            forge.onUsedUp += ClearOut;
-            forge.onFillCases += FillSelf;
-            forge.onForge += OnForge;
-            forge.onGraphicChange += UpdateSprites;
-        }
-
-        void Start()
-        {
-            UpdateSprites();
-        }
-
-#if UNITY_EDITOR
-        Item last;
-        void OnValidate()
-        {
-            if (item != last)
+            // deselect current/self if neccessary
+            if (_selected)
             {
-                if (item)
-                {
-                    if (item.type != type) // type mismatch
-                    {
-                        Debug.LogWarning("Mismatched Item Type at " + gameObject.name);
-                        CaseItem = null;
-                    }
-                    else
-                    {
-                        var newItem = Instantiate(item);
-                        newItem.name = item.name;
-                        CaseItem = newItem;
-                    }
-                }
-                else CaseItem = null;
-                last = item;
+                Deselect();
+                OnCompleteInteraction.Invoke(this);
             }
-            // UpdateSprites();
-        }
-#endif
-
-        [ContextMenu("Update sprites")]
-        void UpdateSprites()
-        {
-            if (!forge)
+            else if (_data.custom)
             {
-                // Debug.LogError("No associated forge");
-                return;
+                // custom selection routine
+                // pass callbacks to receive item from inventory and to clear callbacks when inventory is closed (i.e cancellation)
+                _currentItemOwner = playerBehaviour.inventory;
+
+                InventoryUI.OnItemChosen += _ItemChosenCallback;
+                InventoryUI.OnInventoryClose += _ClearCallbacks;
+
+                // prompt inventory for appropriate item using forge restrictions + case type restriction
+                InventoryUI.OnApproachCustomCase.Invoke(_restriction.IsCompatible);
+            }
+            else
+            {
+                Select();
+                OnCompleteInteraction.Invoke(this);
             }
 
-            string catagory = forge.itemRestriction.rank == null ? "Base" : forge.itemRestriction.rank.ToString();
+        }
+
+        public void SetUp(CaseData data, ItemType type)
+        {
+            _data = data;
+            _type = type;
+            // _forge = forge;
+
+            if (_data.custom)
+            {
+                interactable.hoverText = "Choose item from inventory";
+            }
+            else
+            {
+                _item = _data.item.Copy();
+                _UpdateItemDisplayAndHover();
+            }
+        }
+        public void SetRestriction(ItemRestriction newRestriction)
+        {
+            _restriction = newRestriction;
+
+            _UpdateSprites(_restriction.rank);
+
+            // apply mods
+            if (_restriction.rank != null)
+            {
+                _restriction.rank -= (int)_data.mod;
+            }
+        }
+
+        // update state
+        public void Select()
+        {
+            _selected = true;
+            interactable.hoverText = "Deselect " + _item?.name;
+            // set graphic
+            itemCase.localPosition = selectedPos;
+            //pillar.color = selected ? Color.white : unselectedColor;
+            //bg.color = selected ? Color.white : unselectedColor;
+        }
+        // update state
+        public void Deselect()
+        {
+            // return item if present
+            if (_data.custom && CaseItem != null)
+            {
+                _currentItemOwner.AddItem(CaseItem);
+                _item = null;
+                _UpdateItemDisplayAndHover();
+            }
+
+            _selected = false;
+            interactable.hoverText = "Select " + _item?.name;
+            // set graphic
+            itemCase.localPosition = unselectedPos;
+            //pillar.color = selected ? Color.white : unselectedColor;
+            //bg.color = selected ? Color.white : unselectedColor;
+        }
+
+        public void DisableCase()
+        {
+            interactable.enabled = false;
+            Deselect();
+            //pillar.color = unselectedColor;
+            //bg.color = unselectedColor;
+            itemRenderer.SetEmpty();
+        }
+
+        public void UseUpCustomItem()
+        {
+            if (_data.custom)
+            {
+                _item = null;
+                _UpdateItemDisplayAndHover();
+                Deselect();
+            }
+        }
+
+        void _UpdateSprites(ItemRank? rank = null)
+        {
+            string catagory = rank == null ? "Base" : rank.ToString();
             string modifierPrefix, typePrefix;
-            if (type == ItemType.Trigger)
+            if (_type == ItemType.Trigger)
             {
-                modifierPrefix = "";
                 typePrefix = "trigger ";
+                modifierPrefix = "";
             }
             else
             {
@@ -114,106 +169,62 @@ namespace ColbyDoan
                 };
             }
 
-            _baseSprite.SetCategoryAndLabel(catagory, modifierPrefix + "base");
-            _pillarSprite.SetCategoryAndLabel(catagory, modifierPrefix + typePrefix + "pillar");
-            _bottomSprite.SetCategoryAndLabel(catagory, "bottom");
+            glassCase.SetActive(!_data.custom);
+
+            baseSprite.SetCategoryAndLabel(catagory, modifierPrefix + "base");
+            pillarSprite.SetCategoryAndLabel(catagory, modifierPrefix + typePrefix + "pillar");
+            bottomSprite.SetCategoryAndLabel(catagory, "bottom");
         }
 
-        public virtual void OnInteract(PlayerBehaviour playerBehaviour)
+        void _UpdateItemDisplayAndHover()
         {
-            if (!item || item.idName == "")
+            if (_data.custom)
             {
-                Debug.Log("Valid item missing from case");
-
-                Deselect();
-
-                return;
+                // displays for custom item
+                if (_item != null)
+                {
+                    itemRenderer.SetItem(_item);
+                    interactable.hoverText = "Remove " + _item.name;
+                }
+                else
+                {
+                    itemRenderer.SetEmpty();
+                    interactable.hoverText = "Choose item from inventory";
+                }
             }
+            else
+            {
+                // displays for custom item
+                if (_item != null)
+                {
+                    itemRenderer.SetItem(_item);
+                    interactable.hoverText = "Select " + _item.name;
+                }
+                else
+                {
+                    itemRenderer.SetEmpty();
+                    interactable.enabled = false;
+                }
+            }
+        }
 
-            // deselect current/self if neccessary
-            if (!selected)
+        void _ItemChosenCallback(Item item)
+        {
+            // print(gameObject.name + " callback triggered");
+            if (_currentItemOwner.TryRemoveItem(item))
+            {
+                _item = item;
+                _UpdateItemDisplayAndHover();
+
                 Select();
-            else
-                Deselect();
+                OnCompleteInteraction.Invoke(this);
+            }
         }
-
-        // [ContextMenu("Select Case")]
-        public void Select()
+        void _ClearCallbacks()
         {
-            selected = true;
-            // replace with self
-            if (type == ItemType.Trigger)
-            {
-                forge.selectedTrigger?.Deselect();
-                forge.selectedTrigger = this;
-            }
-            else
-            {
-                forge.selectedEffect?.Deselect();
-                forge.selectedEffect = this;
-            }
-            interactable.hoverText = "Deselect " + item?.name;
-            // update forge
-            forge.UpdateGlow();
-            // set graphic
-            itemCase.localPosition = selectedPos;
-            //pillar.color = selected ? Color.white : unselectedColor;
-            //bg.color = selected ? Color.white : unselectedColor;
+            // print(gameObject.name + " removal callback");
+            InventoryUI.OnItemChosen -= _ItemChosenCallback;
+            InventoryUI.OnInventoryClose -= _ClearCallbacks;
         }
-        // [ContextMenu("Deselect Case")]
-        public virtual void Deselect()
-        {
-            selected = false;
-            // remove self
-            if (forge.selectedTrigger == this as IArtifactCase)
-            {
-                forge.selectedTrigger = null;
-            }
-            else if (forge.selectedEffect == this as IArtifactCase)
-            {
-                forge.selectedEffect = null;
-            }
-            interactable.hoverText = "Select " + item?.name;
-            // update forge
-            forge.UpdateGlow();
-            // set graphic
-            itemCase.localPosition = unselectedPos;
-            //pillar.color = selected ? Color.white : unselectedColor;
-            //bg.color = selected ? Color.white : unselectedColor;
-        }
-
-        void ClearOut()
-        {
-            interactable.enabled = false;
-            Deselect();
-            //pillar.color = unselectedColor;
-            //bg.color = unselectedColor;
-            _itemRenderer.SetEmpty();
-        }
-        [ContextMenu("Fill self")]
-        protected virtual void FillSelf(ItemRank rank, bool requiresTarget)
-        {
-            if (CaseItem) return;
-            if (!forge)
-            {
-                Debug.LogError("No associated forge");
-                return;
-            }
-            // pick item randomly
-            Item result = forge.combinedPool.GetForgeItem(requiresTarget, type == ItemType.Trigger, rank);
-            // clone
-            Item newItem = null;
-            if (result)
-            {
-                newItem = Instantiate(result);
-                newItem.name = result.name;
-            }
-            CaseItem = newItem;
-        }
-        protected virtual void OnForge()
-        {
-            // nothing (for now)
-        }
-        // public static implicit operator bool(ArtifactCase a) => a != null && a.item;
     }
 }
