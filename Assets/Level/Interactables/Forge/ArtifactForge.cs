@@ -69,42 +69,48 @@ namespace ColbyDoan
             // if custom update restrictions and sprite colour
             if (_fullyCustom)
             {
-                if (change)
-                {
-                    // set restriction and colour to new trigger
-                    effectsManager.UpdateRestrictions(triggersManager.SelectedItem);
-                    UpdatePlatformSprite(triggersManager.SelectedItem.rank);
-                }
-                else
-                {
-                    // clear restrictions
-                    effectsManager.UpdateRestrictions();
-                    UpdatePlatformSprite();
-                }
+                _UpdateRestrictions();
             }
         }
         void _OnEffectSelectionChange(bool change)
         {
             // Update stuff
-
             UpdateGlow();
 
             // if custom update restrictions and sprite colour
             if (_fullyCustom)
             {
-                if (change)
-                {
-                    // set restriction and colour to new effect
-                    triggersManager.UpdateRestrictions(effectsManager.SelectedItem, effectsManager.selectedCase.Modifier);
-                    UpdatePlatformSprite(triggersManager.SelectedItem.rank - (int)effectsManager.selectedCase.Modifier);
-                }
-                else
-                {
-                    // clear restrictions
-                    effectsManager.UpdateRestrictions();
-                    UpdatePlatformSprite();
-                }
+                _UpdateRestrictions();
             }
+        }
+
+        void _UpdateRestrictions()
+        {
+            // find which case to follow restrictions
+            INewArtifactCase selectedCase;
+            if (triggersManager.SelectedItem != null)
+            {
+                selectedCase = triggersManager.selectedCase;
+            }
+            else if (effectsManager.SelectedItem != null)
+            {
+                selectedCase = effectsManager.selectedCase;
+            }
+            else
+            {
+                // clear restriction
+                triggersManager.UpdateRestrictions();
+                effectsManager.UpdateRestrictions();
+
+                UpdatePlatformSprite();
+                return;
+            }
+
+            // set restriction and colour to new trigger or effect
+            triggersManager.UpdateRestrictions(selectedCase.CaseItem, selectedCase.Modifier);
+            effectsManager.UpdateRestrictions(selectedCase.CaseItem, selectedCase.Modifier);
+
+            UpdatePlatformSprite(selectedCase.CaseItem.rank - (int)selectedCase.Modifier);
         }
 
         // void OnValidate()

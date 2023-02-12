@@ -6,14 +6,14 @@ namespace ColbyDoan
     public class ForgeSettings : ScriptableObject
     {
         // Forge randomization
-        const float TARGETED_CHANCE = .5f;
+        const float TARGETED_CHANCE = .3f;
         /// <summary>
         /// {D, C, B, A, S}
         /// </summary>
         static readonly int[] RANK_WEIGHTS = new int[] { 8, 10, 10, 10, 5 };
 
         // Case randomization
-        const float CUSTOM_CASE_CHANCE = .5f;
+        const float CUSTOM_CASE_CHANCE = .2f;
         /// <summary>
         /// {Broken weight, None weight, Bundle weight}
         /// </summary>

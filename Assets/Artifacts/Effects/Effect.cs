@@ -642,7 +642,7 @@ namespace ColbyDoan
 
         public override void Trigger(TriggerContext context)
         {
-            float random = Random.Range(0f, 1);
+            float random = Random.value;
             float prob = (1f + level) / (10 + level);
             // Debug.Log($"Random: {random}, Probability: {prob}");
             if (random < prob)

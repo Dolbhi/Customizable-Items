@@ -39,7 +39,7 @@ namespace ColbyDoan
                 Vector2 offset = caseCount == 1 ? caseOffsets[2] : caseOffsets[i];
                 newCase.transform.SetLocalPositionAndRotation(offset, Quaternion.identity);
 
-                newCase.SetUp(dataArray[i], ItemType.Trigger);
+                newCase.SetUp(dataArray[i], caseType);
                 newCase.OnCompleteInteraction += _OnCompleteInteraction;
 
                 cases[i] = newCase;
