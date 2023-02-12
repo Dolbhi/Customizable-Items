@@ -5,7 +5,7 @@ using ColbyDoan.Attributes;
 
 namespace ColbyDoan
 {
-    [CreateAssetMenu(fileName = "New Item", menuName = "Custom Assets/Loot/Create Item")]
+    [CreateAssetMenu(fileName = "New Item", menuName = "Loot Assets/Create Item")]
     /// Holds item info (such as id, type and if it is targeted)
     public class Item : ScriptableObject, IHasID
     {

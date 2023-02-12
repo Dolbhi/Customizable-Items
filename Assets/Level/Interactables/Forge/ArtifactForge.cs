@@ -64,7 +64,7 @@ namespace ColbyDoan
         void _OnTriggerSelectionChange(bool change)
         {
             // Update stuff
-            UpdateGlow();
+            _UpdateGlow();
 
             // if custom update restrictions and sprite colour
             if (_fullyCustom)
@@ -75,7 +75,7 @@ namespace ColbyDoan
         void _OnEffectSelectionChange(bool change)
         {
             // Update stuff
-            UpdateGlow();
+            _UpdateGlow();
 
             // if custom update restrictions and sprite colour
             if (_fullyCustom)
@@ -141,7 +141,7 @@ namespace ColbyDoan
         }
 
         // set glow based on readiness to forge
-        public void UpdateGlow()
+        void _UpdateGlow()
         {
             if (_ReadyToForge)
             {
@@ -172,9 +172,10 @@ namespace ColbyDoan
                 // make everything uninteractable
                 triggersManager.DisableAllCases();
                 effectsManager.DisableAllCases();
-                interactable.enabled = false;
+                // interactable.enabled = false;
+                // glow.GlowActive = false;
             }
-            UpdateGlow();
+            _UpdateGlow();
         }
     }
 }

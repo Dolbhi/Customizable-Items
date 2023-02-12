@@ -17,7 +17,7 @@ namespace ColbyDoan
         /// <summary>
         /// {Broken weight, None weight, Bundle weight}
         /// </summary>
-        static readonly int[] MOD_WEIGHTS = new int[] { 2, 1, 1 };
+        static readonly int[] MOD_WEIGHTS = new int[] { 3, 1, 1 };
         /// <summary>
         /// {1, 2, 3}
         /// </summary>

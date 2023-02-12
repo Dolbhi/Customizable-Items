@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ColbyDoan
 {
     // a way to sort and store item infos
-    [CreateAssetMenu(fileName = "New Pool", menuName = "Custom Assets/Loot/Create Artifact Pool")]
+    [CreateAssetMenu(fileName = "New Pool", menuName = "Loot Assets/Create Artifact Pool")]
     public class ArtifactPools : ScriptableObject
     {
         public RankedPools untargetedT = new RankedPools();

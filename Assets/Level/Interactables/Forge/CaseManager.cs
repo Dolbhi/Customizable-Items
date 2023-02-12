@@ -61,6 +61,7 @@ namespace ColbyDoan
         /// </summary>
         public void DisableAllCases()
         {
+            selectedCase = null;
             for (int i = 0; i < cases.Length; i++)
             {
                 cases[i].DisableCase();
@@ -71,6 +72,10 @@ namespace ColbyDoan
             for (int i = 0; i < cases.Length; i++)
             {
                 cases[i].UseUpCustomItem();
+            }
+            if (selectedCase.CaseItem == null)
+            {
+                selectedCase = null;
             }
         }
 
