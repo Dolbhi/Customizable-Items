@@ -78,7 +78,13 @@ namespace ColbyDoan
                     return;
                 }
 
-                var levelText = effect is BrokenEffect ? (effect.level * .1f).ToString() : effect.level.ToString();
+                // change count displayed based on mod
+                var levelText = effect.level.ToString();
+                if (effect is BrokenEffect)
+                    levelText = (effect.level * .1f).ToString();
+                else if (effect is BundleEffect)
+                    levelText = (effect.level * 5).ToString();
+
                 // Debug.Log(effect.level);
                 ((TMP_Text)icon.components.DictionaryData[textKey]).text = levelText;
             }
