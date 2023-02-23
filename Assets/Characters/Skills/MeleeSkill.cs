@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
     using Physics;
 
     public class MeleeSkill : CooldownSkill

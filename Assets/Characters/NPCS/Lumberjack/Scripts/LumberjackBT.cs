@@ -6,6 +6,8 @@ using ColbyDoan.BehaviourTree;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     /// <summary>
     /// Throws and swing axe enemy
     /// </summary>

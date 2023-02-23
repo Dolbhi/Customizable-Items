@@ -7,6 +7,8 @@ using ColbyDoan.Attributes;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     public class KinematicDamage : MonoBehaviour, IAutoDependancy<KinematicObject>
     {
         [SerializeField] KinematicCollider kCollider;

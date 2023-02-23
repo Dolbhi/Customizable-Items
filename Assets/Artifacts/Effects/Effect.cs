@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
     using Physics;
 
     // framework of an effect that can subscribe to triggers and be updated

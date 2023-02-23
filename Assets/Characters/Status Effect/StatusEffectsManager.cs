@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ColbyDoan
+namespace ColbyDoan.CharacterBase
 {
     public class StatusEffectsManager : MonoBehaviour, IAutoDependancy<Character>
     {

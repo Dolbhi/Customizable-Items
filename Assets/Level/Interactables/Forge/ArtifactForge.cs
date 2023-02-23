@@ -1,9 +1,11 @@
-using System;
+// using System;
 
 using UnityEngine;
 
 namespace ColbyDoan
 {
+    using Attributes;
+
     [RequireComponent(typeof(Interactable))]
     public class ArtifactForge : MonoBehaviour
     {
@@ -17,7 +19,7 @@ namespace ColbyDoan
         bool _ReadyToForge => triggersManager.selectedCase != null && effectsManager.selectedCase != null;
 
         public ForgeSettings settings;
-        ForgeData _data;
+        [SerializeField][ReadOnly] ForgeData _data;
 
         readonly Vector2[] CASE_OFFSETS = new Vector2[] { new Vector2(1.6f, 2), new Vector2(1.6f, -2), new Vector2(3, 0) };
 
@@ -32,13 +34,14 @@ namespace ColbyDoan
         {
             _data = settings.GetData();
 
-            // fully custom if all cases are custom
-            _fullyCustom = triggersManager.CreateCases(_data.triggerCases);
-            _fullyCustom = effectsManager.CreateCases(_data.effectCases) && _fullyCustom;
-
             // link selection events
             triggersManager.OnSelectionChange += _OnItemSelectionChange;
             effectsManager.OnSelectionChange += _OnItemSelectionChange;
+
+            // fully custom if all cases are custom
+            bool a = triggersManager.CreateCases(_data.triggerCases);
+            bool b = effectsManager.CreateCases(_data.effectCases);
+            _fullyCustom = a && b;
 
             // set restrictions
             if (_fullyCustom)

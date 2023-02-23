@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
     public class SkillsUIManager : MonoBehaviour
     {
         public SkillIndicator indicatorProp;

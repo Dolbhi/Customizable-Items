@@ -3,7 +3,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ColbyDoan
+namespace ColbyDoan.CharacterBase
 {
     public class HealthBar : MonoBehaviour
     {

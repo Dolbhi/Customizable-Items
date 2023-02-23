@@ -4,6 +4,8 @@ using ColbyDoan.Attributes;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     public class MovementManager : MonoBehaviour, IAutoDependancy<Character>, IMovingAgent
     {
         public Character Dependancy { set { speedStat = value.stats.speed; } }

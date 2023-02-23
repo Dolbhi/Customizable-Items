@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ColbyDoan
+namespace ColbyDoan.CharacterBase
 {
     using Physics;
 

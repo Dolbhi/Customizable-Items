@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
     using Physics;
     using Attributes;
 

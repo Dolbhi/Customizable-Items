@@ -2,7 +2,7 @@
 using UnityEngine;
 using System;
 
-namespace ColbyDoan
+namespace ColbyDoan.CharacterBase
 {
     public class CharacterStats : MonoBehaviour
     {

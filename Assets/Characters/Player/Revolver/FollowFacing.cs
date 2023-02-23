@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     public class FollowFacing : MonoBehaviour
     {
         [SerializeField] CharacterRotater rotater;

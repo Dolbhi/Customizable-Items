@@ -6,6 +6,7 @@ using ColbyDoan.Physics;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
     /// <summary> For handling player inputs </summary>
     public class PlayerBehaviour : MonoBehaviour, IAutoDependancy<Character>
     {

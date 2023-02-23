@@ -6,6 +6,8 @@ using ColbyDoan.BehaviourTree;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     /// <summary>
     /// Allows for interfacing with character components
     /// </summary>

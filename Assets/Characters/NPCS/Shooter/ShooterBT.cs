@@ -7,6 +7,8 @@ using ColbyDoan.BehaviourTree;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     public class ShooterBT : BaseEnemyBT
     {
         [SerializeField] EnemyIndicator indicator;

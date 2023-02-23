@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     public class OverloadRevolverSkill : CooldownSkill
     {
         public float overloadCooldown = 3;

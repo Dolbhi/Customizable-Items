@@ -6,6 +6,8 @@ using UnityEngine.Tilemaps;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     /// <summary> framework to set up an event to trigger effects </summary>
     public abstract class Trigger : IFactoryProduct
     {

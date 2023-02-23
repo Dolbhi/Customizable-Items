@@ -6,6 +6,7 @@ using TMPro;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
     public class PlayerHealthBar : MonoBehaviour
     {
         public Image fill;

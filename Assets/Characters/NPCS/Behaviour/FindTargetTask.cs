@@ -8,6 +8,7 @@ using ColbyDoan.Attributes;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
     using Physics;
 
     /// <summary>

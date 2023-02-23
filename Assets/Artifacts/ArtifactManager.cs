@@ -5,6 +5,8 @@ using System;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     // manages present effects and triggers and their creation/upgrading/removal
     public class ArtifactManager : MonoBehaviour, IAutoDependancy<Character>
     {

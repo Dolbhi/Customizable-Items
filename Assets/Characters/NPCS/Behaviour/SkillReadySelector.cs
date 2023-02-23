@@ -4,6 +4,8 @@ using ColbyDoan.BehaviourTree;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     /// <summary>
     /// Chooses action to take based on skill status
     /// </summary>

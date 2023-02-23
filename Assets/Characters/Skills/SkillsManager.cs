@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace ColbyDoan
+namespace ColbyDoan.CharacterBase
 {
     public class SkillsManager : MonoBehaviour, IAutoDependancy<Character>
     {

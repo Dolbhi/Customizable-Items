@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using ColbyDoan.FixedTimeLerp;
 namespace ColbyDoan
 {
+    using CharacterBase;
     using Physics;
     [RequireComponent(typeof(InterpolatedTransform))]
     public class Projectile : MonoBehaviour, IPhysicsObject

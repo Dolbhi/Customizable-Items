@@ -5,6 +5,8 @@ using UnityEditor;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     [CustomEditor(typeof(StatusEffectsManager))]
     public class StatusEffectManagerEditor : Editor
     {

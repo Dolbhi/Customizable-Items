@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     public class ProjectileSkill : Skill
     {
         public override bool Ready => enabled && fireCooldown.Ready;

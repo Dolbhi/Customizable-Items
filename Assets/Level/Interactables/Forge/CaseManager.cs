@@ -107,6 +107,8 @@ namespace ColbyDoan
 
         void _UpdateCaseRestrictions(ItemRestriction restriction)
         {
+            // do nothing if not set up yet
+            if (cases == null) return;
             for (int i = 0; i < cases.Length; i++)
             {
                 cases[i].SetRestriction(restriction);

@@ -2,6 +2,8 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     public class XPDropper : MonoBehaviour
     {
         [SerializeField] Health health;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
     using Physics;
 
     public class GunMeleeSkill : CooldownSkill

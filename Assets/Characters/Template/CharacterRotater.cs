@@ -3,6 +3,8 @@ using System;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     public class CharacterRotater : MonoBehaviour
     {
         [SerializeField] Character character = null;

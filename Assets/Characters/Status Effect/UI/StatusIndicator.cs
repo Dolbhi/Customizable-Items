@@ -6,6 +6,8 @@ using TMPro;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     // single icon to indicate status effect
     public class StatusIndicator : MonoBehaviour
     {

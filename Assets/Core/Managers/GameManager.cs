@@ -7,6 +7,7 @@ using DG.Tweening;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
     using Physics;
 
     // GameManager script is set to execute first

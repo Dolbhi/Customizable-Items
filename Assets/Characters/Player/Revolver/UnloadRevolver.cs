@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using CharacterBase;
+
     [RequireComponent(typeof(RevolverShootSkill))]
     public class UnloadRevolver : CooldownSkill
     {

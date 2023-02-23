@@ -2,10 +2,9 @@
 using UnityEngine;
 using System;
 
-using ColbyDoan.Attributes;
-
-namespace ColbyDoan
+namespace ColbyDoan.CharacterBase
 {
+    using Attributes;
     using Physics;
 
     public class Health : FindableByRoot<Health>
