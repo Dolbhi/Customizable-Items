@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-// using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using System.Linq;
@@ -130,6 +130,117 @@ namespace ColbyDoan
                 Vector3 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
                 var damage = new DamageInfo(user.character, _damageMultiplier: .8f, _invokeOnHit: true);
                 projectileProp.FireCopy(context.position + direction, direction * shotSpeed, user.character.damageMask, damage);
+            }
+        }
+
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+            // Addressables.Release
+        }
+    }
+    public class AimedBulletEffect : Effect
+    {
+        public override string Name => "aimed_bullet_effect";
+        public override bool RequiresTarget => false;
+
+        const string projectilePath = "bullet";
+        const float shotSpeed = 15;
+        const float summonOffset = 4;
+        const float rangeSqr = 100;
+        AsyncOperationHandle<GameObject> opHandle;
+
+        Projectile projectileProp;
+        //float burstReadyTime;
+        HashSet<Transform> trackedGroup;
+
+        protected override void InternalSetUp(ArtifactManager manager)
+        {
+            base.InternalSetUp(manager);
+            LoadAsset();
+
+            // setup enemy tracker
+            trackedGroup = RootTracker.GetSet("enemy");
+            // if (manager.character.trackingGroup.TrackingKey == "ally")
+            // else
+            //     trackedGroup = RootTracker.GetSet("ally");
+        }
+
+        async void LoadAsset()
+        {
+            opHandle = Addressables.LoadAssetAsync<GameObject>(projectilePath);
+            await opHandle.Task;
+
+            if (opHandle.Status == AsyncOperationStatus.Succeeded)
+                projectileProp = opHandle.Result.GetComponent<Projectile>();
+            else
+                Debug.LogError("Prop cannot be loaded");
+        }
+
+        struct SummonData
+        {
+            public Vector3 origin;
+            public Vector3 bestDisplacement;
+            public float bestDistSqr;
+
+            public SummonData(Vector3 origin, float maxDistSqr)
+            {
+                this.origin = origin;
+                bestDisplacement = Vector3.zero;
+                bestDistSqr = maxDistSqr;
+            }
+        }
+        // List<SummonData> summonData = new List<SummonData>();
+        public override void Trigger(TriggerContext context)
+        {
+            if (!projectileProp) return;
+
+            // do bullet for each level
+            for (int i = 0; i < level; i++)
+            {
+                // add random offset to context pos
+                Vector3 randomOffset;
+                int count = 0;
+                do
+                {
+                    randomOffset = summonOffset * (Vector3)Random.insideUnitCircle + .1f * Vector3.forward;
+                    count++;
+                    if (count > 100)
+                    {
+                        Debug.Log("RANDOM OFFSET FAILURE", user);
+                        return;
+                    }
+                } while (PhysicsSettings.CheckForSolids(context.position + randomOffset, .4f));
+
+                Vector3 summonOrigin = context.position + randomOffset;
+
+                // find nearest enemy in range and shoot them
+                Vector3 bestDisplacement = Vector3.zero;
+                float bestDistSqr = rangeSqr;
+                foreach (Transform target in trackedGroup)
+                {
+                    var displacement = target.position - summonOrigin;
+
+                    // ignore if target on higher level or out of range
+                    if (displacement.z > .9f) continue;
+                    if (displacement.sqrMagnitude > bestDistSqr) continue;
+
+                    // Debug.Log("Disp: " + displacement);
+
+                    // check los
+                    if (PhysicsSettings.SolidsLinecast(summonOrigin, target.position)) continue;
+
+                    // Debug.Log("LOS passed");
+
+                    bestDisplacement = displacement;
+                    bestDistSqr = displacement.sqrMagnitude;
+                }
+
+                if (bestDisplacement == Vector3.zero) continue;
+
+                Vector3 direction = bestDisplacement.normalized;
+                var damage = new DamageInfo(user.character, _damageMultiplier: 1, _invokeOnHit: false);
+                projectileProp.FireCopy(summonOrigin, direction * shotSpeed, user.character.damageMask, damage);
             }
         }
 

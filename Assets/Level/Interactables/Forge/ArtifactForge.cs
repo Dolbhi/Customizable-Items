@@ -175,6 +175,8 @@ namespace ColbyDoan
                 // interactable.enabled = false;
                 // glow.GlowActive = false;
             }
+            triggersManager.ClearCustomCases();
+            effectsManager.ClearCustomCases();
             _UpdateGlow();
         }
     }

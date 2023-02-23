@@ -23,6 +23,8 @@ namespace ColbyDoan
         HashSet<Transform> _ownSet;
         Transform _root;
 
+        public string TrackingKey => setKey;
+
         void Awake()
         {
             _root = transform.root;
