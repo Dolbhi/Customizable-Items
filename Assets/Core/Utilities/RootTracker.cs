@@ -9,9 +9,9 @@ namespace ColbyDoan
     /// </summary>
     public class RootTracker : MonoBehaviour
     {
-        static Dictionary<string, HashSet<Transform>> rootSets = new Dictionary<string, HashSet<Transform>>();
+        static Dictionary<TrackerTag, HashSet<Transform>> rootSets = new Dictionary<TrackerTag, HashSet<Transform>>();
 
-        public static HashSet<Transform> GetSet(string key)
+        public static HashSet<Transform> GetSet(TrackerTag key)
         {
             HashSet<Transform> output;
             if (rootSets.TryGetValue(key, out output))
@@ -19,11 +19,11 @@ namespace ColbyDoan
             return null;
         }
 
-        [SerializeField] string setKey;
+        [SerializeField] TrackerTag setKey;
         HashSet<Transform> _ownSet;
         Transform _root;
 
-        public string TrackingKey => setKey;
+        public TrackerTag TrackingKey => setKey;
 
         void Awake()
         {
@@ -44,4 +44,6 @@ namespace ColbyDoan
             _ownSet.Remove(_root);
         }
     }
+
+    public enum TrackerTag { Enemy, Ally, Shooter };
 }

@@ -337,6 +337,59 @@ namespace ColbyDoan
             pastHp = newHp;
         }
     }
+    public class NoHurtTrigger : Trigger
+    {
+        public override string Name => "no_hurt_trigger";
+        public override bool HasTarget => false;
+
+        const float hurtCooldown = 5;
+        const float period = 1;
+
+        float cooldownOverTime;
+
+        WaitForSeconds waitRoutine = new WaitForSeconds(period);
+
+        Coroutine triggerRoutine;
+
+        protected override void InternalSetUp(ArtifactManager manager)
+        {
+            manager.character.healthManager.OnHurt += ResetCooldown;
+
+            cooldownOverTime = Time.time + hurtCooldown;
+            triggerRoutine = user.StartCoroutine(UpdateCoroutine());
+        }
+
+        void ResetCooldown(HurtInfo damage)
+        {
+            cooldownOverTime = Time.time + hurtCooldown;
+        }
+
+        IEnumerator UpdateCoroutine()
+        {
+            while (true)
+            {
+                float timeLeft = cooldownOverTime - Time.time;
+                if (timeLeft < 0)
+                {
+                    // do triggering loop
+                    TriggerEffects();
+                    yield return waitRoutine;
+                }
+                else
+                {
+                    // do waiting loop
+                    yield return new WaitForSeconds(timeLeft);
+                }
+            }
+        }
+
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+            user.StopCoroutine(triggerRoutine);
+            user.character.healthManager.OnHurt -= ResetCooldown;
+        }
+    }
     // targeted
     public class HitTrigger : Trigger
     {

@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59330117bd1c4dc3b55409bab4820ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setKey: shooter
+  setKey: 2
 --- !u!114 &8650858056240988454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,7 +611,7 @@ MonoBehaviour:
   spreadOutEvaluator:
     speedMultiplier: 1
     updatePeriod: 0.1
-    spreadWithTrackerKey: shooter
+    spreadWithTrackerKey: 0
     scoreLerpMin: 0.4
     scoreLerpMax: 1
   investigatePointTask:

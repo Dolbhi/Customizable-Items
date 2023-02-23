@@ -45,7 +45,7 @@ namespace ColbyDoan
 
         public override void Initalize(ColbyDoan.BehaviourTree.Tree toSet)
         {
-            _targets = RootTracker.GetSet("ally");
+            _targets = RootTracker.GetSet(TrackerTag.Ally);
             SetData(targetInfoKey, _sightingInfo);
 
             base.Initalize(toSet);

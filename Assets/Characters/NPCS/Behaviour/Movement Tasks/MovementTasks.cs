@@ -113,7 +113,7 @@ namespace ColbyDoan
     [System.Serializable]
     public class SpreadOutTask : MovementTask
     {
-        public string spreadWithTrackerKey; //"spread_with_drone"
+        public TrackerTag spreadWithTrackerKey; //"spread_with_drone"
         public float scoreLerpMin = .4f;
         public float scoreLerpMax = 1;
 

@@ -160,7 +160,7 @@ namespace ColbyDoan
             LoadAsset();
 
             // setup enemy tracker
-            trackedGroup = RootTracker.GetSet("enemy");
+            trackedGroup = RootTracker.GetSet(TrackerTag.Enemy);
             // if (manager.character.trackingGroup.TrackingKey == "ally")
             // else
             //     trackedGroup = RootTracker.GetSet("ally");

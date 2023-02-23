@@ -2336,7 +2336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4990802046823807230, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: setKey
-      value: ally
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5211654140151033613, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: speedTreshold
