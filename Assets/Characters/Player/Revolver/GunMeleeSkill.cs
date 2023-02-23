@@ -16,6 +16,7 @@ namespace ColbyDoan
         public float stunDuration = 2;
 
         public Gun gun;
+        public ArtifactManager artifacts;
 
         public Skill[] skillsToDisable;
 
@@ -38,7 +39,7 @@ namespace ColbyDoan
                 Vector3 direction = collider.transform.root.position - transform.position;
                 ForceInfo knockbackForce = new ForceInfo(10 * direction.normalized + character.kinematicObject.velocity + Vector3.forward * 10, knockback);
                 Character.FindFromRoot(collider.transform.root).statusEffects.GetStatus<StunSE>("stun").ApplyStatus(stunDuration);
-                new DamageInfo(character, damageMultiplier, _knockback: knockbackForce, _invokeOnHit: true).ApplyTo(collider.transform);
+                new DamageInfo(artifacts, damageMultiplier, _knockback: knockbackForce, _invokeOnHit: true).ApplyTo(collider.transform);
             }
         }
         public void SetActive(bool toSet)

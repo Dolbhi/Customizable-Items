@@ -61,7 +61,7 @@ namespace ColbyDoan
         /// Handle change in item selection
         /// </summary>
         /// <param name="change"> if an item is currently selected </param>
-        void _OnItemSelectionChange(bool change)
+        void _OnItemSelectionChange()
         {
             // Update stuff
             _UpdateInteractability();
@@ -168,7 +168,7 @@ namespace ColbyDoan
                 return;
             }
 
-            interacter.character.artifacts.Add(triggersManager.SelectedItem, effectsManager.SelectedItem, effectsManager.selectedCase.Modifier);
+            interacter.artifacts.Add(triggersManager.SelectedItem, effectsManager.SelectedItem, effectsManager.selectedCase.Modifier);
 
             // onForge?.Invoke();
             if (!_data.reusable)

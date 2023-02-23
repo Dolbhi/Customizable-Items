@@ -10,7 +10,6 @@ namespace ColbyDoan
     public class Character : FindableByRoot<Character>, IAutoDependancy<KinematicObject>, IFacingCharacter
     {
         public Health healthManager;
-        public ArtifactManager artifacts;
         public SkillsManager skills;
         public StatusEffectsManager statusEffects;
         public CharacterStats stats;

@@ -790,6 +790,7 @@ MonoBehaviour:
   axeStunDuration: 2
   recallDelay: 3
   indicator: {fileID: 8897298485512452863}
+  artifacts: {fileID: 4127446336591798542}
   throwSkill: {fileID: 1849403240886946404}
   recallSkill: {fileID: 3907392776146789496}
   trackingTask:
@@ -845,6 +846,17 @@ MonoBehaviour:
   speedMultiplier: 1
   _targetDirection: {x: 0, y: 0}
   _speedAdjustments: 1
+--- !u!114 &4127446336591798542 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4752565205142778826, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+  m_PrefabInstance: {fileID: 8697333017516970692}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5051481838447113673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf4d9c3aa0f949d1a3d9c0f400c91a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5051481838447113673 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4515234364465489677, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
@@ -1026,6 +1038,7 @@ MonoBehaviour:
         m_CallState: 2
   audioSource: {fileID: 366282031810351454}
   attackBox: {fileID: 4214072526140527431}
+  artifacts: {fileID: 4127446336591798542}
   knockbackSpeed: 7
   knockbackForce: 100
   cooldown: 3

@@ -1328,6 +1328,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
+--- !u!114 &375677819992398676 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7490744054942696742, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
+  m_PrefabInstance: {fileID: 7116484537321348722}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821277990107434899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf4d9c3aa0f949d1a3d9c0f400c91a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2095957952740157695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9211130470964803213, guid: 4115ab92ba96d46e0bc0d0ecd94f48da, type: 3}
@@ -1476,6 +1487,7 @@ MonoBehaviour:
         m_CallState: 2
   audioSource: {fileID: 2754022282830057736}
   attackBox: {fileID: 5985737076607909663}
+  artifacts: {fileID: 375677819992398676}
   knockbackSpeed: 20
   knockbackForce: 200
   cooldown: 1
@@ -1503,6 +1515,7 @@ MonoBehaviour:
   moveAccuracyPenalty: 0
   reloadTime: 1.5
   revolver: {fileID: 682172199074116258}
+  artifacts: {fileID: 375677819992398676}
   bulletInfo:
     prop: {fileID: 7997394907322477249, guid: 589e29a56b0924d0c876b3c9b61906f8, type: 3}
     momentum: 20

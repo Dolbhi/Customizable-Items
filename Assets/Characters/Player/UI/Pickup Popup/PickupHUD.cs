@@ -15,15 +15,16 @@ namespace ColbyDoan
         [SerializeField] DescriptionHUD triggerItemDescription;
         [SerializeField] DescriptionHUD effectItemDescription;
 
-        public Character player;
+        [SerializeField] ArtifactManager artifacts;
+        [SerializeField] Inventory inventory;
 
         Queue<(Item, Item, EffectModifier)> displayQueue = new Queue<(Item, Item, EffectModifier)>();
         bool displaying = false;
 
         private void Awake()
         {
-            player.artifacts.OnArtifactAdded += QueueArtifactToDisplay;
-            player.GetComponentInChildren<Inventory>().OnItemPickup += QueueItemToDisplay;
+            artifacts.OnArtifactAdded += QueueArtifactToDisplay;
+            inventory.OnItemPickup += QueueItemToDisplay;
         }
 
         public void QueueItemToDisplay(Item item)

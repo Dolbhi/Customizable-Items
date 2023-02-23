@@ -13,6 +13,7 @@ namespace ColbyDoan
         [SerializeField] InteractablesFinder interacter;
         [SerializeField] MovementManager movementManager;
         [SerializeField] FrictionManager frictionManager;
+        public ArtifactManager artifacts;
         public Inventory inventory;
 
         // public Texture2D[] cursorByHeight;

@@ -891,6 +891,7 @@ MonoBehaviour:
         m_CallState: 2
   audioSource: {fileID: 3712347209551806144}
   attackBox: {fileID: 1392420358380760367}
+  artifacts: {fileID: 8987503021424052685}
   knockbackSpeed: 5
   knockbackForce: 100
   cooldown: 1
@@ -1020,6 +1021,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6472933272596906081, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
   m_PrefabInstance: {fileID: 4417616439021779463}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8987503021424052685 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4752565205142778826, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+  m_PrefabInstance: {fileID: 4417616439021779463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281425523287760138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf4d9c3aa0f949d1a3d9c0f400c91a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6701809689969321366
 PrefabInstance:
   m_ObjectHideFlags: 0

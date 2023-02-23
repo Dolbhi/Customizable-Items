@@ -509,6 +509,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fe840663bba54c9797ece645f0acf62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3071655634892081595 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4752565205142778826, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
+  m_PrefabInstance: {fileID: 7733866216896035441}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6196218486354697596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf4d9c3aa0f949d1a3d9c0f400c91a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3638993011415284240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6472933272596906081, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
@@ -763,6 +774,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   skipAnimation: 1
+  artifacts: {fileID: 3071655634892081595}
   fireOrigin: {fileID: 245671258}
   shot: {fileID: 5801262150115070844, guid: 259cd8e271cfa48cca853dcc2ec76969, type: 3}
   shotSpeed: 20

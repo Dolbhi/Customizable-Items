@@ -165,7 +165,7 @@ namespace ColbyDoan
     {
         public float damage;
         public float critChance;
-        public Character source;
+        public ArtifactManager source;
         public ForceInfo knockback;
         public bool invokeOnHit;
         public string metaTriggerID;
@@ -198,11 +198,11 @@ namespace ColbyDoan
                 // trigger on hit effects
                 if (invokeOnHit)
                 {
-                    source?.artifacts.InvokeOnHit(damageDone, isCrit, hp);
+                    source?.InvokeOnHit(damageDone, isCrit, hp);
                 }
                 if (metaTriggerID != "")
                 {
-                    source?.artifacts.InvokeMeta(new TriggerContext(hp.transform.root), metaTriggerID);
+                    source?.InvokeMeta(new TriggerContext(hp.transform.root), metaTriggerID);
                 }
 
                 // if (source)
@@ -217,14 +217,14 @@ namespace ColbyDoan
         }
 
         /// <summary> Damage based on character stats, damage does not update if player stats change </summary>
-        /// <param name="_source"> The character dealing damage </param>
+        /// <param name="_source"> The artifact manager for callbacks </param>
         /// <param name="_damageMultiplier"> Multiple of character damage attack will do </param>
         /// <param name="_bonusCritChance"> Crit chance added on top of character crit chance </param>
         /// <param name="_knockback"> Knockback info </param>
         /// <param name="_invokeOnHit"> Whether to invoke artifacts on hit </param>
         /// <param name="_metaTriggerID"> Custom artifact meta trigger to invoke </param>
-        public DamageInfo(Character _source, float _damageMultiplier = 1, float _bonusCritChance = 0, ForceInfo _knockback = default, bool _invokeOnHit = false, string _metaTriggerID = "")
-            : this(_damageMultiplier * _source.stats.attack.FinalValue, _bonusCritChance + _source.stats.critChance.FinalValue, _knockback, _source, _invokeOnHit, _metaTriggerID) { }
+        public DamageInfo(ArtifactManager _source, float _damageMultiplier = 1, float _bonusCritChance = 0, ForceInfo _knockback = default, bool _invokeOnHit = false, string _metaTriggerID = "")
+            : this(_damageMultiplier * _source.character.stats.attack.FinalValue, _bonusCritChance + _source.character.stats.critChance.FinalValue, _knockback, _source, _invokeOnHit, _metaTriggerID) { }
         /// <summary> Damage based on other values </summary>
         /// <param name="_damage"> Damage to deal </param>
         /// <param name="_critChance"> Crit chance </param>
@@ -232,7 +232,7 @@ namespace ColbyDoan
         /// <param name="_source"> The character dealing damage </param>
         /// <param name="_invokeOnHit"> Whether to invoke artifacts on hit </param>
         /// <param name="_metaTriggerID"> Custom artifact meta trigger to invoke </param>
-        public DamageInfo(float _damage, float _critChance, ForceInfo _knockback = default, Character _source = null, bool _invokeOnHit = false, string _metaTriggerID = "")
+        public DamageInfo(float _damage, float _critChance, ForceInfo _knockback = default, ArtifactManager _source = null, bool _invokeOnHit = false, string _metaTriggerID = "")
         {
             damage = _damage;
             critChance = _critChance;

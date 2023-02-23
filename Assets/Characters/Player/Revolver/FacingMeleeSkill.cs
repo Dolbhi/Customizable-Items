@@ -15,6 +15,7 @@ namespace ColbyDoan
 
         [SerializeField] AudioSource audioSource = null;
         [SerializeField] Transform attackCenter = null;
+        [SerializeField] ArtifactManager artifacts;
 
         public float cooldown;
 
@@ -58,7 +59,7 @@ namespace ColbyDoan
             audioSource.Play();
 
             // Deal damage
-            DamageInfo info = new DamageInfo(character, damageMultiplier, _knockback: new ForceInfo(attackCenter.right * knockback), _invokeOnHit: invokeOnHit, _metaTriggerID: metaTriggerID);
+            DamageInfo info = new DamageInfo(artifacts, damageMultiplier, _knockback: new ForceInfo(attackCenter.right * knockback), _invokeOnHit: invokeOnHit, _metaTriggerID: metaTriggerID);
             Physics2D.OverlapCircle(attackCenter.position, meleeRadius, PhysicsSettings.GetFilter(character.damageMask, attackCenter.position, 1, .3f), hits);
             foreach (Collider2D hit in hits)
             {

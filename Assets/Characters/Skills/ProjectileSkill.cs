@@ -10,6 +10,7 @@ namespace ColbyDoan
         public UnityEvent<UnityAction> attackAnimation;
         public bool skipAnimation = false;
 
+        public ArtifactManager artifacts;
         public Transform fireOrigin;
         public Projectile shot;
         public float shotSpeed = 16;
@@ -53,7 +54,7 @@ namespace ColbyDoan
             // account for auto dropping
             displacement.y += Mathf.Ceil(displacement.z);
             Vector3 direction = ((Vector2)displacement).normalized;// ((Vector2)displacement.GetDepthApparentPosition()).normalized;
-            shot.FireCopy(fireOrigin.position + direction, direction * shotSpeed, character.damageMask, new DamageInfo(character, damageMultiplier), displacement.z < -1);
+            shot.FireCopy(fireOrigin.position + direction, direction * shotSpeed, character.damageMask, new DamageInfo(artifacts, damageMultiplier), displacement.z < -1);
 
             fireCooldown.StartCooldown();
             enabled = true;

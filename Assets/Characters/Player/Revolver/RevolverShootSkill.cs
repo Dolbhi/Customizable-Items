@@ -20,6 +20,7 @@ namespace ColbyDoan
         public float ShootingInaccuracy => character.kinematicObject.Velocity.sqrMagnitude * moveAccuracyPenalty;
 
         public Gun revolver;
+        public ArtifactManager artifacts;
         public ProjectileInfo bulletInfo;
         public ProjectileInfo blueBulletInfo;
 
@@ -98,7 +99,7 @@ namespace ColbyDoan
             angle = Mathf.Sign(angle) * inaccuracy * .5f * angle * angle;
             Vector3 velocity = Quaternion.AngleAxis(angle, Vector3.back) * nozzel.right * info.momentum / info.prop.mass;
             bool shootingDown = TargetPos.z - revolver.transform.position.z < -1;
-            Projectile fired = info.prop.FireCopy(nozzel.position.GetUndisplacedPosition(), velocity, character.damageMask, info.GetDamageInfo(character), shootingDown);
+            Projectile fired = info.prop.FireCopy(nozzel.position.GetUndisplacedPosition(), velocity, character.damageMask, info.GetDamageInfo(artifacts), shootingDown);
             fired.gameObject.SetActive(true);// might not be neccessary
             // sfx
             revolver.audioSource.Play();
@@ -210,7 +211,7 @@ namespace ColbyDoan
         public bool invokeOnHit;
         public string metaTriggerID;
 
-        public DamageInfo GetDamageInfo(Character source)
+        public DamageInfo GetDamageInfo(ArtifactManager source)
         {
             return new DamageInfo(source, damageMultiplier, _invokeOnHit: invokeOnHit, _metaTriggerID: metaTriggerID);
         }

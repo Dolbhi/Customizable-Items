@@ -1066,7 +1066,8 @@ MonoBehaviour:
   effectDescription: {fileID: 5128220989036858712}
   triggerItemDescription: {fileID: 4337142214537551706}
   effectItemDescription: {fileID: 7786229212294194700}
-  player: {fileID: 6070845759189565634}
+  artifacts: {fileID: 7490744054942696742}
+  inventory: {fileID: 6956540895963362881}
 --- !u!1 &5672824775576625444
 GameObject:
   m_ObjectHideFlags: 0
@@ -2647,6 +2648,7 @@ MonoBehaviour:
   interacter: {fileID: 2518629418866203237}
   movementManager: {fileID: 7526836001239645832}
   frictionManager: {fileID: 5531576116805680557}
+  artifacts: {fileID: 7490744054942696742}
   inventory: {fileID: 6956540895963362881}
   character: {fileID: 6070845759189565634}
   jumpSpeed: 3

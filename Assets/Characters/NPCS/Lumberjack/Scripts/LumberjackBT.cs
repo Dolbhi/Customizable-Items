@@ -15,11 +15,15 @@ namespace ColbyDoan
         public float axeStunDuration = 2;
         public float recallDelay = 3;
 
+        [Header("Dependancies")]
         [SerializeField] EnemyIndicator indicator;
+
+        [SerializeField] ArtifactManager artifacts;
 
         [SerializeField] ThrowSkill throwSkill;
         [SerializeField] RecallSkill recallSkill;
 
+        [Header("Tasks")]
         [SerializeField] FindTargetTask trackingTask;
 
         // pursuit tasks
@@ -34,7 +38,7 @@ namespace ColbyDoan
         protected override Node SetupTree()
         {
             // add axe stun effect
-            character.artifacts.metaTriggers.Add(AxeTracker.axeHitID, _Stun);
+            artifacts.metaTriggers.Add(AxeTracker.axeHitID, _Stun);
 
             trackingTask.OnTargetFound += delegate { indicator.SetIndicator("!"); };
 

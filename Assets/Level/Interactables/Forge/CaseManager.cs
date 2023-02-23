@@ -18,7 +18,7 @@ namespace ColbyDoan
 
         public Item SelectedItem => selectedCase?.CaseItem;
 
-        public event Action<bool> OnSelectionChange;
+        public event Action OnSelectionChange;
 
         /// <summary>
         /// 
@@ -53,6 +53,7 @@ namespace ColbyDoan
             {
                 selectedCase = cases[0];
                 selectedCase.DisableDeselect();
+                OnSelectionChange.Invoke();
             }
 
             return fullyCustom;
@@ -119,14 +120,14 @@ namespace ColbyDoan
                 // switch selection
                 selectedCase?.Deselect();
                 selectedCase = newCase;
-                OnSelectionChange.Invoke(true);
+                OnSelectionChange.Invoke();
             }
             else
             {
                 // deselect only
                 // selectedCase.Deselect();
                 selectedCase = null;
-                OnSelectionChange.Invoke(false);
+                OnSelectionChange.Invoke();
             }
         }
     }

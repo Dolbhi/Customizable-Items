@@ -28,9 +28,7 @@ namespace ColbyDoan
         {
             kCollider.onCollide += _DoDamage;
 
-            Character character;
-            Character.instanceFromTransform.TryGetValue(transform, out character);
-            damageInfo.source = character;
+            damageInfo.source = GetComponentInChildren<ArtifactManager>();
         }
 
         /// <summary>

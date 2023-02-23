@@ -128,7 +128,7 @@ namespace ColbyDoan
             {
                 angle += angleSeperation;
                 Vector3 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-                var damage = new DamageInfo(user.character, _damageMultiplier: .8f, _invokeOnHit: true);
+                var damage = new DamageInfo(user, _damageMultiplier: .8f, _invokeOnHit: true);
                 projectileProp.FireCopy(context.position + direction, direction * shotSpeed, user.character.damageMask, damage);
             }
         }
@@ -239,7 +239,7 @@ namespace ColbyDoan
                 if (bestDisplacement == Vector3.zero) continue;
 
                 Vector3 direction = bestDisplacement.normalized;
-                var damage = new DamageInfo(user.character, _damageMultiplier: 1, _invokeOnHit: false);
+                var damage = new DamageInfo(user, _damageMultiplier: 1, _invokeOnHit: false);
                 projectileProp.FireCopy(summonOrigin, direction * shotSpeed, user.character.damageMask, damage);
             }
         }
@@ -311,7 +311,7 @@ namespace ColbyDoan
             if (!explosionProp) return;
 
             Explosion explosion = GameObject.Instantiate<Explosion>(explosionProp, context.position, Quaternion.identity);
-            explosion.damage = new DamageInfo(user.character, baseDamage + .2f * level, _knockback: new ForceInfo(baseKnockback * Vector3.right));
+            explosion.damage = new DamageInfo(user, baseDamage + .2f * level, _knockback: new ForceInfo(baseKnockback * Vector3.right));
             explosion.radius = radius + level;
             explosion.gameObject.SetActive(true);
         }
@@ -383,7 +383,7 @@ namespace ColbyDoan
             ko.Velocity += 3 * (Vector3)Random.insideUnitCircle + 5 * Vector3.forward;
 
             Explosion explosion = grenade.components.DictionaryData["Explosion"] as Explosion;
-            explosion.damage = new DamageInfo(user.character, baseDamage + .2f * level, _knockback: new ForceInfo(baseKnockback * Vector3.right));
+            explosion.damage = new DamageInfo(user, baseDamage + .2f * level, _knockback: new ForceInfo(baseKnockback * Vector3.right));
             explosion.radius = radius;
             // explosion.gameObject.SetActive(true);
         }
