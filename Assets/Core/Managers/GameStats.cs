@@ -19,6 +19,18 @@ namespace ColbyDoan
             xp += change;
             OnXPChanged.Invoke();
         }
+        public static bool TryDeductXP(int deduction)
+        {
+            if (deduction <= xp)
+            {
+                xp -= deduction;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         /// <summary>
         /// Reset everything to starting values

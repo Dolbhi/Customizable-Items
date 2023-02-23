@@ -6,15 +6,15 @@ namespace ColbyDoan
     public class CaseManager : MonoBehaviour
     {
         [Header("References")]
-        [SerializeField] ArtifactCase casePrefab;
+        [SerializeField] ItemStand casePrefab;
         // [SerializeField] ArtifactForge forge;
         Transform _caseParent;
 
         [SerializeField] ItemType caseType;
         public Vector2[] caseOffsets = new Vector2[] { new Vector2(1.6f, 2), new Vector2(1.6f, -2), new Vector2(3, 0) };
 
-        public INewArtifactCase selectedCase;
-        public INewArtifactCase[] cases;
+        public IItemStand selectedCase;
+        public IItemStand[] cases;
 
         public Item SelectedItem => selectedCase?.CaseItem;
 
@@ -31,7 +31,7 @@ namespace ColbyDoan
 
             // MAKE CASES
             int caseCount = dataArray.Length;
-            cases = new INewArtifactCase[caseCount];
+            cases = new IItemStand[caseCount];
             for (int i = 0; i < caseCount; i++)
             {
                 // instantiate case at specific pos
@@ -46,6 +46,13 @@ namespace ColbyDoan
 
                 // disable fullyCustom if non custom case exists
                 if (!dataArray[i].custom) fullyCustom = false;
+            }
+
+            // force selection if only 1 non-custom case
+            if (!fullyCustom && caseCount == 1)
+            {
+                selectedCase = cases[0];
+                selectedCase.DisableDeselect();
             }
 
             return fullyCustom;
@@ -73,7 +80,7 @@ namespace ColbyDoan
             {
                 cases[i].UseUpCustomItem();
             }
-            if (selectedCase.CaseItem == null)
+            if (selectedCase?.CaseItem == null)
             {
                 selectedCase = null;
             }
@@ -105,7 +112,7 @@ namespace ColbyDoan
             }
         }
 
-        void _OnCompleteInteraction(INewArtifactCase newCase)
+        void _OnCompleteInteraction(IItemStand newCase)
         {
             if (newCase.Selected)
             {
@@ -123,14 +130,16 @@ namespace ColbyDoan
             }
         }
     }
-    public interface INewArtifactCase
+    public interface IItemStand
     {
         bool Selected { get; }
+        bool IsCustom { get; }
         Item CaseItem { get; }
         EffectModifier Modifier { get; }
-        ItemType CaseType { get; }
-        event Action<INewArtifactCase> OnCompleteInteraction;
+        // ItemType CaseType { get; }
+        event Action<IItemStand> OnCompleteInteraction;
         void Deselect();
+        void DisableDeselect();
         void DisableCase();
         void UseUpCustomItem();
 

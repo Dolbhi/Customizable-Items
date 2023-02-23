@@ -37,8 +37,8 @@ namespace ColbyDoan
             _fullyCustom = effectsManager.CreateCases(_data.effectCases) && _fullyCustom;
 
             // link selection events
-            triggersManager.OnSelectionChange += _OnTriggerSelectionChange;
-            effectsManager.OnSelectionChange += _OnEffectSelectionChange;
+            triggersManager.OnSelectionChange += _OnItemSelectionChange;
+            effectsManager.OnSelectionChange += _OnItemSelectionChange;
 
             // set restrictions
             if (_fullyCustom)
@@ -46,14 +46,14 @@ namespace ColbyDoan
                 // set restrictions to none
                 triggersManager.UpdateRestrictions();
                 effectsManager.UpdateRestrictions();
-                UpdatePlatformSprite();
+                _UpdatePlatformSprite();
             }
             else
             {
                 // set restrictions to default
                 triggersManager.UpdateRestrictions(_data.usesTarget ? true : null, _data.rank);
                 effectsManager.UpdateRestrictions(_data.usesTarget ? null : false, _data.rank);
-                UpdatePlatformSprite(_data.rank);
+                _UpdatePlatformSprite(_data.rank);
             }
         }
 
@@ -61,10 +61,10 @@ namespace ColbyDoan
         /// Handle change in item selection
         /// </summary>
         /// <param name="change"> if an item is currently selected </param>
-        void _OnTriggerSelectionChange(bool change)
+        void _OnItemSelectionChange(bool change)
         {
             // Update stuff
-            _UpdateGlow();
+            _UpdateInteractability();
 
             // if custom update restrictions and sprite colour
             if (_fullyCustom)
@@ -72,22 +72,10 @@ namespace ColbyDoan
                 _UpdateRestrictions();
             }
         }
-        void _OnEffectSelectionChange(bool change)
-        {
-            // Update stuff
-            _UpdateGlow();
-
-            // if custom update restrictions and sprite colour
-            if (_fullyCustom)
-            {
-                _UpdateRestrictions();
-            }
-        }
-
         void _UpdateRestrictions()
         {
             // find which case to follow restrictions
-            INewArtifactCase selectedCase;
+            IItemStand selectedCase;
             if (triggersManager.SelectedItem != null)
             {
                 selectedCase = triggersManager.selectedCase;
@@ -102,7 +90,7 @@ namespace ColbyDoan
                 triggersManager.UpdateRestrictions();
                 effectsManager.UpdateRestrictions();
 
-                UpdatePlatformSprite();
+                _UpdatePlatformSprite();
                 return;
             }
 
@@ -110,7 +98,7 @@ namespace ColbyDoan
             triggersManager.UpdateRestrictions(selectedCase.CaseItem, selectedCase.Modifier);
             effectsManager.UpdateRestrictions(selectedCase.CaseItem, selectedCase.Modifier);
 
-            UpdatePlatformSprite(selectedCase.CaseItem.rank - (int)selectedCase.Modifier);
+            _UpdatePlatformSprite(selectedCase.CaseItem.rank - (int)selectedCase.Modifier);
         }
 
         // void OnValidate()
@@ -132,7 +120,7 @@ namespace ColbyDoan
         //     UpdatePlatformSprite();
         // }
         // [ContextMenu("Update Platform Sprite")]
-        void UpdatePlatformSprite(ItemRank? rank = null)
+        void _UpdatePlatformSprite(ItemRank? rank = null)
         {
             // set to "Base" of no rank given
             string catagory = rank?.ToString() ?? "Base";
@@ -140,11 +128,17 @@ namespace ColbyDoan
             // onGraphicChange?.Invoke();
         }
 
+        int _xpCost;
         // set glow based on readiness to forge
-        void _UpdateGlow()
+        void _UpdateInteractability()
         {
             if (_ReadyToForge)
             {
+                // set price
+                _xpCost = triggersManager.selectedCase.IsCustom ? _data.costPerCustomItem : _data.costPerItem;
+                _xpCost += effectsManager.selectedCase.IsCustom ? _data.costPerCustomItem : _data.costPerItem;
+                interactable.hoverText = "Forge Artifact (" + _xpCost + " XP)";
+
                 interactable.enabled = true;
                 glow.GlowActive = true;
             }
@@ -155,11 +149,22 @@ namespace ColbyDoan
             }
         }
 
-        public void GivePlayerArtifact(PlayerBehaviour interacter)
+        /// <summary>
+        /// Interaction trigger
+        /// </summary>
+        /// <param name="interacter"> Player who interacted </param>
+        public void TryForge(PlayerBehaviour interacter)
         {
             if (!_ReadyToForge)
             {
                 Debug.Log("trigger or effect not selected");
+                return;
+            }
+
+            // Check balance
+            if (!GameStats.TryDeductXP(_xpCost))
+            {
+                // not enough xp
                 return;
             }
 
@@ -177,7 +182,7 @@ namespace ColbyDoan
             }
             triggersManager.ClearCustomCases();
             effectsManager.ClearCustomCases();
-            _UpdateGlow();
+            _UpdateInteractability();
         }
     }
 }

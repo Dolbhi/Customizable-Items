@@ -6,7 +6,7 @@ using UnityEngine;
 namespace ColbyDoan
 {
     [RequireComponent(typeof(Interactable))]
-    public class ArtifactCase : MonoBehaviour, INewArtifactCase
+    public class ItemStand : MonoBehaviour, IItemStand
     {
         [Header("References")]
         [SerializeField] Interactable interactable;
@@ -28,12 +28,13 @@ namespace ColbyDoan
         /// <summary>
         /// Setting also sets itemRenderer and hovertext of interaction
         /// </summary>
+        public bool Selected => _selected;
+        public bool IsCustom => _data.custom;
         public Item CaseItem => _item;
         public EffectModifier Modifier => _data.mod;
         public ItemType CaseType => _type;
-        public bool Selected => _selected;
 
-        public event Action<INewArtifactCase> OnCompleteInteraction;
+        public event Action<IItemStand> OnCompleteInteraction;
 
         /// <summary>
         /// Owner to return item to
@@ -109,6 +110,14 @@ namespace ColbyDoan
             itemCase.localPosition = selectedPos;
             //pillar.color = selected ? Color.white : unselectedColor;
             //bg.color = selected ? Color.white : unselectedColor;
+        }
+        /// <summary>
+        /// Selects case and remove interactablity
+        /// </summary>
+        public void DisableDeselect()
+        {
+            Select();
+            interactable.enabled = false;
         }
         // update state
         public void Deselect()

@@ -129,6 +129,8 @@ namespace ColbyDoan
     {
         // settings
         public bool reusable;
+        public int costPerItem;
+        public int costPerCustomItem;
 
         // item generation
         public bool usesTarget;

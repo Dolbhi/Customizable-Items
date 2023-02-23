@@ -54,7 +54,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 30320592660289180}
         m_TargetAssemblyTypeName: ColbyDoan.ArtifactForge, Assembly-CSharp
-        m_MethodName: GivePlayerArtifact
+        m_MethodName: TryForge
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
