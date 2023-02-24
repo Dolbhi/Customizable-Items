@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e978d1c8eb64dceb48b455f70c53d6, type: 3}
   m_Name: Manifest Bullet
   m_EditorClassIdentifier: 
-  image: {fileID: -2291968272303781032, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
+  image: {fileID: 4533227004153260592, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
   type: 1
   usesTarget: 0
   rank: 0

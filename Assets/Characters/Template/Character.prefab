@@ -163,7 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthManager: {fileID: 2180581430363820580}
-  artifacts: {fileID: 4752565205142778826}
   skills: {fileID: 2016926845982959154}
   statusEffects: {fileID: 3544342393214709983}
   stats: {fileID: 6888727491595844076}
@@ -234,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59330117bd1c4dc3b55409bab4820ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setKey: enemy
+  setKey: 0
 --- !u!114 &5837394162109262436
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2651,7 +2651,7 @@ MonoBehaviour:
   artifacts: {fileID: 7490744054942696742}
   inventory: {fileID: 6956540895963362881}
   character: {fileID: 6070845759189565634}
-  jumpSpeed: 3
+  jumpSpeed: 6
   sneakingMultiplier: 0.5
   normalGroundFriction: 60
   sneakingGroundFriction: 120

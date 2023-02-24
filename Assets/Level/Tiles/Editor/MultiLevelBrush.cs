@@ -18,6 +18,8 @@ namespace ColbyDoan
         public int level;
         public bool targetSingleLevel;
 
+        const int FILL_LIMIT = 1000;
+
         void RegisterUndo(string label)
         {
             Object[] maps = new Object[4] { TileMan.mainTilemap, TileMan.colliderMaps[0], TileMan.colliderMaps[1], TileMan.colliderMaps[2] };
@@ -112,7 +114,7 @@ namespace ColbyDoan
         {
             // Debug.Log($"count:{filledPos.Count}");
             // fail conditions: too many iterations, already filled, tile at pos is not chosen tile, tiles above are not null
-            if (filledPos.Count > 10000 || filledPos.Contains(truePos) || TileMan.GetTile(truePos) != chosenTile) return;
+            if (filledPos.Count > FILL_LIMIT || filledPos.Contains(truePos) || TileMan.GetTile(truePos) != chosenTile) return;
             // fail if targeting single level and the tile on that level is the same as the tile to paint
             if (targetSingleLevel && TileMan.GetTile(new Vector3Int(truePos.x, truePos.y, level - 1)) == tiles[level - 1]) return;
             var copy = truePos;

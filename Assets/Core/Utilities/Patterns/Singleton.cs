@@ -47,6 +47,11 @@ namespace ColbyDoan
     {
         public static Dictionary<Transform, T> instanceFromTransform = new Dictionary<Transform, T>();
 
+        /// <summary>
+        /// Finds and return component of type T in gameobject
+        /// </summary>
+        /// <param name="root">root of gameobject to check</param>
+        /// <returns>Component found, null if none is found</returns>
         public static T FindFromRoot(Transform root)
         {
             if (instanceFromTransform.TryGetValue(root, out T result))

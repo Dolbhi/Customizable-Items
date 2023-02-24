@@ -82,6 +82,14 @@ MonoBehaviour:
   triggersManager: {fileID: 6646181500399179608}
   effectsManager: {fileID: 582401991908622336}
   settings: {fileID: 11400000, guid: d53f55ff34db4e1428ebbee01d4331a2, type: 2}
+  _data:
+    reusable: 0
+    costPerItem: 0
+    costPerCustomItem: 0
+    usesTarget: 0
+    rank: 0
+    triggerCases: []
+    effectCases: []
 --- !u!1 &1328218955591177053
 GameObject:
   m_ObjectHideFlags: 0

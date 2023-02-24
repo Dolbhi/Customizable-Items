@@ -38,7 +38,7 @@ namespace ColbyDoan.Physics
             raycastOrigins.topLeft = new Vector2(bound.min.x, bound.max.y);
             raycastOrigins.topRight = bound.max;
 
-            raycastOrigins.lowest = transform.position.z + skinWidth;
+            raycastOrigins.lowest = Mathf.Min(transform.position.z + skinWidth, 2 - skinWidth);
             raycastOrigins.highest = transform.position.z + height - skinWidth;
 
             raycastOrigins.bound = bound;

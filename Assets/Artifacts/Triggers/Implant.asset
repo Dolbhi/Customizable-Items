@@ -15,6 +15,7 @@ MonoBehaviour:
   image: {fileID: 980155311395259703, guid: 507e9b56a884c40bc86728c47752727c, type: 3}
   type: 0
   usesTarget: 0
-  rank: 0
+  rank: 1
   idName: hurt_trigger
   description: Every 5 damage taken
+  isOriginal: 1

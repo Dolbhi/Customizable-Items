@@ -30,7 +30,7 @@ namespace ColbyDoan
         {
             kCollider.onCollide += _DoDamage;
 
-            damageInfo.source = GetComponentInChildren<ArtifactManager>();
+            damageInfo.source = ArtifactManager.FindFromRoot(transform.root);
         }
 
         /// <summary>

@@ -16,6 +16,6 @@ MonoBehaviour:
   type: 0
   usesTarget: 0
   rank: 0
-  idName: 
-  description: 
+  idName: no_hurt_trigger
+  description: Repeatedly, after taking no damage for 5s
   isOriginal: 1

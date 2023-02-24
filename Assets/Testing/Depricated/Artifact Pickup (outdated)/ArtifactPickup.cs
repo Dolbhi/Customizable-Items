@@ -57,7 +57,7 @@ namespace ColbyDoan
             {
                 Debug.LogError("Trigger or artifact missing!");
             }
-            playerBehaviour.GetComponentInChildren<ArtifactManager>().Add(trigger, effect);
+            ArtifactManager.FindFromRoot(playerBehaviour.transform.root).Add(trigger, effect);
             Destroy(transform.root.gameObject);
         }
 

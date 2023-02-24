@@ -131,7 +131,7 @@ namespace ColbyDoan.Physics
                 // cast ray
                 Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
                 rayOrigin += Vector2.up * (horizontalRaySpacing * i);
-                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask, raycastOrigins.lowest, raycastOrigins.highest + 1);
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask, raycastOrigins.lowest, raycastOrigins.highest);
 
                 Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
 
@@ -163,7 +163,7 @@ namespace ColbyDoan.Physics
                 // cast ray
                 Vector2 rayOrigin = (directionY == -1) ? raycastOrigins.bottomLeft : raycastOrigins.topLeft;
                 rayOrigin += Vector2.right * (verticalRaySpacing * i + move.x);
-                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask, raycastOrigins.lowest, raycastOrigins.highest + 1);
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask, raycastOrigins.lowest, raycastOrigins.highest);
 
                 Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength, Color.red);
 

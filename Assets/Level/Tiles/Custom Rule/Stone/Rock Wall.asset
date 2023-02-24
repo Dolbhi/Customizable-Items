@@ -14,21 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileSprites:
     sprites:
-    - {fileID: -5057410880421878880, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
-    - {fileID: -2653481226834892577, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
-    - {fileID: 2391837553272602315, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
-    - {fileID: -4883392246220962534, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
-    - {fileID: 7117323656626968058, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
-    - {fileID: 6868839687103040073, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
-    - {fileID: 8725135987459164582, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
-    - {fileID: -436330092321603583, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
-    - {fileID: -4611355010831828262, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
-    - {fileID: 7117323656626968058, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
-    - {fileID: 7117323656626968058, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
-    - {fileID: 7117323656626968058, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
-    - {fileID: 7117323656626968058, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
-    - {fileID: -2883241545440452544, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: -5160660819957252609, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 6859263829080826081, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 4408241631364836248, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 5775632523447700598, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: -7225512925871877664, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 2482014102518608977, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 556530189025366737, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 2326304054162573754, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: 6766710538194844706, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: -3626552937498295834, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: -3626552937498295834, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: -4048665207900645208, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: -3348062934533217571, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
+    - {fileID: -771744083097051549, guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa, type: 3}
   durability: 3
   downgradedTile: {fileID: 0}
+  traversible: 1
   connectingTiles: []
   fullTile: 1
