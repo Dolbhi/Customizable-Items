@@ -12,6 +12,7 @@ namespace ColbyDoan
     {
         public Texture panelTexture;
         public Vector3 pos;
+        public UnityEngine.Tilemaps.TilemapCollider2D tmcoll;
 
         public Vector2 pos1;
         public Vector2 pos2;
@@ -35,6 +36,18 @@ namespace ColbyDoan
             }
 
             GUILayout.EndArea();
+        }
+
+        [ContextMenu("TEST GETPHYSICSSHAPE")]
+        void TestGetPhyShape()
+        {
+            PhysicsShapeGroup2D shapeGroup = new PhysicsShapeGroup2D(100, 1000);
+            tmcoll.GetShapes(shapeGroup);
+
+            for (int i = 0; i < 100; i++)
+            {
+                Debug.Log(shapeGroup.GetShapeVertex(i, 0));
+            }
         }
 
         [ContextMenu("TEST ENUMS")]

@@ -510,7 +510,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 108}
-    spritePosition: {x: 34, y: 69}
+    spritePosition: {x: 35, y: 69}
   - name: RL Lean
     originalName: 
     pivot: {x: 0.5, y: 0.5}

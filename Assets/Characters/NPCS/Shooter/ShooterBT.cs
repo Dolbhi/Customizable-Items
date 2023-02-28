@@ -19,7 +19,7 @@ namespace ColbyDoan
 
         // pursuit tasks
         [SerializeField] ShootTask shootTask;
-        [SerializeField] WaitTask aimTask;
+        [SerializeField] RandomWaitTask aimTask;
 
         [SerializeField] float[] pursuitMovementWeights;
         [SerializeField] TargetMinDistTask keepDistEvaluator;

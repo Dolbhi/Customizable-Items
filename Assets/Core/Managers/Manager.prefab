@@ -147,7 +147,6 @@ GameObject:
   - component: {fileID: 9145731608551539935}
   - component: {fileID: 9145731608551539934}
   - component: {fileID: 546080004270350337}
-  - component: {fileID: 3062481582137153627}
   - component: {fileID: 8501722505279981820}
   - component: {fileID: 6524085970328988348}
   m_Layer: 0
@@ -215,36 +214,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d5020e278984525856262f3d5b4b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawningSettings: {fileID: 11400000, guid: b1f5bb084fbbf4a1699ff7db8bd88b02, type: 2}
-  spawnAround: {fileID: 0}
-  maxSpawningRadius: 50
-  minSpawningRadius: 20
-  periodMin: 4
-  periodMax: 10
-  pauseSpawning: 0
-  points: 0
-  nextEnemy: {fileID: 0}
---- !u!114 &3062481582137153627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9145731608551539930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d5020e278984525856262f3d5b4b88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawningSettings: {fileID: 11400000, guid: b1f5bb084fbbf4a1699ff7db8bd88b02, type: 2}
-  spawnAround: {fileID: 0}
-  maxSpawningRadius: 60
-  minSpawningRadius: 20
-  periodMin: 30
-  periodMax: 45
-  pauseSpawning: 0
-  points: 0
-  nextEnemy: {fileID: 0}
+  settings: {fileID: 0}
+  spawnArea:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
 --- !u!114 &8501722505279981820
 MonoBehaviour:
   m_ObjectHideFlags: 0

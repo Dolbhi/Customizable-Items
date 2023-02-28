@@ -45,6 +45,7 @@ namespace ColbyDoan
         }
         public void ReloadLevel()
         {
+            GameStats.Reset();
             DOTween.KillAll();
             gameoverHUD.SetActive(false);
             SceneManager.LoadSceneAsync("Basic Scene");

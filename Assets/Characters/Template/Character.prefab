@@ -190,7 +190,7 @@ MonoBehaviour:
   speed:
     baseValue: 6
   attack:
-    baseValue: 10
+    baseValue: 20
   attackSpeed:
     baseValue: 1
   critChance:

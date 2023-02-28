@@ -32,6 +32,8 @@ namespace ColbyDoan
         public float sneakingGroundFriction = 120;
         public float sprintingMultiplier = 1.5f;
 
+        // public int startingXP = 100;
+
         // control inputs
         Controls.PlayerActions playerActions;
         Controls.SkillsActions skillsActions;

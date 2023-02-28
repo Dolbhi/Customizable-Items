@@ -605,7 +605,8 @@ MonoBehaviour:
     _skill: {fileID: 3384719650283251021}
     targetKey: target_info
   aimTask:
-    waitTime: 0.5
+    minWait: 0.7
+    maxWait: 1.4
   pursuitMovementWeights:
   - 1
   - 1

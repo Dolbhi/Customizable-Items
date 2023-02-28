@@ -106,8 +106,8 @@ namespace ColbyDoan
                 {
                     // modifier is restricted for S and D rank effects
                     EffectModifier mod = (EffectModifier)(_modRandomizer.Choose() - 1);
-                    if (mod == EffectModifier.Broken && output.rank == ItemRank.D) mod = EffectModifier.None;
-                    if (mod == EffectModifier.Bundle && output.rank == ItemRank.S) mod = EffectModifier.None;
+                    if (mod == EffectModifier.Bundle && output.rank == ItemRank.D) mod = EffectModifier.None;
+                    if (mod == EffectModifier.Broken && output.rank == ItemRank.S) mod = EffectModifier.None;
 
                     if (Random.value < CUSTOM_CASE_CHANCE)
                         output.effectCases[i] = CaseData.CreateEffectCase(mod);

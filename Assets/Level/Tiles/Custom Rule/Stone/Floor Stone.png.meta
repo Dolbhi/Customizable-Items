@@ -3,7 +3,7 @@ guid: f4a7a5b7f35df4c00a0ccbdc5825f8fa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -88,6 +89,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -96,7 +109,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
+        y: 31
         width: 10
         height: 9
       alignment: 9
@@ -117,7 +130,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 10
-        y: 32
+        y: 31
         width: 8
         height: 9
       alignment: 9
@@ -138,7 +151,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 18
-        y: 32
+        y: 31
         width: 9
         height: 9
       alignment: 9
@@ -159,7 +172,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 24
+        y: 23
         width: 10
         height: 8
       alignment: 9
@@ -180,7 +193,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 10
-        y: 24
+        y: 23
         width: 8
         height: 8
       alignment: 2
@@ -201,7 +214,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 18
-        y: 24
+        y: 23
         width: 9
         height: 8
       alignment: 9
@@ -222,7 +235,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 34
-        y: 40
+        y: 39
         width: 8
         height: 8
       alignment: 2
@@ -243,7 +256,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 42
-        y: 40
+        y: 39
         width: 8
         height: 8
       alignment: 2
@@ -266,7 +279,7 @@ TextureImporter:
         x: 0
         y: 0
         width: 10
-        height: 24
+        height: 23
       alignment: 9
       pivot: {x: 0.6, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -291,7 +304,7 @@ TextureImporter:
         x: 10
         y: 0
         width: 8
-        height: 24
+        height: 23
       alignment: 2
       pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -316,7 +329,7 @@ TextureImporter:
         x: 18
         y: 0
         width: 9
-        height: 24
+        height: 23
       alignment: 9
       pivot: {x: 0.44444445, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,7 +352,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 34
-        y: 32
+        y: 31
         width: 8
         height: 8
       alignment: 2
@@ -360,7 +373,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 42
-        y: 32
+        y: 31
         width: 8
         height: 8
       alignment: 2
@@ -383,9 +396,9 @@ TextureImporter:
         x: 32
         y: 0
         width: 11
-        height: 25
+        height: 24
       alignment: 9
-      pivot: {x: 0.54545456, y: 0.96}
+      pivot: {x: 0.54545456, y: 0.9583333}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -410,7 +423,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: e4ead14673b1dc04db81b3b5f301ac7d, type: 3}
+      name: _HighlightMask
     nameFileIdTable:
       Stone_IBL: -4048665207900645208
       Stone_Default: -771744083097051549

@@ -99,7 +99,7 @@ namespace ColbyDoan
             var angle = Random.Range(-1, 1f);
             angle = Mathf.Sign(angle) * inaccuracy * .5f * angle * angle;
             Vector3 velocity = Quaternion.AngleAxis(angle, Vector3.back) * nozzel.right * info.momentum / info.prop.mass;
-            bool shootingDown = TargetPos.z - revolver.transform.position.z < -1;
+            bool shootingDown = TargetPos.z - revolver.transform.position.z < -1.5f;
             Projectile fired = info.prop.FireCopy(nozzel.position.GetUndisplacedPosition(), velocity, character.damageMask, info.GetDamageInfo(artifacts), shootingDown);
             fired.gameObject.SetActive(true);// might not be neccessary
             // sfx

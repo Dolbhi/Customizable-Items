@@ -13,7 +13,7 @@ namespace ColbyDoan.Physics
         public Vector2 groundSpeedOffset;
 
         public bool sliding;
-        public float EffectiveGroundFriction { get { return target.Grounded ? (sliding ? slidingFriction * target.Velocity.magnitude : groundFriction) : 0; } }
+        public float EffectiveGroundFriction { get { return target.Grounded ? (sliding ? slidingFriction * target.Velocity.magnitude : groundFriction) : .2f; } }
 
         private void Awake()
         {
