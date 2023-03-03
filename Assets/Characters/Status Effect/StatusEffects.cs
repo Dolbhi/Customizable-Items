@@ -70,7 +70,7 @@ namespace ColbyDoan.CharacterBase
     }
     public class SlowSE : StatMultiplyStatusEffect
     {
-        public override string Name => "slow";
+        public override string IDName => "slow";
         public override bool IsDebuff => true;
 
         protected override float[] Multipliers => new float[] { .5f };
@@ -81,7 +81,7 @@ namespace ColbyDoan.CharacterBase
     }
     public class SpeedSE : StatMultiplyStatusEffect
     {
-        public override string Name => "speed";
+        public override string IDName => "speed";
         public override bool IsDebuff => false;
 
         protected override float[] Multipliers => new float[] { 1.5f };
@@ -92,7 +92,7 @@ namespace ColbyDoan.CharacterBase
     }
     public class InvincibilitySE : RefreshingStatusEffect
     {
-        public override string Name => "invincibility";
+        public override string IDName => "invincibility";
         public override bool IsDebuff => false;
 
         protected override void StartEffect()
@@ -109,7 +109,7 @@ namespace ColbyDoan.CharacterBase
     /// <summary> Prevents movement and skills </summary>
     public class StunSE : RefreshingStatusEffect
     {
-        public override string Name => "stun";
+        public override string IDName => "stun";
         public override bool IsDebuff => true;
 
         CharacterStat speedStat;
@@ -139,9 +139,9 @@ namespace ColbyDoan.CharacterBase
         }
 
     }
-    public class RegenSE : StackingStatusEffect
+    public class StackingRegenSE : StackingStatusEffect
     {
-        public override string Name => "regeneration";
+        public override string IDName => "regeneration";
         public override bool IsDebuff => false;
 
         Health targetHealth;
@@ -164,7 +164,7 @@ namespace ColbyDoan.CharacterBase
     }
     public class BurnSE : StackingStatusEffect<float>
     {
-        public override string Name => "burn";
+        public override string IDName => "burn";
         public override bool IsDebuff => true;
 
         bool active = false;
@@ -198,7 +198,7 @@ namespace ColbyDoan.CharacterBase
     }
     public class WeakSE : StatMultiplyStatusEffect
     {
-        public override string Name => "weak";
+        public override string IDName => "weak";
         public override bool IsDebuff => true;
 
         protected override float[] Multipliers => new float[] { .5f };
@@ -209,7 +209,7 @@ namespace ColbyDoan.CharacterBase
     }
     public class VulnerableSE : StatChangeStatusEffect
     {
-        public override string Name => "vulnerable";
+        public override string IDName => "vulnerable";
         public override bool IsDebuff => true;
 
         protected override float[] Change => new float[] { -70 };
@@ -220,7 +220,7 @@ namespace ColbyDoan.CharacterBase
     }
     public class ArmoredSE : StatChangeStatusEffect
     {
-        public override string Name => "armored";
+        public override string IDName => "armored";
         public override bool IsDebuff => false;
 
         protected override float[] Change => new float[] { 100 };
@@ -231,7 +231,7 @@ namespace ColbyDoan.CharacterBase
     }
     public class AngerSE : StackingStatusEffect
     {
-        public override string Name => "anger";
+        public override string IDName => "anger";
         public override bool IsDebuff => false;
 
         public override int StackCount => _effectiveStackCount;

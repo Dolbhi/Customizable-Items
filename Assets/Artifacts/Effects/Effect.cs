@@ -258,7 +258,7 @@ namespace ColbyDoan
 
         public override void Trigger(TriggerContext context)
         {
-            user.character.statusEffects.GetStatus<RegenSE>("regeneration").ApplyStatus(5 * level);
+            user.character.statusEffects.GetStatus<StackingRegenSE>("regeneration").ApplyStatus(5 * level);
         }
     }
     public class MicroHealEffect : Effect

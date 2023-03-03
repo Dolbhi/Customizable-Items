@@ -47,7 +47,7 @@ namespace ColbyDoan
                 // enable icon
                 container.icon.enabled = true;
                 // set icon
-                container.icon.sprite = container.statusSprites.GetSprite("Status Effects", container.currentSE.Name);
+                container.icon.sprite = container.statusSprites.GetSprite("Status Effects", container.currentSE.IDName);
             }
 
             public override void Update()

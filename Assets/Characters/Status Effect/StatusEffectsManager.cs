@@ -1,28 +1,41 @@
-using System;
+// using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace ColbyDoan.CharacterBase
 {
+    /// <summary>
+    /// Each kind of status effect has its own object in a SEManager from which the respective SE can be applied
+    /// </summary>
     public class StatusEffectsManager : MonoBehaviour, IAutoDependancy<Character>
     {
         public Character Dependancy { set { character = value; } }
         [HideInInspector] public Character character;
 
+        /// <summary>
+        /// Objects of currently active effects, SE will automatically add and remove themselves as needed
+        /// </summary>
         public List<IStatusEffect> activeEffects = new List<IStatusEffect>();
 
-        Dictionary<string, IStatusEffect> statusEffects = new Dictionary<string, IStatusEffect>();
+        Dictionary<string, IStatusEffect> _statusEffects = new Dictionary<string, IStatusEffect>();
+
+        /// <summary>
+        /// Get status effect object, makes one if it doesnt exist yet (for applying effects and stuff)
+        /// </summary>
+        /// <typeparam name="T">Type of status effect</typeparam>
+        /// <param name="statusName">Id name of status effect</param>
+        /// <returns>SE object attached to this SEManager</returns>
         public T GetStatus<T>(string statusName) where T : class, IStatusEffect, new()
         {
-            if (statusEffects.ContainsKey(statusName))
+            if (_statusEffects.ContainsKey(statusName))
             {
-                return statusEffects[statusName] as T;
+                return _statusEffects[statusName] as T;
             }
             // create and set up statusEffect
             T newStatus = new T();
             newStatus.SetUp(this);
-            statusEffects.Add(newStatus.Name, newStatus);
+            _statusEffects.Add(newStatus.IDName, newStatus);
             return newStatus;
         }
     }
@@ -30,12 +43,16 @@ namespace ColbyDoan.CharacterBase
     #region Status effect framework
     public interface IStatusEffect
     {
-        string Name { get; }
+        string IDName { get; }
         int StackCount { get; }
         bool IsDebuff { get; }
         void SetUp(StatusEffectsManager target);
         void CancelStatus();
     }
+
+    /// <summary>
+    /// Sortable timer object, timers closer to completion are sorted at the front
+    /// </summary>
     public class Timer : IHeapItem<Timer>
     {
         public float DurationLeft => endTime - Time.time;
@@ -62,7 +79,7 @@ namespace ColbyDoan.CharacterBase
 
     public abstract class RefreshingStatusEffect : IStatusEffect
     {
-        public abstract string Name { get; }
+        public abstract string IDName { get; }
         public abstract bool IsDebuff { get; }
         public virtual int StackCount => active ? 1 : 0;
 
@@ -182,7 +199,7 @@ namespace ColbyDoan.CharacterBase
     }
     public abstract class StackingStatusEffect : IStatusEffect
     {
-        public abstract string Name { get; }
+        public abstract string IDName { get; }
         public abstract bool IsDebuff { get; }
         public virtual int StackCount => stackTimers.Count;
 
@@ -228,10 +245,20 @@ namespace ColbyDoan.CharacterBase
             StopEffect(timer);
         }
     }
+
+    /// <summary>
+    /// Associates each timer stack with some data used in the effect
+    /// </summary>
+    /// <typeparam name="TExtraData">Type of data to be stored</typeparam>
     public abstract class StackingStatusEffect<TExtraData> : StackingStatusEffect
     {
         protected Dictionary<Timer, TExtraData> stackData = new Dictionary<Timer, TExtraData>();
 
+        /// <summary>
+        /// Apply status and add data to dict with timer as key
+        /// </summary>
+        /// <param name="duration">Status duration</param>
+        /// <param name="data">Status stack data</param>
         public void ApplyStatus(float duration, TExtraData data)
         {
             stackData.Add(ApplyStatus(duration), data);

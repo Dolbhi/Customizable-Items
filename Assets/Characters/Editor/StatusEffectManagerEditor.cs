@@ -20,7 +20,7 @@ namespace ColbyDoan
                 foreach (IStatusEffect effect in activeEffects)
                 {
                     EditorGUILayout.BeginHorizontal();
-                    GUILayout.Label(effect.Name);
+                    GUILayout.Label(effect.IDName);
                     GUILayout.Label(effect.StackCount.ToString());
                     GUILayout.Label(effect.IsDebuff.ToString());
                     EditorGUILayout.EndHorizontal();
