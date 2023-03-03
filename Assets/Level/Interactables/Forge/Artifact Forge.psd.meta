@@ -117,7 +117,7 @@ TextureImporter:
       213: 2569251706072041437
     second: platform
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -177,6 +177,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -192,6 +193,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -230,7 +243,7 @@ TextureImporter:
       name: platform_D
       rect:
         serializedVersion: 2
-        x: 43
+        x: 107
         y: 152
         width: 27
         height: 14
@@ -251,7 +264,7 @@ TextureImporter:
       name: trigger_pillar_D
       rect:
         serializedVersion: 2
-        x: 30
+        x: 94
         y: 154
         width: 4
         height: 13
@@ -272,7 +285,7 @@ TextureImporter:
       name: base_D
       rect:
         serializedVersion: 2
-        x: 8
+        x: 72
         y: 144
         width: 16
         height: 7
@@ -293,7 +306,7 @@ TextureImporter:
       name: effect_pillar_D
       rect:
         serializedVersion: 2
-        x: 26
+        x: 90
         y: 137
         width: 12
         height: 13
@@ -335,7 +348,7 @@ TextureImporter:
       name: bottom_D
       rect:
         serializedVersion: 2
-        x: 9
+        x: 73
         y: 136
         width: 14
         height: 7
@@ -356,7 +369,7 @@ TextureImporter:
       name: broken_base_D
       rect:
         serializedVersion: 2
-        x: 8
+        x: 72
         y: 152
         width: 16
         height: 7
@@ -440,7 +453,7 @@ TextureImporter:
       name: broken_pillar_D
       rect:
         serializedVersion: 2
-        x: 42
+        x: 106
         y: 137
         width: 12
         height: 13
@@ -794,15 +807,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Artifact Forge_11
+      name: broken_pillar_S
       rect:
         serializedVersion: 2
-        x: 76
-        y: 110
-        width: 1
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 42
+        y: 9
+        width: 12
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -818,7 +831,7 @@ TextureImporter:
       name: bundle_base
       rect:
         serializedVersion: 2
-        x: 72
+        x: 8
         y: 160
         width: 16
         height: 7
@@ -839,7 +852,7 @@ TextureImporter:
       name: broken_base
       rect:
         serializedVersion: 2
-        x: 72
+        x: 8
         y: 152
         width: 16
         height: 7
@@ -860,7 +873,7 @@ TextureImporter:
       name: base
       rect:
         serializedVersion: 2
-        x: 72
+        x: 8
         y: 144
         width: 16
         height: 7
@@ -881,7 +894,7 @@ TextureImporter:
       name: bottom
       rect:
         serializedVersion: 2
-        x: 73
+        x: 9
         y: 136
         width: 14
         height: 7
@@ -902,7 +915,7 @@ TextureImporter:
       name: trigger_pillar
       rect:
         serializedVersion: 2
-        x: 94
+        x: 30
         y: 154
         width: 4
         height: 13
@@ -923,7 +936,7 @@ TextureImporter:
       name: effect_pillar
       rect:
         serializedVersion: 2
-        x: 90
+        x: 26
         y: 137
         width: 12
         height: 13
@@ -944,7 +957,7 @@ TextureImporter:
       name: broken_pillar
       rect:
         serializedVersion: 2
-        x: 106
+        x: 42
         y: 137
         width: 12
         height: 13
@@ -965,7 +978,7 @@ TextureImporter:
       name: bundle_pillar
       rect:
         serializedVersion: 2
-        x: 122
+        x: 58
         y: 137
         width: 12
         height: 13
@@ -986,7 +999,7 @@ TextureImporter:
       name: platform
       rect:
         serializedVersion: 2
-        x: 107
+        x: 43
         y: 152
         width: 27
         height: 14
@@ -1003,6 +1016,426 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: bundle_base_A
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 64
+        width: 16
+        height: 7
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 939e99be246f9a94482d53844c38303d
+      internalID: 2131526583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_base_A
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 56
+        width: 16
+        height: 7
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49761ab3ca36258459820b9f1ba19d45
+      internalID: -1253996856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_A
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 48
+        width: 16
+        height: 7
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e0979eac56ceb849b40c4e65fbb7e7a
+      internalID: 31717228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bottom_A
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 40
+        width: 14
+        height: 7
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2042fcd3564ed09458a2eefda3bfe810
+      internalID: -1378580284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_pillar_A
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 41
+        width: 12
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87d602ffbca069943a4518f7fb447180
+      internalID: -686806725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger_pillar_A
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 58
+        width: 4
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3522df1f9e3b06542888f0c2e0bdc36a
+      internalID: 1028408442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platform_A
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 56
+        width: 27
+        height: 14
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce661e74db30f674186d01816d6de4eb
+      internalID: -837918454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pillar_A
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 41
+        width: 12
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b88cf6a84c7424a94976c9d78dc675
+      internalID: 1204837127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bundle_pillar_A
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 41
+        width: 12
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe0d4be40071c140b24126a00ea3525
+      internalID: -570767496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bundle_base_S
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 32
+        width: 16
+        height: 7
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7262e72f71896746ad5564bed759a65
+      internalID: -804230484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Artifact Forge_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 168
+        width: 14
+        height: 20
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b5972cabecbbe34da2050c58740cfc3
+      internalID: 930523285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Artifact Forge_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 160
+        width: 16
+        height: 7
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a116613d3c0bc864682d11a5e51ef289
+      internalID: -307993279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Artifact Forge_3
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 137
+        width: 12
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00352f18b1f7df54facd983988c25b1a
+      internalID: -587826632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trigger_pillar_S
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 26
+        width: 4
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8ea71302196cd488bd919169d12d65
+      internalID: 2100151180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: platform_S
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 24
+        width: 27
+        height: 14
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bdfd5dba4047fc439462a1888b9a9b3
+      internalID: 2035422467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_base_S
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 24
+        width: 16
+        height: 7
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d64f1d0c852cc91418e109ba31a46af4
+      internalID: -1146061953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bundle_pillar_S
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 9
+        width: 12
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea96e4e07b3a89e4fb84936537aeca10
+      internalID: 314449625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: base_S
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 16
+        width: 16
+        height: 7
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84bda89d117efbd44a4f4ab290c53d23
+      internalID: 342090692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_pillar_S
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 9
+        width: 12
+        height: 13
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d97362bf12f53b846b836a5d8b9a5908
+      internalID: -1198554674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bottom_S
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 8
+        width: 14
+        height: 7
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75e219a1b21ad7f4699e2f26db196180
+      internalID: 2001233379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1014,44 +1447,65 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      trigger_pillar_C: 2656601641301542166
       effect_pillar_B: -4038990385192058366
       broken_pillar: -6690742362296754868
-      effect_pillar: 1977071077179012597
-      platform_B: 6367894820834443254
+      bottom_A: -1378580284
+      effect_pillar_A: -686806725
       bottom_C: -5594448598607344281
+      broken_pillar_A: 1204837127
       bundle_pillar_B: 4676153299288918474
-      glass_bottom: 2468819111197619222
+      trigger_pillar_S: 2100151180
+      broken_base_S: -1146061953
       trigger_pillar_B: -7129760015281538342
-      platform: 2569251706072041437
       platform_C: -7226744371385019283
+      Artifact Forge_1: 930523285
       broken_base: -4955650039692103463
-      bottom_D: -4762377806224353686
       broken_pillar_B: -5205458528187433409
-      effect_pillar_C: 2148622284774155484
-      platform_D: 8085818073500271270
-      Artifact Forge_11: 5274987965099188325
+      base_A: 31717228
+      bundle_pillar_S: 314449625
       base_B: -645963291472133688
       base: 1974468042312012170
       platform_glow: 6682989780003946375
       glass_top: 764254794507806855
-      bottom: 8902548630110097894
+      trigger_pillar_A: 1028408442
+      platform_S: 2035422467
       bottom_B: 4435949479163448046
-      effect_pillar_D: -3996828598966044893
       bundle_base_B: -6887007022649160677
+      Artifact Forge_4: -661168151
+      bundle_pillar: -5101524384629040270
+      broken_base_C: -1530757018814007896
+      broken_base_D: -1532677892372311745
+      broken_base_B: 4253511229446715066
+      bundle_pillar_A: -570767496
+      trigger_pillar_C: 2656601641301542166
+      effect_pillar: 1977071077179012597
+      Artifact Forge_3: -587826632
+      bottom_S: 2001233379
+      platform_B: 6367894820834443254
+      glass_bottom: 2468819111197619222
+      platform: 2569251706072041437
+      broken_pillar_S: 5274987965099188325
+      platform_A: -837918454
+      bottom_D: -4762377806224353686
+      effect_pillar_C: 2148622284774155484
+      platform_D: 8085818073500271270
+      bundle_base_A: 2131526583
+      bottom: 8902548630110097894
+      base_S: 342090692
+      effect_pillar_D: -3996828598966044893
       bundle_base: 2392959696977189847
+      Artifact Forge_2: -307993279
       bundle_pillar_C: 7615661345633278963
       broken_pillar_D: -8295893708214461604
       broken_pillar_C: 6663414559813847014
-      bundle_pillar: -5101524384629040270
-      broken_base_C: -1530757018814007896
+      bundle_base_S: -804230484
       trigger_pillar_D: 8200337014424821274
       base_C: -1418162015164975435
       base_D: 2731725520529877995
-      broken_base_D: -1532677892372311745
-      broken_base_B: 4253511229446715066
+      effect_pillar_S: -1198554674
       bundle_base_C: -6084132230230451228
       trigger_pillar: 2935994942019024721
+      broken_base_A: -1253996856
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

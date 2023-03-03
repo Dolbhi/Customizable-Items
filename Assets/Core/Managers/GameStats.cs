@@ -7,23 +7,24 @@ namespace ColbyDoan
     /// </summary>
     public static class GameStats
     {
-        static int xp = 0;
-        public static event Action OnXPChanged = delegate { };
+        static int dataPoints = 0;
+        public static event Action OnDataPointsChanged = delegate { };
 
         public static int GetXP()
         {
-            return xp;
+            return dataPoints;
         }
-        public static void ChangeXP(int change)
+        public static void ChangeDataPoints(int change)
         {
-            xp += change;
-            OnXPChanged.Invoke();
+            dataPoints += change;
+            OnDataPointsChanged.Invoke();
         }
-        public static bool TryDeductXP(int deduction)
+        public static bool TryDeductDataPoints(int deduction)
         {
-            if (deduction <= xp)
+            if (deduction <= dataPoints)
             {
-                xp -= deduction;
+                dataPoints -= deduction;
+                OnDataPointsChanged.Invoke();
                 return true;
             }
             else
@@ -37,7 +38,7 @@ namespace ColbyDoan
         /// </summary>
         public static void Reset()
         {
-            xp = 0;
+            dataPoints = 0;
         }
     }
 }

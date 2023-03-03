@@ -16,7 +16,7 @@ namespace ColbyDoan
         }
         void RewardXP()
         {
-            GameStats.ChangeXP(xp);
+            GameStats.ChangeDataPoints(xp);
         }
     }
 }

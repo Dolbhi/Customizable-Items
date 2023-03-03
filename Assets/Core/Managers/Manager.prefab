@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 9145731608551539935}
   - component: {fileID: 9145731608551539934}
   - component: {fileID: 546080004270350337}
+  - component: {fileID: 3567985006739819933}
   - component: {fileID: 8501722505279981820}
   - component: {fileID: 6524085970328988348}
   - component: {fileID: 512287619356870399}
@@ -313,6 +314,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupProp: {fileID: 2774121010816174440, guid: c297aa32efe50414ba0c82f384527ed4, type: 3}
 --- !u!114 &546080004270350337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9145731608551539930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d5020e278984525856262f3d5b4b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 0}
+  spawnArea:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+--- !u!114 &3567985006739819933
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

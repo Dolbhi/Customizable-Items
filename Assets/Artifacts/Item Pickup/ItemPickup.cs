@@ -26,20 +26,20 @@ namespace ColbyDoan
         [SerializeField] Interactable interactable;
 
 #if UNITY_EDITOR
-        Item last;
+        Item _last;
         private void OnValidate()
         {
-            if (item != last)
+            if (item != _last)
             {
                 if (!item)
                 {
                     Debug.LogWarning("No item set");
                     CurrentItem = null;
-                    last = item;
+                    _last = item;
                     return;
                 }
                 CurrentItem = item.Copy();
-                last = item;
+                _last = item;
             }
         }
 #endif

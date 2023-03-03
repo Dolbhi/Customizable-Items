@@ -33,7 +33,7 @@ namespace ColbyDoan
         public virtual void OnDestroy() { }
 
         public virtual void Upgrade(int increase = 1) { level += increase; }
-        public virtual void SetLevel(int toSet) { level += toSet; }
+        public virtual void SetLevel(int toSet) { level = toSet; }
 
         public int level = 1;
 
@@ -87,7 +87,7 @@ namespace ColbyDoan
     public class SpeedUpEffect : FlatStatUpEffect
     {
         public override string Name => "speed_up_effect";
-        protected override float StatIncrease => 1;
+        protected override float StatIncrease => 2;
         protected override CharacterStat GetStat(CharacterStats stats)
         {
             return stats.speed;
@@ -96,7 +96,7 @@ namespace ColbyDoan
     public class AttackSpeedUpEffect : FlatStatUpEffect
     {
         public override string Name => "attack_speed_up_effect";
-        protected override float StatIncrease => 1;
+        protected override float StatIncrease => .5f;
         protected override CharacterStat GetStat(CharacterStats stats)
         {
             return stats.attackSpeed;
@@ -598,6 +598,8 @@ namespace ColbyDoan
         const string pickupKey = "item pickup";
         ItemPickup pickupProp;
 
+        Queue<TriggerContext> cashedTriggers = new Queue<TriggerContext>();
+
         protected override void InternalSetUp(ArtifactManager manager)
         {
             base.InternalSetUp(manager);
@@ -609,16 +611,34 @@ namespace ColbyDoan
             await opHandle.Task;
 
             if (opHandle.Status == AsyncOperationStatus.Succeeded)
+            {
                 pickupProp = opHandle.Result.GetComponent<ItemPickup>();
+
+                // run all cashed triggers
+                if (pickupProp != null)
+                {
+                    TriggerContext context;
+                    while (cashedTriggers.TryDequeue(out context))
+                    {
+                        Trigger(context);
+                    }
+                }
+            }
             else
                 Debug.LogError("Prop cannot be loaded");
         }
 
         public override void Trigger(TriggerContext context)
         {
-            if (!pickupProp) return;
+            if (!pickupProp)
+            {
+                Debug.Log("Pickup prop not loaded", user);
+                // save context for later if not ready
+                cashedTriggers.Enqueue(context);
+                return;
+            }
 
-            for (int i = level; level > 0; level--)
+            for (int i = level; i > 0; i--)
             {
                 ItemPickup pickup = GameObject.Instantiate<ItemPickup>(pickupProp, context.position, Quaternion.identity);
                 pickup.CurrentItem = GameManager.Instance.itemPool.GetRandomItem().Copy();
@@ -771,7 +791,10 @@ namespace ColbyDoan
             float prob = (1f + level) / (10 + level);
             // Debug.Log($"Random: {random}, Probability: {prob}");
             if (random < prob)
+            {
+                Debug.Log($"Broken {baseEffect.Name} triggered", user);
                 baseEffect.Trigger(context);
+            }
         }
     }
     public class BundleEffect : Effect

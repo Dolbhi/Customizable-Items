@@ -1,6 +1,7 @@
 // using System.Collections;
 // using System.Collections.Generic;
 using UnityEngine;
+// using System;
 
 namespace ColbyDoan
 {
@@ -28,4 +29,12 @@ namespace ColbyDoan
             spriteRenderer.sprite = null;
         }
     }
+
+    // public abstract class ItemHolder : MonoBehaviour
+    // {
+    //     public Item CurrentItem { get; }
+    //     public event Action OnItemChanged;
+
+    //     protected void InvokeItemChange();
+    // }
 }

@@ -20,6 +20,8 @@ namespace ColbyDoan
 
         public event Action OnLevelLoaded = delegate { };
 
+        public int startingData = 0;
+
         // for level damaging updating pathfinders
         // public Action<Bounds> OnLevelChange = delegate { };
 
@@ -34,6 +36,7 @@ namespace ColbyDoan
             DOTween.Init();
             Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
             itemPool = Instantiate<ArtifactPools>(itemPool);
+            GameStats.ChangeDataPoints(startingData);
             // DependancyInjector.InjectDependancies(this);
         }
 

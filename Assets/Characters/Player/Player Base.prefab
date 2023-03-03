@@ -2445,7 +2445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6888727491595844076, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: attack.baseValue
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6888727491595844076, guid: 9559ee2c29788438dbe3642933369ea3, type: 3}
       propertyPath: damage.baseValue

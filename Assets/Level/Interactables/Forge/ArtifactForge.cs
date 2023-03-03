@@ -131,16 +131,16 @@ namespace ColbyDoan
             // onGraphicChange?.Invoke();
         }
 
-        int _xpCost;
+        int _cost;
         // set glow based on readiness to forge
         void _UpdateInteractability()
         {
             if (_ReadyToForge)
             {
                 // set price
-                _xpCost = triggersManager.selectedCase.IsCustom ? _data.costPerCustomItem : _data.costPerItem;
-                _xpCost += effectsManager.selectedCase.IsCustom ? _data.costPerCustomItem : _data.costPerItem;
-                interactable.hoverText = "Forge Artifact (" + _xpCost + " XP)";
+                _cost = triggersManager.selectedCase.IsCustom ? _data.costPerCustomItem : _data.costPerItem;
+                _cost += effectsManager.selectedCase.IsCustom ? _data.costPerCustomItem : _data.costPerItem;
+                interactable.hoverText = "Forge Artifact (" + _cost + "TB)";
 
                 interactable.enabled = true;
                 glow.GlowActive = true;
@@ -165,7 +165,7 @@ namespace ColbyDoan
             }
 
             // Check balance
-            if (!GameStats.TryDeductXP(_xpCost))
+            if (!GameStats.TryDeductDataPoints(_cost))
             {
                 // not enough xp
                 return;
@@ -183,9 +183,12 @@ namespace ColbyDoan
                 // interactable.enabled = false;
                 // glow.GlowActive = false;
             }
+
+            // reset for new forge
             triggersManager.ClearCustomCases();
             effectsManager.ClearCustomCases();
             _UpdateInteractability();
+            _UpdateRestrictions();
         }
     }
 }

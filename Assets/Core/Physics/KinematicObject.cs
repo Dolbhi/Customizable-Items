@@ -91,7 +91,10 @@ namespace ColbyDoan.Physics
             if (transform.position.z < -1)
             {
                 if (destroyWhenPitted)
+                {
+                    Debug.Log(name + " fell into the void");
                     Destroy(gameObject);
+                }
                 OnPitted?.Invoke();
             }
         }

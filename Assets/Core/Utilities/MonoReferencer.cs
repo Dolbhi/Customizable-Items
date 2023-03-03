@@ -6,7 +6,7 @@ namespace ColbyDoan
     /// <summary>
     /// Stores references to multiple components in a Map
     /// </summary>
-    public class MonoReferencer : FindableByRoot<MonoReferencer>
+    public class MonoReferencer : MonoBehaviour
     {
         public Map<String, MonoBehaviour> components;
 

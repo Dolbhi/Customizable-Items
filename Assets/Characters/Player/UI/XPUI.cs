@@ -11,16 +11,16 @@ namespace ColbyDoan
         void Start()
         {
             UpdateText();
-            GameStats.OnXPChanged += UpdateText;
+            GameStats.OnDataPointsChanged += UpdateText;
         }
         void UpdateText()
         {
-            text.text = "XP: " + GameStats.GetXP();
+            text.text = "Data: " + GameStats.GetXP() + "TB";
         }
 
         void OnDisable()
         {
-            GameStats.OnXPChanged -= UpdateText;
+            GameStats.OnDataPointsChanged -= UpdateText;
         }
     }
 }
