@@ -67,6 +67,6 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_52250ffd802945cbb722a0c95419a204: 0.3
-    - _TargetDepth: 0.02
+    - _TargetDepth: 0.82068855
     m_Colors: []
   m_BuildTextureStacks: []

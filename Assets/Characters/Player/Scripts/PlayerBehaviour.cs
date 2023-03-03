@@ -23,6 +23,7 @@ namespace ColbyDoan
         public Character Dependancy { set { character = value; } }
 
         public bool Sneaking => _sneaking;
+        bool _AllowInputs => character.Alive && !PauseManager.GameIsPaused;
 
         // Movement
         public float jumpSpeed;
@@ -73,7 +74,7 @@ namespace ColbyDoan
         bool pointerOverGameObject;
         void ReadSkillInput(InputAction.CallbackContext context)
         {
-            if (!character.Alive) return;
+            if (!_AllowInputs) return;
 
             int skillIndex;
             if (inputToSkillDict.TryGetValue(context.action, out skillIndex))
@@ -95,7 +96,7 @@ namespace ColbyDoan
         }
         void Jump()
         {
-            if (character.kinematicObject.controller.collisions.grounded)
+            if (character.kinematicObject.controller.collisions.grounded && !PauseManager.GameIsPaused)
             {
                 //    character.kinematicObject.ImpulseTo((Vector2)character.kinematicObject.velocity.normalized * leapSpeed);
                 character.kinematicObject.velocity += jumpSpeed * Vector3.forward;
@@ -104,14 +105,14 @@ namespace ColbyDoan
         bool _sneaking = false;
         void Sneak()
         {
-            if (!character.Alive) return;
+            if (!character.Alive || PauseManager.GameIsPaused) return;
             _sneaking = true;
             frictionManager.groundFriction = sneakingGroundFriction;
             movementManager.speedMultiplier = sneakingMultiplier;
         }
         void UnSneak()
         {
-            if (!character.Alive) return;
+            if (!_AllowInputs) return;
             _sneaking = false;
             frictionManager.groundFriction = normalGroundFriction;
             movementManager.speedMultiplier = 1;
@@ -119,7 +120,7 @@ namespace ColbyDoan
 
         public void Interact()
         {
-            if (character.Alive)
+            if (_AllowInputs)
                 interacter.ClosestInteractable?.Interact(this);
         }
 

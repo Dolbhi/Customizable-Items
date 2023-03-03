@@ -47,7 +47,8 @@ namespace ColbyDoan
         }
         void Update()
         {
-            revolver.PointAt((TargetPos.GetDepthApparentPosition() - revolver.transform.position));
+            if (!PauseManager.GameIsPaused)
+                revolver.PointAt((TargetPos.GetDepthApparentPosition() - revolver.transform.position));
         }
 
         public override void Activate()

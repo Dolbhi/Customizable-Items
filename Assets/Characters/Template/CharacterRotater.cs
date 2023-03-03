@@ -25,21 +25,21 @@ namespace ColbyDoan
         void OnValidate()
         {
             if (doSpriteValidation)
-                UpdateSprite();
+                _UpdateSprite();
         }
 
         public void SetSpriteLabel(string label)
         {
             spritelabel = label;
-            UpdateSprite();
+            _UpdateSprite();
         }
         void SetSpriteFacing(FacingDirections toSet)
         {
             facing = toSet;
-            UpdateSprite();
+            _UpdateSprite();
         }
         [ContextMenu("Update sprite")]
-        void UpdateSprite()
+        void _UpdateSprite()
         {
             Sprite fSprite = facingSprites.GetSprite(facing, spritelabel, movingBackwards);
             if (fSprite == null)
@@ -58,6 +58,8 @@ namespace ColbyDoan
         {
             int speedVFacing = (int)Mathf.Sign(Vector2.Dot(character.Velocity, character.FacingDirection));
             animator.SetFloat("Speed", speedVFacing * character.Velocity.magnitude);
+
+            if (PauseManager.GameIsPaused) return;
 
             float angle = character.FacingAngle;
             angle = angle < 0 ? 360 + angle : angle;
