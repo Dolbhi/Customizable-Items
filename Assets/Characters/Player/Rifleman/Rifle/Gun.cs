@@ -7,6 +7,7 @@ namespace ColbyDoan
         public Animator animator;
         public Transform nozzel;
         public AudioSource audioSource;
+        public AudioSource heavyAudioSource;
 
         SpriteRenderer spriteRenderer;
         float defaultNozzelY;
@@ -25,6 +26,18 @@ namespace ColbyDoan
             spriteRenderer.flipY = transform.right.x < 0;
             // flips local y displacement of nozzel as the rifle sprite flips
             nozzel.localPosition = new Vector3(nozzel.localPosition.x, Mathf.Sign(transform.right.x) * defaultNozzelY);
+        }
+
+        public void PlayShootSFX(bool lastBullet)
+        {
+            if (lastBullet)
+            {
+                heavyAudioSource.Play();
+            }
+            else
+            {
+                audioSource.Play();
+            }
         }
     }
 }

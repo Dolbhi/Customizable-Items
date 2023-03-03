@@ -104,7 +104,7 @@ namespace ColbyDoan
             Projectile fired = info.prop.FireCopy(nozzel.position.GetUndisplacedPosition(), velocity, character.damageMask, info.GetDamageInfo(artifacts), shootingDown);
             fired.gameObject.SetActive(true);// might not be neccessary
             // sfx
-            revolver.audioSource.Play();
+            revolver.PlayShootSFX(loadedBullets == 0);
             // recoil
             character.kinematicObject.ApplyImpulse(-nozzel.right * info.momentum);
 

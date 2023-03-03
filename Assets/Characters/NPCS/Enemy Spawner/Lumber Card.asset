@@ -18,5 +18,5 @@ MonoBehaviour:
   cost: 20
   swarmRadius: 20
   needsGround: 1
-  minSwarmSize: 3
-  maxSwarmSize: 10
+  minSwarmSize: 1
+  maxSwarmSize: 5
