@@ -83,6 +83,16 @@ namespace ColbyDoan.Physics
             return result;
         }
 
+        static public Vector3 GetUndisplacedPosition(this Vector3 position)
+        {
+            return position + position.z * Vector3.down * PhysicsSettings.depthToHeightMultiplier;
+        }
+        /// <summary> Adds the z component (multiplied by depth to height ratio) to the y component </summary>
+        static public Vector3 GetDepthApparentPosition(this Vector3 position)
+        {
+            return position + position.z * Vector3.up * PhysicsSettings.depthToHeightMultiplier;
+        }
+
         #region Force Methods
         // ALL FORCE METHODS ARE INSTANTANEOUS AND DO NOT ACCOUNT FOR DELTATIME
         static public void ApplyImpulseOn(this IPhysicsObject target, IPhysicsObject other, Vector3 impulse)

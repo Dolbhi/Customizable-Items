@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+// using System.Collections.Generic;
 using UnityEngine;
 
-using ColbyDoan.Attributes;
+// using ColbyDoan.Attributes;
 
 namespace ColbyDoan
 {

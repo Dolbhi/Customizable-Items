@@ -4,6 +4,8 @@ using TMPro;
 
 namespace ColbyDoan
 {
+    using ColbyDoan.Physics;
+
     public class PopupSpawner : MonoBehaviour
     {
         public static Action<Vector3, string> OnSpawnPopup;

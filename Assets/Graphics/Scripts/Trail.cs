@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace ColbyDoan
 {
+    using ColbyDoan.Physics;
+
     public class Trail : MonoBehaviour
     {
         [SerializeField] LineRenderer lineRenderer;

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿// using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -8,7 +8,6 @@ using DG.Tweening;
 namespace ColbyDoan
 {
     using CharacterBase;
-    using Physics;
 
     // GameManager script is set to execute first
     public class GameManager : Singleton<GameManager>
@@ -50,94 +49,6 @@ namespace ColbyDoan
             gameoverHUD.SetActive(false);
             SceneManager.LoadSceneAsync("Basic Scene");
             OnLevelLoaded.Invoke();
-        }
-    }
-
-    /// <summary> Misc. extensions </summary>
-    public static class Extensions
-    {
-        // vectors
-        static public Vector3 GetUndisplacedPosition(this Vector3 position)
-        {
-            return position + position.z * Vector3.down * PhysicsSettings.depthToHeightMultiplier;
-        }
-        /// <summary> Adds the z component (multiplied by depth to height ratio) to the y component </summary>
-        static public Vector3 GetDepthApparentPosition(this Vector3 position)
-        {
-            return position + position.z * Vector3.up * PhysicsSettings.depthToHeightMultiplier;
-        }
-        static public Vector3Int GetXYOnly(this Vector3Int input)
-        {
-            return new Vector3Int(input.x, input.y, 0);
-        }
-        static public Vector3 ConvertToV3(this Vector2 vector, float z = 0)
-        {
-            return new Vector3(vector.x, vector.y, z);
-        }
-
-        // Enums
-        static public FacingDirections Mirror(this FacingDirections direction)
-        {
-            switch (direction)
-            {
-                case FacingDirections.rb:
-                    return FacingDirections.lb;
-                case FacingDirections.br:
-                    return FacingDirections.bl;
-                case FacingDirections.rf:
-                    return FacingDirections.lf;
-                case FacingDirections.fr:
-                    return FacingDirections.fl;
-                case FacingDirections.lb:
-                    return FacingDirections.rb;
-                case FacingDirections.bl:
-                    return FacingDirections.br;
-                case FacingDirections.lf:
-                    return FacingDirections.rf;
-                case FacingDirections.fl:
-                    return FacingDirections.fr;
-                default:
-                    return FacingDirections.rb;
-            }
-        }
-        static public string GetPrefix(this EffectModifier modifier)
-        {
-            return modifier switch
-            {
-                EffectModifier.Broken => "broken_",
-                EffectModifier.Bundle => "bundle_",
-                _ => ""
-            };
-        }
-
-        // components
-        static public void SetZPosition(this Transform transform, float z)
-        {
-            Vector3 old = transform.position;
-            old.z = z;
-            transform.position = old;
-        }
-        static public Vector2 Get2DPos(this Transform transform)
-        {
-            return transform.position;
-        }
-        static public void SetSpriteAlpha(this SpriteRenderer spriteRenderer, float alpha)
-        {
-            Color old = spriteRenderer.color;
-            old.a = alpha;
-            spriteRenderer.color = old;
-        }
-        static public void SetSpriteAlpha(this UnityEngine.UI.Image image, float alpha)
-        {
-            Color old = image.color;
-            old.a = alpha;
-            image.color = old;
-        }
-
-        static public int Exclude(this LayerMask mask, int layer)
-        {
-            //Debug.Log(Convert.ToString(~(1 << layer), 2));
-            return mask & ~(1 << layer);
         }
     }
 

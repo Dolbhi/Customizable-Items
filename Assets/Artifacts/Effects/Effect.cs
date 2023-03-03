@@ -48,6 +48,19 @@ namespace ColbyDoan
     }
     public enum EffectModifier { None = 0, Broken = -1, Bundle = 1 }
 
+    public static class EffectExtensions
+    {
+        static public string GetPrefix(this EffectModifier modifier)
+        {
+            return modifier switch
+            {
+                EffectModifier.Broken => "broken_",
+                EffectModifier.Bundle => "bundle_",
+                _ => ""
+            };
+        }
+    }
+
     // untargeted
     public class TestEffect : Effect
     {

@@ -63,4 +63,32 @@ namespace ColbyDoan
     }
 
     public enum FacingDirections { rb, br, bl, lb, lf, fl, fr, rf }
+
+    public static class FacingExtensions
+    {
+        static public FacingDirections Mirror(this FacingDirections direction)
+        {
+            switch (direction)
+            {
+                case FacingDirections.rb:
+                    return FacingDirections.lb;
+                case FacingDirections.br:
+                    return FacingDirections.bl;
+                case FacingDirections.rf:
+                    return FacingDirections.lf;
+                case FacingDirections.fr:
+                    return FacingDirections.fl;
+                case FacingDirections.lb:
+                    return FacingDirections.rb;
+                case FacingDirections.bl:
+                    return FacingDirections.br;
+                case FacingDirections.lf:
+                    return FacingDirections.rf;
+                case FacingDirections.fl:
+                    return FacingDirections.fr;
+                default:
+                    return FacingDirections.rb;
+            }
+        }
+    }
 }
