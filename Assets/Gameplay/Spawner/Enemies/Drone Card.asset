@@ -15,7 +15,7 @@ MonoBehaviour:
   spawnObject: {fileID: 8705464163714697663, guid: fe3485e25d3fc45e78c5eb1523ffecda, type: 3}
   objectRadius: 0.5
   weight: 15
-  cost: 10
+  cost: 7
   swarmRadius: 10
   needsGround: 1
   minSwarmSize: 3

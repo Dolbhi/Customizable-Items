@@ -16,6 +16,8 @@ namespace ColbyDoan
 
         int _waveNumber = 0;
 
+        public bool logSpawning;
+
         float _levelStartTime;
         float LevelDuration => Time.time - _levelStartTime;
 
@@ -57,7 +59,8 @@ namespace ColbyDoan
                         spawnPos.y = Random.Range(spawnArea.min.y, spawnArea.max.y);
                         spawnPos.z = TileManager.Instance.GetTerrainHeight(spawnPos) + .05f;
                         attempts++;
-                        Debug.Log("Trying to spawn " + objectToSpawn.spawnObject.name + "...", this);
+                        if (logSpawning)
+                            Debug.Log("Trying to spawn " + objectToSpawn.spawnObject.name + "...", this);
                     }
                     while (!objectToSpawn.Spawn(spawnPos, ref pointsLeft) && attempts < ATTEMPT_LIMIT);
 
@@ -66,7 +69,8 @@ namespace ColbyDoan
                         Debug.LogWarning("Spawn attempt limit reached", this);
                     }
 
-                    Debug.Log("Spawned " + objectToSpawn.spawnObject.name + ", " + pointsLeft + " points left", this);
+                    if (logSpawning)
+                        Debug.Log("Spawned " + objectToSpawn.spawnObject.name + ", " + pointsLeft + " points left", this);
 
                     yield return _spawnWait;
                 }

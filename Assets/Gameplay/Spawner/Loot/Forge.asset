@@ -15,4 +15,4 @@ MonoBehaviour:
   spawnObject: {fileID: 339108171295663057, guid: e3b2c5f1887054114a242ddfbaa8ec38, type: 3}
   objectRadius: 5
   weight: 10
-  cost: 10
+  cost: 15

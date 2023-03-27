@@ -30,7 +30,11 @@ MonoBehaviour:
     - {fileID: -7266007344547914704, guid: b4c32029f880f483081a176833329fcf, type: 3}
   durability: 1
   downgradedTile: {fileID: 0}
+  traversible: 1
   connectingTiles:
   - {fileID: 11400000, guid: 2b180fefaf5f54f428bd87641b6462ef, type: 2}
   - {fileID: 11400000, guid: 31f3dd371f0f54acb977a6725b216848, type: 2}
+  - {fileID: 11400000, guid: 280f9713753ba490cb45341d1a85753c, type: 2}
+  - {fileID: 11400000, guid: c6d8acf8cadc443c7b61aea04a24cf18, type: 2}
+  - {fileID: 11400000, guid: 25fa3f9a2a0fd47c59d659c98850596e, type: 2}
   fullTile: 0

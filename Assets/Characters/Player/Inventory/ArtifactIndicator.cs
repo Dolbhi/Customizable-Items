@@ -34,6 +34,8 @@ namespace ColbyDoan
         [ContextMenu("Test display")]
         public void PulseAlpha()
         {
+            if (!canvasGroup) return;
+
             indicatorPulse.Kill();
             canvasGroup.alpha = 1;
             indicatorPulse = canvasGroup.DOFade(.3f, pulseTimes[rank]);

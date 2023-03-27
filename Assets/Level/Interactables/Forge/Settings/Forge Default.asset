@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultData:
     reusable: 0
-    costPerItem: 50
+    costPerItem: 40
     costPerCustomItem: 20
     usesTarget: 0
     rank: 0

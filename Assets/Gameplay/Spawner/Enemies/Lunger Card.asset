@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObject: {fileID: 7755946063849911802, guid: d0a28f3fc323a4d26aba72e61dd900e1, type: 3}
   objectRadius: 0.5
-  weight: 10
+  weight: 15
   cost: 7
   swarmRadius: 10
   needsGround: 1

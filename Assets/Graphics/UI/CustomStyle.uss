@@ -1,0 +1,56 @@
+.unity-text-element {
+    -unity-font: url('project://database/Assets/Graphics/Fonts/Coder's%20Crux%20New.ttf?fileID=12800000&guid=9e617bca5ca95f740badb82dca2501cf&type=3#Coder's Crux New');
+    -unity-font-definition: url('project://database/Assets/Graphics/Fonts/Coder's%20Crux%20(Non%20TMP).asset?fileID=11400000&guid=97df7e32beea7fd42afa3ea8888eec20&type=2#Coder's Crux (Non TMP)');
+    font-size: 32px;
+    padding-top: 4px;
+}
+
+.unity-button {
+    background-image: url('project://database/Assets/Graphics/UI/Sprites/Panel.psd?fileID=-1198477067713850731&guid=fffab42e90e3946f1aa1429ad7508b9a&type=3#panel_pop');
+    height: 60px;
+    -unity-background-image-tint-color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    font-size: 64px;
+    color: rgba(0, 0, 0, 255);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.unity-button:focus {
+    background-image: url('project://database/Assets/Graphics/UI/Sprites/Panel.psd?fileID=8172746116404924314&guid=fffab42e90e3946f1aa1429ad7508b9a&type=3#panel_highlight');
+    color: rgba(70, 70, 70, 255);
+}
+
+.unity-button:active {
+    background-image: url('project://database/Assets/Graphics/UI/Sprites/Panel.psd?fileID=-3732398871244758080&guid=fffab42e90e3946f1aa1429ad7508b9a&type=3#panel_flush');
+    color: rgba(0, 0, 0, 255);
+    padding-top: 13px;
+}
+
+.panel {
+    border-left-color: rgba(255, 255, 255, 255);
+    border-right-color: rgba(255, 255, 255, 255);
+    border-top-color: rgba(255, 255, 255, 255);
+    border-bottom-color: rgba(255, 255, 255, 255);
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    background-color: rgba(0, 0, 0, 0.39);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.title {
+    -unity-text-align: upper-center;
+    font-size: 100px;
+    color: rgba(255, 255, 255, 255);
+}

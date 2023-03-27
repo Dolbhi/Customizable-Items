@@ -1,30 +1,18 @@
 fileFormatVersion: 2
-guid: 8ef6a81d803004e779b505455b23be1d
+guid: e775d7ba7a59949b3a0b9308031768fd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1619940751866153112
-    second: Health Bar_Full
+      213: -2978653956524333172
+    second: green_upgrade
   - first:
-      213: 1565974336633701995
-    second: Health Bar_Empty
+      213: -299690340437171572
+    second: white_upgrade
   - first:
-      213: -5576685416563272651
-    second: Health Bar_Full
-  - first:
-      213: -1537237254561365428
-    second: Health Bar_Empty
-  - first:
-      213: -5576685416563272651
-    second: Health Bar Fill
-  - first:
-      213: -1537237254561365428
-    second: Health Bar Frame
-  - first:
-      213: -7017093840127808277
-    second: Health Bar Empty
+      213: -1290855366162983238
+    second: unknown
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -65,7 +53,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -83,7 +71,8 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -109,68 +98,80 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Health Bar Fill
+      name: green_upgrade
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 6
-        height: 7
+        x: 0
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 2, y: 0, z: 2, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53415a10922ab92b0800000000000000
-      internalID: -5576685416563272651
+      spriteID: c872e841202b9a6d0800000000000000
+      internalID: -2978653956524333172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Health Bar Frame
+      name: white_upgrade
       rect:
         serializedVersion: 2
-        x: 8
-        y: 1
-        width: 6
-        height: 7
+        x: 16
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 2, y: 0, z: 2, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c428f529cd2aaaae0800000000000000
-      internalID: -1537237254561365428
+      spriteID: c8260a3293947dbf0800000000000000
+      internalID: -299690340437171572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Health Bar Empty
+      name: unknown
       rect:
         serializedVersion: 2
-        x: 15
-        y: 1
-        width: 6
-        height: 7
+        x: 32
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 2, y: 0, z: 2, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: beca99f94564e9e90800000000000000
-      internalID: -7017093840127808277
+      spriteID: ab6d27b32e5f51ee0800000000000000
+      internalID: -1290855366162983238
       vertices: []
       indices: 
       edges: []
@@ -186,12 +187,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Health Bar Frame: -1537237254561365428
-      Health Bar Empty: -7017093840127808277
-      Health Bar Fill: -5576685416563272651
+      unknown: -1290855366162983238
+      white_upgrade: -299690340437171572
+      green_upgrade: -2978653956524333172
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

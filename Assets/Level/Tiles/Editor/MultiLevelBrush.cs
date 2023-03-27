@@ -147,7 +147,7 @@ namespace ColbyDoan
     public class MultiLevelBrushEditor : GridBrushEditorBase
     {
         MultiLevelBrush Brush { get { return target as MultiLevelBrush; } }
-        public override GameObject[] validTargets => new GameObject[] { Brush.TileMan.gameObject };
+        public override GameObject[] validTargets => new GameObject[] { Brush.TileMan?.gameObject };
         // bool wasExecuting = false;
         public override bool canChangeZPosition => false;
 

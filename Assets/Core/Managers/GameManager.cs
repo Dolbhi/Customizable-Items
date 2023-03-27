@@ -22,6 +22,8 @@ namespace ColbyDoan
 
         public int startingData = 0;
 
+        public string restartSceneName = "Basic Scene";
+
         // for level damaging updating pathfinders
         // public Action<Bounds> OnLevelChange = delegate { };
 
@@ -50,7 +52,7 @@ namespace ColbyDoan
             GameStats.Reset();
             DOTween.KillAll();
             gameoverHUD.SetActive(false);
-            SceneManager.LoadSceneAsync("Basic Scene");
+            SceneManager.LoadSceneAsync(restartSceneName);
             OnLevelLoaded.Invoke();
         }
     }

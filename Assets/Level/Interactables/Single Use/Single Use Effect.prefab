@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectPool: {fileID: 11400000, guid: 6e106383d3ca94088bcce69a8c48b0fc, type: 2}
-  cost: 50
+  cost: 80
   level: 1
   rank: 4
   effectInfo: {fileID: 0}

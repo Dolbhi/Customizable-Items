@@ -63,6 +63,8 @@ namespace ColbyDoan
         List<Collider2D> hits = new List<Collider2D>();
         public void Attack()
         {
+            if (!Active) return;
+
             // play sound
             audioSource.Play();
 
