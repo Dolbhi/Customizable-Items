@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿// using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,11 +11,23 @@ namespace ColbyDoan
 
         public string hoverText;
         //protected abstract float TextDisplacement { get; }
-        public UnityEvent<PlayerBehaviour> OnInteract;
+        [SerializeField] UnityEvent<PlayerBehaviour> OnInteract;
+        [SerializeField] UnityEvent OnApproach;
+        [SerializeField] UnityEvent OnLeave;
 
         public void Interact(PlayerBehaviour interacter)
         {
             OnInteract.Invoke(interacter);
+        }
+        public void OnPlayerApproach()
+        {
+            OnApproach.Invoke();
+            // Debug.Log("approach", this);
+        }
+        public void OnPlayerLeave()
+        {
+            OnLeave.Invoke();
+            // Debug.Log("Leave", this);
         }
 
         void OnEnable()

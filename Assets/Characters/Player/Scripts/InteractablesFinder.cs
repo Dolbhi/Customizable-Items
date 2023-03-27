@@ -14,6 +14,7 @@ namespace ColbyDoan
         void Update()
         {
             // searches through list of interactables for closest in range
+            Interactable oldInteractable = ClosestInteractable;
             ClosestInteractable = null;
             float closestDist = interactionRadius;
             Vector3 selfPos = transform.position;
@@ -35,9 +36,16 @@ namespace ColbyDoan
                 }
             }
 
+            // detect approach and leaving
+            if (oldInteractable != ClosestInteractable)
+            {
+                oldInteractable?.OnPlayerLeave();
+                ClosestInteractable?.OnPlayerApproach();
+            }
+
             // set interactable text
             if (ClosestInteractable)
-                InteractionHUD.SetInteractionText(ClosestInteractable.hoverText);
+                InteractionHUD.SetInteractionText("E: " + ClosestInteractable.hoverText);
             else
                 InteractionHUD.SetInteractionText("");
         }
