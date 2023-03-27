@@ -1,9 +1,14 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Graphics/UI/CustomStyle.uss?fileID=7433441132597879392&amp;guid=dd37fced67b141749ad0124e202ef7a8&amp;type=3#CustomStyle" />
-    <ui:VisualElement style="align-items: center; width: 100%; height: 655px;">
-        <ui:VisualElement name="Menu" class="panel" style="width: 350px; height: 100%;">
-            <ui:Label text="Midnight&#10;Hike" display-tooltip-when-elided="true" class="title" style="padding-right: 0; padding-left: 8px;" />
-            <ui:Button text="Arena" display-tooltip-when-elided="true" name="Arena" focusable="false" />
+    <Style src="project://database/Assets/Graphics/UI/AnimatedPanels.uss?fileID=7433441132597879392&amp;guid=9c2c703d08ef7bb4ea68ffac4479d59e&amp;type=3#AnimatedPanels" />
+    <ui:VisualElement style="height: 100%; justify-content: flex-start; align-items: center;">
+        <ui:VisualElement name="Menu" class="panel">
+            <ui:Label text="NAME&#10;PENDING" display-tooltip-when-elided="true" class="title" style="padding-right: 0; padding-left: 8px;" />
+            <ui:GroupBox style="justify-content: center; position: absolute; bottom: 0; left: 0; top: 150px; right: 0;">
+                <ui:Button text="Arena" display-tooltip-when-elided="true" name="Arena" focusable="false" />
+                <ui:Button text="Settings" display-tooltip-when-elided="true" name="Settings" focusable="false" />
+                <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" focusable="false" />
+            </ui:GroupBox>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
